@@ -1,6 +1,5 @@
 <template>
   <div class="about">
-    <h1>This is an about page</h1>
     <Scene />
   </div>
 </template>
@@ -10,8 +9,13 @@
 import Scene from '@/components/Scene.vue'
 
 export default {
-  components: {
-    Scene
-  }
+	components: {
+		Scene
+	}
 }
 </script>
+<style lang="scss">
+body{
+	overflow-x: hidden;
+}
+</style>
