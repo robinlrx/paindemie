@@ -42,18 +42,18 @@ export default {
 			controls.enablePan = false
 			controls.update()
 
-			const geometry = new THREE.SphereGeometry(5, 32, 32)
+			const sphereGeometry = new THREE.SphereGeometry(5, 32, 32)
 			const room = require('../assets/img/360.jpg')
 			const textureLoader = new THREE.TextureLoader()
 			const texture = textureLoader.load(room)
 			texture.wrapS = THREE.RepeatWrapping
 			texture.repeat.x = -1
-			const material = new THREE.MeshBasicMaterial({
+			const sphereMaterial = new THREE.MeshBasicMaterial({
 				map: texture,
 				side: THREE.DoubleSide
 			})
-			material.transparent = true
-			const sphere = new THREE.Mesh(geometry, material)
+			sphereMaterial.transparent = true
+			const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial)
 			this.scene.add(sphere)
 
 			// this.camera.position.z = 5
