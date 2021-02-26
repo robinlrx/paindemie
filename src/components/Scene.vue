@@ -7,12 +7,14 @@
 <script>
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
+const info = require('../assets/img/info.png')
+const info2 = require('../assets/img/manger.svg')
 
 export default {
 	mounted () {
 		this.init()
-		this.addTooltip(new THREE.Vector3(0.9779594454558286, 0.056559551981131675, 0.20098840793295), 'bouton 1')
-		this.addTooltip(new THREE.Vector3(-0.8552268622038501, 0.0684633860882658, 0.5137117663926783), 'bouton 2')
+		this.addTooltip(new THREE.Vector3(0.9779594454558286, 0.056559551981131675, 0.20098840793295), 'bouton 1', info)
+		this.addTooltip(new THREE.Vector3(-0.8552268622038501, 0.0684633860882658, 0.5137117663926783), 'bouton 2', info2)
 	},
 	methods: {
 		init () {
@@ -71,9 +73,9 @@ export default {
 			this.update()
 		},
 
-		addTooltip (position, name) {
-			const info = require('../assets/img/info.png')
-			const map = new THREE.TextureLoader().load(info)
+		addTooltip (position, name, icon) {
+			// const info = require('../assets/img/info.png')
+			const map = new THREE.TextureLoader().load(icon)
 			const material = new THREE.SpriteMaterial({
 				map: map
 			})
