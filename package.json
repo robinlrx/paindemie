@@ -5,11 +5,13 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "deploy-360": "surge ./dist test-360-paindemie.surge.sh"
   },
   "dependencies": {
     "core-js": "^3.6.5",
     "gsap": "^3.6.0",
+    "surge": "^0.21.7",
     "three": "^0.125.2",
     "vue": "^2.6.11",
     "vue-router": "^3.2.0"
