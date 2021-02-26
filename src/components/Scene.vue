@@ -7,14 +7,17 @@
 <script>
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
+
 const info = require('../assets/img/info.png')
 const info2 = require('../assets/img/manger.svg')
+const url = './'
+const url2 = 'https://www.robinleroux.fr'
 
 export default {
 	mounted () {
 		this.init()
-		this.addTooltip(new THREE.Vector3(0.9779594454558286, 0.056559551981131675, 0.20098840793295), 'bouton 1', info)
-		this.addTooltip(new THREE.Vector3(-0.8552268622038501, 0.0684633860882658, 0.5137117663926783), 'bouton 2', info2)
+		this.addCoronaObject(new THREE.Vector3(0.9779594454558286, 0.056559551981131675, 0.20098840793295), 'bouton 1', info, url)
+		this.addCoronaObject(new THREE.Vector3(-0.8552268622038501, 0.0684633860882658, 0.5137117663926783), 'bouton 2', info2, url2)
 	},
 	methods: {
 		init () {
@@ -66,22 +69,20 @@ export default {
 			const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial)
 			this.scene.add(sphere)
 
-			// // ici
-			// addTooltip(position)
-
 			// this.camera.position.z = 5
 			this.update()
 		},
 
-		addTooltip (position, name, icon) {
-			// const info = require('../assets/img/info.png')
-			const map = new THREE.TextureLoader().load(icon)
-			const material = new THREE.SpriteMaterial({
-				map: map
+		// Fonction pour les afficher les icones cliquables
+		addCoronaObject (position, name, icon, route) {
+			const icons = new THREE.TextureLoader().load(icon)
+			const spriteMaterial = new THREE.SpriteMaterial({
+				map: icons
 			})
 
-			const sprite = new THREE.Sprite(material)
+			const sprite = new THREE.Sprite(spriteMaterial)
 			sprite.name = name
+			sprite.userData = { route: route } // on peut mettre nos données
 			this.scene.add(sprite)
 
 			// this.position = new THREE.Vector3(30, 0, 0)
@@ -90,24 +91,25 @@ export default {
 		},
 
 		onClick (e) {
-			const mouse = new THREE.Vector2(
-				(e.clientX / window.innerWidth) * 2 - 1,
-				-(e.clientY / window.innerHeight) * 2 + 1
-			)
+			const mouse = new THREE.Vector2((e.clientX / window.innerWidth) * 2 - 1, -(e.clientY / window.innerHeight) * 2 + 1)
 			// console.log(mouse)
 
 			const rayCaster = new THREE.Raycaster()
 			// console.log(rayCaster)
-			// rayCaster.layers.set(1)
-			// object.layers.enable(1)
 			// console.log(rayCaster.ray.direction)
 			rayCaster.setFromCamera(mouse, this.camera)
 			const intersects = rayCaster.intersectObjects(this.scene.children)
 			console.log(intersects)
 			intersects.forEach(function (intersect) {
+				// Si on clique sur un sprite (les icones)
 				if (intersect.object.type === 'Sprite') {
-					console.log(intersect.object.name)
-					alert(intersect.object.name)
+					console.log(`nom : ${intersect.object.name}`)
+					console.log(`route : ${intersect.object.userData.route}`)
+					console.log(intersect.object)
+					const route = intersect.object.userData.route // Avoir accès a l'objet route dans intersect
+					window.open(route)
+					// window.location = intersect.object.userData.URL
+					// alert(intersect.object.name)
 				}
 			})
 
@@ -115,7 +117,7 @@ export default {
 			// const intersects = rayCaster.intersectObject(this.sphere)
 			// if (intersects > 0) {
 			//  console.log(intersects[0].point)
-			//  this.addTooltip(intersects[0].point)
+			//  this.addCoronaObject(intersects[0].point)
 			// }
 		},
 
