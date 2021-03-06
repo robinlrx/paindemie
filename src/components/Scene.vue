@@ -100,6 +100,7 @@ export default {
 			rayCaster.setFromCamera(mouse, this.camera)
 			const intersects = rayCaster.intersectObjects(this.scene.children)
 			console.log(intersects)
+
 			intersects.forEach(function (intersect) {
 				// Si on clique sur un sprite (les icones)
 				if (intersect.object.type === 'Sprite') {
