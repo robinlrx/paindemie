@@ -8,16 +8,19 @@
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 
-const info = require('../assets/img/info.png')
+const info = require('../assets/img/brevage.svg')
 const info2 = require('../assets/img/manger.svg')
+const info3 = require('../assets/img/info.png')
 const url = './'
 const url2 = 'https://www.robinleroux.fr'
+const url3 = 'https://www.youtube.com/watch?v=f02mOEt11OQ'
 
 export default {
 	mounted () {
 		this.init()
 		this.addCoronaObject(new THREE.Vector3(0.9779594454558286, 0.056559551981131675, 0.20098840793295), 'bouton 1', info, url)
 		this.addCoronaObject(new THREE.Vector3(-0.8552268622038501, 0.0684633860882658, 0.5137117663926783), 'bouton 2', info2, url2)
+		this.addCoronaObject(new THREE.Vector3(0.8832757217121453, -0.45176804771973644, -0.1254178236670794), 'bouton 3', info3, url3)
 	},
 	methods: {
 		init () {
@@ -93,11 +96,11 @@ export default {
 
 		onClick (e) {
 			const mouse = new THREE.Vector2((e.clientX / window.innerWidth) * 2 - 1, -(e.clientY / window.innerHeight) * 2 + 1)
-			// console.log(mouse)
 
 			const rayCaster = new THREE.Raycaster()
 			// console.log(rayCaster)
-			// console.log(rayCaster.ray.direction)
+			console.log('direction xyz point')
+			console.log(rayCaster.ray.direction)
 			rayCaster.setFromCamera(mouse, this.camera)
 			const intersects = rayCaster.intersectObjects(this.scene.children)
 			console.log(intersects)
