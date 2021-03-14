@@ -30,13 +30,19 @@ html, body {
 
 #nav {
   padding: 30px;
+  position: fixed;
+  width: 100%;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   background-color: red;
 
   a {
     font-weight: bold;
-    color: #2c3e50;
+    color: white;
 
     &.router-link-exact-active {
-      color: #42b983;
+      color: #FFCD1D;
     }
   }
 }
