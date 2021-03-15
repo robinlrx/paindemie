@@ -9,6 +9,8 @@
 </template>
 
 <style lang="scss">
+@import '@/assets/scss/_variables.scss';
+
 ::after,
 ::before {
     -webkit-box-sizing: border-box;
@@ -39,10 +41,10 @@ html, body {
 
   a {
     font-weight: bold;
-    color: white;
+    color: $white;
 
     &.router-link-exact-active {
-      color: #FFCD1D;
+      color: $yellow;
     }
   }
 }

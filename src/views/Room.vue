@@ -19,6 +19,8 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+@import '@/assets/scss/_variables.scss';
+
 body{
 	overflow-x: hidden;
 }
@@ -40,7 +42,7 @@ body{
 	p {
 		margin-bottom: 0;
 		font-family: chantal, sans-serif;
-		color: #27123C;
+		color: $violet;
 		font-size: 1.8rem;
 		background-color: rgba(229, 229, 229, .8);
 		padding: 10px;

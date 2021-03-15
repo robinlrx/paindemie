@@ -39,6 +39,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '@/assets/scss/_variables.scss';
 
 .display {
 	display: none;
@@ -47,7 +48,7 @@ export default {
 .home {
 	width: 100%;
 	height: 100vh;
-	background-color: #2A6864;
+	background-color: $dark-green;
 	display: flex;
 	// justify-content: center;
 	// align-items: center;
@@ -79,17 +80,17 @@ export default {
 	width: max-content;
 
 	h1 {
-		font-family: 'Chelsea Market', cursive;
+		font-family: $chelsea-font;
 		font-size: 6rem;
 		margin: 0;
-		color: white;
+		color: $white;
 		span {
-			color: #FFCD1D;
+			color: $yellow;
 		}
 	}
 
 	h2 {
-		font-family: chantal, sans-serif;
+		font-family: $chantal-font;
 		font-weight: 300;
 		font-style: normal;
 		color: white;
@@ -99,20 +100,20 @@ export default {
 	}
 
 	a {
-		font-family: chantal, sans-serif;
-		border: solid 3px #C84C16;
+		font-family: $chantal-font;
+		border: solid 3px $orange;
 		font-weight: 300;
 		font-size: 1.4rem;
 		text-decoration: none;
 		color: white;
-		background-color: #C84C16;
+		background-color: $orange;
 		padding: 10px 50px;
 		border-radius: 50px;
 		transition: all .2s ease;
 
 		&:hover {
 		background-color: transparent;
-		color: #C84C16;
+		color: $orange;
 		}
 	}
 }
