@@ -111,7 +111,8 @@ export default {
 					console.log(`route : ${intersect.object.userData.route}`)
 					console.log(intersect.object)
 					const route = intersect.object.userData.route // Avoir accès a l'objet route dans intersect
-					window.open(route)
+					// window.open(route)
+					window.location.assign(route)
 					// window.location = intersect.object.userData.URL
 					// alert(intersect.object.name)
 				}
