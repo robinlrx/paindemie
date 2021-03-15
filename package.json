@@ -6,7 +6,8 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "deploy-360": "npm run build && surge ./dist test-360-paindemie.surge.sh"
+    "deploy-dev": "npm run build && surge ./dist dev-paindemie.surge.sh",
+    "deploy-prod": "npm run build && surge ./dist paindemie.surge.sh"
   },
   "dependencies": {
     "core-js": "^3.6.5",
