@@ -13,7 +13,7 @@ const info2 = require('../assets/img/manger.svg')
 const info3 = require('../assets/img/info.png')
 const url = './'
 const url2 = 'https://www.robinleroux.fr'
-const url3 = 'https://www.youtube.com/watch?v=f02mOEt11OQ'
+const url3 = './choices'
 
 export default {
 	mounted () {
