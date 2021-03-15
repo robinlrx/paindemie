@@ -59,8 +59,7 @@ export default {
 
 			// Sphere
 			const sphereGeometry = new THREE.SphereGeometry(50, 32, 32) // rayon , widthSeg, heightSeg
-			// const room = require('../assets/img/360.jpg')
-			const room = require('../assets/img/room.png')
+			const room = require('../assets/img/room.jpg')
 			const textureLoader = new THREE.TextureLoader()
 			const texture = textureLoader.load(room)
 			texture.wrapS = THREE.RepeatWrapping
