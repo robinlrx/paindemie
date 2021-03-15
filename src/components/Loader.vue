@@ -1,6 +1,6 @@
 <template>
   <div class="loader">
-    <p>[i]</p>
+    <p>[i] </p>
   </div>
 </template>
 
