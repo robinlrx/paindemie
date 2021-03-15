@@ -9,7 +9,7 @@
 			<div class="txt">
 				<h1>PA<span>[i]</span>NDEMIE</h1>
 				<h2>Eh papi c'est quoi une pandémie !?</h2>
-				<router-link :to="'about'" tag="a">Lancer le jeu</router-link>
+				<router-link :to="'room'" tag="a">Lancer le jeu</router-link>
 			</div>
 		</div>
 

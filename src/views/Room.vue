@@ -1,5 +1,5 @@
 <template>
-	<div class="about">
+	<div class="room">
 		<Scene />
 		<div class="objet">
 			<img src="../assets/img/gel.png" alt="">
