@@ -1,52 +1,30 @@
 <template>
 	<div class="room">
 		<Scene />
-		<div class="objet">
-			<img src="../assets/img/gel.png" alt="">
-			<p>Eh papi c'est quoi ça !?</p>
-		</div>
+		<Objet />
+		<!-- <Counter/> -->
 	</div>
 </template>
 
 <script>
 // @ is an alias to /src
 import Scene from '@/components/Scene.vue'
+import Objet from '@/components/Objet.vue'
+// import Counter from '@/components/Counter.vue'
 
 export default {
 	components: {
-		Scene
+		Scene,
+		Objet
+		// Counter
 	}
 }
+
 </script>
 <style lang="scss" scoped>
 @import '@/assets/scss/_variables.scss';
 
 body{
 	overflow-x: hidden;
-}
-
-.objet {
-	z-index: 88;
-	position: absolute;
-	left: 2%;
-	bottom: 0;
-	display: flex;
-	align-items: flex-end;
-	// background-color: red;
-
-	img {
-		margin: auto;
-		height: 150px;
-	}
-
-	p {
-		margin-bottom: 0;
-		font-family: chantal, sans-serif;
-		color: $violet;
-		font-size: 1.8rem;
-		background-color: rgba(229, 229, 229, .8);
-		padding: 10px;
-		border-radius: 10px;
-	}
 }
 </style>
