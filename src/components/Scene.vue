@@ -56,6 +56,10 @@ export default {
 			controls.rotateSpeed = 0.5
 			controls.enableZoom = false
 			controls.enablePan = false
+			// controls.minPolarAngle = 0 // vertical
+			// controls.maxPolarAngle = Math.PI * 0.5 // vertical
+			controls.minAzimuthAngle = Math.PI // radians (axe  horizontal)
+			controls.maxAzimuthAngle = 0 // radians (axe  horizontal)
 			controls.update()
 
 			// Sphere
