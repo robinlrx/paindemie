@@ -1,6 +1,6 @@
 <template>
 	<section class="home">
-		<Loader @click.native="loaderClick" v-bind:class="{display: visible}" />
+		<Loader/>
 
 		<div class="papi">
 			<img src="../assets/img/papi.png" alt="">
@@ -23,27 +23,18 @@ export default {
 	name: 'Home',
 	data () {
 		return {
-			visible: false
 		}
 	},
 	components: {
 		Loader
 	},
 	methods: {
-		loaderClick () {
-			console.log('test click')
-			this.visible = !this.visible
-		}
 	}
 }
 </script>
 
 <style lang="scss" scoped>
 @import '@/assets/scss/_variables.scss';
-
-.display {
-	display: none;
-}
 
 .home {
 	width: 100%;
