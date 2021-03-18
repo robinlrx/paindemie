@@ -9,9 +9,8 @@ import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 import router from '../router/index'
 
-const info = require('../assets/img/brevage.svg')
-const info2 = require('../assets/img/manger.svg')
-const info3 = require('../assets/img/info.png')
+// const info = require('../assets/img/brevage.svg')
+const fleur = require('../assets/img/fleurs.png')
 // const url = './'
 // const url2 = 'https://www.robinleroux.fr'
 // const url3 = './choices'
@@ -19,9 +18,8 @@ const info3 = require('../assets/img/info.png')
 export default {
 	mounted () {
 		this.init()
-		this.addCoronaObject(new THREE.Vector3(0.9779594454558286, 0.056559551981131675, 0.20098840793295), 'bouton', info)
-		this.addCoronaObject(new THREE.Vector3(-0.8552268622038501, 0.0684633860882658, 0.5137117663926783), 'bouton', info2)
-		this.addCoronaObject(new THREE.Vector3(0.8832757217121453, -0.45176804771973644, -0.1254178236670794), 'bouton 3', info3)
+		// this.addCoronaObject(new THREE.Vector3(0.9779594454558286, 0.056559551981131675, 0.20098840793295), 'bouton', info)
+		this.addCoronaObject(new THREE.Vector3(0.6351041777159825, 0.096559551981131675, -0.7707364023383707), 'bouton', fleur)
 	},
 	methods: {
 		init () {
@@ -47,8 +45,8 @@ export default {
 			})
 
 			// Display axes
-			const axesHelper = new THREE.AxesHelper(100)
-			this.scene.add(axesHelper) // The X axis is red. The Y axis is green. The Z axis is blue.
+			// const axesHelper = new THREE.AxesHelper(100)
+			// this.scene.add(axesHelper) // The X axis is red. The Y axis is green. The Z axis is blue.
 
 			// Orbit controls
 			const controls = new OrbitControls(this.camera, this.$refs.canvas)
@@ -95,7 +93,7 @@ export default {
 
 			// this.position = new THREE.Vector3(30, 0, 0)
 			sprite.position.copy(position.clone().normalize().multiplyScalar(30))
-			sprite.scale.multiplyScalar(2)
+			sprite.scale.multiplyScalar(4)
 		},
 
 		onClick (e) {
@@ -120,16 +118,6 @@ export default {
 					// window.location.assign(route)
 					// window.location = intersect.object.userData.URL
 					router.push('/choices')
-				}
-				if (intersect.object.type === 'Sprite' && intersect.object.name === 'bouton 3') {
-					console.log(`nom : ${intersect.object.name}`)
-					// console.log(`route : ${intersect.object.userData.route}`)
-					console.log(intersect.object)
-					// const route = intersect.object.userData.route // Avoir accès a l'objet route dans intersect
-					// window.open(route)
-					// window.location.assign(route)
-					// window.location = intersect.object.userData.URL
-					router.push('/')
 				}
 			})
 
