@@ -1,5 +1,5 @@
 <template>
-	<div ref="container" v-on:click="onClick" @mouseover="onMouseOver">
+	<div ref="container" v-on:click="onClick">
 		<canvas ref="canvas" class="canvas"></canvas>
 	</div>
 </template>
@@ -9,8 +9,9 @@ import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 import router from '../router/index'
 
-// const info = require('../assets/img/brevage.svg')
-const fleur = require('../assets/img/fleurs.png')
+// const gel = require('../assets/img/gel-dop.png')
+// const fleur = require('../assets/img/fleurs.png')
+const info = require('../assets/img/info.png')
 // const url = './'
 // const url2 = 'https://www.robinleroux.fr'
 // const url3 = './choices'
@@ -18,8 +19,8 @@ const fleur = require('../assets/img/fleurs.png')
 export default {
 	mounted () {
 		this.init()
-		// this.addCoronaObject(new THREE.Vector3(0.9779594454558286, 0.056559551981131675, 0.20098840793295), 'bouton', info)
-		this.addCoronaObject(new THREE.Vector3(0.6351041777159825, 0.096559551981131675, -0.7707364023383707), 'bouton', fleur)
+		this.addCoronaObject(new THREE.Vector3(0.9779594454558286, 0.1236844167130562, 0.1683187365160478), 'bouton', info)
+		this.addCoronaObject(new THREE.Vector3(0.6351041777159825, 0.096559551981131675, -0.7707364023383707), 'bouton', info)
 	},
 	methods: {
 		init () {
@@ -93,7 +94,7 @@ export default {
 
 			// this.position = new THREE.Vector3(30, 0, 0)
 			sprite.position.copy(position.clone().normalize().multiplyScalar(30))
-			sprite.scale.multiplyScalar(4)
+			sprite.scale.multiplyScalar(2)
 		},
 
 		onClick (e) {
@@ -114,9 +115,6 @@ export default {
 					// console.log(`route : ${intersect.object.userData.route}`)
 					console.log(intersect.object)
 					// const route = intersect.object.userData.route // Avoir accès a l'objet route dans intersect
-					// window.open(route)
-					// window.location.assign(route)
-					// window.location = intersect.object.userData.URL
 					router.push('/choices')
 				}
 			})
@@ -127,9 +125,6 @@ export default {
 			//  console.log(intersects[0].point)
 			//  this.addCoronaObject(intersects[0].point)
 			// }
-		},
-
-		onMouseOver (e) {
 		},
 
 		update () {

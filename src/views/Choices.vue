@@ -14,7 +14,7 @@ export default {
 	.background{
 		width: 100%;
 		height: 100vh;
-		background-image: url('../assets/img/bg-choix.jpg');
+		background-image: url('../assets/img/demo.gif');
 		background-position: center;
 		background-size: cover;
 		background-repeat: no-repeat;
@@ -23,6 +23,6 @@ export default {
 	.choices {
 		width: 100%;
 		height: 100%;
-		background-color: rgba(0, 0, 0, 0.7);
+		// background-color: rgba(0, 0, 0, 0.7);
 	}
 </style>
