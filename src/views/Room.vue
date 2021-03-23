@@ -2,7 +2,7 @@
 	<div class="room">
 		<Scene />
 		<Objet />
-		<!-- <Counter/> -->
+		<Counter/>
 	</div>
 </template>
 
@@ -10,13 +10,13 @@
 // @ is an alias to /src
 import Scene from '@/components/Scene.vue'
 import Objet from '@/components/Objet.vue'
-// import Counter from '@/components/Counter.vue'
+import Counter from '@/components/Counter.vue'
 
 export default {
 	components: {
 		Scene,
-		Objet
-		// Counter
+		Objet,
+		Counter
 	}
 }
 
