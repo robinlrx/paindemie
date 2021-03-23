@@ -18,9 +18,9 @@ export default {
 			show: true
 		}
 	},
-	mounted () {
-		this.showToggle()
-	},
+	// mounted () {
+	// 	this.showToggle()
+	// },
 	methods: {
 		showToggle () {
 			setTimeout(() => {
