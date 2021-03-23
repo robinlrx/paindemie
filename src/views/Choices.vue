@@ -1,6 +1,6 @@
 <template>
 <div class="background">
-	<div class="choices"></div>
+	<div class="choices"> </div>
 </div>
 </template>
 
