@@ -1,11 +1,14 @@
 <template>
 	<div class="room">
-		 <transition name="fade">
+		<transition name="fade">
 		<Scene />
-		 </transition>
+		</transition>
 		<Objet />
+		<div>
+		<Jauge/>
+		<Timer/>
+		</div>
 		<Choices/>
-		<!-- <Counter/> -->
 	</div>
 </template>
 
@@ -14,14 +17,16 @@
 import Scene from '@/components/Scene.vue'
 import Objet from '@/components/Objet.vue'
 import Choices from '@/components/Choices.vue'
-// import Counter from '@/components/Counter.vue'
+import Jauge from '@/components/Jauge.vue'
+import Timer from '@/components/Timer.vue'
 
 export default {
 	components: {
 		Scene,
+		Choices,
 		Objet,
-		Choices
-		// Counter
+		Jauge,
+		Timer
 	}
 }
 
