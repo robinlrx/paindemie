@@ -7,7 +7,7 @@
 		</div>
 		<div class="txt-container">
 			<div class="txt">
-				<h1>PA<span>[i]</span>NDEMIE</h1>
+				<h1>PA<span>[I]</span>NDEMIE</h1>
 				<h2>Eh papi c'est quoi une pandémie !?</h2>
 				<router-link :to="'room'" tag="a">Lancer le jeu</router-link>
 			</div>
