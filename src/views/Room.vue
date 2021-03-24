@@ -2,7 +2,10 @@
 	<div class="room">
 		<Scene />
 		<Objet />
-		<!-- <Counter/> -->
+		<div>
+		<Jauge/>
+		<Timer/>
+		</div>
 	</div>
 </template>
 
@@ -10,13 +13,15 @@
 // @ is an alias to /src
 import Scene from '@/components/Scene.vue'
 import Objet from '@/components/Objet.vue'
-// import Counter from '@/components/Counter.vue'
+import Jauge from '@/components/Jauge.vue'
+import Timer from '@/components/Timer.vue'
 
 export default {
 	components: {
 		Scene,
-		Objet
-		// Counter
+		Objet,
+		Jauge,
+		Timer
 	}
 }
 
@@ -24,7 +29,4 @@ export default {
 <style lang="scss" scoped>
 @import '@/assets/scss/_variables.scss';
 
-body{
-	overflow-x: hidden;
-}
 </style>
