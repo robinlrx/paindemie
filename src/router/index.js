@@ -2,7 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Room from '../views/Room.vue'
-import Choices from '../views/Choices.vue'
+import Choices from '../components/Choices.vue'
 
 Vue.use(VueRouter)
 

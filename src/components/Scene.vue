@@ -9,7 +9,7 @@ import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 import router from '../router/index'
 
-// const gel = require('../assets/img/gel-dop.png')
+const gel = require('../assets/img/gel-dop.png')
 // const fleur = require('../assets/img/fleurs.png')
 const info = require('../assets/img/info.png')
 // const url = './'
@@ -17,9 +17,15 @@ const info = require('../assets/img/info.png')
 // const url3 = './choices'
 
 export default {
+	data () {
+		return {
+			tall: 0,
+			sprite: null
+		}
+	},
 	mounted () {
 		this.init()
-		this.addCoronaObject(new THREE.Vector3(0.9779594454558286, 0.1236844167130562, 0.1683187365160478), 'bouton', info)
+		this.addCoronaObject(new THREE.Vector3(0.9779594454558286, 0.1236844167130562, 0.1683187365160478), 'bouton', gel)
 		this.addCoronaObject(new THREE.Vector3(0.6351041777159825, 0.096559551981131675, -0.7707364023383707), 'bouton', info)
 	},
 	methods: {
@@ -46,8 +52,8 @@ export default {
 			})
 
 			// Display axes
-			// const axesHelper = new THREE.AxesHelper(100)
-			// this.scene.add(axesHelper) // The X axis is red. The Y axis is green. The Z axis is blue.
+			const axesHelper = new THREE.AxesHelper(100)
+			this.scene.add(axesHelper) // The X axis is red. The Y axis is green. The Z axis is blue.
 
 			// Orbit controls
 			const controls = new OrbitControls(this.camera, this.$refs.canvas)
@@ -87,14 +93,14 @@ export default {
 				map: icons
 			})
 
-			const sprite = new THREE.Sprite(spriteMaterial)
-			sprite.name = name
+			this.sprite = new THREE.Sprite(spriteMaterial)
+			this.sprite.name = name
 			// sprite.userData = { route: route } // on peut mettre nos données
-			this.scene.add(sprite)
+			this.scene.add(this.sprite)
 
 			// this.position = new THREE.Vector3(30, 0, 0)
-			sprite.position.copy(position.clone().normalize().multiplyScalar(30))
-			sprite.scale.multiplyScalar(2)
+			this.sprite.position.copy(position.clone().normalize().multiplyScalar(30))
+			this.sprite.scale.multiplyScalar(2)
 		},
 
 		onClick (e) {
