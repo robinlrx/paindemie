@@ -9,14 +9,10 @@ import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 import router from '../router/index'
 
-const gel = require('../assets/img/gel-dop.png')
-// const fleur = require('../assets/img/fleurs.png')
-const info = require('../assets/img/info.png')
-// const url = './'
-// const url2 = 'https://www.robinleroux.fr'
-// const url3 = './choices'
-
 export default {
+	props: {
+		etape: Object
+	},
 	data () {
 		return {
 			tall: 0,
@@ -25,8 +21,9 @@ export default {
 	},
 	mounted () {
 		this.init()
-		this.addCoronaObject(new THREE.Vector3(0.9779594454558286, 0.1236844167130562, 0.1683187365160478), 'bouton', gel)
-		this.addCoronaObject(new THREE.Vector3(0.6351041777159825, 0.096559551981131675, -0.7707364023383707), 'bouton', info)
+		console.log(this.etape.c1.x)
+		this.addCoronaObject(new THREE.Vector3(this.etape.c1.x, this.etape.c1.y, this.etape.c1.z), 'bouton', this.etape.objet1)
+		this.addCoronaObject(new THREE.Vector3(this.etape.c2.x, this.etape.c2.y, this.etape.c2.z), 'bouton', this.etape.objet2)
 	},
 	methods: {
 		init () {
@@ -69,7 +66,7 @@ export default {
 
 			// Sphere
 			const sphereGeometry = new THREE.SphereGeometry(50, 32, 32) // rayon , widthSeg, heightSeg
-			const room = require('../assets/img/room.jpg')
+			const room = this.etape.imageScene
 			const textureLoader = new THREE.TextureLoader()
 			const texture = textureLoader.load(room)
 			texture.wrapS = THREE.RepeatWrapping

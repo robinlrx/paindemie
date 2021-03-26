@@ -19,6 +19,8 @@
 <script>
 import Loader from '@/components/Loader.vue'
 
+// const gal = new GameAssetLoader('../dataloader/loader.json')
+
 export default {
 	name: 'Home',
 	data () {

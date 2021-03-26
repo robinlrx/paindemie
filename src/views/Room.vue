@@ -1,19 +1,23 @@
 <template>
 	<div class="room">
-		<transition name="fade">
-		<Scene />
-		</transition>
-		<Objet />
-		<div>
-		<Jauge/>
-		<Timer/>
+		<div v-for="etape in etapes" v-bind:key="etape.id">
+			<transition name="fade">
+			<Scene :etape="etape" />
+			</transition>
+			<Objet />
+			<div>
+			<Jauge/>
+			<Timer/>
+			</div>
+			<Choices/>
 		</div>
-		<Choices/>
 	</div>
 </template>
 
 <script>
 // @ is an alias to /src
+import data from '../assets/data/data.json'
+
 import Scene from '@/components/Scene.vue'
 import Objet from '@/components/Objet.vue'
 import Choices from '@/components/Choices.vue'
@@ -21,6 +25,11 @@ import Jauge from '@/components/Jauge.vue'
 import Timer from '@/components/Timer.vue'
 
 export default {
+	data () {
+		return {
+			etapes: data
+		}
+	},
 	components: {
 		Scene,
 		Choices,
@@ -28,6 +37,14 @@ export default {
 		Jauge,
 		Timer
 	}
+	// methods: {
+	// console () {
+	// console.log(this.etapes)
+	// }
+	// },
+	// mounted () {
+	// this.console()
+	// }
 }
 
 </script>

@@ -1,0 +1,19 @@
+[
+	{
+		"id": 1,
+		"imageScene": "https://raw.githubusercontent.com/robinlrx/paindemie/main/src/assets/img/room.jpg",
+		"objet1": "../assets/img/gel-dop.png",
+		"objet2": "../img/fleurs.png",
+		"c1": {
+			"x": 0.9779594454558286,
+			"y": 0.1236844167130562,
+			"z": 0.1683187365160478
+		},
+		"c2": {
+			"x": 0.6351041777159825,
+			"y": 0.096559551981131675,
+			"z": -0.7707364023383707
+		}
+
+	}
+]
