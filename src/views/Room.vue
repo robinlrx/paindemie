@@ -1,7 +1,8 @@
 <template>
 	<div class="room">
 		<transition name="fade">
-		<Scene v-bind:etape="etapes[currentEtape]" v-on:objectClicked="handleShowChoices" />
+			<!-- Key-changing to force re-renders of a component -->
+			<Scene v-bind:etape="etapes[currentEtape]" v-on:objectClicked="handleShowChoices" :key="currentEtape" />
 		</transition>
 		<Objet />
 		<div>

@@ -21,8 +21,8 @@
 		{
 			"id": 2,
 			"imageScene": "assets/img/360.jpg",
-			"objet1": "assets/img/gel-dop.png",
-			"objet2": "assets/img/fleurs.png",
+			"objet1": "assets/img/info.png",
+			"objet2": "assets/img/info.png",
 			"c1": {
 				"x": 0.9522636831749526,
 				"y": 0.2753672840859653,
