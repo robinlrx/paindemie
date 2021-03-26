@@ -41,6 +41,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '@/assets/scss/_variables.scss';
 
 .timer {
 	position: absolute;
@@ -48,6 +49,12 @@ export default {
 	top: 10px;
 	display: flex;
 	flex-direction: column;
+
+	p {
+		font-family: $chelsea-font;
+		font-size: 2rem;
+		color: $violet
+	}
 }
 
 </style>

@@ -58,6 +58,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '@/assets/scss/_variables.scss';
+
 .counter {
   position: absolute;
   right: 10px;
@@ -75,7 +77,7 @@ export default {
     margin-bottom: 0px;
     width: 100%;
     max-height: 100%;
-    background-color: green;
+    background-color: $light-green;
     border-radius: 20px;
 
     rect {

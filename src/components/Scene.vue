@@ -21,14 +21,14 @@ export default {
 	},
 	mounted () {
 		this.init()
-		console.log(this.etape.c1.x)
+		// console.log(this.etape.c1.x)
 		this.addCoronaObject(new THREE.Vector3(this.etape.c1.x, this.etape.c1.y, this.etape.c1.z), 'bouton', this.etape.objet1)
 		this.addCoronaObject(new THREE.Vector3(this.etape.c2.x, this.etape.c2.y, this.etape.c2.z), 'bouton', this.etape.objet2)
 	},
 	methods: {
 		init () {
-			const container = this.$refs.container
-			console.log(container)
+			// const container = this.$refs.container
+			// console.log(container)
 			// Setup Scene
 			this.scene = new THREE.Scene()
 			this.camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 0.1, 1000)

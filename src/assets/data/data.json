@@ -1,9 +1,9 @@
 [
 	{
 		"id": 1,
-		"imageScene": "https://raw.githubusercontent.com/robinlrx/paindemie/main/src/assets/img/room.jpg",
-		"objet1": "../assets/img/gel-dop.png",
-		"objet2": "../img/fleurs.png",
+		"imageScene": "https://raw.githubusercontent.com/robinlrx/paindemie/11-loader/src/assets/img/room.jpg",
+		"objet1": "https://raw.githubusercontent.com/robinlrx/paindemie/11-loader/src/assets/img/gel-dop.png",
+		"objet2": "https://raw.githubusercontent.com/robinlrx/paindemie/11-loader/src/assets/img/fleurs.png",
 		"c1": {
 			"x": 0.9779594454558286,
 			"y": 0.1236844167130562,
