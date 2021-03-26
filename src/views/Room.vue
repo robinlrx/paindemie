@@ -1,16 +1,14 @@
 <template>
 	<div class="room">
-		<div v-for="etape in etapes" v-bind:key="etape.id">
-			<transition name="fade">
-			<Scene :etape="etape" />
-			</transition>
-			<Objet />
-			<div>
+		<transition name="fade">
+		<Scene v-bind:etape="etapes[currentEtape]" v-on:objectClicked="handleShowChoices" />
+		</transition>
+		<Objet />
+		<div>
 			<Jauge/>
 			<Timer/>
-			</div>
-			<Choices/>
 		</div>
+		<Choices v-show="showChoices" v-bind:etape="etapes[currentEtape]" v-on:onClick="handleUpdateEtape" />
 	</div>
 </template>
 
@@ -27,7 +25,26 @@ import Timer from '@/components/Timer.vue'
 export default {
 	data () {
 		return {
-			etapes: data
+			showChoices: false,
+			etapes: data.content,
+			currentEtape: 0
+		}
+	},
+	methods: {
+		// Appel cette méthode quand tu fais un choix dans choices
+		handleShowChoices () {
+			this.showChoices = !this.showChoices
+		},
+		handleUpdateEtape () {
+			console.log('slt')
+			this.handleShowChoices() // unShow choices
+
+			if (this.currentEtape === 8) {
+				alert('fin')
+			} else {
+				this.currentEtape += 1
+				console.log('currentEtape:', this.currentEtape)
+			}
 		}
 	},
 	components: {

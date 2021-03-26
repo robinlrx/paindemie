@@ -7,7 +7,6 @@
 <script>
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
-import router from '../router/index'
 
 export default {
 	props: {
@@ -20,15 +19,16 @@ export default {
 		}
 	},
 	mounted () {
+		console.log(this.etape)
+		// console.log('currentEtape:', this.currentEtape)
 		this.init()
-		// console.log(this.etape.c1.x)
-		this.addCoronaObject(new THREE.Vector3(this.etape.c1.x, this.etape.c1.y, this.etape.c1.z), 'bouton', this.etape.objet1)
-		this.addCoronaObject(new THREE.Vector3(this.etape.c2.x, this.etape.c2.y, this.etape.c2.z), 'bouton', this.etape.objet2)
+		this.addCoronaObject(new THREE.Vector3(this.etape.c1.x, this.etape.c1.y, this.etape.c1.z), 'bouton1', this.etape.objet1)
+		this.addCoronaObject(new THREE.Vector3(this.etape.c2.x, this.etape.c2.y, this.etape.c2.z), 'bouton2', this.etape.objet2)
 	},
 	methods: {
 		init () {
 			// const container = this.$refs.container
-			// console.log(container)
+			// colnsole.log(container)
 			// Setup Scene
 			this.scene = new THREE.Scene()
 			this.camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 0.1, 1000)
@@ -111,14 +111,16 @@ export default {
 			const intersects = rayCaster.intersectObjects(this.scene.children)
 			console.log(intersects)
 
-			intersects.forEach(function (intersect) {
+			intersects.forEach(intersect => {
 				// Si on clique sur un sprite (les icones)
-				if (intersect.object.type === 'Sprite' && intersect.object.name === 'bouton') {
+				if (intersect.object.type === 'Sprite' && intersect.object.name === 'bouton1') {
 					console.log(`nom : ${intersect.object.name}`)
 					// console.log(`route : ${intersect.object.userData.route}`)
 					console.log(intersect.object)
 					// const route = intersect.object.userData.route // Avoir accès a l'objet route dans intersect
-					router.push('/choices')
+					// router.push('/choices')
+					// const img1 = this.etape.videoChoice1
+					this.$emit('objectClicked')
 				}
 			})
 

@@ -1,6 +1,6 @@
 <template>
 	<div class="objet">
-			<img src="../assets/img/gel.png" alt="">
+			<img src="assets/img/gel.png" alt="">
 			<p>Eh papi c'est quoi ça !?</p>
 	</div>
 </template>
