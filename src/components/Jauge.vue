@@ -21,8 +21,8 @@
 
     </div>
     <button v-on:click="counter = -5; setHeight()">-5</button>
-    <button v-on:click="counter = -2; setHeight()">-2</button>
-    <button v-on:click="counter = 2; setHeight()">+2</button>
+    <button v-on:click="counter = -10; setHeight()">-10</button>
+    <button v-on:click="counter = 5; setHeight()">+5</button>
   </div>
 </template>
 
@@ -47,7 +47,7 @@ export default {
 		},
 		penality () {
 			setInterval(() => {
-				this.heightJauge -= 10
+				this.heightJauge -= 2
 			}, 10000)
 		}
 	},
