@@ -19,7 +19,7 @@ export default {
 		}
 	},
 	mounted () {
-		console.log(this.etape)
+		console.log('etape:', this.etape)
 		// console.log('currentEtape:', this.currentEtape)
 		this.init()
 		this.addCoronaObject(new THREE.Vector3(this.etape.c1.x, this.etape.c1.y, this.etape.c1.z), 'bouton1', this.etape.objet1)
@@ -84,11 +84,18 @@ export default {
 		},
 
 		// Fonction pour les afficher les icones cliquables
-		addCoronaObject (position, name, icon, route) {
-			const icons = new THREE.TextureLoader().load(icon)
+		addCoronaObject (position, name, icon) {
+			const manager = new THREE.LoadingManager()
+			const iconsLoader = new THREE.TextureLoader(manager)
+			const icons = iconsLoader.load(icon)
 			const spriteMaterial = new THREE.SpriteMaterial({
 				map: icons
 			})
+
+			const width = spriteMaterial.map
+			console.log('width:', width)
+			// const height = spriteMaterial.map.image.height
+			// console.log('height:', height)
 
 			this.sprite = new THREE.Sprite(spriteMaterial)
 			this.sprite.name = name
@@ -97,7 +104,7 @@ export default {
 
 			// this.position = new THREE.Vector3(30, 0, 0)
 			this.sprite.position.copy(position.clone().normalize().multiplyScalar(30))
-			this.sprite.scale.multiplyScalar(2)
+			this.sprite.scale.set(194 / 50, 338 / 50, 1)
 		},
 
 		onClick (e) {
@@ -123,13 +130,6 @@ export default {
 					this.$emit('objectClicked')
 				}
 			})
-
-			// console.log(rayCaster.setFromCamera(mouse))
-			// const intersects = rayCaster.intersectObject(this.sphere)
-			// if (intersects > 0) {
-			//  console.log(intersects[0].point)
-			//  this.addCoronaObject(intersects[0].point)
-			// }
 		},
 
 		update () {
