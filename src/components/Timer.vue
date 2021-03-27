@@ -53,7 +53,8 @@ export default {
 	p {
 		font-family: $chelsea-font;
 		font-size: 2rem;
-		color: $violet
+		color: $violet;
+		margin-top: 0
 	}
 }
 

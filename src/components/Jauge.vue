@@ -2,9 +2,10 @@
   <div>
     <div class="counter">
       <svg
-        v-bind:style="{height: this.heightJauge + '%'}"
+        v-bind:style="{height: this.heightJauge + '%', 'background-color': this.jaugeColor}"
         ref="jauge"
         class="jauge"
+		:class="setColor"
         viewBox="0 0 100 100"
       >
         <g class="base-timer__circle">
@@ -31,7 +32,8 @@ export default {
 	data () {
 		return {
 			counter: 0,
-			heightJauge: 100
+			heightJauge: 100,
+			jaugeColor: '#ACDEA4'
 		}
 	},
 	methods: {
@@ -45,6 +47,16 @@ export default {
 			this.heightJauge = this.heightJauge + this.counter
 			console.log(this.heightJauge)
 		},
+		setColor () {
+			if (this.heightJauge <= 30) {
+				this.jaugeColor = '#e74c3c'
+			} else if (this.heightJauge <= 70) {
+				this.jaugeColor = '#FFCD1D'
+			} else {
+				this.jaugeColor = '#ACDEA4'
+			}
+			console.log(this.jaugeColor)
+		},
 		penality () {
 			setInterval(() => {
 				this.heightJauge -= 2
@@ -53,6 +65,9 @@ export default {
 	},
 	created: function () {
 		this.penality()
+		setInterval(() => {
+			this.setColor()
+		}, 1000)
 	}
 }
 </script>
@@ -69,7 +84,7 @@ export default {
   display: flex;
   flex-direction: column;
   border-radius: 20px;
-  background-color: white;
+  background-color: $cream;
   box-shadow: 7px 10px 45px 4px rgba(0, 0, 0, 0.35);
 
   .jauge {
@@ -77,8 +92,9 @@ export default {
     margin-bottom: 0px;
     width: 100%;
     max-height: 100%;
-    background-color: $light-green;
+    // background-color: $light-green;
     border-radius: 20px;
+    transition: ease 1s;
 
     rect {
       fill: none;
