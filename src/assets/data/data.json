@@ -15,8 +15,10 @@
 				"y": 0.096559551981131675,
 				"z": -0.7707364023383707
 			},
-			"videoChoice": "assets/img/gel-dop.png",
-			"videoChoice2": "assets/img/gel.png"
+			"videoChoiceUn": "assets/img/gel-dop.png",
+			"videoChoiceDeux": "assets/img/gel.png",
+			"btnChoiceUn": "Culture de plante corona",
+			"btnChoiceDeux":"L'eau s'est transformé en bière"
 		},
 		{
 			"id": 2,
@@ -32,7 +34,10 @@
 				"x": 0.6351041777159825,
 				"y": 0.096559551981131675,
 				"z": -0.7707364023383707
-			}
+			},
+			"videoChoiceUn": "assets/img/fleurs.png",
+			"btnChoiceUn": "On avait pas de mains",
+			"btnChoiceDeux":"Danse des canards"
 		},
 		{
 			"id": 3,
@@ -48,7 +53,9 @@
 				"x": 0.6351041777159825,
 				"y": 0.096559551981131675,
 				"z": -0.7707364023383707
-			}
+			},
+			"btnChoiceUn": "Action 1",
+			"btnChoiceDeux":"Action 2"
 		},
 		{
 			"id": 4,
@@ -64,7 +71,9 @@
 				"x": 0.6351041777159825,
 				"y": 0.096559551981131675,
 				"z": -0.7707364023383707
-			}
+			},
+			"btnChoiceUn": "Action 1",
+			"btnChoiceDeux":"Action 2"
 		},
 		{
 			"id": 5,
@@ -80,7 +89,9 @@
 				"x": 0.6351041777159825,
 				"y": 0.096559551981131675,
 				"z": -0.7707364023383707
-			}
+			},
+			"btnChoiceUn": "Action 1",
+			"btnChoiceDeux":"Action 2"
 		},
 		{
 			"id": 6,
@@ -96,7 +107,9 @@
 				"x": 0.6351041777159825,
 				"y": 0.096559551981131675,
 				"z": -0.7707364023383707
-			}
+			},
+			"btnChoiceUn": "Action 1",
+			"btnChoiceDeux":"Action 2"
 		},
 		{
 			"id": 7,
@@ -112,7 +125,9 @@
 				"x": 0.6351041777159825,
 				"y": 0.096559551981131675,
 				"z": -0.7707364023383707
-			}
+			},
+			"btnChoiceUn": "Action 1",
+			"btnChoiceDeux":"Action 2"
 		},
 		{
 			"id": 8,
@@ -128,7 +143,9 @@
 				"x": 0.6351041777159825,
 				"y": 0.096559551981131675,
 				"z": -0.7707364023383707
-			}
+			},
+			"btnChoiceUn": "Action 1",
+			"btnChoiceDeux":"Action 2"
 		},
 		{
 			"id": 9,
@@ -144,7 +161,9 @@
 				"x": 0.6351041777159825,
 				"y": 0.096559551981131675,
 				"z": -0.7707364023383707
-			}
+			},
+			"btnChoiceUn": "Action 1",
+			"btnChoiceDeux":"Action 2"
 		}
 	]
 }

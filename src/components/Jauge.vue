@@ -63,6 +63,12 @@ export default {
 			}, 10000)
 		}
 	},
+  // mounted() {
+  //   	setInterval(() => {
+  //       localStorage.setItem('score', this.heightJauge);
+  //     localStorage.getItem(this.heightJauge);
+	// 	}, 1000)
+  // },
 	created: function () {
 		this.penality()
 		setInterval(() => {

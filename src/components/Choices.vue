@@ -1,11 +1,9 @@
 <template>
-	<div class="background">
-		<div class="choices">
-			<img :src="this.etape.videoChoice" alt="">
-			<div v-bind:class="{ active: isActive }">
-				<button>Culture de plante corona</button>
-				<button v-on:click="$emit('onClick')">L'eau s'est transformé en bière</button>
-			</div>
+	<div class="choices">
+		<img :src="this.etape.videoChoiceUn" alt="">
+		<div v-bind:class="{ active: isActive }">
+			<button>{{this.etape.btnChoiceUn}}</button>
+			<button v-on:click="$emit('onClick')">{{this.etape.btnChoiceDeux}}</button>
 		</div>
 	</div>
 </template>
@@ -37,20 +35,11 @@ export default {
 <style lang="scss" scoped>
 @import '@/assets/scss/_variables.scss';
 
-	.background{
+	.choices {
 		position: absolute;
+		top: 0;
 		width: 100%;
 		height: 100vh;
-		// background-image: url('../../public/assets/img/bg-choix.jpg');
-		// background-color: $cream;
-		background-position: center;
-		background-size: cover;
-		background-repeat: no-repeat;
-	}
-
-	.choices {
-		width: 100%;
-		height: 100%;
 		display: flex;
 		animation-duration: 3s;
 		animation-name: blackSail;

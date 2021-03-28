@@ -5,11 +5,11 @@
 			<Scene v-bind:etape="etapes[currentEtape]" v-on:objectClicked="handleShowChoices" :key="currentEtape" />
 		</transition>
 		<Objet />
-		<div>
-			<Jauge/>
-			<Timer/>
+		<div class="life">
+			<Jauge/>	
+			<Timer :key="currentEtape"/>
 		</div>
-		<Choices v-show="showChoices" v-bind:etape="etapes[currentEtape]" v-on:onClick="handleUpdateEtape" />
+		<Choices v-show="showChoices" v-bind:etape="etapes[currentEtape]" v-on:onClick="handleUpdateEtape"  />
 	</div>
 </template>
 
@@ -71,6 +71,13 @@ export default {
 
 body{
 	overflow-x: hidden;
+}
+
+.life {
+	position: absolute;
+	right: 10px;
+  	top: 20px;
+	z-index: 99999;
 }
 
 .fade-enter-active, .fade-leave-active {
