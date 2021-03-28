@@ -6,7 +6,7 @@
 		</transition>
 		<Objet />
 		<div class="life">
-			<Jauge/>	
+			<Jauge/>
 			<Timer :key="currentEtape"/>
 		</div>
 		<Choices v-show="showChoices" v-bind:etape="etapes[currentEtape]" v-on:onClick="handleUpdateEtape"  />

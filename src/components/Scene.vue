@@ -128,8 +128,7 @@ export default {
 					// router.push('/choices')
 					// const img1 = this.etape.videoChoice1
 					this.$emit('objectClicked')
-				}
-				else if (intersect.object.type === 'Sprite' && intersect.object.name === 'bouton2') {
+				} else if (intersect.object.type === 'Sprite' && intersect.object.name === 'bouton2') {
 					console.log(`nom : ${intersect.object.name}`)
 					this.$emit('objectClicked')
 				}
