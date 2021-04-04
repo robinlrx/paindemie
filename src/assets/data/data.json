@@ -2,7 +2,7 @@
 	"content": [
 		{
 			"id": 1,
-			"imageScene": "assets/img/room.jpg",
+			"imageScene": "assets/img/room360.jpg",
 			"objet1": "assets/img/gel-dop.png",
 			"objet2": "assets/img/fleurs.png",
 			"c1": {
@@ -15,6 +15,7 @@
 				"y": 0.096559551981131675,
 				"z": -0.7707364023383707
 			},
+			"objetQuestion": "assets/img/gel.png",
 			"videoChoiceUn": "assets/img/gel-dop.png",
 			"videoChoiceDeux": "assets/img/gel.png",
 			"btnChoiceUn": "Culture de plante corona",
@@ -35,13 +36,14 @@
 				"y": 0.096559551981131675,
 				"z": -0.7707364023383707
 			},
+			"objetQuestion": "assets/img/gel-dop.png",
 			"videoChoiceUn": "assets/img/fleurs.png",
 			"btnChoiceUn": "On avait pas de mains",
 			"btnChoiceDeux":"Danse des canards"
 		},
 		{
 			"id": 3,
-			"imageScene": "assets/img/room.jpg",
+			"imageScene": "assets/img/room360.jpg",
 			"objet1": "assets/img/info.png",
 			"objet2": "assets/img/info.png",
 			"c1": {

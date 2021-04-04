@@ -1,13 +1,15 @@
 <template>
 	<div class="objet">
-			<img src="assets/img/gel.png" alt="">
+			<img :src="this.etape.objetQuestion" alt="">
 			<p>Eh papi c'est quoi ça !?</p>
 	</div>
 </template>
 
 <script>
 export default {
-
+	props: {
+		etape: Object
+	}
 }
 </script>
 
@@ -15,7 +17,7 @@ export default {
 @import '@/assets/scss/_variables.scss';
 
 .objet {
-	z-index: 88;
+	z-index: 2;
 	position: absolute;
 	left: 2%;
 	bottom: 0;

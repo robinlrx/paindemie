@@ -28,6 +28,7 @@
 </template>
 
 <script>
+// import router from '../router/index'
 export default {
 	data () {
 		return {
@@ -45,7 +46,7 @@ export default {
 			}
 
 			this.heightJauge = this.heightJauge + this.counter
-			console.log(this.heightJauge)
+			console.log('jauge ' + this.heightJauge)
 		},
 		setColor () {
 			if (this.heightJauge <= 30) {
@@ -61,18 +62,16 @@ export default {
 			setInterval(() => {
 				this.heightJauge -= 2
 			}, 10000)
+			console.log('penality et jauge ' + this.heightJauge)
 		}
 	},
-	// mounted() {
-	//   	setInterval(() => {
-	//       localStorage.setItem('score', this.heightJauge);
-	//     localStorage.getItem(this.heightJauge);
-	// 	}, 1000)
-	// },
 	created: function () {
 		this.penality()
 		setInterval(() => {
 			this.setColor()
+			// if (this.heightJauge <= 0) {
+			// router.push('loose')
+			// }
 		}, 1000)
 	}
 }
@@ -109,8 +108,8 @@ export default {
   }
 }
 
-button {
-  position: relative;
-  z-index: 9999999999999;
-}
+// button {
+//   position: relative;
+//   z-index: 2;
+// }
 </style>

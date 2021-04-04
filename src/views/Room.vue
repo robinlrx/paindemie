@@ -4,7 +4,7 @@
 			<!-- Key-changing to force re-renders of a component -->
 			<Scene v-bind:etape="etapes[currentEtape]" v-on:objectClicked="handleShowChoices" :key="currentEtape" />
 		</transition>
-		<Objet />
+		<Objet v-bind:etape="etapes[currentEtape]" :key="currentEtape"/>
 		<div class="life">
 			<Jauge/>
 			<Timer :key="currentEtape"/>
@@ -76,8 +76,8 @@ body{
 .life {
 	position: absolute;
 	right: 10px;
-  	top: 20px;
-	z-index: 99999;
+	top: 20px;
+	z-index: 2;
 }
 
 .fade-enter-active, .fade-leave-active {
