@@ -3,7 +3,7 @@
 		<Loader/>
 
 		<div class="papi">
-			<img src="../assets/img/papi.png" alt="">
+			<img src="assets/img/papi.png" alt="">
 		</div>
 		<div class="txt-container">
 			<div class="txt">
@@ -18,6 +18,9 @@
 
 <script>
 import Loader from '@/components/Loader.vue'
+// import { GameAssetLoader } from '../helpers/gal.filesystem'
+
+// const gal = new GameAssetLoader('../dataloader/loader')
 
 export default {
 	name: 'Home',

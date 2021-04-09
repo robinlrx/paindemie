@@ -1,0 +1,171 @@
+{
+	"content": [
+		{
+			"id": 1,
+			"imageScene": "assets/img/room360.jpg",
+			"objet1": "assets/img/gel-dop.png",
+			"objet2": "assets/img/fleurs.png",
+			"c1": {
+				"x": 0.9779594454558286,
+				"y": 0.1236844167130562,
+				"z": 0.1683187365160478
+			},
+			"c2": {
+				"x": 0.6351041777159825,
+				"y": 0.096559551981131675,
+				"z": -0.7707364023383707
+			},
+			"objetQuestion": "assets/img/gel.png",
+			"videoChoiceUn": "assets/img/gel-dop.png",
+			"videoChoiceDeux": "assets/img/gel.png",
+			"btnChoiceUn": "Culture de plante corona",
+			"btnChoiceDeux":"L'eau s'est transformé en bière"
+		},
+		{
+			"id": 2,
+			"imageScene": "assets/img/360.jpg",
+			"objet1": "assets/img/info.png",
+			"objet2": "assets/img/info.png",
+			"c1": {
+				"x": 0.9522636831749526,
+				"y": 0.2753672840859653,
+				"z": -0.13178291452685512
+			},
+			"c2": {
+				"x": 0.6351041777159825,
+				"y": 0.096559551981131675,
+				"z": -0.7707364023383707
+			},
+			"objetQuestion": "assets/img/gel-dop.png",
+			"videoChoiceUn": "assets/img/fleurs.png",
+			"btnChoiceUn": "On avait pas de mains",
+			"btnChoiceDeux":"Danse des canards"
+		},
+		{
+			"id": 3,
+			"imageScene": "assets/img/room360.jpg",
+			"objet1": "assets/img/info.png",
+			"objet2": "assets/img/info.png",
+			"c1": {
+				"x": 0.9522636831749526,
+				"y": 0.2753672840859653,
+				"z": -0.13178291452685512
+			},
+			"c2": {
+				"x": 0.6351041777159825,
+				"y": 0.096559551981131675,
+				"z": -0.7707364023383707
+			},
+			"btnChoiceUn": "Action 1",
+			"btnChoiceDeux":"Action 2"
+		},
+		{
+			"id": 4,
+			"imageScene": "assets/img/360.jpg",
+			"objet1": "assets/img/info.png",
+			"objet2": "assets/img/info.png",
+			"c1": {
+				"x": 0.9522636831749526,
+				"y": 0.2753672840859653,
+				"z": -0.13178291452685512
+			},
+			"c2": {
+				"x": 0.6351041777159825,
+				"y": 0.096559551981131675,
+				"z": -0.7707364023383707
+			},
+			"btnChoiceUn": "Action 1",
+			"btnChoiceDeux":"Action 2"
+		},
+		{
+			"id": 5,
+			"imageScene": "assets/img/room.jpg",
+			"objet1": "assets/img/info.png",
+			"objet2": "assets/img/info.png",
+			"c1": {
+				"x": 0.9522636831749526,
+				"y": 0.2753672840859653,
+				"z": -0.13178291452685512
+			},
+			"c2": {
+				"x": 0.6351041777159825,
+				"y": 0.096559551981131675,
+				"z": -0.7707364023383707
+			},
+			"btnChoiceUn": "Action 1",
+			"btnChoiceDeux":"Action 2"
+		},
+		{
+			"id": 6,
+			"imageScene": "assets/img/360.jpg",
+			"objet1": "assets/img/info.png",
+			"objet2": "assets/img/info.png",
+			"c1": {
+				"x": 0.9522636831749526,
+				"y": 0.2753672840859653,
+				"z": -0.13178291452685512
+			},
+			"c2": {
+				"x": 0.6351041777159825,
+				"y": 0.096559551981131675,
+				"z": -0.7707364023383707
+			},
+			"btnChoiceUn": "Action 1",
+			"btnChoiceDeux":"Action 2"
+		},
+		{
+			"id": 7,
+			"imageScene": "assets/img/room.jpg",
+			"objet1": "assets/img/info.png",
+			"objet2": "assets/img/info.png",
+			"c1": {
+				"x": 0.9522636831749526,
+				"y": 0.2753672840859653,
+				"z": -0.13178291452685512
+			},
+			"c2": {
+				"x": 0.6351041777159825,
+				"y": 0.096559551981131675,
+				"z": -0.7707364023383707
+			},
+			"btnChoiceUn": "Action 1",
+			"btnChoiceDeux":"Action 2"
+		},
+		{
+			"id": 8,
+			"imageScene": "assets/img/360.jpg",
+			"objet1": "assets/img/info.png",
+			"objet2": "assets/img/info.png",
+			"c1": {
+				"x": 0.9522636831749526,
+				"y": 0.2753672840859653,
+				"z": -0.13178291452685512
+			},
+			"c2": {
+				"x": 0.6351041777159825,
+				"y": 0.096559551981131675,
+				"z": -0.7707364023383707
+			},
+			"btnChoiceUn": "Action 1",
+			"btnChoiceDeux":"Action 2"
+		},
+		{
+			"id": 9,
+			"imageScene": "assets/img/room.jpg",
+			"objet1": "assets/img/info.png",
+			"objet2": "assets/img/info.png",
+			"c1": {
+				"x": 0.9522636831749526,
+				"y": 0.2753672840859653,
+				"z": -0.13178291452685512
+			},
+			"c2": {
+				"x": 0.6351041777159825,
+				"y": 0.096559551981131675,
+				"z": -0.7707364023383707
+			},
+			"btnChoiceUn": "Action 1",
+			"btnChoiceDeux":"Action 2"
+		}
+	]
+}

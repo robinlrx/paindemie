@@ -7,16 +7,11 @@
 <script>
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
-import router from '../router/index'
-
-const gel = require('../assets/img/gel-dop.png')
-// const fleur = require('../assets/img/fleurs.png')
-const info = require('../assets/img/info.png')
-// const url = './'
-// const url2 = 'https://www.robinleroux.fr'
-// const url3 = './choices'
 
 export default {
+	props: {
+		etape: Object
+	},
 	data () {
 		return {
 			tall: 0,
@@ -24,14 +19,16 @@ export default {
 		}
 	},
 	mounted () {
+		console.log('etape:', this.etape)
+		// console.log('currentEtape:', this.currentEtape)
 		this.init()
-		this.addCoronaObject(new THREE.Vector3(0.9779594454558286, 0.1236844167130562, 0.1683187365160478), 'bouton', gel)
-		this.addCoronaObject(new THREE.Vector3(0.6351041777159825, 0.096559551981131675, -0.7707364023383707), 'bouton', info)
+		this.addCoronaObject(new THREE.Vector3(this.etape.c1.x, this.etape.c1.y, this.etape.c1.z), 'bouton1', this.etape.objet1)
+		this.addCoronaObject(new THREE.Vector3(this.etape.c2.x, this.etape.c2.y, this.etape.c2.z), 'bouton2', this.etape.objet2)
 	},
 	methods: {
 		init () {
-			const container = this.$refs.container
-			console.log(container)
+			// const container = this.$refs.container
+			// colnsole.log(container)
 			// Setup Scene
 			this.scene = new THREE.Scene()
 			this.camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 0.1, 1000)
@@ -69,7 +66,7 @@ export default {
 
 			// Sphere
 			const sphereGeometry = new THREE.SphereGeometry(50, 32, 32) // rayon , widthSeg, heightSeg
-			const room = require('../assets/img/room.jpg')
+			const room = this.etape.imageScene
 			const textureLoader = new THREE.TextureLoader()
 			const texture = textureLoader.load(room)
 			texture.wrapS = THREE.RepeatWrapping
@@ -87,11 +84,18 @@ export default {
 		},
 
 		// Fonction pour les afficher les icones cliquables
-		addCoronaObject (position, name, icon, route) {
-			const icons = new THREE.TextureLoader().load(icon)
+		addCoronaObject (position, name, icon) {
+			const manager = new THREE.LoadingManager()
+			const iconsLoader = new THREE.TextureLoader(manager)
+			const icons = iconsLoader.load(icon)
 			const spriteMaterial = new THREE.SpriteMaterial({
 				map: icons
 			})
+
+			const width = spriteMaterial.map
+			console.log('width:', width)
+			// const height = spriteMaterial.map.image.height
+			// console.log('height:', height)
 
 			this.sprite = new THREE.Sprite(spriteMaterial)
 			this.sprite.name = name
@@ -100,7 +104,7 @@ export default {
 
 			// this.position = new THREE.Vector3(30, 0, 0)
 			this.sprite.position.copy(position.clone().normalize().multiplyScalar(30))
-			this.sprite.scale.multiplyScalar(2)
+			this.sprite.scale.set(194 / 50, 338 / 50, 1)
 		},
 
 		onClick (e) {
@@ -114,23 +118,21 @@ export default {
 			const intersects = rayCaster.intersectObjects(this.scene.children)
 			console.log(intersects)
 
-			intersects.forEach(function (intersect) {
+			intersects.forEach(intersect => {
 				// Si on clique sur un sprite (les icones)
-				if (intersect.object.type === 'Sprite' && intersect.object.name === 'bouton') {
+				if (intersect.object.type === 'Sprite' && intersect.object.name === 'bouton1') {
 					console.log(`nom : ${intersect.object.name}`)
 					// console.log(`route : ${intersect.object.userData.route}`)
 					console.log(intersect.object)
 					// const route = intersect.object.userData.route // Avoir accès a l'objet route dans intersect
-					router.push('/choices')
+					// router.push('/choices')
+					// const img1 = this.etape.videoChoice1
+					this.$emit('objectClicked')
+				} else if (intersect.object.type === 'Sprite' && intersect.object.name === 'bouton2') {
+					console.log(`nom : ${intersect.object.name}`)
+					this.$emit('objectClicked')
 				}
 			})
-
-			// console.log(rayCaster.setFromCamera(mouse))
-			// const intersects = rayCaster.intersectObject(this.sphere)
-			// if (intersects > 0) {
-			//  console.log(intersects[0].point)
-			//  this.addCoronaObject(intersects[0].point)
-			// }
 		},
 
 		update () {

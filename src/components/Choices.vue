@@ -1,17 +1,18 @@
 <template>
-<div class="background">
 	<div class="choices">
-		<img src="../assets/img/gel-dop.png" alt="">
+		<img :src="this.etape.videoChoiceUn" alt="">
 		<div v-bind:class="{ active: isActive }">
-			<button>Culture de plante corona</button>
-			<button>L'eau s'est transformé en bière</button>
+			<button>{{this.etape.btnChoiceUn}}</button>
+			<button v-on:click="$emit('onClick')">{{this.etape.btnChoiceDeux}}</button>
 		</div>
 	</div>
-</div>
 </template>
 
 <script>
 export default {
+	props: {
+		etape: Object
+	},
 	data () {
 		return {
 			isActive: false
@@ -24,7 +25,7 @@ export default {
 		showButtons () {
 			setTimeout(() => {
 				this.isActive = true
-				console.log('test')
+				// console.log('is active')
 			}, 3000)
 		}
 	}
@@ -34,30 +35,20 @@ export default {
 <style lang="scss" scoped>
 @import '@/assets/scss/_variables.scss';
 
-	.background{
+	.choices {
 		position: absolute;
+		top: 0;
 		width: 100%;
 		height: 100vh;
-		background-image: url('../assets/img/bg-choix.jpg');
-		// background-color: $cream;
-		background-position: center;
-		background-size: cover;
-		background-repeat: no-repeat;
-		z-index: -2;
-	}
-
-	.choices {
-		width: 100%;
-		height: 100%;
 		display: flex;
 		animation-duration: 3s;
-  		animation-name: blackSail;
+		animation-name: blackSail;
 		animation-fill-mode: forwards;
 
 		img {
 			margin: auto;
 			animation-duration: 3s;
-  			animation-name: zoom;
+			animation-name: zoom;
 			animation-fill-mode: forwards;
 		}
 

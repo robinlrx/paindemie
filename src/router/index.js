@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Room from '../views/Room.vue'
 import Choices from '../components/Choices.vue'
+import Loose from '../views/Loose.vue'
 
 Vue.use(VueRouter)
 
@@ -21,6 +22,11 @@ const routes = [
 		path: '/choices',
 		name: 'Choices',
 		component: Choices
+	},
+	{
+		path: '/loose',
+		name: 'Loose',
+		component: Loose
 	}
 ]
 
