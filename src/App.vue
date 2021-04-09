@@ -1,8 +1,8 @@
 <template>
 	<div id="app">
-		<div class="phone-hide">
+		<!-- <div class="phone-hide">
 			<p class="phone-message">Cette expérience n'est pas disponible sur tablette et mobile.</p>
-		</div>
+		</div> -->
 		<div id="nav">
 			<router-link to="/">Home</router-link> |
 			<router-link to="/room">Room</router-link> |
