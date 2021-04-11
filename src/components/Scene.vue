@@ -105,6 +105,7 @@ export default {
 			// this.position = new THREE.Vector3(30, 0, 0)
 			this.sprite.position.copy(position.clone().normalize().multiplyScalar(30))
 			this.sprite.scale.set(194 / 50, 338 / 50, 1)
+			// TODO if ?
 		},
 
 		onClick (e) {
