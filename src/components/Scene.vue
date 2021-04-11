@@ -49,12 +49,12 @@ export default {
 			})
 
 			// Display axes
-			const axesHelper = new THREE.AxesHelper(100)
+			const axesHelper = new THREE.AxesHelper(500)
 			this.scene.add(axesHelper) // The X axis is red. The Y axis is green. The Z axis is blue.
 
 			// Orbit controls
 			const controls = new OrbitControls(this.camera, this.$refs.canvas)
-			this.camera.position.set(-3, 0, 0)
+			this.camera.position.set(0, 0, 5)
 			controls.rotateSpeed = 0.5
 			controls.enableZoom = false
 			controls.enablePan = false
@@ -92,8 +92,8 @@ export default {
 				map: icons
 			})
 
-			const width = spriteMaterial.map
-			console.log('width:', width)
+			// const width = spriteMaterial.map
+			// console.log('width:', width)
 			// const height = spriteMaterial.map.image.height
 			// console.log('height:', height)
 

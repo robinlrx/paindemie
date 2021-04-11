@@ -46,7 +46,7 @@ export default {
 			}
 
 			this.heightJauge = this.heightJauge + this.counter
-			console.log('jauge ' + this.heightJauge)
+			// console.log('jauge ' + this.heightJauge)
 		},
 		setColor () {
 			if (this.heightJauge <= 30) {
@@ -56,13 +56,13 @@ export default {
 			} else {
 				this.jaugeColor = '#ACDEA4'
 			}
-			console.log(this.jaugeColor)
+			// console.log(this.jaugeColor)
 		},
 		penality () {
 			setInterval(() => {
 				this.heightJauge -= 2
 			}, 10000)
-			console.log('penality et jauge ' + this.heightJauge)
+			// console.log('penality et jauge ' + this.heightJauge)
 		}
 	},
 	created: function () {

@@ -3,17 +3,17 @@
 		{
 			"id": 1,
 			"imageScene": "assets/img/room360.jpg",
-			"objet1": "assets/img/gel-dop.png",
+			"objet1": "assets/img/biere.png",
 			"objet2": "assets/img/fleurs.png",
 			"c1": {
-				"x": 0.9779594454558286,
-				"y": 0.1236844167130562,
-				"z": 0.1683187365160478
+				"x": 0.8490313550393424,
+				"y": -0.3617044019957431,
+				"z": -0.45897338063999804
 			},
 			"c2": {
-				"x": 0.6351041777159825,
-				"y": 0.096559551981131675,
-				"z": -0.7707364023383707
+				"x": 0.49018442748058455,
+				"y": 0.13477427754264027,
+				"z": -0.8652985483756166
 			},
 			"objetQuestion": "assets/img/gel.png",
 			"videoChoiceUn": "assets/img/gel-dop.png",
@@ -23,7 +23,7 @@
 		},
 		{
 			"id": 2,
-			"imageScene": "assets/img/360.jpg",
+			"imageScene": "assets/img/room360.jpg",
 			"objet1": "assets/img/info.png",
 			"objet2": "assets/img/info.png",
 			"c1": {
@@ -61,7 +61,7 @@
 		},
 		{
 			"id": 4,
-			"imageScene": "assets/img/360.jpg",
+			"imageScene": "assets/img/room360.jpg",
 			"objet1": "assets/img/info.png",
 			"objet2": "assets/img/info.png",
 			"c1": {
@@ -79,7 +79,7 @@
 		},
 		{
 			"id": 5,
-			"imageScene": "assets/img/room.jpg",
+			"imageScene": "assets/img/room360.jpg",
 			"objet1": "assets/img/info.png",
 			"objet2": "assets/img/info.png",
 			"c1": {
@@ -97,7 +97,7 @@
 		},
 		{
 			"id": 6,
-			"imageScene": "assets/img/360.jpg",
+			"imageScene": "assets/img/room360.jpg",
 			"objet1": "assets/img/info.png",
 			"objet2": "assets/img/info.png",
 			"c1": {
@@ -115,7 +115,7 @@
 		},
 		{
 			"id": 7,
-			"imageScene": "assets/img/room.jpg",
+			"imageScene": "assets/img/room360.jpg",
 			"objet1": "assets/img/info.png",
 			"objet2": "assets/img/info.png",
 			"c1": {
@@ -133,7 +133,7 @@
 		},
 		{
 			"id": 8,
-			"imageScene": "assets/img/360.jpg",
+			"imageScene": "assets/img/room360.jpg",
 			"objet1": "assets/img/info.png",
 			"objet2": "assets/img/info.png",
 			"c1": {
@@ -151,7 +151,7 @@
 		},
 		{
 			"id": 9,
-			"imageScene": "assets/img/room.jpg",
+			"imageScene": "assets/img/room360.jpg",
 			"objet1": "assets/img/info.png",
 			"objet2": "assets/img/info.png",
 			"c1": {
