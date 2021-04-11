@@ -51,7 +51,7 @@ export default {
 
 		.path:first-child {
 			animation-duration: 2s;
-		animation-name: left;
+		animation-name: leftAnimation;
 		animation-iteration-count: infinite;
 		transition: none;
 		}
@@ -65,7 +65,7 @@ export default {
 
 		.path:last-child {
 			animation-duration: 2s;
-		animation-name: right;
+		animation-name: rightAnimation;
 		animation-iteration-count: infinite;
 		transition: none;
 		}
@@ -84,7 +84,7 @@ export default {
 	}
 }
 
-@keyframes left{
+@keyframes leftAnimation{
 0% {
     transform: translateX(50px);
 	opacity: 0;
@@ -100,7 +100,7 @@ export default {
     }
 }
 
-@keyframes right{
+@keyframes rightAnimation{
 0% {
     transform: translateX(-50px);
 	opacity: 0;
