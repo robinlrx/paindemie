@@ -54,7 +54,7 @@ export default {
 			this.scene.add(axesHelper) // The X axis is red. The Y axis is green. The Z axis is blue.
 
 			// Orbit controls
-			const controls = new OrbitControls(this.camera, this.$refs.canvas)
+			const controls = new OrbitControls(this.camera, this.renderer.domElement)
 			this.camera.position.set(0, 0, 5)
 			controls.rotateSpeed = 0.5
 			controls.enableZoom = false

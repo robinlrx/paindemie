@@ -27,6 +27,10 @@ export default {
 		start () {
 			this.timer = setInterval(() => {
 				this.elapsedTime += 1000
+				if (this.elapsedTime % 10000 === 0) {
+					this.$emit('onPenality', -2)
+				}
+				// console.log(this.elapsedTime % 10000 === 0)
 			}, 1000)
 		},
 

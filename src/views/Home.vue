@@ -1,6 +1,6 @@
 <template>
 	<section class="home">
-		<Loader/>
+		<Loader v-show="show"/>
 
 		<div class="papi">
 			<img src="assets/img/papi.png" alt="">
@@ -18,20 +18,37 @@
 
 <script>
 import Loader from '@/components/Loader.vue'
-// import { GameAssetLoader } from '../helpers/gal.filesystem'
-
-// const gal = new GameAssetLoader('../dataloader/loader')
+import * as load from 'load-asset'
 
 export default {
 	name: 'Home',
 	data () {
 		return {
+			show: true
 		}
 	},
 	components: {
 		Loader
 	},
 	methods: {
+		async render () {
+		// Load a list of named assets in parallel
+			const assetsImages = ['assets/img/bg-choix.jpg',
+				'assets/img/fleurs.png',
+				'assets/img/gel-dop.png',
+				'assets/img/gel.png',
+				'assets/img/info.png',
+				'assets/img/papi.png',
+				'assets/img/room.jpg']
+
+			const itemsImages = await load.all(assetsImages)
+			console.log(itemsImages)
+
+			this.show = false
+		}
+	},
+	mounted () {
+		this.render()
 	}
 }
 </script>
