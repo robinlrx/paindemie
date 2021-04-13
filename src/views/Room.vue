@@ -28,7 +28,7 @@ export default {
 		return {
 			showChoices: false,
 			etapes: data.content,
-			currentEtape: 0
+			currentEtape: 4
 		}
 	},
 	methods: {

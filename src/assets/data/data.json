@@ -1,10 +1,18 @@
 {
 	"content": [
 		{
-			"id": 1,
+			"id": 0,
 			"imageScene": "assets/img/room360.jpg",
-			"objet1": "assets/img/biere.png",
-			"objet2": "assets/img/fleurs.png",
+			"objet1": {
+				"url": "assets/img/biere.png",
+				"width": 150,
+				"height": 470
+			},
+			"objet2":{
+				"url": "assets/img/fleurs.png",
+				"width": 194,
+				"height": 338
+			},
 			"c1": {
 				"x": 0.8490313550393424,
 				"y": -0.3617044019957431,
@@ -22,30 +30,82 @@
 			"btnChoiceDeux":"L'eau s'est transformé en bière"
 		},
 		{
-			"id": 2,
+			"id": 1,
 			"imageScene": "assets/img/room360.jpg",
-			"objet1": "assets/img/info.png",
-			"objet2": "assets/img/info.png",
+			"objet1": {
+				"url": "assets/img/info.png",
+				"width": 194,
+				"height": 338
+			} ,
+			"objet2": {
+				"url": "assets/img/cafard.png",
+				"width": 194,
+				"height": 338
+			},
 			"c1": {
 				"x": 0.9522636831749526,
 				"y": 0.2753672840859653,
 				"z": -0.13178291452685512
 			},
 			"c2": {
-				"x": 0.6351041777159825,
-				"y": 0.096559551981131675,
-				"z": -0.7707364023383707
+				"x": 0.3140010677348484,
+				"y": -0.776383476508857,
+				"z": -0.5464723477591489
 			},
-			"objetQuestion": "assets/img/gel-dop.png",
+			"objetQuestion": "assets/img/gel-dopp.png",
 			"videoChoiceUn": "assets/img/fleurs.png",
 			"btnChoiceUn": "On avait pas de mains",
 			"btnChoiceDeux":"Danse des canards"
 		},
 		{
+			"id": 2,
+			"imageScene": "assets/img/room360.jpg",
+			"objet1": {
+				"url": "assets/img/brosse-a-dents.png",
+				"width": 90,
+				"height": 120
+			} ,
+			"objet2": {
+				"url": "assets/img/hamac.png",
+				"width": 400,
+				"height": 338
+			},
+			"objet3": {
+				"url": "assets/img/masque-avion.png",
+				"width": 500,
+				"height": 900
+			},
+			"c1": {
+				"x": -0.38015606564465265,
+				"y": -0.3199997364456868,
+				"z": 0.887424109020288
+			},
+			"c2": {
+				"x": 0.8451830007326516,
+				"y": 0.03260465892002011,
+				"z": 0.5334816130751457
+			},
+			"c3": {
+				"x": -0.1007884804807558735,
+				"y": -0.9786805626536727,
+				"z": 0.4774095172000207
+			},
+			"btnChoiceUn": "Action 1",
+			"btnChoiceDeux":"Action 2"
+		},
+		{
 			"id": 3,
 			"imageScene": "assets/img/room360.jpg",
-			"objet1": "assets/img/info.png",
-			"objet2": "assets/img/info.png",
+			"objet1": {
+				"url": "assets/img/info.png",
+				"width": 194,
+				"height": 338
+			} ,
+			"objet2": {
+				"url": "assets/img/info.png",
+				"width": 194,
+				"height": 338
+			},
 			"c1": {
 				"x": 0.9522636831749526,
 				"y": 0.2753672840859653,
@@ -62,17 +122,35 @@
 		{
 			"id": 4,
 			"imageScene": "assets/img/room360.jpg",
-			"objet1": "assets/img/info.png",
-			"objet2": "assets/img/info.png",
+			"objet1": {
+				"url": "assets/img/medicaments.png",
+				"width": 180,
+				"height": 220
+			} ,
+			"objet2": {
+				"url": "assets/img/gel-dop.png",
+				"width": 100,
+				"height": 100
+			},
+			"objet3": {
+				"url": "assets/img/superman.png",
+				"width": 134,
+				"height": 200
+			},
 			"c1": {
-				"x": 0.9522636831749526,
-				"y": 0.2753672840859653,
-				"z": -0.13178291452685512
+				"x": 0.8306336565603506,
+				"y": -0.4134545267285413,
+				"z": -0.372965256983622
 			},
 			"c2": {
-				"x": 0.6351041777159825,
-				"y": 0.096559551981131675,
-				"z": -0.7707364023383707
+				"x": -0.21,
+				"y": -0.01141312032806045,
+				"z": 0.9821037801110135
+			},
+			"c3": {
+				"x": 0.9796175933674416,
+				"y": 0.10568885314873233,
+				"z": 0.17081931121827995
 			},
 			"btnChoiceUn": "Action 1",
 			"btnChoiceDeux":"Action 2"
@@ -80,8 +158,16 @@
 		{
 			"id": 5,
 			"imageScene": "assets/img/room360.jpg",
-			"objet1": "assets/img/info.png",
-			"objet2": "assets/img/info.png",
+			"objet1": {
+				"url": "assets/img/info.png",
+				"width": 194,
+				"height": 338
+			} ,
+			"objet2": {
+				"url": "assets/img/info.png",
+				"width": 194,
+				"height": 338
+			},
 			"c1": {
 				"x": 0.9522636831749526,
 				"y": 0.2753672840859653,
@@ -98,8 +184,16 @@
 		{
 			"id": 6,
 			"imageScene": "assets/img/room360.jpg",
-			"objet1": "assets/img/info.png",
-			"objet2": "assets/img/info.png",
+			"objet1": {
+				"url": "assets/img/info.png",
+				"width": 194,
+				"height": 338
+			} ,
+			"objet2": {
+				"url": "assets/img/info.png",
+				"width": 194,
+				"height": 338
+			},
 			"c1": {
 				"x": 0.9522636831749526,
 				"y": 0.2753672840859653,
@@ -116,8 +210,16 @@
 		{
 			"id": 7,
 			"imageScene": "assets/img/room360.jpg",
-			"objet1": "assets/img/info.png",
-			"objet2": "assets/img/info.png",
+			"objet1": {
+				"url": "assets/img/info.png",
+				"width": 194,
+				"height": 338
+			} ,
+			"objet2": {
+				"url": "assets/img/info.png",
+				"width": 194,
+				"height": 338
+			},
 			"c1": {
 				"x": 0.9522636831749526,
 				"y": 0.2753672840859653,
@@ -134,26 +236,16 @@
 		{
 			"id": 8,
 			"imageScene": "assets/img/room360.jpg",
-			"objet1": "assets/img/info.png",
-			"objet2": "assets/img/info.png",
-			"c1": {
-				"x": 0.9522636831749526,
-				"y": 0.2753672840859653,
-				"z": -0.13178291452685512
+			"objet1": {
+				"url": "assets/img/info.png",
+				"width": 194,
+				"height": 338
+			} ,
+			"objet2": {
+				"url": "assets/img/info.png",
+				"width": 194,
+				"height": 338
 			},
-			"c2": {
-				"x": 0.6351041777159825,
-				"y": 0.096559551981131675,
-				"z": -0.7707364023383707
-			},
-			"btnChoiceUn": "Action 1",
-			"btnChoiceDeux":"Action 2"
-		},
-		{
-			"id": 9,
-			"imageScene": "assets/img/room360.jpg",
-			"objet1": "assets/img/info.png",
-			"objet2": "assets/img/info.png",
 			"c1": {
 				"x": 0.9522636831749526,
 				"y": 0.2753672840859653,

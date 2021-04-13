@@ -22,8 +22,9 @@ export default {
 		console.log('etape:', this.etape)
 		// console.log('currentEtape:', this.currentEtape)
 		this.init()
-		this.addCoronaObject(new THREE.Vector3(this.etape.c1.x, this.etape.c1.y, this.etape.c1.z), 'bouton1', this.etape.objet1)
-		this.addCoronaObject(new THREE.Vector3(this.etape.c2.x, this.etape.c2.y, this.etape.c2.z), 'bouton2', this.etape.objet2)
+		this.addCoronaObject(new THREE.Vector3(this.etape.c1.x, this.etape.c1.y, this.etape.c1.z), 'bouton1', this.etape.objet1.url)
+		this.addCoronaObject(new THREE.Vector3(this.etape.c2.x, this.etape.c2.y, this.etape.c2.z), 'bouton2', this.etape.objet2.url)
+		this.addCoronaObject(new THREE.Vector3(this.etape.c3.x, this.etape.c3.y, this.etape.c3.z), 'bouton3', this.etape.objet3.url)
 	},
 	methods: {
 		init () {
@@ -104,7 +105,13 @@ export default {
 
 			// this.position = new THREE.Vector3(30, 0, 0)
 			this.sprite.position.copy(position.clone().normalize().multiplyScalar(30))
-			this.sprite.scale.set(194 / 50, 338 / 50, 1)
+			if (name === 'bouton1') {
+				this.sprite.scale.set(this.etape.objet1.width / 50, this.etape.objet1.height / 50, 1)
+			} else if (name === 'bouton2') {
+				this.sprite.scale.set(this.etape.objet2.width / 50, this.etape.objet2.height / 50, 1)
+			} else {
+				this.sprite.scale.set(this.etape.objet3.width / 50, this.etape.objet3.height / 50, 1)
+			}
 			// TODO if ?
 		},
 
