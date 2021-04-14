@@ -1,5 +1,6 @@
 <template>
 	<div class="choices">
+		<canvas ref="canvas" class="canvas"></canvas>
 		<img :src="this.etape.videoChoiceUn" alt="">
 		<div v-bind:class="{ active: isActive }">
 			<button>{{this.etape.btnChoiceUn}}</button>
@@ -9,6 +10,13 @@
 </template>
 
 <script>
+import * as THREE from 'three'
+import Mouse from "../utils/mouse"
+import wfrag from '../shaders/wave.frag'
+import wvert from '../shaders/wave.vert'
+
+const { split } = require('lodash')
+
 export default {
 	props: {
 		etape: Object
@@ -20,6 +28,51 @@ export default {
 	},
 	mounted () {
 		this.showButtons()
+
+		var scene = new THREE.Scene();
+		var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+		const canvas = this.$refs.canvas
+		// console.log(canvas	)
+		var renderer = new THREE.WebGLRenderer({
+		canvas: canvas,
+		alpha: true
+		});
+		renderer.setSize(window.innerWidth, window.innerHeight)
+		renderer.setPixelRatio(window.devicePixelRatio)
+
+		window.addEventListener('resize', () => {
+			renderer.setSize(window.innerWidth, window.innerHeight)
+			renderer.setPixelRatio(window.devicePixelRatio)
+		})
+
+		let time = 0
+
+		const geometry = new THREE.PlaneBufferGeometry(2, 2, 1, 1)
+
+		let material = new THREE.RawShaderMaterial({
+		uniforms: {
+			time: { value: 1.0 },
+			rez: { type: "v2", value: [canvas.width, canvas.height] },
+			mouse: { type: "v2", value: Mouse.cursor }
+		},
+		vertexShader: wvert,
+		fragmentShader: wfrag,
+		});
+
+		material.uniforms.time.value = time
+		material.uniforms.mouse.value = Mouse.cursor
+
+		const mesh = new THREE.Mesh(geometry, material)
+    	scene.add(mesh)
+
+
+		const update = () => {
+			requestAnimationFrame(update)
+			time += 0.01
+			renderer.render(scene, camera);
+		}
+
+		requestAnimationFrame(update)
 	},
 	methods: {
 		showButtons () {
@@ -44,6 +97,12 @@ export default {
 		animation-duration: 3s;
 		animation-name: blackSail;
 		animation-fill-mode: forwards;
+
+		.canvas {
+			position: absolute;
+			// width: 100%;
+			// height: 100vh;
+		}
 
 		img {
 			margin: auto;
