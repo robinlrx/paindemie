@@ -11,7 +11,7 @@
 
 <script>
 import * as THREE from 'three'
-import Mouse from "../utils/mouse"
+import Mouse from '../utils/mouse'
 import wfrag from '../shaders/wave.frag'
 import wvert from '../shaders/wave.vert'
 
@@ -29,14 +29,14 @@ export default {
 	mounted () {
 		this.showButtons()
 
-		var scene = new THREE.Scene();
-		var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+		var scene = new THREE.Scene()
+		var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000)
 		const canvas = this.$refs.canvas
 		// console.log(canvas	)
 		var renderer = new THREE.WebGLRenderer({
-		canvas: canvas,
-		alpha: true
-		});
+			canvas: canvas,
+			alpha: true
+		})
 		renderer.setSize(window.innerWidth, window.innerHeight)
 		renderer.setPixelRatio(window.devicePixelRatio)
 
@@ -49,15 +49,15 @@ export default {
 
 		const geometry = new THREE.PlaneBufferGeometry(2, 2, 1, 1)
 
-		let material = new THREE.RawShaderMaterial({
-		uniforms: {
-			time: { value: 1.0 },
-			rez: { type: "v2", value: [canvas.width, canvas.height] },
-			mouse: { type: "v2", value: Mouse.cursor }
-		},
-		vertexShader: wvert,
-		fragmentShader: wfrag,
-		});
+		const material = new THREE.RawShaderMaterial({
+			uniforms: {
+				time: { value: 1.0 },
+				rez: { type: 'v2', value: [canvas.width, canvas.height] },
+				mouse: { type: 'v2', value: Mouse.cursor }
+			},
+			vertexShader: wvert,
+			fragmentShader: wfrag
+		})
 
 		material.uniforms.time.value = time
 		material.uniforms.mouse.value = Mouse.cursor
@@ -65,11 +65,10 @@ export default {
 		const mesh = new THREE.Mesh(geometry, material)
     	scene.add(mesh)
 
-
 		const update = () => {
 			requestAnimationFrame(update)
 			time += 0.01
-			renderer.render(scene, camera);
+			renderer.render(scene, camera)
 		}
 
 		requestAnimationFrame(update)
