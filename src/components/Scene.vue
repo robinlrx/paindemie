@@ -22,8 +22,9 @@ export default {
 		console.log('etape:', this.etape)
 		// console.log('currentEtape:', this.currentEtape)
 		this.init()
-		this.addCoronaObject(new THREE.Vector3(this.etape.c1.x, this.etape.c1.y, this.etape.c1.z), 'bouton1', this.etape.objet1)
-		this.addCoronaObject(new THREE.Vector3(this.etape.c2.x, this.etape.c2.y, this.etape.c2.z), 'bouton2', this.etape.objet2)
+		this.addCoronaObject(new THREE.Vector3(this.etape.c1.x, this.etape.c1.y, this.etape.c1.z), 'bouton1', this.etape.objet1.url)
+		this.addCoronaObject(new THREE.Vector3(this.etape.c2.x, this.etape.c2.y, this.etape.c2.z), 'bouton2', this.etape.objet2.url)
+		this.addCoronaObject(new THREE.Vector3(this.etape.c3.x, this.etape.c3.y, this.etape.c3.z), 'bouton3', this.etape.objet3.url)
 	},
 	methods: {
 		init () {
@@ -49,19 +50,19 @@ export default {
 			})
 
 			// Display axes
-			const axesHelper = new THREE.AxesHelper(100)
+			const axesHelper = new THREE.AxesHelper(500)
 			this.scene.add(axesHelper) // The X axis is red. The Y axis is green. The Z axis is blue.
 
 			// Orbit controls
-			const controls = new OrbitControls(this.camera, this.$refs.canvas)
-			this.camera.position.set(-3, 0, 0)
+			const controls = new OrbitControls(this.camera, this.renderer.domElement)
+			this.camera.position.set(0, 0, 5)
 			controls.rotateSpeed = 0.5
 			controls.enableZoom = false
 			controls.enablePan = false
 			// controls.minPolarAngle = 0 // vertical
 			// controls.maxPolarAngle = Math.PI * 0.5 // vertical
-			controls.minAzimuthAngle = Math.PI // radians (axe  horizontal)
-			controls.maxAzimuthAngle = 0 // radians (axe  horizontal)
+			controls.minAzimuthAngle = Math.PI - 0.5 // radians (axe  horizontal)
+			controls.maxAzimuthAngle = 0.5 // radians (axe  horizontal)
 			controls.update()
 
 			// Sphere
@@ -92,8 +93,8 @@ export default {
 				map: icons
 			})
 
-			const width = spriteMaterial.map
-			console.log('width:', width)
+			// const width = spriteMaterial.map
+			// console.log('width:', width)
 			// const height = spriteMaterial.map.image.height
 			// console.log('height:', height)
 
@@ -104,7 +105,14 @@ export default {
 
 			// this.position = new THREE.Vector3(30, 0, 0)
 			this.sprite.position.copy(position.clone().normalize().multiplyScalar(30))
-			this.sprite.scale.set(194 / 50, 338 / 50, 1)
+			if (name === 'bouton1') {
+				this.sprite.scale.set(this.etape.objet1.width / 50, this.etape.objet1.height / 50, 1)
+			} else if (name === 'bouton2') {
+				this.sprite.scale.set(this.etape.objet2.width / 50, this.etape.objet2.height / 50, 1)
+			} else {
+				this.sprite.scale.set(this.etape.objet3.width / 50, this.etape.objet3.height / 50, 1)
+			}
+			// TODO if ?
 		},
 
 		onClick (e) {

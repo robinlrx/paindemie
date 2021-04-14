@@ -6,8 +6,8 @@
 		</transition>
 		<Objet v-bind:etape="etapes[currentEtape]" :key="currentEtape"/>
 		<div class="life">
-			<Jauge/>
-			<Timer :key="currentEtape"/>
+			<Jauge v-bind:score="score" v-on:onPenality="handlePenality"/>
+			<Timer :key="currentEtape" v-on:onPenality="handlePenality"/>
 		</div>
 		<Choices v-show="showChoices" v-bind:etape="etapes[currentEtape]" v-on:onClick="handleUpdateEtape"  />
 	</div>
@@ -16,6 +16,7 @@
 <script>
 // @ is an alias to /src
 import data from '../assets/data/data.json'
+import router from '../router/index'
 
 import Scene from '@/components/Scene.vue'
 import Objet from '@/components/Objet.vue'
@@ -28,7 +29,8 @@ export default {
 		return {
 			showChoices: false,
 			etapes: data.content,
-			currentEtape: 0
+			currentEtape: 0,
+			score: 100
 		}
 	},
 	methods: {
@@ -37,7 +39,6 @@ export default {
 			this.showChoices = !this.showChoices
 		},
 		handleUpdateEtape () {
-			console.log('slt')
 			this.handleShowChoices() // unShow choices
 
 			if (this.currentEtape === 8) {
@@ -45,6 +46,14 @@ export default {
 			} else {
 				this.currentEtape += 1
 				console.log('currentEtape:', this.currentEtape)
+			}
+		},
+		handlePenality (penality) {
+			this.score += penality
+			console.log('testpenality', this.score, penality)
+
+			if (this.score <= 0) {
+				router.push('loose')
 			}
 		}
 	},

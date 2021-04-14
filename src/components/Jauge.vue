@@ -21,32 +21,38 @@
       </svg>
 
     </div>
-    <button v-on:click="counter = -5; setHeight()">-5</button>
-    <button v-on:click="counter = -10; setHeight()">-10</button>
-    <button v-on:click="counter = 5; setHeight()">+5</button>
+    <button v-on:click="$emit('onPenality', -5)">-5</button>
+    <button v-on:click="$emit('onPenality', -10)">-10</button>
+    <button v-on:click="$emit('onPenality', 5)">+5</button>
   </div>
 </template>
 
 <script>
 // import router from '../router/index'
 export default {
+	props: {
+		score: Number
+	},
 	data () {
 		return {
-			counter: 0,
-			heightJauge: 100,
+			heightJauge: this.score,
 			jaugeColor: '#ACDEA4'
 		}
 	},
+	watch: {
+		score: function (value) {
+			this.heightJauge = value
+		}
+	},
 	methods: {
-		setHeight () {
+		setHeight (penality) {
+			this.heightJauge = this.heightJauge + penality
+
 			if (this.heightJauge >= 100) {
 				this.heightJauge = 100
 			} else if (this.heightJauge <= 0) {
 				this.heightJauge = 0
 			}
-
-			this.heightJauge = this.heightJauge + this.counter
-			console.log('jauge ' + this.heightJauge)
 		},
 		setColor () {
 			if (this.heightJauge <= 30) {
@@ -56,22 +62,12 @@ export default {
 			} else {
 				this.jaugeColor = '#ACDEA4'
 			}
-			console.log(this.jaugeColor)
-		},
-		penality () {
-			setInterval(() => {
-				this.heightJauge -= 2
-			}, 10000)
-			console.log('penality et jauge ' + this.heightJauge)
+			// console.log(this.jaugeColor)
 		}
 	},
 	created: function () {
-		this.penality()
 		setInterval(() => {
 			this.setColor()
-			// if (this.heightJauge <= 0) {
-			// router.push('loose')
-			// }
 		}, 1000)
 	}
 }
