@@ -1,5 +1,5 @@
 <template>
-	<div ref="container" v-on:click="onClick">
+	<div ref="container" v-on:click="onClick" v-on:mouseover="onMouseover">
 		<canvas ref="canvas" class="canvas"></canvas>
 	</div>
 </template>
@@ -12,10 +12,11 @@ export default {
 	props: {
 		etape: Object
 	},
-	data () {
+	data (e) {
 		return {
 			tall: 0,
-			sprite: null
+			sprite: null,
+			rayCaster: new THREE.Raycaster()
 		}
 	},
 	mounted () {
@@ -117,13 +118,10 @@ export default {
 
 		onClick (e) {
 			const mouse = new THREE.Vector2((e.clientX / window.innerWidth) * 2 - 1, -(e.clientY / window.innerHeight) * 2 + 1)
-
-			const rayCaster = new THREE.Raycaster()
-			// console.log(rayCaster)
 			console.log('direction xyz point')
-			console.log(rayCaster.ray.direction)
-			rayCaster.setFromCamera(mouse, this.camera)
-			const intersects = rayCaster.intersectObjects(this.scene.children)
+			console.log(this.rayCaster.ray.direction)
+			this.rayCaster.setFromCamera(mouse, this.camera)
+			const intersects = this.rayCaster.intersectObjects(this.scene.children)
 			console.log(intersects)
 
 			intersects.forEach(intersect => {
@@ -142,6 +140,30 @@ export default {
 				}
 			})
 		},
+
+		onMouseover (e) {
+			const mouse = new THREE.Vector2((e.clientX / window.innerWidth) * 2 - 1, -(e.clientY / window.innerHeight) * 2 + 1)
+			this.rayCaster.setFromCamera(mouse, this.camera)
+			const intersects = this.rayCaster.intersectObjects(this.scene.children)
+			intersects.forEach(intersect => {
+				// Si on clique sur un sprite (les icones)
+				if (intersect.object.type === 'Sprite') {
+					const p = intersect.object.position.clone().project(this.camera)
+					console.log(p)
+				}
+			})
+		},
+
+		// onLeave (e) {
+		// const mouse = new THREE.Vector2((e.clientX / window.innerWidth) * 2 - 1, -(e.clientY / window.innerHeight) * 2 + 1)
+		// this.rayCaster.setFromCamera(mouse, this.camera)
+		// const intersects = this.rayCaster.intersectObjects(this.scene.children)
+		// intersects.forEach(intersect => {
+		// f (intersect.object.type === 'Sprite') {
+		// console.log('leave du sprite')
+		// }
+		// })
+		// },
 
 		update () {
 			this.renderer.render(this.scene, this.camera)
