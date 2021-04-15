@@ -4,7 +4,7 @@
 			<!-- Key-changing to force re-renders of a component -->
 			<Scene v-bind:etape="etapes[currentEtape]" v-on:objectClicked="handleShowChoices" :key="currentEtape" />
 		</transition>
-		<Objet v-bind:etape="etapes[currentEtape]" :key="currentEtape"/>
+		<!-- <Objet v-bind:etape="etapes[currentEtape]" :key="currentEtape"/> -->
 		<div class="life">
 			<Jauge v-bind:score="score" v-on:onPenality="handlePenality"/>
 			<Timer :key="currentEtape" v-on:onPenality="handlePenality"/>
@@ -21,7 +21,7 @@ import data from '../assets/data/data.json'
 import router from '../router/index'
 
 import Scene from '@/components/Scene.vue'
-import Objet from '@/components/Objet.vue'
+// import Objet from '@/components/Objet.vue'
 import Choices from '@/components/Choices.vue'
 import Jauge from '@/components/Jauge.vue'
 import Timer from '@/components/Timer.vue'
@@ -62,7 +62,7 @@ export default {
 	components: {
 		Scene,
 		Choices,
-		Objet,
+		// Objet,
 		Jauge,
 		Timer
 	}

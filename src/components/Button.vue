@@ -52,11 +52,11 @@ export default {
 }
 .button-style1 {
 	color: $white;
-	background-color: $orange;
-	border: solid 3px $orange;
+	background-color: $yellow;
+	border: solid 3px $red;
+	box-shadow: 3px 5px $red;
 	&:hover {
-		background-color: transparent;
-		color: $orange;
+		box-shadow: none;
 	}
 }
 .button-style2 {
@@ -74,7 +74,7 @@ export default {
 // border: 3px solid $invoxia-blue;
 // }
 .btn {
-	font-family: $chantal-font;
+	font-family: $chelsea-font;
 	font-weight: 300;
 	text-decoration: none;
 	padding: 10px 50px;

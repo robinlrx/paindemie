@@ -23,9 +23,9 @@ export default {
 	},
 	methods: {
 		// showToggle () {
-		// 	setTimeout(() => {
-		// 		this.show = false
-		// 	}, 4000)
+		// setTimeout(() => {
+		// this.show = false
+		// }, 4000)
 		// }
 	}
 }
@@ -38,7 +38,7 @@ export default {
 	width: 100%;
 	height: 100vh;
 	display: flex;
-	background-color: $orange;
+	background-color: $red;
 	position: fixed;
 	top:0;
 	z-index: 999;
