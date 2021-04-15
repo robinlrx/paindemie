@@ -1,6 +1,5 @@
 <template>
-	<div ref="container" v-on:click="onClick" @mouseover="onMouseover">
-		<div class="sprite-shadow" ref="spriteShadow"></div>
+	<div ref="container" v-on:click="onClick" v-on:mouseover="onMouseover" v-on:mouseleave="onMouseleave">
 		<canvas ref="canvas" class="canvas"></canvas>
 	</div>
 </template>
@@ -17,7 +16,8 @@ export default {
 		return {
 			tall: 0,
 			sprite: null,
-			rayCaster: new THREE.Raycaster()
+			rayCaster: new THREE.Raycaster(),
+			mouse: new THREE.Vector2()
 		}
 	},
 	mounted () {
@@ -91,8 +91,8 @@ export default {
 			const iconsLoader = new THREE.TextureLoader(manager)
 			const icons = iconsLoader.load(icon)
 			const spriteMaterial = new THREE.SpriteMaterial({
-				map: icons
-				// color: 0xff0000
+				map: icons,
+				color: 0xffffff
 			})
 
 			// const width = spriteMaterial.map
@@ -118,10 +118,11 @@ export default {
 		},
 
 		onClick (e) {
-			const mouse = new THREE.Vector2((e.clientX / window.innerWidth) * 2 - 1, -(e.clientY / window.innerHeight) * 2 + 1)
+			this.mouse.x = (e.clientX / window.innerWidth) * 2 - 1
+			this.mouse.y = -(e.clientY / window.innerHeight) * 2 + 1
 			console.log('direction xyz point')
 			console.log(this.rayCaster.ray.direction)
-			this.rayCaster.setFromCamera(mouse, this.camera)
+			this.rayCaster.setFromCamera(this.mouse, this.camera)
 			const intersects = this.rayCaster.intersectObjects(this.scene.children)
 			console.log(intersects)
 
@@ -142,33 +143,38 @@ export default {
 			})
 		},
 
-		onMouseover: function (e) {
-			const mouse = new THREE.Vector2((e.clientX / window.innerWidth) * 2 - 1, -(e.clientY / window.innerHeight) * 2 + 1)
-			this.rayCaster.setFromCamera(mouse, this.camera)
+		onMouseover (e) {
+			this.mouse.x = (e.clientX / window.innerWidth) * 2 - 1
+			this.mouse.y = -(e.clientY / window.innerHeight) * 2 + 1
+			this.rayCaster.setFromCamera(this.mouse, this.camera)
 			const intersects = this.rayCaster.intersectObjects(this.scene.children)
+			console.log('mouseover')
 			intersects.forEach(intersect => {
 				// Si on clique sur un sprite (les icones)
 				if (intersect.object.type === 'Sprite') {
-					const p = intersect.object.position.clone().project(this.camera)
-					console.log(p)
-					const spriteShadow = this.$refs.spriteShadow
-					spriteShadow.style.top = ((-1 * p.y + 1) * window.innerHeight / 2) + 'px'
-					spriteShadow.style.left = ((p.x + 1) * window.innerWidth / 2) + 'px'
-					alert('salut')
+					// const p = intersect.object.position.clone().project(this.camera)
+					// console.log(p)
+					// const spriteShadow = this.$refs.spriteShadow
+					// spriteShadow.style.top = ((-1 * p.y + 1) * window.innerHeight / 2) + 'px'
+					// spriteShadow.style.left = ((p.x + 1) * window.innerWidth / 2) + 'px'
+					// alert('salut')
+					intersect.object.material.color.set(0x0066CC)
 				}
 			})
 		},
 
-		// onLeave (e) {
-		// const mouse = new THREE.Vector2((e.clientX / window.innerWidth) * 2 - 1, -(e.clientY / window.innerHeight) * 2 + 1)
-		// this.rayCaster.setFromCamera(mouse, this.camera)
-		// const intersects = this.rayCaster.intersectObjects(this.scene.children)
-		// intersects.forEach(intersect => {
-		// f (intersect.object.type === 'Sprite') {
-		// console.log('leave du sprite')
-		// }
-		// })
-		// },
+		onMouseleave (e) {
+			this.mouse.x = (e.clientX / window.innerWidth) * 2 - 1
+			this.mouse.y = -(e.clientY / window.innerHeight) * 2 + 1
+			this.rayCaster.setFromCamera(this.mouse, this.camera)
+			const intersects = this.rayCaster.intersectObjects(this.scene.children)
+			console.log('mouse')
+			intersects.forEach(intersect => {
+				if (intersect.object.type === 'Sprite') {
+					intersect.object.material.color.set(0xffffff)
+				}
+			})
+		},
 
 		update () {
 			this.renderer.render(this.scene, this.camera)
@@ -184,15 +190,5 @@ div {
 	top: 0;
 	left: 0;
 	z-index: -1;
-}
-
-.sprite-shadow {
-	width: 50px;
-	height: 50px;
-	background-color: blue;
-	position: absolute;
-	z-index: 2;
-	top: 0;
-	left: 0;
 }
 </style>
