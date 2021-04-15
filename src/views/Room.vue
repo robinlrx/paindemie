@@ -88,7 +88,7 @@ body{
 	position: absolute;
 	right: 10px;
 	top: 20px;
-	z-index: 2;
+	z-index: 5;
 }
 
 .fade-enter-active, .fade-leave-active {

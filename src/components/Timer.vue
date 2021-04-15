@@ -1,7 +1,7 @@
 <template>
     <div class="timer">
-        <button @click="start">Start</button>
-    <button @click="reset">Reset</button>
+        <!-- <button @click="start">Start</button>
+    <button @click="reset">Reset</button> -->
         <p>{{formatTime}}</p>
   </div>
 </template>
