@@ -44,7 +44,8 @@ export default {
 				'assets/img/papi.png',
 				'assets/img/room.jpg',
 				'assets/img/bg-home.png',
-				'assets/img/fond-home.png'
+				'assets/img/fond-home.png',
+				'assets/img/objets-home.png'
 			]
 
 			const itemsImages = await load.all(assetsImages)
