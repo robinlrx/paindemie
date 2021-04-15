@@ -9,7 +9,7 @@
 			<div class="txt">
 				<h1>PA<span>[I]</span>NDEMIE</h1>
 				<h2>Eh papi c'est quoi une pandémie !?</h2>
-				<router-link :to="'room'" tag="a">Lancer le jeu</router-link>
+				<Button v-bind:link="'room'" v-bind:size=1 v-bind:type=1>Lancer le jeu</Button>
 			</div>
 		</div>
 
@@ -18,6 +18,7 @@
 
 <script>
 import Loader from '@/components/Loader.vue'
+import Button from '@/components/Button.vue'
 import * as load from 'load-asset'
 
 export default {
@@ -28,7 +29,8 @@ export default {
 		}
 	},
 	components: {
-		Loader
+		Loader,
+		Button
 	},
 	methods: {
 		async render () {
@@ -108,24 +110,6 @@ export default {
 		font-size: 1.6rem;
 		margin-top: 0;
 		margin-bottom: 50px;
-	}
-
-	a {
-		font-family: $chantal-font;
-		border: solid 3px $orange;
-		font-weight: 300;
-		font-size: 1.4rem;
-		text-decoration: none;
-		color: white;
-		background-color: $orange;
-		padding: 10px 50px;
-		border-radius: 50px;
-		transition: all .2s ease;
-
-		&:hover {
-		background-color: transparent;
-		color: $orange;
-		}
 	}
 }
 </style>

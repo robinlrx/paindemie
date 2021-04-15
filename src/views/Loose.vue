@@ -2,13 +2,16 @@
 	<section>
 		<h2>PERDU !</h2>
 		<p><span>Eh merde . . .</span> Léo ne t’as pas cru ! <br>modifie tes choix pour arriver à la fin !</p>
-		<router-link :to="'room'" tag="a">recommencer</router-link>
+		<Button v-bind:link="'room'" v-bind:size=1 v-bind:type=1>Recommencer</Button>
 	</section>
 </template>
 
 <script>
+import Button from '@/components/Button.vue'
 export default {
-
+	components: {
+		Button
+	}
 }
 </script>
 

@@ -9,7 +9,9 @@
 			<Jauge v-bind:score="score" v-on:onPenality="handlePenality"/>
 			<Timer :key="currentEtape" v-on:onPenality="handlePenality"/>
 		</div>
+		<transition name="fade">
 		<Choices v-show="showChoices" v-bind:etape="etapes[currentEtape]" v-on:onClick="handleUpdateEtape"  />
+		</transition>
 	</div>
 </template>
 
