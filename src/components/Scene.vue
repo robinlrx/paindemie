@@ -1,5 +1,6 @@
 <template>
-	<div ref="container" v-on:click="onClick" v-on:mouseover="onMouseover">
+	<div ref="container" v-on:click="onClick" @mouseover="onMouseover">
+		<div class="sprite-shadow" ref="spriteShadow"></div>
 		<canvas ref="canvas" class="canvas"></canvas>
 	</div>
 </template>
@@ -29,7 +30,6 @@ export default {
 	},
 	methods: {
 		init () {
-			// const container = this.$refs.container
 			// colnsole.log(container)
 			// Setup Scene
 			this.scene = new THREE.Scene()
@@ -92,6 +92,7 @@ export default {
 			const icons = iconsLoader.load(icon)
 			const spriteMaterial = new THREE.SpriteMaterial({
 				map: icons
+				// color: 0xff0000
 			})
 
 			// const width = spriteMaterial.map
@@ -141,7 +142,7 @@ export default {
 			})
 		},
 
-		onMouseover (e) {
+		onMouseover: function (e) {
 			const mouse = new THREE.Vector2((e.clientX / window.innerWidth) * 2 - 1, -(e.clientY / window.innerHeight) * 2 + 1)
 			this.rayCaster.setFromCamera(mouse, this.camera)
 			const intersects = this.rayCaster.intersectObjects(this.scene.children)
@@ -150,6 +151,10 @@ export default {
 				if (intersect.object.type === 'Sprite') {
 					const p = intersect.object.position.clone().project(this.camera)
 					console.log(p)
+					const spriteShadow = this.$refs.spriteShadow
+					spriteShadow.style.top = ((-1 * p.y + 1) * window.innerHeight / 2) + 'px'
+					spriteShadow.style.left = ((p.x + 1) * window.innerWidth / 2) + 'px'
+					alert('salut')
 				}
 			})
 		},
@@ -179,5 +184,15 @@ div {
 	top: 0;
 	left: 0;
 	z-index: -1;
+}
+
+.sprite-shadow {
+	width: 50px;
+	height: 50px;
+	background-color: blue;
+	position: absolute;
+	z-index: 2;
+	top: 0;
+	left: 0;
 }
 </style>
