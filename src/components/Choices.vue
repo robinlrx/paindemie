@@ -108,13 +108,13 @@ export default {
 	}
 
 	.activeOne {
-		transform: translate(-50%, -50%) rotate(-45deg) !important;
+		transform: translate(-50%, -50%) rotate(-70deg) !important;
 		transition: all 2s ease;
 		animation-fill-mode: forwards;
 	}
 
 	.activeTwo {
-		transform: translate(-50%, -50%) rotate(45deg) !important;
+		transform: translate(-50%, -50%) rotate(70deg) !important;
 		transition: all 2s ease;
 		animation-fill-mode: forwards;
 	}

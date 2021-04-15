@@ -38,6 +38,7 @@ html, body {
 #nav {
 	padding: 30px;
 	position: fixed;
+	z-index: 9999;
 	width: 100%;
 //   display: flex;
 //   justify-content: center;

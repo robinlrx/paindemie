@@ -79,6 +79,8 @@ export default {
 		margin: auto;
 		color: $red;
 		letter-spacing: 5px;
+		position: relative;
+		z-index: 2;
 		span {
 			color: $yellow;
 		}
@@ -97,18 +99,20 @@ export default {
 
 	img {
 		position: absolute;
+		width: 100%;
+		height: 100vh;
 		animation: fly 2s ease-in-out infinite;
 	}
 }
 
 @keyframes fly { 0% {
-	top: 50px;
+	top: 30px;
 }
 50% {
 	top: 0;
 }
 100% {
-	top: 50px;
+	top: 30px;
 }
 }
 </style>
