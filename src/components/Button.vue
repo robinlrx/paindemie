@@ -1,6 +1,6 @@
 <template>
 	<router-link class="btn" :to="buttonLink" tag="a" :class="[buttonSize, buttonStyle]" :disabled="isDisabled">
-		<slot />
+		<span>[</span><slot /><span>]</span>
 	</router-link>
 </template>
 
@@ -51,28 +51,51 @@ export default {
   font-size: 1.2rem;
 }
 .button-style1 {
-	color: $white;
+	color: $red;
 	background-color: $yellow;
 	border: solid 3px $red;
 	box-shadow: 3px 5px $red;
+	span {
+		color: $white;
+	}
 	&:hover {
 		box-shadow: none;
+		color: $yellow;
+		background-color: $red;
+
+		span {
+			opacity: 0;
+		}
 	}
 }
 .button-style2 {
-	background-color: transparent;
-	color: $white;
-	border: 3px solid $white;
+	color: $red;
+	background-color: $yellow;
+	border: solid 3px $red;
+	box-shadow: 3px 5px $red;
+	span {
+		color: $white;
+	}
 	&:hover {
-		background-color: $white;
-		color: rgba(0, 0, 0, 0.5);
+		box-shadow: none;
+		color: $yellow;
+		background-color: $red;
 	}
 }
-// .button-style3 {
-// background-color: transparent;
-// color: $invoxia-blue;
-// border: 3px solid $invoxia-blue;
-// }
+.button-style3 {
+	color: $red;
+	background-color: $cream;
+	border: solid 3px $red;
+	box-shadow: 3px 5px $red;
+	span {
+		color: $yellow;
+	}
+	&:hover {
+		box-shadow: none;
+		color: $cream;
+		background-color: $red;
+	}
+}
 .btn {
 	font-family: $chelsea-font;
 	font-weight: 300;
