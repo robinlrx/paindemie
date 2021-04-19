@@ -1,5 +1,5 @@
 <template>
-	<div ref="container" v-on:click="onClick" v-on:mousemove="onMouseover">
+	<div ref="container" v-on:click="onClick" v-on:mousemove="onMousemove">
 		<canvas ref="canvas" class="canvas"></canvas>
 	</div>
 </template>
@@ -143,7 +143,7 @@ export default {
 			})
 		},
 		// MouseMove
-		onMouseover (e) {
+		onMousemove (e) {
 			this.mouse.x = (e.clientX / window.innerWidth) * 2 - 1
 			this.mouse.y = -(e.clientY / window.innerHeight) * 2 + 1
 			this.rayCaster.setFromCamera(this.mouse, this.camera)
