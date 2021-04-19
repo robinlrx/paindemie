@@ -1,6 +1,6 @@
 <template>
 	<div class="choices">
-		<img class="objet" :class="{ activeOne: activeOne, activeTwo: activeTwo }" ref="objet" :src="$props.numChoice.objet" alt="">
+		<img class="objet" :class="{ activeOne: activeOne, activeTwo: activeTwo }" ref="objet" :src="this.numChoice.objet" alt="">
 
 		<button @mouseover="activeOne = true" @mouseleave="activeOne = false">
 			<transition name="fade">

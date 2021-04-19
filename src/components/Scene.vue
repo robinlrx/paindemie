@@ -26,8 +26,9 @@ export default {
 		this.init()
 		this.addCoronaObject(new THREE.Vector3(this.etape.c1.x, this.etape.c1.y, this.etape.c1.z), 'choice1', this.etape.objet1.url)
 		this.addCoronaObject(new THREE.Vector3(this.etape.c2.x, this.etape.c2.y, this.etape.c2.z), 'choice2', this.etape.objet2.url)
-		// if (this.etape.c3) eviter des erreurs / des crashs
-		this.addCoronaObject(new THREE.Vector3(this.etape.c3.x, this.etape.c3.y, this.etape.c3.z), 'choice3', this.etape.objet3.url)
+		if (this.etape.c3) {
+			this.addCoronaObject(new THREE.Vector3(this.etape.c3.x, this.etape.c3.y, this.etape.c3.z), 'choice3', this.etape.objet3.url)
+		}
 	},
 	methods: {
 		init () {
@@ -96,11 +97,6 @@ export default {
 				color: 0xffffff
 			})
 
-			// const width = spriteMaterial.map
-			// console.log('width:', width)
-			// const height = spriteMaterial.map.image.height
-			// console.log('height:', height)
-
 			this.sprite = new THREE.Sprite(spriteMaterial)
 			this.sprite.name = name
 			// sprite.userData = { route: route } // on peut mettre nos données
@@ -115,7 +111,6 @@ export default {
 			} else {
 				this.sprite.scale.set(this.etape.objet3.width / 50, this.etape.objet3.height / 50, 1)
 			}
-			// TODO if ?
 		},
 
 		onClick (e) {
@@ -131,11 +126,7 @@ export default {
 				// Si on clique sur un sprite (les icones)
 				if (intersect.object.type === 'Sprite' && intersect.object.name === 'choice1') {
 					console.log(`nom : ${intersect.object.name}`)
-					// console.log(`route : ${intersect.object.userData.route}`)
 					console.log(intersect.object)
-					// const route = intersect.object.userData.route // Avoir accès a l'objet route dans intersect
-					// router.push('/choices')
-					// const img1 = this.etape.videoChoice1
 					this.$emit('objectClicked')
 					this.$emit('buttonSend', intersect.object.name)
 				} else if (intersect.object.type === 'Sprite' && intersect.object.name === 'choice2') {
