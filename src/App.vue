@@ -39,6 +39,8 @@ html, body {
 	padding: 30px;
 	position: fixed;
 	width: 100%;
+	// A supprimer
+	z-index: 4;
 //   display: flex;
 //   justify-content: center;
 //   align-items: center;
