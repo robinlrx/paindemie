@@ -1,5 +1,5 @@
 <template>
-	<div ref="container" v-on:click="onClick" v-on:mouseover="onMouseover" v-on:mouseleave="onMouseleave">
+	<div ref="container" v-on:click="onClick" v-on:mousemove="onMouseover">
 		<canvas ref="canvas" class="canvas"></canvas>
 	</div>
 </template>
@@ -142,40 +142,23 @@ export default {
 				}
 			})
 		},
-
+		// MouseMove
 		onMouseover (e) {
 			this.mouse.x = (e.clientX / window.innerWidth) * 2 - 1
 			this.mouse.y = -(e.clientY / window.innerHeight) * 2 + 1
 			this.rayCaster.setFromCamera(this.mouse, this.camera)
-			const intersects = this.rayCaster.intersectObjects(this.scene.children)
-			console.log('mouseover')
-			intersects.forEach(intersect => {
-				// Si on clique sur un sprite (les icones)
-				if (intersect.object.type === 'Sprite') {
-					// const p = intersect.object.position.clone().project(this.camera)
-					// console.log(p)
-					// const spriteShadow = this.$refs.spriteShadow
-					// spriteShadow.style.top = ((-1 * p.y + 1) * window.innerHeight / 2) + 'px'
-					// spriteShadow.style.left = ((p.x + 1) * window.innerWidth / 2) + 'px'
-					// alert('salut')
-					intersect.object.material.color.set(0x0066CC)
-				}
+			const sprites = this.scene.children.filter(obj => obj.type === 'Sprite')
+			const intersects = this.rayCaster.intersectObjects(sprites)
+			// Si on est sur un object
+			// Alors intersects à une length
+			intersects.forEach(sprite => {
+				sprite.object.material.color.set(0x0066CC)
 			})
-		},
 
-		onMouseleave (e) {
-			this.mouse.x = (e.clientX / window.innerWidth) * 2 - 1
-			this.mouse.y = -(e.clientY / window.innerHeight) * 2 + 1
-			this.rayCaster.setFromCamera(this.mouse, this.camera)
-			const intersects = this.rayCaster.intersectObjects(this.scene.children)
-			console.log('mouse')
-			intersects.forEach(intersect => {
-				if (intersect.object.type === 'Sprite') {
-					intersect.object.material.color.set(0xffffff)
-				}
-			})
+			if (intersects.length === 0) {
+				sprites.forEach(ch => ch.material.color.set(0xffffff))
+			}
 		},
-
 		update () {
 			this.renderer.render(this.scene, this.camera)
 			requestAnimationFrame(this.update)
