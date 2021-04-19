@@ -2,7 +2,7 @@
 	<div class="room">
 		<transition name="fade">
 			<!-- Key-changing to force re-renders of a component -->
-			<Scene @buttonSend="buttonName" v-bind:etape="etapes[currentEtape]" v-on:objectClicked="handleShowChoices" :key="currentEtape" />
+			<Scene @buttonSend="getContentFromData" v-bind:etape="etapes[currentEtape]" v-on:objectClicked="handleShowChoices" :key="currentEtape" />
 		</transition>
 		<Objet v-bind:etape="etapes[currentEtape]" :key="currentEtape"/>
 		<div class="life">
@@ -60,17 +60,40 @@ export default {
 				router.push('loose')
 			}
 		},
-		buttonName (val) {
-			this.numButton = val
-			// console.log(val)
+		getContentFromData (btnName) {
+			// Recuperer le contenu de data.json
+			// correspondant au nom du btn cliqué
+			// MDN doc: Array.map, Array.filter, Object.keys(), Object.values()
+			// data.content === this.etapes === [{}, {}, {}]
+
+			const content = this.etapes.filter(el => {
+				// el === {id: 0, imageScene: "sdsdf", }
+				return el.id === this.currentEtape
+			})[0] // {id: 0, imageScene: "sdfdsf", ..., choice1: {...}, choice2: {...}}
+
+			if (!content) {
+				console.log('Pas trouvé de data correspondante')
+				return
+			}
+
+			this.numChoice = content[btnName]
+			console.log(this.numChoice)
+
+			// ------------------------------------
+
+			/*
+			this.numButton = btnName
+			// console.log(btnName)
 
 			for (const item in this.etapes[this.currentEtape]) {
-				console.log(item)
-       			if (item === this.numButton) {
-           			this.numChoice = item
+				console.log(item) // id, imageScreen, objet1, objet2, choice1
+
+				if (item === btnName) {
+					this.numChoice = item
 					console.log(this.numChoice)
 				}
-    		}
+			}
+			*/
 		}
 	},
 	components: {

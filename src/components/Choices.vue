@@ -19,7 +19,7 @@
 <script>
 export default {
 	props: {
-		etape: Object,
+		// etape: Object,
 		numChoice: Object
 	},
 	data () {
