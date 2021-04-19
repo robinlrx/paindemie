@@ -4,7 +4,7 @@
 
 		<h1>PA<span>[I]</span>NDEMIE</h1>
 		<img src="../../public/assets/img/objets-home.png" alt="">
-		<Button v-bind:link="'room'" v-bind:size=1 v-bind:type=1 class="button">C'EST PARTIE POUR LES EMMERDES</Button>
+		<Button v-bind:link="'room'" v-bind:size=1 v-bind:type=3 class="button">C'EST PARTIE POUR LES EMMERDES</Button>
 
 		<!-- <div class="txt-container">
 			<div class="txt">
@@ -91,7 +91,7 @@ export default {
 		position: absolute;
 		right: 0;
 		bottom: 5vh;
-		right: 10vw;
+		right: 3vw;
 	}
 
 	img {
