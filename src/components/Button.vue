@@ -123,9 +123,6 @@ export default {
 		}
 		p {
 			color: $cream;
-			span {
-				color: $yellow;
-			}
 		}
 	}
 }
