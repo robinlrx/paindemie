@@ -1,5 +1,5 @@
 <template>
-	<div ref="container" v-on:click="onClick">
+	<div ref="container" v-on:click="onClick" v-on:mousemove="onMousemove">
 		<canvas ref="canvas" class="canvas"></canvas>
 	</div>
 </template>
@@ -12,10 +12,12 @@ export default {
 	props: {
 		etape: Object
 	},
-	data () {
+	data (e) {
 		return {
 			tall: 0,
-			sprite: null
+			sprite: null,
+			rayCaster: new THREE.Raycaster(),
+			mouse: new THREE.Vector2()
 		}
 	},
 	mounted () {
@@ -28,7 +30,6 @@ export default {
 	},
 	methods: {
 		init () {
-			// const container = this.$refs.container
 			// colnsole.log(container)
 			// Setup Scene
 			this.scene = new THREE.Scene()
@@ -90,7 +91,8 @@ export default {
 			const iconsLoader = new THREE.TextureLoader(manager)
 			const icons = iconsLoader.load(icon)
 			const spriteMaterial = new THREE.SpriteMaterial({
-				map: icons
+				map: icons,
+				color: 0xffffff
 			})
 
 			// const width = spriteMaterial.map
@@ -116,14 +118,12 @@ export default {
 		},
 
 		onClick (e) {
-			const mouse = new THREE.Vector2((e.clientX / window.innerWidth) * 2 - 1, -(e.clientY / window.innerHeight) * 2 + 1)
-
-			const rayCaster = new THREE.Raycaster()
-			// console.log(rayCaster)
+			this.mouse.x = (e.clientX / window.innerWidth) * 2 - 1
+			this.mouse.y = -(e.clientY / window.innerHeight) * 2 + 1
 			console.log('direction xyz point')
-			console.log(rayCaster.ray.direction)
-			rayCaster.setFromCamera(mouse, this.camera)
-			const intersects = rayCaster.intersectObjects(this.scene.children)
+			console.log(this.rayCaster.ray.direction)
+			this.rayCaster.setFromCamera(this.mouse, this.camera)
+			const intersects = this.rayCaster.intersectObjects(this.scene.children)
 			console.log(intersects)
 
 			intersects.forEach(intersect => {
@@ -142,7 +142,23 @@ export default {
 				}
 			})
 		},
+		// MouseMove
+		onMousemove (e) {
+			this.mouse.x = (e.clientX / window.innerWidth) * 2 - 1
+			this.mouse.y = -(e.clientY / window.innerHeight) * 2 + 1
+			this.rayCaster.setFromCamera(this.mouse, this.camera)
+			const sprites = this.scene.children.filter(obj => obj.type === 'Sprite')
+			const intersects = this.rayCaster.intersectObjects(sprites)
+			// Si on est sur un object
+			// Alors intersects à une length
+			intersects.forEach(sprite => {
+				sprite.object.material.color.set(0x0066CC)
+			})
 
+			if (intersects.length === 0) {
+				sprites.forEach(ch => ch.material.color.set(0xffffff))
+			}
+		},
 		update () {
 			this.renderer.render(this.scene, this.camera)
 			requestAnimationFrame(this.update)
