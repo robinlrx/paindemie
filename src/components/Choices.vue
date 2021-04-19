@@ -1,6 +1,7 @@
 <template>
 	<div class="choices">
-		<img class="objet" :class="{ activeOne: activeOne, activeTwo: activeTwo }" ref="objet" :src="this.etape.videoChoiceUn" alt="">
+		<img class="objet" :class="{ activeOne: activeOne, activeTwo: activeTwo }" ref="objet" :src="$props.numChoice.objet" alt="">
+
 		<button @mouseover="activeOne = true" @mouseleave="activeOne = false">
 			<transition name="fade">
 			<img v-show="activeOne" src="assets/img/left-b.png" alt="">
@@ -18,7 +19,8 @@
 <script>
 export default {
 	props: {
-		etape: Object
+		// etape: Object,
+		numChoice: Object
 	},
 	data () {
 		return {

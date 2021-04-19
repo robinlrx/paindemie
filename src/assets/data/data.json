@@ -24,10 +24,16 @@
 				"z": -0.8652985483756166
 			},
 			"objetQuestion": "assets/img/gel.png",
-			"videoChoiceUn": "assets/img/biere.png",
-			"videoChoiceDeux": "assets/img/gel.png",
-			"btnChoiceUn": "Culture de plante corona",
-			"btnChoiceDeux":"L'eau s'est transformé en bière"
+			"choice1": {
+				"objet": "assets/img/gel-dop.png",
+				"btnUn": "Culture de plante corona",
+				"btnDeux":"L'eau s'est transformé en bière"
+			},
+			"choice2": {
+				"objet": "assets/img/gel.png",
+				"btnUn": "Culture de plante corona",
+				"btnDeux":"L'eau s'est transformé en bière"
+			}
 		},
 		{
 			"id": 1,
