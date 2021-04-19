@@ -2,7 +2,7 @@
 	<div class="room">
 		<transition name="fade">
 			<!-- Key-changing to force re-renders of a component -->
-			<Scene v-bind:etape="etapes[currentEtape]" v-on:objectClicked="handleShowChoices" :key="currentEtape" />
+			<Scene @buttonSend="buttonName" v-bind:etape="etapes[currentEtape]" v-on:objectClicked="handleShowChoices" :key="currentEtape" />
 		</transition>
 		<Objet v-bind:etape="etapes[currentEtape]" :key="currentEtape"/>
 		<div class="life">
@@ -10,7 +10,7 @@
 			<Timer :key="currentEtape" v-on:onPenality="handlePenality"/>
 		</div>
 		<transition name="fade">
-		<Choices v-show="showChoices" v-bind:etape="etapes[currentEtape]" v-on:onClick="handleUpdateEtape"  />
+		<Choices v-show="showChoices"  v-bind:numChoice="numChoice" v-bind:etape="etapes[currentEtape]" v-on:onClick="handleUpdateEtape"  />
 		</transition>
 	</div>
 </template>
@@ -32,7 +32,9 @@ export default {
 			showChoices: false,
 			etapes: data.content,
 			currentEtape: 0,
-			score: 100
+			score: 100,
+			numButton: null,
+			numChoice: null
 		}
 	},
 	methods: {
@@ -57,6 +59,18 @@ export default {
 			if (this.score <= 0) {
 				router.push('loose')
 			}
+		},
+		buttonName (val) {
+			this.numButton = val
+			// console.log(val)
+
+			for (const item in this.etapes[this.currentEtape]) {
+				console.log(item)
+       			if (item === this.numButton) {
+           			this.numChoice = item
+					console.log(this.numChoice)
+				}
+    		}
 		}
 	},
 	components: {
@@ -65,15 +79,10 @@ export default {
 		Objet,
 		Jauge,
 		Timer
+	},
+	mounted () {
+
 	}
-	// methods: {
-	// console () {
-	// console.log(this.etapes)
-	// }
-	// },
-	// mounted () {
-	// this.console()
-	// }
 }
 
 </script>

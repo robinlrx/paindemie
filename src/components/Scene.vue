@@ -22,9 +22,9 @@ export default {
 		console.log('etape:', this.etape)
 		// console.log('currentEtape:', this.currentEtape)
 		this.init()
-		this.addCoronaObject(new THREE.Vector3(this.etape.c1.x, this.etape.c1.y, this.etape.c1.z), 'bouton1', this.etape.objet1.url)
-		this.addCoronaObject(new THREE.Vector3(this.etape.c2.x, this.etape.c2.y, this.etape.c2.z), 'bouton2', this.etape.objet2.url)
-		this.addCoronaObject(new THREE.Vector3(this.etape.c3.x, this.etape.c3.y, this.etape.c3.z), 'bouton3', this.etape.objet3.url)
+		this.addCoronaObject(new THREE.Vector3(this.etape.c1.x, this.etape.c1.y, this.etape.c1.z), 'choice1', this.etape.objet1.url)
+		this.addCoronaObject(new THREE.Vector3(this.etape.c2.x, this.etape.c2.y, this.etape.c2.z), 'choice2', this.etape.objet2.url)
+		this.addCoronaObject(new THREE.Vector3(this.etape.c3.x, this.etape.c3.y, this.etape.c3.z), 'choice2', this.etape.objet3.url)
 	},
 	methods: {
 		init () {
@@ -105,9 +105,9 @@ export default {
 
 			// this.position = new THREE.Vector3(30, 0, 0)
 			this.sprite.position.copy(position.clone().normalize().multiplyScalar(30))
-			if (name === 'bouton1') {
+			if (name === 'choice1') {
 				this.sprite.scale.set(this.etape.objet1.width / 50, this.etape.objet1.height / 50, 1)
-			} else if (name === 'bouton2') {
+			} else if (name === 'choice2') {
 				this.sprite.scale.set(this.etape.objet2.width / 50, this.etape.objet2.height / 50, 1)
 			} else {
 				this.sprite.scale.set(this.etape.objet3.width / 50, this.etape.objet3.height / 50, 1)
@@ -128,7 +128,7 @@ export default {
 
 			intersects.forEach(intersect => {
 				// Si on clique sur un sprite (les icones)
-				if (intersect.object.type === 'Sprite' && intersect.object.name === 'bouton1') {
+				if (intersect.object.type === 'Sprite' && intersect.object.name === 'choice1') {
 					console.log(`nom : ${intersect.object.name}`)
 					// console.log(`route : ${intersect.object.userData.route}`)
 					console.log(intersect.object)
@@ -136,9 +136,11 @@ export default {
 					// router.push('/choices')
 					// const img1 = this.etape.videoChoice1
 					this.$emit('objectClicked')
-				} else if (intersect.object.type === 'Sprite' && intersect.object.name === 'bouton2') {
+					this.$emit('buttonSend', intersect.object.name)
+				} else if (intersect.object.type === 'Sprite' && intersect.object.name === 'choice2') {
 					console.log(`nom : ${intersect.object.name}`)
 					this.$emit('objectClicked')
+					this.$emit('buttonSend', intersect.object.name)
 				}
 			})
 		},
