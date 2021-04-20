@@ -4,14 +4,7 @@
 
 		<h1>PA<span>[I]</span>NDEMIE</h1>
 		<img src="../../public/assets/img/objets-home.png" alt="">
-		<Button v-bind:link="'room'" v-bind:size=1 v-bind:type=1 class="button">[<span>C'EST PARTIE POUR LES EMMERDES</span>]</Button>
-
-		<!-- <div class="txt-container">
-			<div class="txt">
-				<h1>PA<span>[I]</span>NDEMIE</h1>
-				<Button v-bind:link="'room'" v-bind:size=1 v-bind:type=1>Lancer le jeu</Button>
-			</div>
-		</div> -->
+		<Button v-bind:link="'room'" v-bind:size=1 v-bind:type=1 class="button">C'EST PARTIE POUR LES EMMERDES</Button>
 
 	</section>
 </template>
@@ -91,11 +84,7 @@ export default {
 		position: absolute;
 		right: 0;
 		bottom: 5vh;
-		right: 10vw;
-
-		& span {
-			color: $red;
-		}
+		right: 3vw;
 	}
 
 	img {

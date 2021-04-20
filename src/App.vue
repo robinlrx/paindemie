@@ -21,6 +21,11 @@
 	box-sizing: border-box;
 }
 
+::selection{
+	background-color: $red;
+	color: $cream;
+}
+
 html, body {
 	margin: 0;
 	padding: 0;

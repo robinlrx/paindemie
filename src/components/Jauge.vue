@@ -2,7 +2,7 @@
   <div>
     <div class="counter">
       <svg
-        v-bind:style="{height: this.heightJauge + '%', 'background-color': this.jaugeColor}"
+        v-bind:style="{width: this.heightJauge + '%', 'background-color': this.jaugeColor}"
         ref="jauge"
         class="jauge"
 		:class="setColor"
@@ -12,8 +12,8 @@
           <rect
             x="0"
             y="0"
-            width="20"
-            height="100"
+            width="100"
+            height="20"
             rx="50"
             ry="50"
           />
@@ -77,22 +77,20 @@ export default {
 @import '@/assets/scss/_variables.scss';
 
 .counter {
-  position: absolute;
-  right: 10px;
-  top: 100px;
-  height: 300px;
-  width: 20px;
+  height: 20px;
+  width: 300px;
   display: flex;
   flex-direction: column;
   border-radius: 20px;
-  background-color: $cream;
-  box-shadow: 7px 10px 45px 4px rgba(0, 0, 0, 0.35);
+  background-color: $red;
+  border: solid 4px $red;
 
   .jauge {
     margin: auto;
-    margin-bottom: 0px;
-    width: 100%;
+    margin-right: 0px;
+    height: 100%;
     max-height: 100%;
+	max-width: 100%;
     // background-color: $light-green;
     border-radius: 20px;
     transition: ease 1s;

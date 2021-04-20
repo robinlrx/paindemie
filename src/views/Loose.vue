@@ -2,7 +2,7 @@
 	<section>
 		<h2>PERDU !</h2>
 		<p><span>Eh merde . . .</span> Léo ne t’as pas cru ! <br>modifie tes choix pour arriver à la fin !</p>
-		<Button v-bind:link="'room'" v-bind:size=1 v-bind:type=1>Recommencer</Button>
+		<Button class="button" v-bind:link="'room'" v-bind:size=1 v-bind:type=1>Recommencer</Button>
 	</section>
 </template>
 
@@ -44,22 +44,11 @@ section {
 		}
 	}
 
-	a {
-		font-family: $chantal-font;
-		border: solid 3px $orange;
-		font-weight: 300;
-		font-size: 1.4rem;
-		text-decoration: none;
-		color: white;
-		background-color: $orange;
-		padding: 10px 50px;
-		border-radius: 50px;
-		transition: all .2s ease;
-
-		&:hover {
-		background-color: transparent;
-		color: $orange;
-		}
+	.button {
+		position: absolute;
+		right: 0;
+		bottom: 5vh;
+		right: 3vw;
 	}
 }
 

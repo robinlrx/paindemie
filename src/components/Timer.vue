@@ -48,17 +48,14 @@ export default {
 @import '@/assets/scss/_variables.scss';
 
 .timer {
-	position: absolute;
-	right: 10px;
-	top: 10px;
 	display: flex;
 	flex-direction: column;
 
 	p {
 		font-family: $chelsea-font;
 		font-size: 2rem;
-		color: $violet;
-		margin-top: 0
+		color: $red;
+		margin: 0
 	}
 }
 

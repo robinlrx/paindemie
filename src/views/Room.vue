@@ -1,5 +1,6 @@
 <template>
 	<div class="room">
+		<!-- <Tutorial /> -->
 		<transition name="fade">
 			<!-- Key-changing to force re-renders of a component -->
 			<Scene @buttonSend="getContentFromData" v-bind:etape="etapes[currentEtape]" v-on:objectClicked="handleShowChoices" :key="currentEtape" />
@@ -25,6 +26,7 @@ import Scene from '@/components/Scene.vue'
 import Choices from '@/components/Choices.vue'
 import Jauge from '@/components/Jauge.vue'
 import Timer from '@/components/Timer.vue'
+// import Tutorial from '@/components/Tutorial.vue'
 
 export default {
 	data () {
@@ -102,9 +104,7 @@ export default {
 		// Objet,
 		Jauge,
 		Timer
-	},
-	mounted () {
-
+		// Tutorial
 	}
 }
 
@@ -121,6 +121,14 @@ body{
 	right: 10px;
 	top: 20px;
 	z-index: 5;
+	display: flex;
+	flex-direction: column-reverse;
+	align-items: flex-end;
+	background-color: $cream;
+	border: solid 5px $red;
+	clip-path: polygon(100% 0, 100% 100%, 1% 97%, 0 3%, 40% 0);
+	border-radius: 2px;
+	padding: 10px 30px
 }
 
 .fade-enter-active, .fade-leave-active {

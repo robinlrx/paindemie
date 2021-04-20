@@ -32,7 +32,6 @@ export default {
 	},
 	methods: {
 		init () {
-			// colnsole.log(container)
 			// Setup Scene
 			this.scene = new THREE.Scene()
 			this.camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 0.1, 1000)
@@ -94,7 +93,8 @@ export default {
 			const icons = iconsLoader.load(icon)
 			const spriteMaterial = new THREE.SpriteMaterial({
 				map: icons,
-				color: 0xffffff
+				sizeAttenuation: true,
+				depthTest: false
 			})
 
 			this.sprite = new THREE.Sprite(spriteMaterial)
@@ -103,7 +103,7 @@ export default {
 			this.scene.add(this.sprite)
 
 			// this.position = new THREE.Vector3(30, 0, 0)
-			this.sprite.position.copy(position.clone().multiplyScalar(30))
+			this.sprite.position.copy(position.clone().multiplyScalar(50))
 			if (name === 'choice1') {
 				this.sprite.scale.set(this.etape.objet1.width / 50, this.etape.objet1.height / 50, 1)
 			} else if (name === 'choice2') {
