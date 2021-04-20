@@ -28,8 +28,6 @@ export default {
 	},
 	methods: {
 		init () {
-			// const container = this.$refs.container
-			// colnsole.log(container)
 			// Setup Scene
 			this.scene = new THREE.Scene()
 			this.camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 0.1, 1000)
@@ -90,13 +88,10 @@ export default {
 			const iconsLoader = new THREE.TextureLoader(manager)
 			const icons = iconsLoader.load(icon)
 			const spriteMaterial = new THREE.SpriteMaterial({
-				map: icons
+				map: icons,
+				sizeAttenuation: true,
+				depthTest: false
 			})
-
-			// const width = spriteMaterial.map
-			// console.log('width:', width)
-			// const height = spriteMaterial.map.image.height
-			// console.log('height:', height)
 
 			this.sprite = new THREE.Sprite(spriteMaterial)
 			this.sprite.name = name
@@ -104,7 +99,7 @@ export default {
 			this.scene.add(this.sprite)
 
 			// this.position = new THREE.Vector3(30, 0, 0)
-			this.sprite.position.copy(position.clone().normalize().multiplyScalar(30))
+			this.sprite.position.copy(position.multiplyScalar(50))
 			if (name === 'bouton1') {
 				this.sprite.scale.set(this.etape.objet1.width / 50, this.etape.objet1.height / 50, 1)
 			} else if (name === 'bouton2') {
