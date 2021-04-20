@@ -105,11 +105,11 @@ export default {
 			// this.position = new THREE.Vector3(30, 0, 0)
 			this.sprite.position.copy(position.clone().multiplyScalar(50))
 			if (name === 'choice1') {
-				this.sprite.scale.set(this.etape.objet1.width / 50, this.etape.objet1.height / 50, 1)
+				this.sprite.scale.set(this.etape.objet1.width / 30, this.etape.objet1.height / 30, 1)
 			} else if (name === 'choice2') {
-				this.sprite.scale.set(this.etape.objet2.width / 50, this.etape.objet2.height / 50, 1)
+				this.sprite.scale.set(this.etape.objet2.width / 30, this.etape.objet2.height / 30, 1)
 			} else {
-				this.sprite.scale.set(this.etape.objet3.width / 50, this.etape.objet3.height / 50, 1)
+				this.sprite.scale.set(this.etape.objet3.width / 30, this.etape.objet3.height / 30, 1)
 			}
 		},
 

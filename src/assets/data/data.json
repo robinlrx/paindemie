@@ -102,8 +102,16 @@
 				"y": -0.9786805626536727,
 				"z": 0.4774095172000207
 			},
-			"btnChoiceUn": "Action 1",
-			"btnChoiceDeux":"Action 2"
+			"choice1": {
+				"objet": "assets/img/brosse-a-dents.png",
+				"btnUn": "Culture de plante corona",
+				"btnDeux":"L'eau s'est transformé en bière"
+			},
+			"choice2": {
+				"objet": "assets/img/hamac.png",
+				"btnUn": "Culture de plante corona",
+				"btnDeux":"L'eau s'est transformé en bière"
+			}
 		},
 		{
 			"id": 3,
@@ -128,8 +136,16 @@
 				"y": 0.096559551981131675,
 				"z": -0.7707364023383707
 			},
-			"btnChoiceUn": "Action 1",
-			"btnChoiceDeux":"Action 2"
+			"choice1": {
+				"objet": "assets/img/info.png",
+				"btnUn": "Culture de plante corona",
+				"btnDeux":"L'eau s'est transformé en bière"
+			},
+			"choice2": {
+				"objet": "assets/img/info.png",
+				"btnUn": "Culture de plante corona",
+				"btnDeux":"L'eau s'est transformé en bière"
+			}
 		},
 		{
 			"id": 4,
@@ -164,8 +180,16 @@
 				"y": 0.10568885314873233,
 				"z": 0.17081931121827995
 			},
-			"btnChoiceUn": "Action 1",
-			"btnChoiceDeux":"Action 2"
+			"choice1": {
+				"objet": "assets/img/medicaments.png",
+				"btnUn": "Culture de plante corona",
+				"btnDeux":"L'eau s'est transformé en bière"
+			},
+			"choice2": {
+				"objet": "assets/img/gel-dop.png",
+				"btnUn": "Culture de plante corona",
+				"btnDeux":"L'eau s'est transformé en bière"
+			}
 		},
 		{
 			"id": 5,
@@ -190,8 +214,16 @@
 				"y": 0.096559551981131675,
 				"z": -0.7707364023383707
 			},
-			"btnChoiceUn": "Action 1",
-			"btnChoiceDeux":"Action 2"
+			"choice1": {
+				"objet": "assets/img/info.png",
+				"btnUn": "Culture de plante corona",
+				"btnDeux":"L'eau s'est transformé en bière"
+			},
+			"choice2": {
+				"objet": "assets/img/info.png",
+				"btnUn": "Culture de plante corona",
+				"btnDeux":"L'eau s'est transformé en bière"
+			}
 		},
 		{
 			"id": 6,
@@ -216,8 +248,16 @@
 				"y": 0.096559551981131675,
 				"z": -0.7707364023383707
 			},
-			"btnChoiceUn": "Action 1",
-			"btnChoiceDeux":"Action 2"
+			"choice1": {
+				"objet": "assets/img/info.png",
+				"btnUn": "Culture de plante corona",
+				"btnDeux":"L'eau s'est transformé en bière"
+			},
+			"choice2": {
+				"objet": "assets/img/info.png",
+				"btnUn": "Culture de plante corona",
+				"btnDeux":"L'eau s'est transformé en bière"
+			}
 		},
 		{
 			"id": 7,
@@ -242,8 +282,16 @@
 				"y": 0.096559551981131675,
 				"z": -0.7707364023383707
 			},
-			"btnChoiceUn": "Action 1",
-			"btnChoiceDeux":"Action 2"
+			"choice1": {
+				"objet": "assets/img/info.png",
+				"btnUn": "Culture de plante corona",
+				"btnDeux":"L'eau s'est transformé en bière"
+			},
+			"choice2": {
+				"objet": "assets/img/info.png",
+				"btnUn": "Culture de plante corona",
+				"btnDeux":"L'eau s'est transformé en bière"
+			}
 		},
 		{
 			"id": 8,
@@ -268,8 +316,16 @@
 				"y": 0.096559551981131675,
 				"z": -0.7707364023383707
 			},
-			"btnChoiceUn": "Action 1",
-			"btnChoiceDeux":"Action 2"
+			"choice1": {
+				"objet": "assets/img/info.png",
+				"btnUn": "Culture de plante corona",
+				"btnDeux":"L'eau s'est transformé en bière"
+			},
+			"choice2": {
+				"objet": "assets/img/info.png",
+				"btnUn": "Culture de plante corona",
+				"btnDeux":"L'eau s'est transformé en bière"
+			}
 		}
 	]
 }
