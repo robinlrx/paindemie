@@ -1,5 +1,5 @@
 <template>
-	<div ref="container" v-on:click="onClick">
+	<div ref="container" v-on:click="onClick" v-on:mousemove="onMousemove">
 		<canvas ref="canvas" class="canvas"></canvas>
 	</div>
 </template>
@@ -12,19 +12,23 @@ export default {
 	props: {
 		etape: Object
 	},
-	data () {
+	data (e) {
 		return {
 			tall: 0,
-			sprite: null
+			sprite: null,
+			rayCaster: new THREE.Raycaster(),
+			mouse: new THREE.Vector2()
 		}
 	},
 	mounted () {
 		console.log('etape:', this.etape)
 		// console.log('currentEtape:', this.currentEtape)
 		this.init()
-		this.addCoronaObject(new THREE.Vector3(this.etape.c1.x, this.etape.c1.y, this.etape.c1.z), 'bouton1', this.etape.objet1.url)
-		this.addCoronaObject(new THREE.Vector3(this.etape.c2.x, this.etape.c2.y, this.etape.c2.z), 'bouton2', this.etape.objet2.url)
-		this.addCoronaObject(new THREE.Vector3(this.etape.c3.x, this.etape.c3.y, this.etape.c3.z), 'bouton3', this.etape.objet3.url)
+		this.addCoronaObject(new THREE.Vector3(this.etape.c1.x, this.etape.c1.y, this.etape.c1.z), 'choice1', this.etape.objet1.url)
+		this.addCoronaObject(new THREE.Vector3(this.etape.c2.x, this.etape.c2.y, this.etape.c2.z), 'choice2', this.etape.objet2.url)
+		if (this.etape.c3) {
+			this.addCoronaObject(new THREE.Vector3(this.etape.c3.x, this.etape.c3.y, this.etape.c3.z), 'choice3', this.etape.objet3.url)
+		}
 	},
 	methods: {
 		init () {
@@ -99,45 +103,56 @@ export default {
 			this.scene.add(this.sprite)
 
 			// this.position = new THREE.Vector3(30, 0, 0)
-			this.sprite.position.copy(position.multiplyScalar(50))
-			if (name === 'bouton1') {
+			this.sprite.position.copy(position.clone().multiplyScalar(50))
+			if (name === 'choice1') {
 				this.sprite.scale.set(this.etape.objet1.width / 50, this.etape.objet1.height / 50, 1)
-			} else if (name === 'bouton2') {
+			} else if (name === 'choice2') {
 				this.sprite.scale.set(this.etape.objet2.width / 50, this.etape.objet2.height / 50, 1)
 			} else {
 				this.sprite.scale.set(this.etape.objet3.width / 50, this.etape.objet3.height / 50, 1)
 			}
-			// TODO if ?
 		},
 
 		onClick (e) {
-			const mouse = new THREE.Vector2((e.clientX / window.innerWidth) * 2 - 1, -(e.clientY / window.innerHeight) * 2 + 1)
-
-			const rayCaster = new THREE.Raycaster()
-			// console.log(rayCaster)
+			this.mouse.x = (e.clientX / window.innerWidth) * 2 - 1
+			this.mouse.y = -(e.clientY / window.innerHeight) * 2 + 1
 			console.log('direction xyz point')
-			console.log(rayCaster.ray.direction)
-			rayCaster.setFromCamera(mouse, this.camera)
-			const intersects = rayCaster.intersectObjects(this.scene.children)
+			console.log(this.rayCaster.ray.direction)
+			this.rayCaster.setFromCamera(this.mouse, this.camera)
+			const intersects = this.rayCaster.intersectObjects(this.scene.children)
 			console.log(intersects)
 
 			intersects.forEach(intersect => {
 				// Si on clique sur un sprite (les icones)
-				if (intersect.object.type === 'Sprite' && intersect.object.name === 'bouton1') {
+				if (intersect.object.type === 'Sprite' && intersect.object.name === 'choice1') {
 					console.log(`nom : ${intersect.object.name}`)
-					// console.log(`route : ${intersect.object.userData.route}`)
 					console.log(intersect.object)
-					// const route = intersect.object.userData.route // Avoir accès a l'objet route dans intersect
-					// router.push('/choices')
-					// const img1 = this.etape.videoChoice1
 					this.$emit('objectClicked')
-				} else if (intersect.object.type === 'Sprite' && intersect.object.name === 'bouton2') {
+					this.$emit('buttonSend', intersect.object.name)
+				} else if (intersect.object.type === 'Sprite' && intersect.object.name === 'choice2') {
 					console.log(`nom : ${intersect.object.name}`)
 					this.$emit('objectClicked')
+					this.$emit('buttonSend', intersect.object.name)
 				}
 			})
 		},
+		// MouseMove
+		onMousemove (e) {
+			this.mouse.x = (e.clientX / window.innerWidth) * 2 - 1
+			this.mouse.y = -(e.clientY / window.innerHeight) * 2 + 1
+			this.rayCaster.setFromCamera(this.mouse, this.camera)
+			const sprites = this.scene.children.filter(obj => obj.type === 'Sprite')
+			const intersects = this.rayCaster.intersectObjects(sprites)
+			// Si on est sur un object
+			// Alors intersects à une length
+			intersects.forEach(sprite => {
+				sprite.object.material.color.set(0x0066CC)
+			})
 
+			if (intersects.length === 0) {
+				sprites.forEach(ch => ch.material.color.set(0xffffff))
+			}
+		},
 		update () {
 			this.renderer.render(this.scene, this.camera)
 			requestAnimationFrame(this.update)

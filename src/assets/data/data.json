@@ -24,10 +24,16 @@
 				"z": -0.8652985483756166
 			},
 			"objetQuestion": "assets/img/gel.png",
-			"videoChoiceUn": "assets/img/biere.png",
-			"videoChoiceDeux": "assets/img/gel.png",
-			"btnChoiceUn": "Culture de plante corona",
-			"btnChoiceDeux":"L'eau s'est transformé en bière"
+			"choice1": {
+				"objet": "assets/img/biere.png",
+				"btnUn": "Culture de plante corona",
+				"btnDeux":"L'eau s'est transformé en bière"
+			},
+			"choice2": {
+				"objet": "assets/img/fleurs.png",
+				"btnUn": "Culture de plante corona",
+				"btnDeux":"L'eau s'est transformé en bière"
+			}
 		},
 		{
 			"id": 1,
@@ -52,10 +58,16 @@
 				"y": -0.776383476508857,
 				"z": -0.5464723477591489
 			},
-			"objetQuestion": "assets/img/gel-dopp.png",
-			"videoChoiceUn": "assets/img/fleurs.png",
-			"btnChoiceUn": "On avait pas de mains",
-			"btnChoiceDeux":"Danse des canards"
+			"choice1": {
+				"objet": "assets/img/info.png",
+				"btnUn": "Culture de plante corona",
+				"btnDeux":"L'eau s'est transformé en bière"
+			},
+			"choice2": {
+				"objet": "assets/img/cafard.png",
+				"btnUn": "Culture de plante corona",
+				"btnDeux":"L'eau s'est transformé en bière"
+			}
 		},
 		{
 			"id": 2,
