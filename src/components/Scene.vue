@@ -109,7 +109,7 @@ export default {
 			// this.scene.add(this.sprite)
 
 			const geometry = new THREE.PlaneBufferGeometry()
-			const material = new THREE.MeshStandardMaterial({
+			const material = new THREE.MeshBasicMaterial({
 				map: icons,
 				transparent: true
 			})
@@ -117,8 +117,8 @@ export default {
 			this.plane.name = name
 			this.scene.add(this.plane)
 
-			this.plane.position.copy(position.clone().multiplyScalar(35))
-			this.plane.quaternion.copy(this.camera.quaternion)
+			this.plane.position.copy(position.clone().multiplyScalar(40))
+			this.plane.lookAt(this.camera.position)
 			if (name === 'choice1') {
 				this.plane.scale.set(this.etape.objet1.width / 30, this.etape.objet1.height / 30, 1)
 			} else if (name === 'choice2') {
@@ -156,16 +156,17 @@ export default {
 			this.mouse.x = (e.clientX / window.innerWidth) * 2 - 1
 			this.mouse.y = -(e.clientY / window.innerHeight) * 2 + 1
 			this.rayCaster.setFromCamera(this.mouse, this.camera)
-			const sprites = this.scene.children.filter(obj => obj.type === 'PlaneGeometry')
-			const intersects = this.rayCaster.intersectObjects(sprites)
+			const planes = this.scene.children.filter(obj => obj.name === 'choice2')
+			const intersects = this.rayCaster.intersectObjects(planes)
 			// Si on est sur un object
 			// Alors intersects à une length
-			intersects.forEach(sprite => {
-				sprite.object.material.color.set(0x0066CC)
+			intersects.forEach(plane => {
+				console.log('intersection')
+				plane.object.material.color.set(0x0066CC)
 			})
 
 			if (intersects.length === 0) {
-				sprites.forEach(ch => ch.material.color.set(0xffffff))
+				planes.forEach(ch => ch.object.material.color.set(0xffffff))
 			}
 		},
 		update () {
