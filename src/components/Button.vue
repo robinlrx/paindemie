@@ -53,12 +53,39 @@ export default {
 <style lang="scss" scoped>
 @import '@/assets/scss/_variables.scss';
 
-// .button-size1 {
-//   font-size: 1.4rem;
-// }
-// .button-size2 {
-//   font-size: 1.2rem;
-// }
+.button-size1 {
+  svg {
+		width:605px;
+  }
+}
+
+.button-size2 {
+  svg {
+		width:auto;
+
+		path {
+			transform: scale(.45, 1);
+		}
+
+		text {
+			transform: translateX(-162px);
+		}
+  }
+}
+
+.button-size3 {
+  svg {
+		width: 362px;
+
+		path {
+			transform: scale(.6, 1);
+		}
+
+		text {
+			transform: translateX(-118px);
+		}
+  }
+}
 
 .button-style1 {
 	svg {
@@ -123,7 +150,6 @@ export default {
 	transition: all 0.3s ease-out;
 
 	svg {
-		width:605px;
 		height:85px;
 
 		path {
@@ -142,7 +168,7 @@ export default {
 	}
 
 	&:hover {
-		transition: all 0.3s ease-out;
+		// transition: all 0.3s ease-out;
 		tspan {
 			animation: opacityText 1s linear;
 			animation-fill-mode:forwards;

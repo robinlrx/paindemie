@@ -2,7 +2,7 @@
 	<section>
 		<h2>PERDU !</h2>
 		<p><span>Eh merde . . .</span> Léo ne t’as pas cru ! <br>modifie tes choix pour arriver à la fin !</p>
-		<Button class="button" v-bind:link="'room'" v-bind:size=1 v-bind:type=1>Recommencer</Button>
+		<Button class="button" v-bind:link="'room'" v-bind:size=2 v-bind:type=1>Recommencer</Button>
 	</section>
 </template>
 
