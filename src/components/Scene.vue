@@ -14,15 +14,16 @@ export default {
 	},
 	data (e) {
 		return {
-			tall: 0,
 			sprite: null,
 			plane: null,
 			rayCaster: new THREE.Raycaster(),
-			mouse: new THREE.Vector2()
+			mouse: new THREE.Vector2(),
+			html: document.getElementsByTagName('html')[0]
 		}
 	},
 	mounted () {
 		console.log('etape:', this.etape)
+		console.log(this.html)
 		// console.log('currentEtape:', this.currentEtape)
 		this.init()
 		this.addCoronaObject(new THREE.Vector3(this.etape.c1.x, this.etape.c1.y, this.etape.c1.z), 'choice1', this.etape.objet1.url)
@@ -117,6 +118,10 @@ export default {
 			this.plane.name = name
 			this.scene.add(this.plane)
 
+			var outlineMaterial1 = new THREE.MeshBasicMaterial({ color: 0x0000FF, wireframe: true })
+			var outlineMesh1 = new THREE.Mesh(geometry, outlineMaterial1)
+			this.plane.add(outlineMesh1)
+
 			this.plane.position.copy(position.clone().multiplyScalar(40))
 			this.plane.lookAt(this.camera.position)
 			if (name === 'choice1') {
@@ -162,10 +167,12 @@ export default {
 			// Alors intersects à une length
 			intersects.forEach(plane => {
 				console.log('intersection')
+				this.html.style.cursor = 'pointer'
 				plane.object.material.color.set(0x0066CC)
 			})
 
 			if (intersects.length === 0) {
+				this.html.style.cursor = 'default'
 				planes.forEach(ch => ch.object.material.color.set(0xffffff))
 			}
 		},
