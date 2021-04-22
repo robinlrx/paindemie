@@ -53,7 +53,7 @@ export default {
 
 	p {
 		font-family: $chelsea-font;
-		font-size: 2rem;
+		font-size: 1.8rem;
 		color: $red;
 		margin: 0
 	}
