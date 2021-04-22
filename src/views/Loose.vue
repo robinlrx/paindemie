@@ -43,13 +43,6 @@ section {
 			font-weight: bold;
 		}
 	}
-
-	.button {
-		position: absolute;
-		right: 0;
-		bottom: 5vh;
-		right: 3vw;
-	}
 }
 
 </style>

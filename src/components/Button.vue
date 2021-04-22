@@ -163,14 +163,14 @@ export default {
 		}
 
 		tspan {
-			transition: all 1s ease-out;
+			transition: all .8s ease-out;
 		}
 	}
 
 	&:hover {
 		// transition: all 0.3s ease-out;
 		tspan {
-			animation: opacityText 1s linear;
+			animation: opacityText .8s linear;
 			animation-fill-mode:forwards;
 		}
 	}
@@ -184,6 +184,7 @@ export default {
 
 	50% {
         opacity:0;
+		letter-spacing: -5px;
 		font-size: 1.6rem;
     }
 

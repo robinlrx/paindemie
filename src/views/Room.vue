@@ -118,17 +118,17 @@ body{
 
 .life {
 	position: absolute;
-	right: 10px;
+	right: 100px;
 	top: 20px;
+	height: 100px;
+	background-image: url('/assets/img/fond-jauge.png');
+	background-repeat: no-repeat;
+	background-size: cover;
 	z-index: 5;
 	display: flex;
 	flex-direction: column-reverse;
 	align-items: flex-end;
-	background-color: $cream;
-	border: solid 5px $red;
-	clip-path: polygon(100% 0, 100% 100%, 1% 97%, 0 3%, 40% 0);
-	border-radius: 2px;
-	padding: 10px 30px
+	padding: 0px 60px 0px 40px;
 }
 
 .fade-enter-active, .fade-leave-active {

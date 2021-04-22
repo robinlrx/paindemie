@@ -77,8 +77,8 @@ export default {
 @import '@/assets/scss/_variables.scss';
 
 .counter {
-  height: 20px;
-  width: 300px;
+  height: 15px;
+  width: 190px;
   display: flex;
   flex-direction: column;
   border-radius: 20px;
