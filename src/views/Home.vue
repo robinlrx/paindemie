@@ -29,13 +29,17 @@ export default {
 		async render () {
 		// Load a list of named assets in parallel
 			const assetsImages = [
-				'assets/img/bg-choix.jpg',
 				'assets/img/fleurs.png',
 				'assets/img/gel-dop.png',
 				'assets/img/gel.png',
 				'assets/img/info.png',
 				'assets/img/papi.png',
-				'assets/img/room.jpg',
+				'assets/img/room/room360.jpg',
+				'assets/img/room/room0.jpg',
+				'assets/img/room/room1.jpg',
+				'assets/img/room/room2.jpg',
+				'assets/img/room/room3.jpg',
+				'assets/img/room/room4.jpg',
 				'assets/img/bg-home.png',
 				'assets/img/fond-home.png',
 				'assets/img/objets-home.png'
