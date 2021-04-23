@@ -56,7 +56,7 @@ export default {
 		},
 		handlePenality (penality) {
 			this.score += penality
-			console.log('testpenality', this.score, penality)
+			// console.log('testpenality', this.score, penality)
 
 			if (this.score <= 0) {
 				router.push('loose')

@@ -7,6 +7,7 @@
 <script>
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
+import router from '../router/index'
 
 export default {
 	props: {
@@ -14,10 +15,12 @@ export default {
 	},
 	data (e) {
 		return {
-			tall: 0,
 			sprite: null,
+			plane: null,
 			rayCaster: new THREE.Raycaster(),
-			mouse: new THREE.Vector2()
+			mouse: new THREE.Vector2(),
+			html: document.getElementsByTagName('html')[0],
+			PCFSoftShadowMap: THREE.PCFSoftShadowMap
 		}
 	},
 	mounted () {
@@ -25,7 +28,9 @@ export default {
 		// console.log('currentEtape:', this.currentEtape)
 		this.init()
 		this.addCoronaObject(new THREE.Vector3(this.etape.c1.x, this.etape.c1.y, this.etape.c1.z), 'choice1', this.etape.objet1.url)
-		this.addCoronaObject(new THREE.Vector3(this.etape.c2.x, this.etape.c2.y, this.etape.c2.z), 'choice2', this.etape.objet2.url)
+		if (this.etape.c2) {
+			this.addCoronaObject(new THREE.Vector3(this.etape.c2.x, this.etape.c2.y, this.etape.c2.z), 'choice2', this.etape.objet2.url)
+		}
 		if (this.etape.c3) {
 			this.addCoronaObject(new THREE.Vector3(this.etape.c3.x, this.etape.c3.y, this.etape.c3.z), 'choice3', this.etape.objet3.url)
 		}
@@ -43,6 +48,8 @@ export default {
 			})
 			this.renderer.setSize(window.innerWidth, window.innerHeight)
 			this.renderer.setPixelRatio(window.devicePixelRatio)
+			this.renderer.shadowMap.enabled = true
+			this.renderer.shadowMap.type = this.PCFSoftShadowMap
 
 			window.addEventListener('resize', () => {
 				this.renderer.setSize(window.innerWidth, window.innerHeight)
@@ -74,42 +81,67 @@ export default {
 			const texture = textureLoader.load(room)
 			texture.wrapS = THREE.RepeatWrapping
 			texture.repeat.x = -1
-			const sphereMaterial = new THREE.MeshBasicMaterial({
+			const sphereMaterial = new THREE.MeshLambertMaterial({
 				map: texture,
-				side: THREE.DoubleSide
+				side: THREE.BackSide
+				// color: 0xffffff
 			})
 			// sphereMaterial.transparent = true
 			const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial)
+			sphere.receiveShadow = true
+			sphere.material.shadowSide = THREE.DoubleSide
 			this.scene.add(sphere)
 
-			// this.camera.position.z = 5
+			// Light
+			const light = new THREE.PointLight({
+				color: 0xffffff,
+				intensity: 0.3,
+				distance: 100
+			})
+			light.shadow.camera.near = 0.1
+			light.shadow.camera.far = 100
+			light.position.set(2, 2, 1)
+			this.scene.add(light)
+			light.castShadow = true
+
+			// const sphereSize = 1
+			// const pointLightHelper = new THREE.PointLightHelper(light, sphereSize)
+			// this.scene.add(pointLightHelper)
+
+			// const ambientLight = new THREE.AmbientLight({
+			// color: 0xffffff,
+			// intensity: 0.1
+			// })
+			// this.scene.add(ambientLight)
+
 			this.update()
 		},
 
-		// Fonction pour les afficher les icones cliquables
+		// Fonction pour afficher les icones cliquables
 		addCoronaObject (position, name, icon) {
 			const manager = new THREE.LoadingManager()
 			const iconsLoader = new THREE.TextureLoader(manager)
 			const icons = iconsLoader.load(icon)
-			const spriteMaterial = new THREE.SpriteMaterial({
+
+			const geometry = new THREE.PlaneBufferGeometry()
+			const material = new THREE.MeshLambertMaterial({
 				map: icons,
-				sizeAttenuation: true,
-				depthTest: false
+				transparent: true
 			})
+			this.plane = new THREE.Mesh(geometry, material)
+			this.plane.name = name
+			// this.plane.castShadow = true
+			// this.plane.material.shadowSide = THREE.FrontSide
+			this.scene.add(this.plane)
 
-			this.sprite = new THREE.Sprite(spriteMaterial)
-			this.sprite.name = name
-			// sprite.userData = { route: route } // on peut mettre nos données
-			this.scene.add(this.sprite)
-
-			// this.position = new THREE.Vector3(30, 0, 0)
-			this.sprite.position.copy(position.clone().multiplyScalar(50))
+			this.plane.position.copy(position.clone().multiplyScalar(45))
+			this.plane.lookAt(this.camera.position)
 			if (name === 'choice1') {
-				this.sprite.scale.set(this.etape.objet1.width / 30, this.etape.objet1.height / 30, 1)
+				this.plane.scale.set(this.etape.objet1.width / 30, this.etape.objet1.height / 30, 1)
 			} else if (name === 'choice2') {
-				this.sprite.scale.set(this.etape.objet2.width / 30, this.etape.objet2.height / 30, 1)
+				this.plane.scale.set(this.etape.objet2.width / 30, this.etape.objet2.height / 30, 1)
 			} else {
-				this.sprite.scale.set(this.etape.objet3.width / 30, this.etape.objet3.height / 30, 1)
+				this.plane.scale.set(this.etape.objet3.width / 30, this.etape.objet3.height / 30, 1)
 			}
 		},
 
@@ -120,19 +152,22 @@ export default {
 			console.log(this.rayCaster.ray.direction)
 			this.rayCaster.setFromCamera(this.mouse, this.camera)
 			const intersects = this.rayCaster.intersectObjects(this.scene.children)
-			console.log(intersects)
+			// console.log(intersects)
 
 			intersects.forEach(intersect => {
 				// Si on clique sur un sprite (les icones)
-				if (intersect.object.type === 'Sprite' && intersect.object.name === 'choice1') {
+				if (intersect.object.geometry.type === 'PlaneGeometry' && intersect.object.name === 'choice1') {
 					console.log(`nom : ${intersect.object.name}`)
 					console.log(intersect.object)
 					this.$emit('objectClicked')
 					this.$emit('buttonSend', intersect.object.name)
-				} else if (intersect.object.type === 'Sprite' && intersect.object.name === 'choice2') {
+				} else if (intersect.object.geometry.type === 'PlaneGeometry' && intersect.object.name === 'choice2') {
 					console.log(`nom : ${intersect.object.name}`)
 					this.$emit('objectClicked')
 					this.$emit('buttonSend', intersect.object.name)
+				} else if (intersect.object.geometry.type === 'PlaneGeometry' && intersect.object.name === 'choice3') {
+					console.log(`nom : ${intersect.object.name}`)
+					router.push('loose')
 				}
 			})
 		},
@@ -141,16 +176,19 @@ export default {
 			this.mouse.x = (e.clientX / window.innerWidth) * 2 - 1
 			this.mouse.y = -(e.clientY / window.innerHeight) * 2 + 1
 			this.rayCaster.setFromCamera(this.mouse, this.camera)
-			const sprites = this.scene.children.filter(obj => obj.type === 'Sprite')
-			const intersects = this.rayCaster.intersectObjects(sprites)
+			const planes = this.scene.children.filter(obj => obj.geometry?.type === 'PlaneGeometry')
+			// console.log(this.scene.children)
+			const intersects = this.rayCaster.intersectObjects(planes)
 			// Si on est sur un object
 			// Alors intersects à une length
-			intersects.forEach(sprite => {
-				sprite.object.material.color.set(0x0066CC)
+			intersects.forEach(plane => {
+				this.html.style.cursor = 'pointer'
+				// plane.object.material.color.set(0x0066CC)
 			})
 
 			if (intersects.length === 0) {
-				sprites.forEach(ch => ch.material.color.set(0xffffff))
+				this.html.style.cursor = 'default'
+				// planes.forEach(ch => ch.object.material.color.set(0xffffff))
 			}
 		},
 		update () {

@@ -2,25 +2,25 @@
 	"content": [
 		{
 			"id": 0,
-			"imageScene": "assets/img/room360.jpg",
+			"imageScene": "assets/img/room/room0.jpg",
 			"objet1": {
-				"url": "assets/img/biere.png",
-				"width": 150,
-				"height": 470
+				"url": "assets/img/objets/biere.png",
+				"width": 100,
+				"height": 400
 			},
-			"objet2":{
-				"url": "assets/img/fleurs.png",
-				"width": 194,
-				"height": 338
+			"objet3":{
+				"url": "assets/img/objets/fleurs.png",
+				"width": 180,
+				"height": 280
 			},
 			"c1": {
-				"x": 0.8490313550393424,
-				"y": -0.3617044019957431,
-				"z": -0.45897338063999804
+				"x": 0.8950313550393424,
+				"y": -0.327044019957431,
+				"z": -0.5097338063999804
 			},
-			"c2": {
+			"c3": {
 				"x": 0.49018442748058455,
-				"y": 0.13477427754264027,
+				"y": 0.11877427754264027,
 				"z": -0.8652985483756166
 			},
 			"objetQuestion": "assets/img/gel.png",
@@ -28,103 +28,98 @@
 				"objet": "assets/img/biere.png",
 				"btnUn": "Culture de plante corona",
 				"btnDeux":"L'eau s'est transformé en bière"
-			},
-			"choice2": {
-				"objet": "assets/img/fleurs.png",
-				"btnUn": "Culture de plante corona",
-				"btnDeux":"L'eau s'est transformé en bière"
 			}
 		},
 		{
 			"id": 1,
-			"imageScene": "assets/img/room360.jpg",
+			"imageScene": "assets/img/room/room1.jpg",
 			"objet1": {
-				"url": "assets/img/info.png",
-				"width": 194,
-				"height": 338
+				"url": "assets/img/objets/coude.png",
+				"width": 450,
+				"height": 410
 			} ,
 			"objet2": {
-				"url": "assets/img/cafard.png",
-				"width": 194,
-				"height": 338
+				"url": "assets/img/objets/cafard.png",
+				"width": 80,
+				"height": 180
 			},
 			"c1": {
-				"x": 0.9522636831749526,
-				"y": 0.2753672840859653,
-				"z": -0.13178291452685512
+				"x": -0.65936159801760407,
+				"y": -0.2165381319946773,
+				"z": -0.7604149725697164
 			},
 			"c2": {
-				"x": 0.3140010677348484,
+				"x": 0.2540010677348484,
 				"y": -0.776383476508857,
-				"z": -0.5464723477591489
+				"z": -0.574723477591489
 			},
 			"choice1": {
-				"objet": "assets/img/info.png",
+				"objet": "assets/img/objets/coude.png",
 				"btnUn": "Culture de plante corona",
 				"btnDeux":"L'eau s'est transformé en bière"
 			},
 			"choice2": {
-				"objet": "assets/img/cafard.png",
+				"objet": "assets/img/objets/cafard.png",
 				"btnUn": "Culture de plante corona",
 				"btnDeux":"L'eau s'est transformé en bière"
 			}
 		},
 		{
 			"id": 2,
-			"imageScene": "assets/img/room360.jpg",
+			"imageScene": "assets/img/room/room2.jpg",
 			"objet1": {
-				"url": "assets/img/brosse-a-dents.png",
+				"url": "assets/img/objets/brosse-a-dents.png",
 				"width": 90,
 				"height": 120
 			} ,
 			"objet2": {
-				"url": "assets/img/hamac.png",
-				"width": 400,
-				"height": 338
+				"url": "assets/img/objets/hamac-vitre.png",
+				"width": 250,
+				"height": 150
 			},
 			"objet3": {
-				"url": "assets/img/masque-avion.png",
-				"width": 500,
-				"height": 900
+				"url": "assets/img/objets/masque-avion.png",
+				"width": 400,
+				"height": 700
 			},
 			"c1": {
-				"x": -0.38015606564465265,
+				"x": -0.36015606564465265,
 				"y": -0.3199997364456868,
 				"z": 0.887424109020288
 			},
 			"c2": {
-				"x": 0.8451830007326516,
+				"x": 0.7951830007326516,
 				"y": 0.03260465892002011,
 				"z": 0.5334816130751457
 			},
 			"c3": {
 				"x": -0.1007884804807558735,
-				"y": -0.9786805626536727,
-				"z": 0.4774095172000207
+				"y": -0.8786805626536727,
+				"z": 0.5174095172000207
 			},
 			"choice1": {
-				"objet": "assets/img/brosse-a-dents.png",
+				"objet": "assets/img/objets/brosse-a-dents.png",
 				"btnUn": "Culture de plante corona",
 				"btnDeux":"L'eau s'est transformé en bière"
 			},
 			"choice2": {
-				"objet": "assets/img/hamac.png",
+				"objet": "assets/img/objets/hamac.png",
 				"btnUn": "Culture de plante corona",
 				"btnDeux":"L'eau s'est transformé en bière"
 			}
 		},
 		{
 			"id": 3,
-			"imageScene": "assets/img/room360.jpg",
+			"imageScene": "assets/img/room/room3.jpg",
 			"objet1": {
-				"url": "assets/img/info.png",
+				"url": "assets/img/objets/info.png",
 				"width": 194,
 				"height": 338
 			} ,
 			"objet2": {
-				"url": "assets/img/info.png",
-				"width": 194,
-				"height": 338
+				"url": "assets/img/objets/thermometre.png",
+				"width": 50,
+				"height": 150
 			},
 			"c1": {
 				"x": 0.9522636831749526,
@@ -132,42 +127,42 @@
 				"z": -0.13178291452685512
 			},
 			"c2": {
-				"x": 0.6351041777159825,
-				"y": 0.096559551981131675,
-				"z": -0.7707364023383707
+				"x": 0.9522636831749526,
+				"y": 0.2753672840859653,
+				"z": 0.24178291452685512
 			},
 			"choice1": {
-				"objet": "assets/img/info.png",
+				"objet": "assets/img/objets/info.png",
 				"btnUn": "Culture de plante corona",
 				"btnDeux":"L'eau s'est transformé en bière"
 			},
 			"choice2": {
-				"objet": "assets/img/info.png",
+				"objet": "assets/img/objets/thermometre.png",
 				"btnUn": "Culture de plante corona",
 				"btnDeux":"L'eau s'est transformé en bière"
 			}
 		},
 		{
 			"id": 4,
-			"imageScene": "assets/img/room360.jpg",
+			"imageScene": "assets/img/room/room4.jpg",
 			"objet1": {
-				"url": "assets/img/medicaments.png",
-				"width": 180,
-				"height": 220
+				"url": "assets/img/objets/medicaments.png",
+				"width": 175,
+				"height": 125
 			} ,
 			"objet2": {
-				"url": "assets/img/gel-dop.png",
+				"url": "assets/img/objets/gel-dop.png",
 				"width": 100,
 				"height": 100
 			},
 			"objet3": {
-				"url": "assets/img/superman.png",
-				"width": 134,
-				"height": 200
+				"url": "assets/img/objets/superman.png",
+				"width": 104,
+				"height": 170
 			},
 			"c1": {
 				"x": 0.8306336565603506,
-				"y": -0.4134545267285413,
+				"y": -0.4654545267285413,
 				"z": -0.372965256983622
 			},
 			"c2": {
@@ -177,152 +172,142 @@
 			},
 			"c3": {
 				"x": 0.9796175933674416,
-				"y": 0.10568885314873233,
-				"z": 0.17081931121827995
+				"y": 0.11268885314873233,
+				"z": 0.19581931121827995
 			},
 			"choice1": {
-				"objet": "assets/img/medicaments.png",
+				"objet": "assets/img/objets/medicaments.png",
 				"btnUn": "Culture de plante corona",
 				"btnDeux":"L'eau s'est transformé en bière"
 			},
 			"choice2": {
-				"objet": "assets/img/gel-dop.png",
+				"objet": "assets/img/objets/gel-dop.png",
 				"btnUn": "Culture de plante corona",
 				"btnDeux":"L'eau s'est transformé en bière"
 			}
 		},
 		{
 			"id": 5,
-			"imageScene": "assets/img/room360.jpg",
+			"imageScene": "assets/img/room/room360.jpg",
 			"objet1": {
-				"url": "assets/img/info.png",
-				"width": 194,
-				"height": 338
+				"url": "assets/img/objets/tirelire.png",
+				"width": 200,
+				"height": 150
 			} ,
 			"objet2": {
-				"url": "assets/img/info.png",
-				"width": 194,
-				"height": 338
+				"url": "assets/img/objets/loupe.png",
+				"width": 55,
+				"height": 102
 			},
 			"c1": {
-				"x": 0.9522636831749526,
-				"y": 0.2753672840859653,
-				"z": -0.13178291452685512
+				"x": 0.8073975188486534,
+				"y": 0.27468885314873233,
+				"z": -0.67781931121827995
 			},
 			"c2": {
-				"x": 0.6351041777159825,
-				"y": 0.096559551981131675,
-				"z": -0.7707364023383707
+				"x": 0.8573975188486534,
+				"y": -0.05468885314873233,
+				"z": -0.67581931121827995
 			},
 			"choice1": {
-				"objet": "assets/img/info.png",
+				"objet": "assets/img/objets/tirelire.png",
 				"btnUn": "Culture de plante corona",
 				"btnDeux":"L'eau s'est transformé en bière"
 			},
 			"choice2": {
-				"objet": "assets/img/info.png",
+				"objet": "assets/img/objets/loupe.png",
 				"btnUn": "Culture de plante corona",
 				"btnDeux":"L'eau s'est transformé en bière"
 			}
 		},
 		{
 			"id": 6,
-			"imageScene": "assets/img/room360.jpg",
+			"imageScene": "assets/img/room/room360.jpg",
 			"objet1": {
-				"url": "assets/img/info.png",
-				"width": 194,
-				"height": 338
+				"url": "assets/img/objets/cocotte-vitre.png",
+				"width": 95,
+				"height": 60
 			} ,
-			"objet2": {
-				"url": "assets/img/info.png",
-				"width": 194,
-				"height": 338
+			"objet3": {
+				"url": "assets/img/objets/guitare.png",
+				"width": 290,
+				"height": 160
 			},
 			"c1": {
-				"x": 0.9522636831749526,
-				"y": 0.2753672840859653,
-				"z": -0.13178291452685512
+				"x": 0.32363722517475042,
+				"y": 0.07242619644300767,
+				"z": 0.9887661970848299
 			},
-			"c2": {
-				"x": 0.6351041777159825,
-				"y": 0.096559551981131675,
-				"z": -0.7707364023383707
+			"c3": {
+				"x": 0.6033975188486534,
+				"y": 0.23468885314873233,
+				"z": -0.83781931121827995
 			},
 			"choice1": {
-				"objet": "assets/img/info.png",
-				"btnUn": "Culture de plante corona",
-				"btnDeux":"L'eau s'est transformé en bière"
-			},
-			"choice2": {
-				"objet": "assets/img/info.png",
+				"objet": "assets/img/objets/cocotte.png",
 				"btnUn": "Culture de plante corona",
 				"btnDeux":"L'eau s'est transformé en bière"
 			}
 		},
 		{
 			"id": 7,
-			"imageScene": "assets/img/room360.jpg",
+			"imageScene": "assets/img/room/room7.jpg",
 			"objet1": {
-				"url": "assets/img/info.png",
-				"width": 194,
-				"height": 338
+				"url": "assets/img/objets/porte.png",
+				"width": 200,
+				"height": 520
 			} ,
 			"objet2": {
-				"url": "assets/img/info.png",
-				"width": 194,
-				"height": 338
+				"url": "assets/img/objets/carton.png",
+				"width": 1000,
+				"height": 790
 			},
 			"c1": {
-				"x": 0.9522636831749526,
-				"y": 0.2753672840859653,
-				"z": -0.13178291452685512
+				"x": 0.52363722517475042,
+				"y": 0.07242619644300767,
+				"z": 0.8987661970848299
 			},
 			"c2": {
-				"x": 0.6351041777159825,
-				"y": 0.096559551981131675,
-				"z": -0.7707364023383707
+				"x": -0.33236159801760407,
+				"y": -0.4365381319946773,
+				"z": -0.8604149725697164
 			},
 			"choice1": {
-				"objet": "assets/img/info.png",
+				"objet": "assets/img/objets/porte.png",
 				"btnUn": "Culture de plante corona",
 				"btnDeux":"L'eau s'est transformé en bière"
 			},
 			"choice2": {
-				"objet": "assets/img/info.png",
+				"objet": "assets/img/objets/carton.png",
 				"btnUn": "Culture de plante corona",
 				"btnDeux":"L'eau s'est transformé en bière"
 			}
 		},
 		{
 			"id": 8,
-			"imageScene": "assets/img/room360.jpg",
+			"imageScene": "assets/img/room/room8.jpg",
 			"objet1": {
-				"url": "assets/img/info.png",
-				"width": 194,
-				"height": 338
+				"url": "assets/img/objets/coton-tige.png",
+				"width": 130,
+				"height": 63
 			} ,
-			"objet2": {
-				"url": "assets/img/info.png",
-				"width": 194,
-				"height": 338
+			"objet3": {
+				"url": "assets/img/objets/miel-vitre.png",
+				"width": 40,
+				"height": 30
 			},
 			"c1": {
-				"x": 0.9522636831749526,
-				"y": 0.2753672840859653,
-				"z": -0.13178291452685512
+				"x": 0.7950313550393424,
+				"y": -0.411044019957431,
+				"z": 0.463338063999804
 			},
-			"c2": {
-				"x": 0.6351041777159825,
-				"y": 0.096559551981131675,
-				"z": -0.7707364023383707
+			"c3": {
+				"x": -0.05563722517475042,
+				"y": 0.00242619644300767,
+				"z": 0.7887661970848299
 			},
 			"choice1": {
-				"objet": "assets/img/info.png",
-				"btnUn": "Culture de plante corona",
-				"btnDeux":"L'eau s'est transformé en bière"
-			},
-			"choice2": {
-				"objet": "assets/img/info.png",
+				"objet": "assets/img/objets/coton-tige.png",
 				"btnUn": "Culture de plante corona",
 				"btnDeux":"L'eau s'est transformé en bière"
 			}
