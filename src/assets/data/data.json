@@ -23,9 +23,9 @@
 				"y": 0.11877427754264027,
 				"z": -0.8652985483756166
 			},
-			"objetQuestion": "assets/img/gel.png",
+			"objetQuestion": "assets/img/gel-dop.png",
 			"choice1": {
-				"objet": "assets/img/biere.png",
+				"objet": "assets/img/objets/biere.png",
 				"btnUn": "Culture de plante corona",
 				"btnDeux":"L'eau s'est transformé en bière"
 			}
