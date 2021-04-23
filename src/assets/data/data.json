@@ -4,12 +4,12 @@
 			"id": 0,
 			"imageScene": "assets/img/room/room0.jpg",
 			"objet1": {
-				"url": "assets/img/biere.png",
+				"url": "assets/img/objets/biere.png",
 				"width": 100,
 				"height": 400
 			},
 			"objet3":{
-				"url": "assets/img/fleurs.png",
+				"url": "assets/img/objets/fleurs.png",
 				"width": 180,
 				"height": 280
 			},
@@ -34,19 +34,19 @@
 			"id": 1,
 			"imageScene": "assets/img/room/room1.jpg",
 			"objet1": {
-				"url": "assets/img/info.png",
-				"width": 194,
-				"height": 338
+				"url": "assets/img/objets/coude.png",
+				"width": 450,
+				"height": 410
 			} ,
 			"objet2": {
-				"url": "assets/img/cafard.png",
+				"url": "assets/img/objets/cafard.png",
 				"width": 80,
 				"height": 180
 			},
 			"c1": {
-				"x": 0.9522636831749526,
-				"y": 0.2753672840859653,
-				"z": -0.13178291452685512
+				"x": -0.65936159801760407,
+				"y": -0.2165381319946773,
+				"z": -0.7604149725697164
 			},
 			"c2": {
 				"x": 0.2540010677348484,
@@ -54,12 +54,12 @@
 				"z": -0.574723477591489
 			},
 			"choice1": {
-				"objet": "assets/img/info.png",
+				"objet": "assets/img/objets/coude.png",
 				"btnUn": "Culture de plante corona",
 				"btnDeux":"L'eau s'est transformé en bière"
 			},
 			"choice2": {
-				"objet": "assets/img/cafard.png",
+				"objet": "assets/img/objets/cafard.png",
 				"btnUn": "Culture de plante corona",
 				"btnDeux":"L'eau s'est transformé en bière"
 			}
@@ -68,17 +68,17 @@
 			"id": 2,
 			"imageScene": "assets/img/room/room2.jpg",
 			"objet1": {
-				"url": "assets/img/brosse-a-dents.png",
+				"url": "assets/img/objets/brosse-a-dents.png",
 				"width": 90,
 				"height": 120
 			} ,
 			"objet2": {
-				"url": "assets/img/hamac.png",
-				"width": 400,
-				"height": 338
+				"url": "assets/img/objets/hamac-vitre.png",
+				"width": 250,
+				"height": 150
 			},
 			"objet3": {
-				"url": "assets/img/masque-avion.png",
+				"url": "assets/img/objets/masque-avion.png",
 				"width": 400,
 				"height": 700
 			},
@@ -88,7 +88,7 @@
 				"z": 0.887424109020288
 			},
 			"c2": {
-				"x": 0.8451830007326516,
+				"x": 0.7951830007326516,
 				"y": 0.03260465892002011,
 				"z": 0.5334816130751457
 			},
@@ -98,12 +98,12 @@
 				"z": 0.5174095172000207
 			},
 			"choice1": {
-				"objet": "assets/img/brosse-a-dents.png",
+				"objet": "assets/img/objets/brosse-a-dents.png",
 				"btnUn": "Culture de plante corona",
 				"btnDeux":"L'eau s'est transformé en bière"
 			},
 			"choice2": {
-				"objet": "assets/img/hamac.png",
+				"objet": "assets/img/objets/hamac.png",
 				"btnUn": "Culture de plante corona",
 				"btnDeux":"L'eau s'est transformé en bière"
 			}
@@ -112,12 +112,12 @@
 			"id": 3,
 			"imageScene": "assets/img/room/room3.jpg",
 			"objet1": {
-				"url": "assets/img/info.png",
+				"url": "assets/img/objets/info.png",
 				"width": 194,
 				"height": 338
 			} ,
 			"objet2": {
-				"url": "assets/img/thermometre.png",
+				"url": "assets/img/objets/thermometre.png",
 				"width": 50,
 				"height": 150
 			},
@@ -132,12 +132,12 @@
 				"z": 0.24178291452685512
 			},
 			"choice1": {
-				"objet": "assets/img/info.png",
+				"objet": "assets/img/objets/info.png",
 				"btnUn": "Culture de plante corona",
 				"btnDeux":"L'eau s'est transformé en bière"
 			},
 			"choice2": {
-				"objet": "assets/img/thermometre.png",
+				"objet": "assets/img/objets/thermometre.png",
 				"btnUn": "Culture de plante corona",
 				"btnDeux":"L'eau s'est transformé en bière"
 			}
@@ -146,17 +146,17 @@
 			"id": 4,
 			"imageScene": "assets/img/room/room4.jpg",
 			"objet1": {
-				"url": "assets/img/medicaments.png",
+				"url": "assets/img/objets/medicaments.png",
 				"width": 175,
 				"height": 125
 			} ,
 			"objet2": {
-				"url": "assets/img/gel-dop.png",
+				"url": "assets/img/objets/gel-dop.png",
 				"width": 100,
 				"height": 100
 			},
 			"objet3": {
-				"url": "assets/img/superman.png",
+				"url": "assets/img/objets/superman.png",
 				"width": 104,
 				"height": 170
 			},
@@ -176,12 +176,12 @@
 				"z": 0.19581931121827995
 			},
 			"choice1": {
-				"objet": "assets/img/medicaments.png",
+				"objet": "assets/img/objets/medicaments.png",
 				"btnUn": "Culture de plante corona",
 				"btnDeux":"L'eau s'est transformé en bière"
 			},
 			"choice2": {
-				"objet": "assets/img/gel-dop.png",
+				"objet": "assets/img/objets/gel-dop.png",
 				"btnUn": "Culture de plante corona",
 				"btnDeux":"L'eau s'est transformé en bière"
 			}
@@ -190,12 +190,12 @@
 			"id": 5,
 			"imageScene": "assets/img/room/room360.jpg",
 			"objet1": {
-				"url": "assets/img/tirelire.png",
+				"url": "assets/img/objets/tirelire.png",
 				"width": 200,
 				"height": 150
 			} ,
 			"objet2": {
-				"url": "assets/img/loupe.png",
+				"url": "assets/img/objets/loupe.png",
 				"width": 55,
 				"height": 102
 			},
@@ -210,12 +210,12 @@
 				"z": -0.67581931121827995
 			},
 			"choice1": {
-				"objet": "assets/img/tirelire.png",
+				"objet": "assets/img/objets/tirelire.png",
 				"btnUn": "Culture de plante corona",
 				"btnDeux":"L'eau s'est transformé en bière"
 			},
 			"choice2": {
-				"objet": "assets/img/loupe.png",
+				"objet": "assets/img/objets/loupe.png",
 				"btnUn": "Culture de plante corona",
 				"btnDeux":"L'eau s'est transformé en bière"
 			}
@@ -224,19 +224,19 @@
 			"id": 6,
 			"imageScene": "assets/img/room/room360.jpg",
 			"objet1": {
-				"url": "assets/img/info.png",
-				"width": 194,
-				"height": 338
+				"url": "assets/img/objets/cocotte-vitre.png",
+				"width": 95,
+				"height": 60
 			} ,
 			"objet3": {
-				"url": "assets/img/guitare.png",
+				"url": "assets/img/objets/guitare.png",
 				"width": 290,
 				"height": 160
 			},
 			"c1": {
-				"x": 0.9522636831749526,
-				"y": 0.2853672840859653,
-				"z": -0.13178291452685512
+				"x": 0.32363722517475042,
+				"y": 0.07242619644300767,
+				"z": 0.9887661970848299
 			},
 			"c3": {
 				"x": 0.6033975188486534,
@@ -244,62 +244,62 @@
 				"z": -0.83781931121827995
 			},
 			"choice1": {
-				"objet": "assets/img/info.png",
+				"objet": "assets/img/objets/cocotte.png",
 				"btnUn": "Culture de plante corona",
 				"btnDeux":"L'eau s'est transformé en bière"
 			}
 		},
 		{
 			"id": 7,
-			"imageScene": "assets/img/room/room360.jpg",
+			"imageScene": "assets/img/room/room7.jpg",
 			"objet1": {
-				"url": "assets/img/info.png",
-				"width": 194,
-				"height": 338
+				"url": "assets/img/objets/porte.png",
+				"width": 200,
+				"height": 520
 			} ,
 			"objet2": {
-				"url": "assets/img/info.png",
-				"width": 194,
-				"height": 338
+				"url": "assets/img/objets/carton.png",
+				"width": 1000,
+				"height": 790
 			},
 			"c1": {
-				"x": 0.9522636831749526,
-				"y": 0.2753672840859653,
-				"z": -0.13178291452685512
+				"x": 0.52363722517475042,
+				"y": 0.07242619644300767,
+				"z": 0.8987661970848299
 			},
 			"c2": {
-				"x": 0.6351041777159825,
-				"y": 0.096559551981131675,
-				"z": -0.7707364023383707
+				"x": -0.33236159801760407,
+				"y": -0.4365381319946773,
+				"z": -0.8604149725697164
 			},
 			"choice1": {
-				"objet": "assets/img/info.png",
+				"objet": "assets/img/objets/porte.png",
 				"btnUn": "Culture de plante corona",
 				"btnDeux":"L'eau s'est transformé en bière"
 			},
 			"choice2": {
-				"objet": "assets/img/info.png",
+				"objet": "assets/img/objets/carton.png",
 				"btnUn": "Culture de plante corona",
 				"btnDeux":"L'eau s'est transformé en bière"
 			}
 		},
 		{
 			"id": 8,
-			"imageScene": "assets/img/room/room360.jpg",
+			"imageScene": "assets/img/room/room8.jpg",
 			"objet1": {
-				"url": "assets/img/info.png",
-				"width": 194,
-				"height": 338
+				"url": "assets/img/objets/coton-tige.png",
+				"width": 130,
+				"height": 63
 			} ,
 			"objet2": {
-				"url": "assets/img/info.png",
+				"url": "assets/img/objets/info.png",
 				"width": 194,
 				"height": 338
 			},
 			"c1": {
-				"x": 0.9522636831749526,
-				"y": 0.2753672840859653,
-				"z": -0.13178291452685512
+				"x": 0.7950313550393424,
+				"y": -0.411044019957431,
+				"z": 0.465338063999804
 			},
 			"c2": {
 				"x": 0.6351041777159825,
@@ -307,12 +307,12 @@
 				"z": -0.7707364023383707
 			},
 			"choice1": {
-				"objet": "assets/img/info.png",
+				"objet": "assets/img/objets/coton-tige.png",
 				"btnUn": "Culture de plante corona",
 				"btnDeux":"L'eau s'est transformé en bière"
 			},
 			"choice2": {
-				"objet": "assets/img/info.png",
+				"objet": "assets/img/objets/info.png",
 				"btnUn": "Culture de plante corona",
 				"btnDeux":"L'eau s'est transformé en bière"
 			}

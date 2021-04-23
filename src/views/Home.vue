@@ -29,20 +29,42 @@ export default {
 		async render () {
 		// Load a list of named assets in parallel
 			const assetsImages = [
-				'assets/img/fleurs.png',
-				'assets/img/gel-dop.png',
 				'assets/img/gel.png',
-				'assets/img/info.png',
 				'assets/img/papi.png',
+				'assets/img/bg-home.png',
+				'assets/img/fond-home.png',
+				'assets/img/objets-home.png',
 				'assets/img/room/room360.jpg',
 				'assets/img/room/room0.jpg',
 				'assets/img/room/room1.jpg',
 				'assets/img/room/room2.jpg',
 				'assets/img/room/room3.jpg',
 				'assets/img/room/room4.jpg',
-				'assets/img/bg-home.png',
-				'assets/img/fond-home.png',
-				'assets/img/objets-home.png'
+				'assets/img/room/room7.jpg',
+				'assets/img/room/room8.jpg',
+				'assets/img/objets/biere.png',
+				'assets/img/objets/brosse-a-dents.png',
+				'assets/img/objets/cafard.png',
+				'assets/img/objets/carton.png',
+				'assets/img/objets/cocotte.png',
+				'assets/img/objets/cocotte-vitre.png',
+				'assets/img/objets/coton-tige.png',
+				'assets/img/objets/coude.png',
+				'assets/img/objets/fleurs.png',
+				'assets/img/objets/gel-dop.png',
+				'assets/img/objets/guitare.png',
+				'assets/img/objets/hamac.png',
+				'assets/img/objets/hamac-vitre.png',
+				'assets/img/objets/info.png',
+				'assets/img/objets/loupe.png',
+				'assets/img/objets/masque-avion.png',
+				'assets/img/objets/medicaments.png',
+				'assets/img/objets/miel.png',
+				'assets/img/objets/miel-vitre.png',
+				'assets/img/objets/porte.png',
+				'assets/img/objets/superman.png',
+				'assets/img/objets/thermometre.png',
+				'assets/img/objets/tirelire.png'
 			]
 
 			const itemsImages = await load.all(assetsImages)
