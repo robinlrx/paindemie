@@ -291,28 +291,23 @@
 				"width": 130,
 				"height": 63
 			} ,
-			"objet2": {
-				"url": "assets/img/objets/info.png",
-				"width": 194,
-				"height": 338
+			"objet3": {
+				"url": "assets/img/objets/miel-vitre.png",
+				"width": 40,
+				"height": 30
 			},
 			"c1": {
 				"x": 0.7950313550393424,
 				"y": -0.411044019957431,
 				"z": 0.465338063999804
 			},
-			"c2": {
-				"x": 0.6351041777159825,
-				"y": 0.096559551981131675,
-				"z": -0.7707364023383707
+			"c3": {
+				"x": -0.05563722517475042,
+				"y": 0.00242619644300767,
+				"z": 0.7887661970848299
 			},
 			"choice1": {
 				"objet": "assets/img/objets/coton-tige.png",
-				"btnUn": "Culture de plante corona",
-				"btnDeux":"L'eau s'est transformé en bière"
-			},
-			"choice2": {
-				"objet": "assets/img/objets/info.png",
 				"btnUn": "Culture de plante corona",
 				"btnDeux":"L'eau s'est transformé en bière"
 			}
