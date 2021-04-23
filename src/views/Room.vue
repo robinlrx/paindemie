@@ -33,7 +33,7 @@ export default {
 		return {
 			showChoices: false,
 			etapes: data.content,
-			currentEtape: 8,
+			currentEtape: 0,
 			score: 100,
 			numButton: null,
 			numChoice: null
