@@ -82,20 +82,21 @@ export default {
 
 			this.show = false
 			this.mainTimeline(this.$refs.box, this.$refs.title, this.$refs.button.$el)
-				.addLabel('START')
-				.add(this.objectsTimeline(this.$refs.objectsBox), 'START+=1')
+				.addLabel('DELAY')
+				.add(this.objectsTimeline(this.$refs.objectsBox), 'DELAY+=1')
 		},
 		mainTimeline ($box, $title, $button) {
 			const boxTL = gsap.timeline()
-			boxTL.fromTo($box, { y: 400 }, { y: 0, duration: 2.5, delay: 1, ease: Bounce.easeOut }) // show box first
-			boxTL.fromTo('.objects', { opacity: 0, y: 300 }, { opacity: 1, y: 0, duration: 1, stagger: { each: 0.4 } }) // show objects
+			boxTL.add('START')
+			boxTL.fromTo($box, { y: 400 }, { y: 0, duration: 2.5, delay: 1, ease: Bounce.easeOut }, 'START') // show box first
+			boxTL.fromTo('.objects', { opacity: 0, y: 300 }, { opacity: 1, y: 0, duration: 1, stagger: { each: 0.4 } }, 'START+=2') // show objects
 			boxTL.fromTo($title, { opacity: 0 }, { opacity: 1, duration: 1.5 }) // show title
 			boxTL.fromTo($button, { opacity: 0 }, { opacity: 1, duration: 0.5 }) // show button
 			return boxTL
 		},
 		objectsTimeline ($objects) {
 			const objectsTL = gsap.timeline({ repeat: -1, yoyo: true })
-			objectsTL.to($objects, { y: 30, ease: Power3.easeInOut, duration: 0.75 })
+			objectsTL.to($objects, { y: 30, ease: Power3.easeInOut, duration: 1 })
 			return objectsTL
 		}
 	},
