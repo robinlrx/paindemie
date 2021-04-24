@@ -21,6 +21,7 @@
       </svg>
 
     </div>
+	<img :src="`${this.publicPath}${this.perso}`" alt="" class="perso">
     <button v-on:click="$emit('onPenality', -5)">-5</button>
     <button v-on:click="$emit('onPenality', -10)">-10</button>
     <button v-on:click="$emit('onPenality', 5)">+5</button>
@@ -36,7 +37,9 @@ export default {
 	data () {
 		return {
 			heightJauge: this.score,
-			jaugeColor: '#ACDEA4'
+			jaugeColor: '#ACDEA4',
+			publicPath: process.env.BASE_URL, // pour accédder au dossier public
+			perso: 'assets/img/perso_content.png'
 		}
 	},
 	watch: {
@@ -57,10 +60,13 @@ export default {
 		setColor () {
 			if (this.heightJauge <= 30) {
 				this.jaugeColor = '#e74c3c'
+				this.perso = 'assets/img/perso_venere.png'
 			} else if (this.heightJauge <= 70) {
 				this.jaugeColor = '#FFCD1D'
+				this.perso = 'assets/img/perso_reflechit.png'
 			} else {
 				this.jaugeColor = '#ACDEA4'
+				this.perso = 'assets/img/perso_content.png'
 			}
 			// console.log(this.jaugeColor)
 		}
@@ -100,6 +106,13 @@ export default {
       stroke: none;
     }
   }
+}
+
+.perso {
+	position: absolute;
+	top: -5px;
+	right: -80px;
+	width: 130px;
 }
 
 // button {
