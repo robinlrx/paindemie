@@ -3,8 +3,12 @@
 		<Loader v-show="show"/>
 
 		<h1 ref="title">PA<span>[I]</span>NDEMIE</h1>
-		<img src="../../public/assets/img/carton-home.png" ref="box" alt="">
-		<img src="../../public/assets/img/objets-home.png" ref="objects" alt="">
+		<img src="../../public/assets/img/carton-home.png" ref="box" class="box" alt="">
+		<div ref="objectsBox" class="objects-container">
+			<img src="../../public/assets/img/pq-home.png" class="objects" alt="">
+			<img src="../../public/assets/img/gel-home.png"  class="objects" alt="">
+			<img src="../../public/assets/img/masque-home.png" class="objects" alt="">
+		</div>
 		<Button v-bind:link="'room'" v-bind:size=1 v-bind:type=1 class="button" ref="button">C'EST PARTI POUR LES EMMERDES</Button>
 
 	</section>
@@ -74,11 +78,14 @@ export default {
 			console.log(itemsImages)
 
 			this.show = false
+			this.mainTimeline(this.$refs.box, this.$refs.title, this.$refs.button.$el)
+				.addLabel('START')
+				.add(this.objectsTimeline(this.$refs.objectsBox), 'START+=1')
 		},
-		mainTimeline ($box, $objects, $title, $button) {
+		mainTimeline ($box, $title, $button) {
 			const boxTL = gsap.timeline()
 			boxTL.fromTo($box, { y: 400 }, { y: 0, duration: 2.5, delay: 1, ease: Bounce.easeOut }) // show box first
-			boxTL.fromTo($objects, { opacity: 0, y: 300 }, { opacity: 1, y: 0, duration: 1 }) // show objects
+			boxTL.fromTo('.objects', { opacity: 0, y: 300 }, { opacity: 1, y: 0, duration: 1, stagger: { each: 0.4 } }) // show objects
 			boxTL.fromTo($title, { opacity: 0 }, { opacity: 1, duration: 1.5 }) // show title
 			boxTL.fromTo($button, { opacity: 0 }, { opacity: 1, duration: 0.5 }) // show button
 			return boxTL
@@ -91,9 +98,6 @@ export default {
 	},
 	mounted () {
 		this.render()
-		this.mainTimeline(this.$refs.box, this.$refs.objects, this.$refs.title, this.$refs.button.$el)
-			.addLabel('START')
-			.add(this.objectsTimeline(this.$refs.objects), 'START+=1')
 	}
 }
 </script>
@@ -133,10 +137,24 @@ export default {
 		right: 3vw;
 	}
 
-	img {
+	.box {
 		position: absolute;
 		width: 100%;
 		height: 100vh;
+	}
+}
+.objects-container {
+	// border: solid red;
+	position: absolute;
+	width: 100%;
+	height: 100vh;
+
+	& img {
+		position: absolute;
+		// border: solid blue;
+		right: 0;
+		width: 100%;
+		height: 100%;
 	}
 }
 </style>
