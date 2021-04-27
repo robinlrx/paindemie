@@ -7,11 +7,12 @@
 <script>
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
-import router from '../router/index'
+// import router from '../router/index'
 
 export default {
 	props: {
-		etape: Object
+		etape: Object,
+		show: Boolean
 	},
 	data (e) {
 		return {
@@ -167,7 +168,8 @@ export default {
 					this.$emit('buttonSend', intersect.object.name)
 				} else if (intersect.object.geometry.type === 'PlaneGeometry' && intersect.object.name === 'choice3') {
 					console.log(`nom : ${intersect.object.name}`)
-					router.push('loose')
+					// router.push('loose')
+					this.$emit('update:show', true)
 				}
 			})
 		},

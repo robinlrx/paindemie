@@ -147,6 +147,7 @@ export default {
 	font-weight: 300;
 	font-size: 1.6rem;
 	text-decoration: none;
+	text-transform: uppercase;
 	transition: all 0.3s ease-out;
 
 	svg {
