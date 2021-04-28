@@ -15,9 +15,7 @@
 		<Choices v-show="showChoices"  v-bind:numChoice="numChoice" v-bind:etape="etapes[currentEtape]" v-on:onClick="handleUpdateEtape" />
 		</transition>
 
-		<transition v-if="show" name="fade">
 		<Oups :show.sync="show" v-bind:etape="etapes[currentEtape]" :key="currentEtape"/>
-		</transition>
 	</div>
 </template>
 

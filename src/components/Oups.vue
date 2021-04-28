@@ -1,14 +1,16 @@
 <template>
-	<section>
-        <div>
-            <div class="title">
-                <h2>OUPS !</h2>
-                <img src="assets/img/oups-point.png" alt="">
+    <transition v-if="show" name="fade">
+        <section>
+            <div>
+                <div class="title">
+                    <h2>OUPS !</h2>
+                    <img src="assets/img/oups-point.png" alt="">
+                </div>
+                <p>{{this.etape.choice3}}</p>
+                <Button @click.native="$emit('update:show', false)" class="button" v-bind:link="'room'" v-bind:size=3 v-bind:type=1>Allez j'me rattrape</Button>
             </div>
-            <p>{{this.etape.choice3}}</p>
-            <Button @click="$emit('update:show', false)" class="button" v-bind:link="'room'" v-bind:size=3 v-bind:type=1>Allez j'me rattrape</Button>
-        </div>
-	</section>
+        </section>
+    </transition>
 </template>
 
 <script>
@@ -91,4 +93,10 @@ section {
     }
 }
 
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
 </style>
