@@ -28,7 +28,8 @@
 				"objet": "assets/img/objets/biere.png",
 				"btnUn": "Culture de plante corona",
 				"btnDeux":"L'eau s'est transformé en bière"
-			}
+			},
+			"choice3": "Un peu limite là non?!"
 		},
 		{
 			"id": 1,
@@ -106,7 +107,8 @@
 				"objet": "assets/img/objets/hamac.png",
 				"btnUn": "Culture de plante corona",
 				"btnDeux":"L'eau s'est transformé en bière"
-			}
+			},
+			"choice3": "T’as vraiment cru que ça allait passer ça!? 🤣"
 		},
 		{
 			"id": 3,
@@ -116,7 +118,7 @@
 				"width": 194,
 				"height": 338
 			} ,
-			"objet2": {
+			"objet3": {
 				"url": "assets/img/objets/thermometre.png",
 				"width": 50,
 				"height": 150
@@ -136,11 +138,7 @@
 				"btnUn": "Culture de plante corona",
 				"btnDeux":"L'eau s'est transformé en bière"
 			},
-			"choice2": {
-				"objet": "assets/img/objets/thermometre.png",
-				"btnUn": "Culture de plante corona",
-				"btnDeux":"L'eau s'est transformé en bière"
-			}
+			"choice3": "Bah t’es con ou quoi!?"
 		},
 		{
 			"id": 4,
@@ -184,7 +182,8 @@
 				"objet": "assets/img/objets/gel-dop.png",
 				"btnUn": "Culture de plante corona",
 				"btnDeux":"L'eau s'est transformé en bière"
-			}
+			},
+			"choice3": "Ah carrément.. Ça veut empoisonner son petit-fils maintenant!?"
 		},
 		{
 			"id": 5,
@@ -247,7 +246,8 @@
 				"objet": "assets/img/objets/cocotte.png",
 				"btnUn": "Culture de plante corona",
 				"btnDeux":"L'eau s'est transformé en bière"
-			}
+			},
+			"choice3": "Ouh là tu t’enflammes toi! Reste flex"
 		},
 		{
 			"id": 7,
@@ -310,7 +310,8 @@
 				"objet": "assets/img/objets/coton-tige.png",
 				"btnUn": "Culture de plante corona",
 				"btnDeux":"L'eau s'est transformé en bière"
-			}
+			},
+			"choice3": "C’est du propre cette éducation! Bravo!"
 		}
 	]
 }

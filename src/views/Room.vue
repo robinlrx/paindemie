@@ -3,15 +3,20 @@
 		<!-- <Tutorial /> -->
 		<transition name="fade">
 			<!-- Key-changing to force re-renders of a component -->
-			<Scene @buttonSend="getContentFromData" v-bind:etape="etapes[currentEtape]" v-on:objectClicked="handleShowChoices" :key="currentEtape" />
+			<Scene @buttonSend="getContentFromData" v-bind:etape="etapes[currentEtape]" v-on:objectClicked="handleShowChoices" :key="currentEtape" :show.sync="show"/>
 		</transition>
 		<!-- <Objet v-bind:etape="etapes[currentEtape]" :key="currentEtape"/> -->
 		<div class="life">
 			<Jauge v-bind:score="score" v-on:onPenality="handlePenality"/>
 			<Timer :key="currentEtape" v-on:onPenality="handlePenality"/>
 		</div>
+
 		<transition name="fade">
-		<Choices v-show="showChoices"  v-bind:numChoice="numChoice" v-bind:etape="etapes[currentEtape]" v-on:onClick="handleUpdateEtape"  />
+		<Choices v-show="showChoices"  v-bind:numChoice="numChoice" v-bind:etape="etapes[currentEtape]" v-on:onClick="handleUpdateEtape" />
+		</transition>
+
+		<transition v-if="show" name="fade">
+		<Oups :show.sync="show" v-bind:etape="etapes[currentEtape]" :key="currentEtape"/>
 		</transition>
 	</div>
 </template>
@@ -22,11 +27,10 @@ import data from '../assets/data/data.json'
 import router from '../router/index'
 
 import Scene from '@/components/Scene.vue'
-// import Objet from '@/components/Objet.vue'
 import Choices from '@/components/Choices.vue'
 import Jauge from '@/components/Jauge.vue'
 import Timer from '@/components/Timer.vue'
-// import Tutorial from '@/components/Tutorial.vue'
+import Oups from '@/components/Oups.vue'
 
 export default {
 	data () {
@@ -36,7 +40,8 @@ export default {
 			currentEtape: 0,
 			score: 100,
 			numButton: null,
-			numChoice: null
+			numChoice: null,
+			show: false
 		}
 	},
 	methods: {
@@ -80,31 +85,14 @@ export default {
 
 			this.numChoice = content[btnName]
 			console.log(this.numChoice)
-
-			// ------------------------------------
-
-			/*
-			this.numButton = btnName
-			// console.log(btnName)
-
-			for (const item in this.etapes[this.currentEtape]) {
-				console.log(item) // id, imageScreen, objet1, objet2, choice1
-
-				if (item === btnName) {
-					this.numChoice = item
-					console.log(this.numChoice)
-				}
-			}
-			*/
 		}
 	},
 	components: {
 		Scene,
 		Choices,
-		// Objet,
 		Jauge,
-		Timer
-		// Tutorial
+		Timer,
+		Oups
 	}
 }
 
