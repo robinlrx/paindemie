@@ -2,9 +2,14 @@
 	<section class="home">
 		<Loader v-show="show"/>
 
-		<h1>PA<span>[I]</span>NDEMIE</h1>
-		<img src="../../public/assets/img/objets-home.png" alt="">
-		<Button v-bind:link="'room'" v-bind:size=1 v-bind:type=1 class="button">C'EST PARTIE POUR LES EMMERDES</Button>
+		<h1 ref="title">PA<span>[I]</span>NDEMIE</h1>
+		<img src="../../public/assets/img/carton-home.png" ref="box" class="box" alt="">
+		<div ref="objectsBox" class="objects-container">
+			<img src="../../public/assets/img/pq-home.png" class="objects" alt="">
+			<img src="../../public/assets/img/gel-home.png"  class="objects" alt="">
+			<img src="../../public/assets/img/masque-home.png" class="objects" alt="">
+		</div>
+		<Button v-bind:link="'room'" v-bind:size=1 v-bind:type=1 class="button" ref="button">C'EST PARTI POUR LES EMMERDES</Button>
 
 	</section>
 </template>
@@ -13,6 +18,7 @@
 import Loader from '@/components/Loader.vue'
 import Button from '@/components/Button.vue'
 import * as load from 'load-asset'
+import { gsap, Power3, Bounce } from 'gsap'
 
 export default {
 	name: 'Home',
@@ -29,9 +35,15 @@ export default {
 		async render () {
 		// Load a list of named assets in parallel
 			const assetsImages = [
-				'assets/img/bg-home.png',
+				'assets/img/carton-home.png',
 				'assets/img/fond-home.png',
 				'assets/img/objets-home.png',
+				'assets/img/pq-home.png',
+				'assets/img/masque-home.png',
+				'assets/img/gel-home.png',
+				'assets/img/perso_content.png',
+				'assets/img/perso_reflechit.png',
+				'assets/img/perso_venere.png',
 				'assets/img/room/room360.jpg',
 				'assets/img/room/room0.jpg',
 				'assets/img/room/room1.jpg',
@@ -69,6 +81,23 @@ export default {
 			console.log(itemsImages)
 
 			this.show = false
+			this.mainTimeline(this.$refs.box, this.$refs.title, this.$refs.button.$el)
+				.addLabel('DELAY')
+				.add(this.objectsTimeline(this.$refs.objectsBox), 'DELAY+=1')
+		},
+		mainTimeline (box, title, button) {
+			const boxTL = gsap.timeline()
+			boxTL.add('START')
+			boxTL.fromTo(box, { y: 400 }, { y: 0, duration: 2.5, delay: 1, ease: Bounce.easeOut }, 'START') // show box first
+			boxTL.fromTo('.objects', { opacity: 0, y: 300 }, { opacity: 1, y: 0, duration: 1, stagger: { each: 0.4 } }, 'START+=2') // show objects
+			boxTL.fromTo(title, { opacity: 0 }, { opacity: 1, duration: 1.5 }) // show title
+			boxTL.fromTo(button, { opacity: 0 }, { opacity: 1, duration: 0.5 }) // show button
+			return boxTL
+		},
+		objectsTimeline (objects) {
+			const objectsTL = gsap.timeline({ repeat: -1, yoyo: true })
+			objectsTL.to(objects, { y: 30, ease: Power3.easeInOut, duration: 1 })
+			return objectsTL
 		}
 	},
 	mounted () {
@@ -83,7 +112,8 @@ export default {
 .home {
 	width: 100%;
 	height: 100vh;
-	background-image: url('../../public/assets/img/bg-home.png'), url('../../public/assets/img/fond-home.png');
+	// background-image: url('../../public/assets/img/bg-home.png'), url('../../public/assets/img/fond-home.png');
+	background-image: url('../../public/assets/img/fond-home.png');
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -111,22 +141,24 @@ export default {
 		right: 3vw;
 	}
 
-	img {
+	.box {
 		position: absolute;
 		width: 100%;
 		height: 100vh;
-		animation: fly 2s ease-in-out infinite;
 	}
 }
+.objects-container {
+	// border: solid red;
+	position: absolute;
+	width: 100%;
+	height: 100vh;
 
-@keyframes fly { 0% {
-	top: 30px;
-}
-50% {
-	top: 0;
-}
-100% {
-	top: 30px;
-}
+	& img {
+		position: absolute;
+		// border: solid blue;
+		right: 0;
+		width: 100%;
+		height: 100%;
+	}
 }
 </style>
