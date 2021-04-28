@@ -35,6 +35,7 @@ export default {
 		async render () {
 		// Load a list of named assets in parallel
 			const assetsImages = [
+				// img global
 				'assets/img/carton-home.png',
 				'assets/img/fond-home.png',
 				'assets/img/objets-home.png',
@@ -44,6 +45,10 @@ export default {
 				'assets/img/perso_content.png',
 				'assets/img/perso_reflechit.png',
 				'assets/img/perso_venere.png',
+				'assets/img/oups-point.png',
+				'assets/img/fond-jauge.png',
+				'assets/img/fond-title.png',
+				// room
 				'assets/img/room/room360.jpg',
 				'assets/img/room/room0.jpg',
 				'assets/img/room/room1.jpg',
@@ -52,6 +57,7 @@ export default {
 				'assets/img/room/room4.jpg',
 				'assets/img/room/room7.jpg',
 				'assets/img/room/room8.jpg',
+				// objets
 				'assets/img/objets/biere.png',
 				'assets/img/objets/brosse-a-dents.png',
 				'assets/img/objets/cafard.png',
@@ -73,6 +79,7 @@ export default {
 				'assets/img/objets/miel-vitre.png',
 				'assets/img/objets/porte.png',
 				'assets/img/objets/superman.png',
+				'assets/img/objets/tele.png',
 				'assets/img/objets/thermometre.png',
 				'assets/img/objets/tirelire.png'
 			]

@@ -114,9 +114,9 @@
 			"id": 3,
 			"imageScene": "assets/img/room/room3.jpg",
 			"objet1": {
-				"url": "assets/img/objets/info.png",
-				"width": 194,
-				"height": 338
+				"url": "assets/img/objets/tele.png",
+				"width": 675,
+				"height": 420
 			} ,
 			"objet3": {
 				"url": "assets/img/objets/thermometre.png",
@@ -125,10 +125,10 @@
 			},
 			"c1": {
 				"x": 0.9522636831749526,
-				"y": 0.2753672840859653,
-				"z": -0.13178291452685512
+				"y": 0.2823672840859653,
+				"z": -0.10078291452685512
 			},
-			"c2": {
+			"c3": {
 				"x": 0.9522636831749526,
 				"y": 0.2753672840859653,
 				"z": 0.24178291452685512

@@ -1,16 +1,16 @@
 <template>
-    <transition v-if="show" name="fade">
-        <section>
-            <div>
-                <div class="title">
-                    <h2>OUPS !</h2>
-                    <img src="assets/img/oups-point.png" alt="">
-                </div>
-                <p>{{this.etape.choice3}}</p>
-                <Button @click.native="$emit('update:show', false)" class="button" v-bind:link="'room'" v-bind:size=3 v-bind:type=1>Allez j'me rattrape</Button>
-            </div>
-        </section>
-    </transition>
+	<transition v-if="show" name="fade">
+		<section>
+			<div>
+				<div class="title">
+					<h2>OUPS !</h2>
+					<img src="assets/img/oups-point.png" alt="">
+				</div>
+				<p>{{this.etape.choice3}}</p>
+				<Button @click.native="$emit('update:show', false)" class="button" v-bind:link="'room'" v-bind:size=3 v-bind:type=1>Allez j'me rattrape</Button>
+			</div>
+		</section>
+	</transition>
 </template>
 
 <script>
@@ -38,59 +38,61 @@ section {
 	flex-direction: column;
 	background-color: rgba(255, 205, 29, 0.8);
 	color: $red;
+	cursor: initial;
 
-    div {
-        position: relative;
-        display: flex;
-        background-image: url('/assets/img/fond-jauge.png');
-        background-repeat: no-repeat;
-        background-size: cover;
-        width: 727px;
-        height: 240px;
+	div {
+		position: relative;
+		display: flex;
+		background-image: url('/assets/img/fond-jauge.png');
+		background-repeat: no-repeat;
+		background-size: cover;
+		width: 727px;
+		height: 240px;
 
-        .title {
-            position: absolute;
-            top:-40px;
-            left: -40px;
-            background-image: url('/assets/img/fond-title.png');
-            background-repeat: no-repeat;
-            background-size: cover;
-            width: 312px;
-            height: 120px;
-            display: flex;
+		.title {
+			position: absolute;
+			top:-40px;
+			left: -40px;
+			background-image: url('/assets/img/fond-title.png');
+			background-repeat: no-repeat;
+			background-size: cover;
+			width: 312px;
+			height: 120px;
+			display: flex;
 
-            h2 {
-                font-family: $chelsea-font;
-                font-size: 3rem;
-                font-weight: 400;
-                color: $yellow;
-                margin: auto;
-                letter-spacing: .2rem;
-                transform: rotate(-5deg);
-            }
+			h2 {
+				font-family: $chelsea-font;
+				font-size: 3rem;
+				font-weight: 400;
+				color: $yellow;
+				margin: auto;
+				letter-spacing: .2rem;
+				transform: rotate(-5deg);
+			}
 
-            img {
-                position: absolute;
-                width: 70px;
-                bottom: -10px;
-                right: -30px;
-            }
-        }
+			img {
+				position: absolute;
+				width: 70px;
+				bottom: -10px;
+				right: -30px;
+			}
+		}
 
-        p {
-            font-family: $chantal-font;
-            margin: auto;
-            font-weight: 400;
-            font-size: 2rem;
-        }
+		p {
+			font-family: $chantal-font;
+			margin: auto;
+			font-weight: 400;
+			font-size: 2rem;
+			max-width: 45vw;
+		}
 
-        a {
-            position: absolute;
-            bottom: -40px;
-            right: -40px;
+		a {
+			position: absolute;
+			bottom: -40px;
+			right: -40px;
 
-        }
-    }
+		}
+	}
 }
 
 .fade-enter-active, .fade-leave-active {
