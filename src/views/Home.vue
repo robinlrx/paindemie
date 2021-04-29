@@ -84,8 +84,12 @@ export default {
 				'assets/img/objets/tirelire.png'
 			]
 
+			const assetsVideos = ['assets/videos/motion.mp4']
+
 			const itemsImages = await load.all(assetsImages)
 			console.log(itemsImages)
+			const itemsVideos = await load.all(assetsVideos)
+			console.log(itemsVideos)
 
 			this.show = false
 			this.mainTimeline(this.$refs.box, this.$refs.title, this.$refs.button.$el)
