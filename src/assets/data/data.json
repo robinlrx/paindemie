@@ -28,6 +28,7 @@
 				"z": -0.8652985483756166
 			},
 			"objetQuestion": "assets/img/gel-dop.png",
+			"papi": "assets/img/fond-papi.jpg",
 			"choice1": {
 				"objet": "assets/img/objets/biere.png",
 				"btnUn": "Culture de plante corona",
