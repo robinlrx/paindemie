@@ -1,5 +1,6 @@
 <template>
 	<div class="room">
+		<Motion v-bind:etape="etapes[currentEtape]" :key="currentEtape" />
 		<!-- <Tutorial /> -->
 		<transition name="fade">
 			<!-- Key-changing to force re-renders of a component -->
@@ -24,6 +25,7 @@
 import data from '../assets/data/data.json'
 import router from '../router/index'
 
+import Motion from '@/components/Motion.vue'
 import Scene from '@/components/Scene.vue'
 import Choices from '@/components/Choices.vue'
 import Jauge from '@/components/Jauge.vue'
@@ -90,7 +92,8 @@ export default {
 		Choices,
 		Jauge,
 		Timer,
-		Oups
+		Oups,
+		Motion
 	}
 }
 

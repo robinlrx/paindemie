@@ -2,6 +2,10 @@
 	"content": [
 		{
 			"id": 0,
+			"motion": {
+				"url": "assets/videos/motion.mp4",
+				"time": 10000
+			},
 			"imageScene": "assets/img/room/room0.jpg",
 			"objet1": {
 				"url": "assets/img/objets/biere.png",
@@ -33,6 +37,10 @@
 		},
 		{
 			"id": 1,
+			"motion": {
+				"url": "assets/videos/motion.mp4",
+				"time": 10000
+			},
 			"imageScene": "assets/img/room/room1.jpg",
 			"objet1": {
 				"url": "assets/img/objets/coude.png",
