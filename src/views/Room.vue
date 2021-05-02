@@ -12,7 +12,7 @@
 			<Timer :key="currentEtape" v-on:onPenality="handlePenality"/>
 		</div>
 
-		<Papi v-bind:numChoice="numChoice" v-bind:etape="etapes[currentEtape]"/>
+		<!-- <Papi v-bind:numChoice="numChoice" v-bind:etape="etapes[currentEtape]"/> -->
 
 		<transition name="fade">
 		<Choices v-show="showChoices"  v-bind:numChoice="numChoice" v-bind:etape="etapes[currentEtape]" v-on:onClick="handleUpdateEtape" />
@@ -33,7 +33,7 @@ import Choices from '@/components/Choices.vue'
 import Jauge from '@/components/Jauge.vue'
 import Timer from '@/components/Timer.vue'
 import Oups from '@/components/Oups.vue'
-import Papi from '@/components/Papi.vue'
+// import Papi from '@/components/Papi.vue'
 
 export default {
 	components: {
@@ -41,9 +41,9 @@ export default {
 		Choices,
 		Jauge,
 		Timer,
-		Oups,
+		Oups
 		// Motion,
-		Papi
+		// Papi
 	},
 	data () {
 		return {
