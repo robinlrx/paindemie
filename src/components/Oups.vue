@@ -3,7 +3,7 @@
 		<section>
 			<div>
 				<div class="title">
-					<h2>OUPS !</h2>
+					<h2>OUPS!</h2>
 					<img src="assets/img/oups-point.png" alt="">
 				</div>
 				<p>{{this.etape.choice3}}</p>
@@ -66,13 +66,13 @@ section {
 				font-weight: 400;
 				color: $yellow;
 				margin: auto;
-				letter-spacing: .2rem;
+				letter-spacing: .6rem;
 				transform: rotate(-5deg);
 			}
 
 			img {
 				position: absolute;
-				width: 70px;
+				width: 80px;
 				bottom: -10px;
 				right: -30px;
 			}
@@ -81,7 +81,7 @@ section {
 		p {
 			font-family: $chantal-font;
 			margin: auto;
-			font-weight: 400;
+			font-weight: bold;
 			font-size: 2rem;
 			max-width: 45vw;
 		}
