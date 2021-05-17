@@ -142,7 +142,7 @@
 				"z": 0.24178291452685512
 			},
 			"choice1": {
-				"objet": "assets/img/objets/info.png",
+				"objet": "assets/img/objets/tele.png",
 				"btnUn": "Culture de plante corona",
 				"btnDeux":"L'eau s'est transformé en bière"
 			},
@@ -195,7 +195,7 @@
 		},
 		{
 			"id": 5,
-			"imageScene": "assets/img/room/room360.jpg",
+			"imageScene": "assets/img/room/room5.jpg",
 			"objet1": {
 				"url": "assets/img/objets/tirelire.png",
 				"width": 200,
@@ -229,7 +229,7 @@
 		},
 		{
 			"id": 6,
-			"imageScene": "assets/img/room/room360.jpg",
+			"imageScene": "assets/img/room/room6.jpg",
 			"objet1": {
 				"url": "assets/img/objets/cocotte-vitre.png",
 				"width": 95,
