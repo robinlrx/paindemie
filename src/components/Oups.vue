@@ -43,11 +43,11 @@ section {
 	div {
 		position: relative;
 		display: flex;
-		background-image: url('/assets/img/fond-jauge.png');
+		background-image: url('/assets/img/fond-oups.png');
 		background-repeat: no-repeat;
 		background-size: cover;
 		width: 727px;
-		height: 240px;
+		height: 285px;
 
 		.title {
 			position: absolute;
