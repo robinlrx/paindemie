@@ -38,8 +38,7 @@
 		{
 			"id": 1,
 			"motion": {
-				"url": "assets/videos/motion.mp4",
-				"time": 10000
+				"url": "assets/videos/motion.mp4"
 			},
 			"imageScene": "assets/img/room/room1.jpg",
 			"objet1": {
