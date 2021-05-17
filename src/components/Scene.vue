@@ -8,6 +8,8 @@
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 // import router from '../router/index'
+import frag from '../assets/shaders/shader.frag'
+import vert from '../assets/shaders/shader.vert'
 
 export default {
 	props: {
@@ -18,10 +20,12 @@ export default {
 		return {
 			sprite: null,
 			plane: null,
+			shaderMaterial: null,
 			rayCaster: new THREE.Raycaster(),
 			mouse: new THREE.Vector2(),
 			html: document.getElementsByTagName('html')[0],
 			PCFSoftShadowMap: THREE.PCFSoftShadowMap
+			// OutlineThickness: 0.03
 		}
 	},
 	mounted () {
@@ -125,11 +129,18 @@ export default {
 			const icons = iconsLoader.load(icon)
 
 			const geometry = new THREE.PlaneBufferGeometry()
-			const material = new THREE.MeshLambertMaterial({
-				map: icons,
+			this.shaderMaterial = new THREE.ShaderMaterial({
+				uniforms: {
+					textureSampler: { type: 't', value: null },
+					thickness: { type: 'f', value: 0.02 }
+				},
+				vertexShader: vert,
+				fragmentShader: frag,
 				transparent: true
 			})
-			this.plane = new THREE.Mesh(geometry, material)
+			this.shaderMaterial.uniforms.textureSampler.value = icons
+			// this.shaderMaterial.uniforms.thickness.value = this.OutlineThickness
+			this.plane = new THREE.Mesh(geometry, this.shaderMaterial)
 			this.plane.name = name
 			// this.plane.castShadow = true
 			// this.plane.material.shadowSide = THREE.FrontSide
@@ -185,12 +196,15 @@ export default {
 			// Alors intersects à une length
 			intersects.forEach(plane => {
 				this.html.style.cursor = 'pointer'
-				// plane.object.material.color.set(0x0066CC)
+				// this.OutlineThickness = 0.5
+				plane.object.material.uniforms.thickness.value = 0.05
 			})
 
 			if (intersects.length === 0) {
 				this.html.style.cursor = 'default'
-				// planes.forEach(ch => ch.object.material.color.set(0xffffff))
+				// this.OutlineThickness = 0.03
+				// eslint-disable-next-line no-return-assign
+				planes.forEach(ch => ch.object.material.uniforms.thickness.value = 0.02)
 			}
 		},
 		update () {
