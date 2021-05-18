@@ -6,10 +6,8 @@
 		<!-- <Papi v-bind:numChoice="numChoice" v-bind:etape="etapes[currentEtape]"/> -->
 		<transition name="fade">
 			<!-- Key-changing to force re-renders of a component -->
-			<Scene @buttonSend="getContentFromData" v-bind:etape="etapes[currentEtape]" v-on:objectClicked="handleShowChoices" :key="currentEtape" :show.sync="show"/>
+			<Scene @buttonSend="getContentFromData" v-bind:etape="etapes[currentEtape]" v-on:objectClicked="handleShowChoices" :key="currentEtape" :showOups.sync="showOups"/>
 		</transition>
-
-		<!-- <Objet v-bind:etape="etapes[currentEtape]" :key="currentEtape"/> -->
 
 		<div class="life">
 			<Jauge v-bind:score="score" v-on:onPenality="handlePenality"/>
@@ -17,15 +15,14 @@
 		</div>
 
 		<transition name="fade">
-		<Choices v-show="showChoices"  v-bind:numChoice="numChoice" v-bind:etape="etapes[currentEtape]" v-on:onClick="handleUpdateEtape" />
+		<Choices v-show="showChoices" v-bind:numChoice="numChoice" v-bind:etape="etapes[currentEtape]" v-on:onClick="handleUpdateEtape" />
 		</transition>
 
-		<Oups :show.sync="show" v-bind:etape="etapes[currentEtape]" :key="currentEtape"/>
+		<Oups :showOups.sync="showOups" v-bind:score="score" v-bind:etape="etapes[currentEtape]" :key="currentEtape"/>
 	</div>
 </template>
 
 <script>
-// @ is an alias to /src
 import data from '../assets/data/data.json'
 import router from '../router/index'
 
@@ -55,7 +52,7 @@ export default {
 			score: 100,
 			numButton: null,
 			numChoice: null,
-			show: false
+			showOups: false
 		}
 	},
 	methods: {
@@ -75,22 +72,15 @@ export default {
 		},
 		handlePenality (penality) {
 			this.score += penality
-			// console.log('testpenality', this.score, penality)
 
 			if (this.score <= 0) {
 				router.push('loose')
 			}
 		},
 		getContentFromData (btnName) {
-			// Recuperer le contenu de data.json
-			// correspondant au nom du btn cliqué
-			// MDN doc: Array.map, Array.filter, Object.keys(), Object.values()
-			// data.content === this.etapes === [{}, {}, {}]
-
 			const content = this.etapes.filter(el => {
-				// el === {id: 0, imageScene: "sdsdf", }
 				return el.id === this.currentEtape
-			})[0] // {id: 0, imageScene: "sdfdsf", ..., choice1: {...}, choice2: {...}}
+			})[0]
 
 			if (!content) {
 				console.log('Pas trouvé de data correspondante')
@@ -129,7 +119,7 @@ body{
 .fade-enter-active, .fade-leave-active {
   transition: opacity .5s;
 }
-.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+.fade-enter, .fade-leave-to {
   opacity: 0;
 }
 </style>
