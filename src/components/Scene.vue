@@ -14,7 +14,7 @@ import vert from '../assets/shaders/shader.vert'
 export default {
 	props: {
 		etape: Object,
-		show: Boolean
+		showOups: Boolean
 	},
 	data (e) {
 		return {
@@ -184,8 +184,7 @@ export default {
 					this.$emit('buttonSend', intersect.object.name)
 				} else if (intersect.object.geometry.type === 'PlaneGeometry' && intersect.object.name === 'choice3') {
 					console.log(`nom : ${intersect.object.name}`)
-					// router.push('loose')
-					this.$emit('update:show', true)
+					this.$emit('update:showOups', true)
 				}
 			})
 		},

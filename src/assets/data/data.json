@@ -27,12 +27,15 @@
 				"y": 0.11877427754264027,
 				"z": -0.8652985483756166
 			},
-			"objetQuestion": "assets/img/gel-dop.png",
 			"papi": "assets/img/fond-papi.jpg",
 			"choice1": {
 				"objet": "assets/img/objets-choix/choix-biere.png",
-				"btnUn": "Culture de plante corona",
-				"btnDeux":"L'eau s'est transformé en bière"
+				"btnUn": {
+					"url":"assets/img/gifs-choix/choix_un_biere.gif"
+				},
+				"btnDeux": {
+					"url":"assets/img/gifs-choix/choix_deux_biere.gif"
+				}
 			},
 			"choice3": "Un peu limite là non?!"
 		},
@@ -64,13 +67,21 @@
 			},
 			"choice1": {
 				"objet": "assets/img/objets-choix/choix-coude.png",
-				"btnUn": "Culture de plante corona",
-				"btnDeux":"L'eau s'est transformé en bière"
+				"btnUn": {
+					"url":"assets/img/gifs-choix/choix_un_coude.gif"
+				},
+				"btnDeux": {
+					"url":"assets/img/gifs-choix/choix_deux_coude.gif"
+				}
 			},
 			"choice2": {
 				"objet": "assets/img/objets-choix/choix-cafard.png",
-				"btnUn": "Culture de plante corona",
-				"btnDeux":"L'eau s'est transformé en bière"
+				"btnUn": {
+					"url":"assets/img/gifs-choix/choix_un_cafard.gif"
+				},
+				"btnDeux": {
+					"url":"assets/img/gifs-choix/choix_deux_cafard.gif"
+				}
 			}
 		},
 		{
@@ -108,13 +119,21 @@
 			},
 			"choice1": {
 				"objet": "assets/img/objets-choix/choix-brosse-a-dents.png",
-				"btnUn": "Culture de plante corona",
-				"btnDeux":"L'eau s'est transformé en bière"
+				"btnUn": {
+					"url":"assets/img/gifs-choix/choix_un_brosse_dent.gif"
+				},
+				"btnDeux": {
+					"url":"assets/img/gifs-choix/choix_deux_brosse_dent.gif"
+				}
 			},
 			"choice2": {
 				"objet": "assets/img/objets-choix/choix-hamac.png",
-				"btnUn": "Culture de plante corona",
-				"btnDeux":"L'eau s'est transformé en bière"
+				"btnUn": {
+					"url":"assets/img/gifs-choix/choix_un_hamac.gif"
+				},
+				"btnDeux": {
+					"url":"assets/img/gifs-choix/choix_deux_hamac.gif"
+				}
 			},
 			"choice3": "T’as vraiment cru que ça allait passer ça!? 🤣"
 		},
@@ -143,8 +162,12 @@
 			},
 			"choice1": {
 				"objet": "assets/img/objets-choix/choix-tele.png",
-				"btnUn": "Culture de plante corona",
-				"btnDeux":"L'eau s'est transformé en bière"
+				"btnUn": {
+					"url":"assets/img/gifs-choix/choix_un_tv.gif"
+				},
+				"btnDeux": {
+					"url":"assets/img/gifs-choix/choix_deux_tv.gif"
+				}
 			},
 			"choice3": "Bah t’es con ou quoi!?"
 		},
@@ -183,13 +206,21 @@
 			},
 			"choice1": {
 				"objet": "assets/img/objets-choix/choix-medicament-boite.png",
-				"btnUn": "Culture de plante corona",
-				"btnDeux":"L'eau s'est transformé en bière"
+				"btnUn": {
+					"url":"assets/img/gifs-choix/choix_un_medicaments.gif"
+				},
+				"btnDeux": {
+					"url":"assets/img/gifs-choix/choix_deux_medicaments.gif"
+				}
 			},
 			"choice2": {
 				"objet": "assets/img/objets-choix/choix-gel_pot.png",
-				"btnUn": "Culture de plante corona",
-				"btnDeux":"L'eau s'est transformé en bière"
+				"btnUn": {
+					"url":"assets/img/gifs-choix/choix_un_gel.gif"
+				},
+				"btnDeux": {
+					"url":"assets/img/gifs-choix/choix_deux_gel.gif"
+				}
 			},
 			"choice3": "Ah carrément.. Ça veut empoisonner son petit-fils maintenant!?"
 		},
@@ -218,13 +249,21 @@
 			},
 			"choice1": {
 				"objet": "assets/img/objets-choix/choix-tirelire.png",
-				"btnUn": "Culture de plante corona",
-				"btnDeux":"L'eau s'est transformé en bière"
+				"btnUn": {
+					"url":"assets/img/gifs-choix/choix_un_tirelire.gif"
+				},
+				"btnDeux": {
+					"url":"assets/img/gifs-choix/choix_deux_tirelire.gif"
+				}
 			},
 			"choice2": {
 				"objet": "assets/img/objets-choix/choix-loupe.png",
-				"btnUn": "Culture de plante corona",
-				"btnDeux":"L'eau s'est transformé en bière"
+				"btnUn": {
+					"url":"assets/img/gifs-choix/choix_un_loupe.gif"
+				},
+				"btnDeux": {
+					"url":"assets/img/gifs-choix/choix_deux_loupe.gif"
+				}
 			}
 		},
 		{
@@ -252,8 +291,12 @@
 			},
 			"choice1": {
 				"objet": "assets/img/objets-choix/choix-cocotte_bas.png",
-				"btnUn": "Culture de plante corona",
-				"btnDeux":"L'eau s'est transformé en bière"
+				"btnUn": {
+					"url":"assets/img/gifs-choix/choix_un_cocotte.gif"
+				"btnDeux": {
+				},
+					"url":"assets/img/gifs-choix/choix_deux_cocotte.gif"
+				}
 			},
 			"choice3": "Ouh là tu t’enflammes toi! Reste flex"
 		},
@@ -282,13 +325,21 @@
 			},
 			"choice1": {
 				"objet": "assets/img/objets-choix/choix-porte.png",
-				"btnUn": "Culture de plante corona",
-				"btnDeux":"L'eau s'est transformé en bière"
+				"btnUn": {
+					"url":"assets/img/gifs-choix/choix_un_porte.gif"
+				},
+				"btnDeux": {
+					"url":"assets/img/gifs-choix/choix_deux_porte.gif"
+				}
 			},
 			"choice2": {
 				"objet": "assets/img/objets-choix/choix-carton.png",
-				"btnUn": "Culture de plante corona",
-				"btnDeux":"L'eau s'est transformé en bière"
+				"btnUn": {
+				},
+					"url":"assets/img/gifs-choix/choix_un_carton.gif"
+				"btnDeux": {
+					"url":"assets/img/gifs-choix/choix_deux_carton.gif"
+				}
 			}
 		},
 		{
@@ -316,8 +367,12 @@
 			},
 			"choice1": {
 				"objet": "assets/img/objets-choix/choix-coton-tige.png",
-				"btnUn": "Culture de plante corona",
-				"btnDeux":"L'eau s'est transformé en bière"
+				"btnUn": {
+					"url":"assets/img/gifs-choix/choix_un_coton_tige.gif"
+				},
+				"btnDeux": {
+					"url":"assets/img/gifs-choix/choix_deux_coton_tige.gif"
+				}
 			},
 			"choice3": "C’est du propre cette éducation! Bravo!"
 		}
