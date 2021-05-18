@@ -3,7 +3,7 @@
 		<!-- <Motion v-bind:etape="etapes[currentEtape]" :key="currentEtape" /> -->
 		<!-- <Tutorial /> -->
 
-		<Papi v-bind:numChoice="numChoice" v-bind:etape="etapes[currentEtape]"/>
+		<!-- <Papi v-bind:numChoice="numChoice" v-bind:etape="etapes[currentEtape]"/> -->
 		<transition name="fade">
 			<!-- Key-changing to force re-renders of a component -->
 			<Scene @buttonSend="getContentFromData" v-bind:etape="etapes[currentEtape]" v-on:objectClicked="handleShowChoices" :key="currentEtape" :show.sync="show"/>
@@ -35,7 +35,7 @@ import Choices from '@/components/Choices.vue'
 import Jauge from '@/components/Jauge.vue'
 import Timer from '@/components/Timer.vue'
 import Oups from '@/components/Oups.vue'
-import Papi from '@/components/Papi.vue'
+// import Papi from '@/components/Papi.vue'
 
 export default {
 	components: {
@@ -43,9 +43,9 @@ export default {
 		Choices,
 		Jauge,
 		Timer,
-		Oups,
+		Oups
 		// Motion,
-		Papi
+		// Papi
 	},
 	data () {
 		return {
