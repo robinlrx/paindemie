@@ -3,7 +3,7 @@
 		<section class="papi" :style="{'background-image': 'url(' + this.etape.papi + ')'}">
 
             <div class="cloud-content">
-                <img class="cloud" src="../../public/assets/img/nuage-papi.png" alt="">
+                <img class="cloud" src="../../public/assets/img/bulle.gif" alt="">
                 <img class="object" :src="this.etape.objet1.url" alt="">
             </div>
 
@@ -37,7 +37,7 @@ export default {
 
     .cloud-content {
         position: absolute;
-        width: 800px;
+        width: 80%;
         border: solid 2px red;
 
         .cloud {
@@ -47,9 +47,9 @@ export default {
         .object {
             position: absolute;
             border: solid 2px green;
-            left: 200px;
-            top: 60px
-
+            left: 260px;
+            top: 120px;
+            width: 5%;
         }
     }
 }
@@ -57,7 +57,7 @@ export default {
 .fade-enter-active, .fade-leave-active {
   transition: opacity .5s;
 }
-.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+.fade-enter, .fade-leave-to {
   opacity: 0;
 }
 </style>

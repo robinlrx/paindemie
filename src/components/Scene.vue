@@ -8,20 +8,27 @@
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 // import router from '../router/index'
+import frag from '../assets/shaders/shader.frag'
+import vert from '../assets/shaders/shader.vert'
 
 export default {
 	props: {
 		etape: Object,
-		show: Boolean
+		showOups: Boolean
 	},
 	data (e) {
 		return {
 			sprite: null,
 			plane: null,
+			planes: null,
+			shaderMaterial: null,
 			rayCaster: new THREE.Raycaster(),
 			mouse: new THREE.Vector2(),
 			html: document.getElementsByTagName('html')[0],
-			PCFSoftShadowMap: THREE.PCFSoftShadowMap
+			PCFSoftShadowMap: THREE.PCFSoftShadowMap,
+			time: 0,
+			tab: []
+			// OutlineThickness: 0.03
 		}
 	},
 	mounted () {
@@ -125,11 +132,19 @@ export default {
 			const icons = iconsLoader.load(icon)
 
 			const geometry = new THREE.PlaneBufferGeometry()
-			const material = new THREE.MeshLambertMaterial({
-				map: icons,
+			this.shaderMaterial = new THREE.ShaderMaterial({
+				uniforms: {
+					textureSampler: { type: 't', value: icons },
+					thickness: { type: 'f', value: 0.03 }
+				},
+				vertexShader: vert,
+				fragmentShader: frag,
 				transparent: true
 			})
-			this.plane = new THREE.Mesh(geometry, material)
+			console.log(this.shaderMaterial.uniforms.thickness.value)
+			// this.shaderMaterial.uniforms.textureSampler.value = icons
+			// this.shaderMaterial.uniforms.thickness.value = 0.05
+			this.plane = new THREE.Mesh(geometry, this.shaderMaterial)
 			this.plane.name = name
 			// this.plane.castShadow = true
 			// this.plane.material.shadowSide = THREE.FrontSide
@@ -144,6 +159,7 @@ export default {
 			} else {
 				this.plane.scale.set(this.etape.objet3.width / 30, this.etape.objet3.height / 30, 1)
 			}
+			this.tab.push(this.plane)
 		},
 
 		onClick (e) {
@@ -168,8 +184,7 @@ export default {
 					this.$emit('buttonSend', intersect.object.name)
 				} else if (intersect.object.geometry.type === 'PlaneGeometry' && intersect.object.name === 'choice3') {
 					console.log(`nom : ${intersect.object.name}`)
-					// router.push('loose')
-					this.$emit('update:show', true)
+					this.$emit('update:showOups', true)
 				}
 			})
 		},
@@ -178,22 +193,32 @@ export default {
 			this.mouse.x = (e.clientX / window.innerWidth) * 2 - 1
 			this.mouse.y = -(e.clientY / window.innerHeight) * 2 + 1
 			this.rayCaster.setFromCamera(this.mouse, this.camera)
-			const planes = this.scene.children.filter(obj => obj.geometry?.type === 'PlaneGeometry')
+			this.planes = this.scene.children.filter(obj => obj.geometry?.type === 'PlaneGeometry')
 			// console.log(this.scene.children)
-			const intersects = this.rayCaster.intersectObjects(planes)
+			const intersects = this.rayCaster.intersectObjects(this.planes)
 			// Si on est sur un object
 			// Alors intersects à une length
 			intersects.forEach(plane => {
 				this.html.style.cursor = 'pointer'
-				// plane.object.material.color.set(0x0066CC)
+				// this.OutlineThickness = 0.5
+				// plane.object.material.uniforms.thickness.value = 0.05
 			})
 
 			if (intersects.length === 0) {
 				this.html.style.cursor = 'default'
-				// planes.forEach(ch => ch.object.material.color.set(0xffffff))
+				// this.OutlineThickness = 0.03
+				// eslint-disable-next-line no-return-assign
+				// planes.forEach(ch => ch.object.material.uniforms.thickness.value = 0.02)
 			}
 		},
 		update () {
+			// avoir l'animation du contour à chaque objets cliquables
+			if (this.shaderMaterial !== null) {
+				this.tab.forEach(item => {
+					item.material.uniforms.thickness.value = 0.05 * (Math.sin(this.time * 0.1) + 1) * 0.5
+				})
+			}
+			this.time++
 			this.renderer.render(this.scene, this.camera)
 			requestAnimationFrame(this.update)
 		}

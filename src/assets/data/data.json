@@ -9,12 +9,12 @@
 			"imageScene": "assets/img/room/room0.jpg",
 			"objet1": {
 				"url": "assets/img/objets/biere.png",
-				"width": 100,
+				"width": 350,
 				"height": 400
 			},
 			"objet3":{
 				"url": "assets/img/objets/fleurs.png",
-				"width": 180,
+				"width": 280,
 				"height": 280
 			},
 			"c1": {
@@ -27,20 +27,22 @@
 				"y": 0.11877427754264027,
 				"z": -0.8652985483756166
 			},
-			"objetQuestion": "assets/img/gel-dop.png",
 			"papi": "assets/img/fond-papi.jpg",
 			"choice1": {
-				"objet": "assets/img/objets/biere.png",
-				"btnUn": "Culture de plante corona",
-				"btnDeux":"L'eau s'est transformé en bière"
+				"objet": "assets/img/objets-choix/choix-biere.png",
+				"btnUn": {
+					"url":"assets/img/gifs-choix/choix_un_biere.gif"
+				},
+				"btnDeux": {
+					"url":"assets/img/gifs-choix/choix_deux_biere.gif"
+				}
 			},
 			"choice3": "Un peu limite là non?!"
 		},
 		{
 			"id": 1,
 			"motion": {
-				"url": "assets/videos/motion.mp4",
-				"time": 10000
+				"url": "assets/videos/motion.mp4"
 			},
 			"imageScene": "assets/img/room/room1.jpg",
 			"objet1": {
@@ -50,7 +52,7 @@
 			} ,
 			"objet2": {
 				"url": "assets/img/objets/cafard.png",
-				"width": 80,
+				"width": 180,
 				"height": 180
 			},
 			"c1": {
@@ -64,14 +66,22 @@
 				"z": -0.574723477591489
 			},
 			"choice1": {
-				"objet": "assets/img/objets/coude.png",
-				"btnUn": "Culture de plante corona",
-				"btnDeux":"L'eau s'est transformé en bière"
+				"objet": "assets/img/objets-choix/choix-coude.png",
+				"btnUn": {
+					"url":"assets/img/gifs-choix/choix_un_coude.gif"
+				},
+				"btnDeux": {
+					"url":"assets/img/gifs-choix/choix_deux_coude.gif"
+				}
 			},
 			"choice2": {
-				"objet": "assets/img/objets/cafard.png",
-				"btnUn": "Culture de plante corona",
-				"btnDeux":"L'eau s'est transformé en bière"
+				"objet": "assets/img/objets-choix/choix-cafard.png",
+				"btnUn": {
+					"url":"assets/img/gifs-choix/choix_un_cafard.gif"
+				},
+				"btnDeux": {
+					"url":"assets/img/gifs-choix/choix_deux_cafard.gif"
+				}
 			}
 		},
 		{
@@ -89,8 +99,8 @@
 			},
 			"objet3": {
 				"url": "assets/img/objets/masque-avion.png",
-				"width": 400,
-				"height": 700
+				"width": 450,
+				"height": 750
 			},
 			"c1": {
 				"x": -0.36015606564465265,
@@ -98,7 +108,7 @@
 				"z": 0.887424109020288
 			},
 			"c2": {
-				"x": 0.7951830007326516,
+				"x": 0.7751830007326516,
 				"y": 0.03260465892002011,
 				"z": 0.5334816130751457
 			},
@@ -108,14 +118,22 @@
 				"z": 0.5174095172000207
 			},
 			"choice1": {
-				"objet": "assets/img/objets/brosse-a-dents.png",
-				"btnUn": "Culture de plante corona",
-				"btnDeux":"L'eau s'est transformé en bière"
+				"objet": "assets/img/objets-choix/choix-brosse-a-dents.png",
+				"btnUn": {
+					"url":"assets/img/gifs-choix/choix_un_brosse_dent.gif"
+				},
+				"btnDeux": {
+					"url":"assets/img/gifs-choix/choix_deux_brosse_dent.gif"
+				}
 			},
 			"choice2": {
-				"objet": "assets/img/objets/hamac.png",
-				"btnUn": "Culture de plante corona",
-				"btnDeux":"L'eau s'est transformé en bière"
+				"objet": "assets/img/objets-choix/choix-hamac.png",
+				"btnUn": {
+					"url":"assets/img/gifs-choix/choix_un_hamac.gif"
+				},
+				"btnDeux": {
+					"url":"assets/img/gifs-choix/choix_deux_hamac.gif"
+				}
 			},
 			"choice3": "T’as vraiment cru que ça allait passer ça!? 🤣"
 		},
@@ -124,13 +142,13 @@
 			"imageScene": "assets/img/room/room3.jpg",
 			"objet1": {
 				"url": "assets/img/objets/tele.png",
-				"width": 675,
-				"height": 420
-			} ,
+				"width": 695,
+				"height": 440
+			},
 			"objet3": {
 				"url": "assets/img/objets/thermometre.png",
-				"width": 50,
-				"height": 150
+				"width": 150,
+				"height": 200
 			},
 			"c1": {
 				"x": 0.9522636831749526,
@@ -143,9 +161,13 @@
 				"z": 0.24178291452685512
 			},
 			"choice1": {
-				"objet": "assets/img/objets/info.png",
-				"btnUn": "Culture de plante corona",
-				"btnDeux":"L'eau s'est transformé en bière"
+				"objet": "assets/img/objets-choix/choix-tele.png",
+				"btnUn": {
+					"url":"assets/img/gifs-choix/choix_un_tv.gif"
+				},
+				"btnDeux": {
+					"url":"assets/img/gifs-choix/choix_deux_tv.gif"
+				}
 			},
 			"choice3": "Bah t’es con ou quoi!?"
 		},
@@ -154,18 +176,18 @@
 			"imageScene": "assets/img/room/room4.jpg",
 			"objet1": {
 				"url": "assets/img/objets/medicaments.png",
-				"width": 175,
-				"height": 125
+				"width": 300,
+				"height": 300
 			} ,
 			"objet2": {
 				"url": "assets/img/objets/gel-dop.png",
-				"width": 100,
-				"height": 100
+				"width": 150,
+				"height": 180
 			},
 			"objet3": {
 				"url": "assets/img/objets/superman.png",
-				"width": 104,
-				"height": 170
+				"width": 240,
+				"height": 240
 			},
 			"c1": {
 				"x": 0.8306336565603506,
@@ -183,33 +205,41 @@
 				"z": 0.19581931121827995
 			},
 			"choice1": {
-				"objet": "assets/img/objets/medicaments.png",
-				"btnUn": "Culture de plante corona",
-				"btnDeux":"L'eau s'est transformé en bière"
+				"objet": "assets/img/objets-choix/choix-medicament-boite.png",
+				"btnUn": {
+					"url":"assets/img/gifs-choix/choix_un_medicaments.gif"
+				},
+				"btnDeux": {
+					"url":"assets/img/gifs-choix/choix_deux_medicaments.gif"
+				}
 			},
 			"choice2": {
-				"objet": "assets/img/objets/gel-dop.png",
-				"btnUn": "Culture de plante corona",
-				"btnDeux":"L'eau s'est transformé en bière"
+				"objet": "assets/img/objets-choix/choix-gel_pot.png",
+				"btnUn": {
+					"url":"assets/img/gifs-choix/choix_un_gel.gif"
+				},
+				"btnDeux": {
+					"url":"assets/img/gifs-choix/choix_deux_gel.gif"
+				}
 			},
 			"choice3": "Ah carrément.. Ça veut empoisonner son petit-fils maintenant!?"
 		},
 		{
 			"id": 5,
-			"imageScene": "assets/img/room/room360.jpg",
+			"imageScene": "assets/img/room/room5.jpg",
 			"objet1": {
 				"url": "assets/img/objets/tirelire.png",
-				"width": 200,
-				"height": 150
+				"width": 250,
+				"height": 250
 			} ,
 			"objet2": {
 				"url": "assets/img/objets/loupe.png",
-				"width": 55,
-				"height": 102
+				"width": 180,
+				"height": 200
 			},
 			"c1": {
 				"x": 0.8073975188486534,
-				"y": 0.27468885314873233,
+				"y": 0.26868885314873233,
 				"z": -0.67781931121827995
 			},
 			"c2": {
@@ -218,32 +248,40 @@
 				"z": -0.67581931121827995
 			},
 			"choice1": {
-				"objet": "assets/img/objets/tirelire.png",
-				"btnUn": "Culture de plante corona",
-				"btnDeux":"L'eau s'est transformé en bière"
+				"objet": "assets/img/objets-choix/choix-tirelire.png",
+				"btnUn": {
+					"url":"assets/img/gifs-choix/choix_un_tirelire.gif"
+				},
+				"btnDeux": {
+					"url":"assets/img/gifs-choix/choix_deux_tirelire.gif"
+				}
 			},
 			"choice2": {
-				"objet": "assets/img/objets/loupe.png",
-				"btnUn": "Culture de plante corona",
-				"btnDeux":"L'eau s'est transformé en bière"
+				"objet": "assets/img/objets-choix/choix-loupe.png",
+				"btnUn": {
+					"url":"assets/img/gifs-choix/choix_un_loupe.gif"
+				},
+				"btnDeux": {
+					"url":"assets/img/gifs-choix/choix_deux_loupe.gif"
+				}
 			}
 		},
 		{
 			"id": 6,
-			"imageScene": "assets/img/room/room360.jpg",
+			"imageScene": "assets/img/room/room6.jpg",
 			"objet1": {
 				"url": "assets/img/objets/cocotte-vitre.png",
-				"width": 95,
-				"height": 60
+				"width": 200,
+				"height": 200
 			} ,
 			"objet3": {
 				"url": "assets/img/objets/guitare.png",
-				"width": 290,
-				"height": 160
+				"width": 330,
+				"height": 190
 			},
 			"c1": {
 				"x": 0.32363722517475042,
-				"y": 0.07242619644300767,
+				"y": 0.08242619644300767,
 				"z": 0.9887661970848299
 			},
 			"c3": {
@@ -252,9 +290,13 @@
 				"z": -0.83781931121827995
 			},
 			"choice1": {
-				"objet": "assets/img/objets/cocotte.png",
-				"btnUn": "Culture de plante corona",
-				"btnDeux":"L'eau s'est transformé en bière"
+				"objet": "assets/img/objets-choix/choix-cocotte_bas.png",
+				"btnUn": {
+					"url":"assets/img/gifs-choix/choix_un_cocotte.gif"
+				},
+				"btnDeux": {
+					"url":"assets/img/gifs-choix/choix_deux_cocotte.gif"
+				}
 			},
 			"choice3": "Ouh là tu t’enflammes toi! Reste flex"
 		},
@@ -263,8 +305,8 @@
 			"imageScene": "assets/img/room/room7.jpg",
 			"objet1": {
 				"url": "assets/img/objets/porte.png",
-				"width": 200,
-				"height": 520
+				"width": 300,
+				"height": 600
 			} ,
 			"objet2": {
 				"url": "assets/img/objets/carton.png",
@@ -282,14 +324,22 @@
 				"z": -0.8604149725697164
 			},
 			"choice1": {
-				"objet": "assets/img/objets/porte.png",
-				"btnUn": "Culture de plante corona",
-				"btnDeux":"L'eau s'est transformé en bière"
+				"objet": "assets/img/objets-choix/choix-porte.png",
+				"btnUn": {
+					"url":"assets/img/gifs-choix/choix_un_porte.gif"
+				},
+				"btnDeux": {
+					"url":"assets/img/gifs-choix/choix_deux_porte.gif"
+				}
 			},
 			"choice2": {
-				"objet": "assets/img/objets/carton.png",
-				"btnUn": "Culture de plante corona",
-				"btnDeux":"L'eau s'est transformé en bière"
+				"objet": "assets/img/objets-choix/choix-carton.png",
+				"btnUn": {
+					"url":"assets/img/gifs-choix/choix_un_carton.gif"
+				},
+				"btnDeux": {
+					"url":"assets/img/gifs-choix/choix_deux_carton.gif"
+				}
 			}
 		},
 		{
@@ -297,13 +347,13 @@
 			"imageScene": "assets/img/room/room8.jpg",
 			"objet1": {
 				"url": "assets/img/objets/coton-tige.png",
-				"width": 130,
-				"height": 63
+				"width": 200,
+				"height": 200
 			} ,
 			"objet3": {
 				"url": "assets/img/objets/miel-vitre.png",
-				"width": 40,
-				"height": 30
+				"width": 100,
+				"height": 90
 			},
 			"c1": {
 				"x": 0.7950313550393424,
@@ -316,9 +366,13 @@
 				"z": 0.7887661970848299
 			},
 			"choice1": {
-				"objet": "assets/img/objets/coton-tige.png",
-				"btnUn": "Culture de plante corona",
-				"btnDeux":"L'eau s'est transformé en bière"
+				"objet": "assets/img/objets-choix/choix-coton-tige.png",
+				"btnUn": {
+					"url":"assets/img/gifs-choix/choix_un_coton_tige.gif"
+				},
+				"btnDeux": {
+					"url":"assets/img/gifs-choix/choix_deux_coton_tige.gif"
+				}
 			},
 			"choice3": "C’est du propre cette éducation! Bravo!"
 		}

@@ -1,31 +1,34 @@
 <template>
 	<div class="choices">
-		<img class="objet" :class="{ activeOne: activeOne, activeTwo: activeTwo }" ref="objet" :src="this.numChoice.objet" alt="">
+		<img class="objet" :src="this.numChoice.objet" alt="">
 
-		<button @mouseover="activeOne = true" @mouseleave="activeOne = false">
-			<transition name="fade">
-			<img v-show="activeOne" src="assets/img/left-b.png" alt="">
-			</transition>
-		</button>
+		<button @mouseover="cloudLeft = true, choiceOne= true" @mouseleave="cloudLeft = false, choiceOne= false"></button>
 
-		<button @mouseover="activeTwo = true" @mouseleave="activeTwo = false" v-on:click="$emit('onClick')">
-			<transition name="fade">
-			<img v-show="activeTwo" src="assets/img/right-b.png" alt="">
-			</transition>
-		</button>
+		<button @mouseover="cloudRight = true, choiceTwo= true" @mouseleave="cloudRight = false, choiceTwo= false" v-on:click="$emit('onClick')"></button>
+
+		<img class="cloud" :class="{ cloudLeft: cloudLeft, cloudRight: cloudRight }" src="assets/img/nuage.gif" alt="">
+
+		<transition name="fade">
+		<img class="choixUn" v-if="choiceOne" :src="this.numChoice.btnUn.url" alt="">
+		</transition>
+
+		<transition name="fade">
+		<img class="choixDeux" v-if="choiceTwo"  :src="this.numChoice.btnDeux.url" alt="">
+		</transition>
 	</div>
 </template>
 
 <script>
 export default {
 	props: {
-		// etape: Object,
 		numChoice: Object
 	},
 	data () {
 		return {
-			activeOne: false,
-			activeTwo: false
+			cloudLeft: false,
+			cloudRight: false,
+			choiceOne: false,
+			choiceTwo: false
 		}
 	},
 	methods: {
@@ -48,10 +51,12 @@ export default {
 			position: absolute;
 			top: 50%;
 			left: 50%;
+			z-index: 1;
 			transform: translate(-50%, -50%);
-			animation-duration: 3s;
-			animation-name: zoom;
-			animation-fill-mode: forwards;
+			width: 100%;
+			// animation-duration: 3s;
+			// animation-name: zoom;
+			// animation-fill-mode: forwards;
 		}
 
 		button {
@@ -61,24 +66,33 @@ export default {
 				height: 100%;
 				padding: 0;
 				border: none;
-				z-index: 1;
 				background: transparent;
+				z-index: 2;
+				cursor: pointer;
 
 				&:focus {
 					outline: none;
 				}
+			}
 
-				img {
-					height: 100%;
-					margin-left: -10%;
-					cursor: pointer;
-				}
+			.choixUn, .choixDeux {
+				position: absolute;
+				height: 100vh;
+				width: 100%;
+				top:0;
+				left: 0;
+				z-index: 1;
+			}
 
-				&:last-child {
-					img {
-						margin-left: -20%;
-					}
-				}
+			.cloud {
+				position: absolute;
+				width: 100%;
+				height: 100vh;
+				top:0;
+				left: 0;
+				z-index: 0;
+				opacity: 0;
+				transition: all 1s ease;
 			}
 	}
 
@@ -109,22 +123,24 @@ export default {
 		display: flex !important;
 	}
 
-	.activeOne {
-		transform: translate(-50%, -50%) rotate(-70deg) !important;
-		transition: all 2s ease;
+	.cloudLeft {
+		transform: translate(-50%, 0%) !important;
+		opacity: 1 !important;
+		transition: all 1.5s ease !important;;
 		animation-fill-mode: forwards;
 	}
 
-	.activeTwo {
-		transform: translate(-50%, -50%) rotate(70deg) !important;
-		transition: all 2s ease;
+	.cloudRight {
+		transform: translate(50%, 0%) !important;
+		opacity: 1 !important;
+		transition: all 1.5s ease !important;;
 		animation-fill-mode: forwards;
 	}
 
 	.fade-enter-active, .fade-leave-active {
 		transition: opacity 1.5s;
 	}
-	.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+	.fade-enter, .fade-leave-to {
 		opacity: 0;
 	}
 </style>

@@ -102,7 +102,7 @@ export default {
 			boxTL.fromTo(box, { y: 400 }, { y: 0, duration: 2.5, delay: 1, ease: Bounce.easeOut }, 'START') // show box first
 			boxTL.fromTo('.objects', { opacity: 0, y: 300 }, { opacity: 1, y: 0, duration: 1, stagger: { each: 0.4 } }, 'START+=2') // show objects
 			boxTL.fromTo(title, { opacity: 0 }, { opacity: 1, duration: 1.5 }) // show title
-			boxTL.fromTo(button, { opacity: 0 }, { opacity: 1, duration: 0.5 }) // show button
+			boxTL.fromTo(button, { opacity: 0 }, { opacity: 1, duration: 0.5 }, 'START+=4.5') // show button
 			return boxTL
 		},
 		objectsTimeline (objects) {
@@ -123,14 +123,12 @@ export default {
 .home {
 	width: 100%;
 	height: 100vh;
-	// background-image: url('../../public/assets/img/bg-home.png'), url('../../public/assets/img/fond-home.png');
 	background-image: url('../../public/assets/img/fond-home.png');
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
 	display: flex;
 	flex-direction: column;
-	// border: solid yellow;
 
 	h1 {
 		font-family: $chelsea-font;
@@ -159,14 +157,12 @@ export default {
 	}
 }
 .objects-container {
-	// border: solid red;
 	position: absolute;
 	width: 100%;
 	height: 100vh;
 
 	& img {
 		position: absolute;
-		// border: solid blue;
 		right: 0;
 		width: 100%;
 		height: 100%;

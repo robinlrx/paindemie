@@ -1,5 +1,5 @@
 <template>
-	<transition v-if="show" name="fade">
+	<transition v-if="showOups" name="fade">
 		<section>
 			<div>
 				<div class="title">
@@ -7,7 +7,7 @@
 					<img src="assets/img/oups-point.png" alt="">
 				</div>
 				<p>{{this.etape.choice3}}</p>
-				<Button @click.native="$emit('update:show', false)" class="button" v-bind:link="'room'" v-bind:size=3 v-bind:type=1>Allez j'me rattrape</Button>
+				<Button @click.native="$emit('update:showOups', false)" class="button" v-bind:link="'room'" v-bind:size=3 v-bind:type=1>Allez j'me rattrape</Button>
 			</div>
 		</section>
 	</transition>
@@ -18,10 +18,17 @@ import Button from '@/components/Button.vue'
 export default {
 	props: {
 		etape: Object,
-		show: Boolean
+		showOups: Boolean,
+		score: Number
 	},
 	components: {
 		Button
+	},
+	mounted: {
+		oupsPenality () {
+			// this.score -= 5
+			console.log(this.score)
+		}
 	}
 }
 </script>
@@ -43,11 +50,11 @@ section {
 	div {
 		position: relative;
 		display: flex;
-		background-image: url('/assets/img/fond-jauge.png');
+		background-image: url('/assets/img/fond-oups.png');
 		background-repeat: no-repeat;
 		background-size: cover;
 		width: 727px;
-		height: 240px;
+		height: 285px;
 
 		.title {
 			position: absolute;
