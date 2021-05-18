@@ -79,30 +79,30 @@ uniform float thickness;
 
 void main() {
 
-vec3 targetCol = vec3(1.0, 0.0, 1.0); //The color of the outline
-vec4 finalCol = vec4(0);
-float rads = ((360.0 / float(SAMPLES)) * PI) / 180.0;	//radians based on SAMPLES
+	vec3 targetCol = vec3(1.0, 1.0, 1.0); //The color of the outline #FFFFFF
+	vec4 finalCol = vec4(0);
+	float rads = ((360.0 / float(SAMPLES)) * PI) / 180.0;	//radians based on SAMPLES
 
-for(int i = 0; i < SAMPLES; i++)
-{
-	if(finalCol.w < 0.9)
+	for(int i = 0; i < SAMPLES; i++)
 	{
-		float r = float(i + 1) * rads;
-		vec2 offset = vec2(cos(r), -sin(r)) * thickness; //calculate vector based on current radians and multiply by magnitude
-		finalCol = texture(textureSampler, UVs + offset);	//render the texture to the pixel on an offset UV
-		
-		if(finalCol.w > 0.1)
+		if(finalCol.w < 0.9)
 		{
-			finalCol.xyz = targetCol;
+			float r = float(i + 1) * rads;
+			vec2 offset = vec2(cos(r), -sin(r)) * thickness; //calculate vector based on current radians and multiply by magnitude
+			finalCol = texture(textureSampler, UVs + offset);	//render the texture to the pixel on an offset UV
+			
+			if(finalCol.w > 0.1)
+			{
+				finalCol.xyz = targetCol;
+			}
 		}
 	}
-}
 
-vec4 tex = texture(textureSampler, UVs);
-if(tex.w > 0.0)
-{
-	finalCol = tex;   //if the centered texture's alpha is greater than 0, set finalcol to tex
-}
+	vec4 tex = texture(textureSampler, UVs);
+	if(tex.w > 0.0)
+	{
+		finalCol = tex;   //if the centered texture's alpha is greater than 0, set finalcol to tex
+	}
 
-gl_FragColor = finalCol;
+	gl_FragColor = finalCol;
 }
