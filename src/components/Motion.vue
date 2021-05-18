@@ -1,8 +1,5 @@
 <template>
 	<transition v-if="showMotion" name="fade">
-		<!-- <video autoplay controls preload="auto" ref="motion">
-			<source :src="this.etape.motion.url" type="video/mp4">
-		</video> -->
 		<div class="container">
 			<video ref="motion" autoplay width="250">
 				<source :src="this.etape.motion.url" type="video/mp4">

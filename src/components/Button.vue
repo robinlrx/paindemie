@@ -164,34 +164,12 @@ export default {
 		}
 
 		tspan {
-			transition: all .8s ease-out;
+			transition: all .3s ease-out;
 		}
 	}
 
 	&:hover {
-		// transition: all 0.3s ease-out;
-		tspan {
-			animation: opacityText .8s linear;
-			animation-fill-mode:forwards;
-		}
+		transition: all .3s ease-out;
 	}
-}
-
-@keyframes opacityText {
-    0% {
-        opacity:1;
-		font-size: 1.6rem;
-    }
-
-	50% {
-        opacity:0;
-		letter-spacing: -5px;
-		font-size: 1.6rem;
-    }
-
-	100% {
-        opacity:0;
-		font-size: .05rem;
-    }
 }
 </style>

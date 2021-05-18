@@ -28,8 +28,9 @@
 				"z": -0.8652985483756166
 			},
 			"objetQuestion": "assets/img/gel-dop.png",
+			"papi": "assets/img/fond-papi.jpg",
 			"choice1": {
-				"objet": "assets/img/objets/biere.png",
+				"objet": "assets/img/objets-choix/choix-biere.png",
 				"btnUn": "Culture de plante corona",
 				"btnDeux":"L'eau s'est transformé en bière"
 			},
@@ -38,8 +39,7 @@
 		{
 			"id": 1,
 			"motion": {
-				"url": "assets/videos/motion.mp4",
-				"time": 10000
+				"url": "assets/videos/motion.mp4"
 			},
 			"imageScene": "assets/img/room/room1.jpg",
 			"objet1": {
@@ -63,12 +63,12 @@
 				"z": -0.574723477591489
 			},
 			"choice1": {
-				"objet": "assets/img/objets/coude.png",
+				"objet": "assets/img/objets-choix/choix-coude.png",
 				"btnUn": "Culture de plante corona",
 				"btnDeux":"L'eau s'est transformé en bière"
 			},
 			"choice2": {
-				"objet": "assets/img/objets/cafard.png",
+				"objet": "assets/img/objets-choix/choix-cafard.png",
 				"btnUn": "Culture de plante corona",
 				"btnDeux":"L'eau s'est transformé en bière"
 			}
@@ -107,12 +107,12 @@
 				"z": 0.5174095172000207
 			},
 			"choice1": {
-				"objet": "assets/img/objets/brosse-a-dents.png",
+				"objet": "assets/img/objets-choix/choix-brosse-a-dents.png",
 				"btnUn": "Culture de plante corona",
 				"btnDeux":"L'eau s'est transformé en bière"
 			},
 			"choice2": {
-				"objet": "assets/img/objets/hamac.png",
+				"objet": "assets/img/objets-choix/choix-hamac.png",
 				"btnUn": "Culture de plante corona",
 				"btnDeux":"L'eau s'est transformé en bière"
 			},
