@@ -293,8 +293,8 @@
 				"objet": "assets/img/objets-choix/choix-cocotte_bas.png",
 				"btnUn": {
 					"url":"assets/img/gifs-choix/choix_un_cocotte.gif"
-				"btnDeux": {
 				},
+				"btnDeux": {
 					"url":"assets/img/gifs-choix/choix_deux_cocotte.gif"
 				}
 			},
@@ -335,8 +335,8 @@
 			"choice2": {
 				"objet": "assets/img/objets-choix/choix-carton.png",
 				"btnUn": {
-				},
 					"url":"assets/img/gifs-choix/choix_un_carton.gif"
+				},
 				"btnDeux": {
 					"url":"assets/img/gifs-choix/choix_deux_carton.gif"
 				}
