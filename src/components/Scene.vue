@@ -26,7 +26,8 @@ export default {
 			mouse: new THREE.Vector2(),
 			html: document.getElementsByTagName('html')[0],
 			PCFSoftShadowMap: THREE.PCFSoftShadowMap,
-			time: 0
+			time: 0,
+			tab: []
 			// OutlineThickness: 0.03
 		}
 	},
@@ -134,7 +135,7 @@ export default {
 			this.shaderMaterial = new THREE.ShaderMaterial({
 				uniforms: {
 					textureSampler: { type: 't', value: icons },
-					thickness: { type: 'f', value: 0.05 }
+					thickness: { type: 'f', value: 0.03 }
 				},
 				vertexShader: vert,
 				fragmentShader: frag,
@@ -158,6 +159,7 @@ export default {
 			} else {
 				this.plane.scale.set(this.etape.objet3.width / 30, this.etape.objet3.height / 30, 1)
 			}
+			this.tab.push(this.plane)
 		},
 
 		onClick (e) {
@@ -211,9 +213,13 @@ export default {
 			}
 		},
 		update () {
-			// this.shaderMaterial.uniforms.thickness.value = 0.03 * (Math.sin(this.time * 0.1) + 1) * 0.5
-			// console.log(this.shaderMaterial.uniforms.thickness.value)
-			// this.time++
+			// avoir l'animation du contour à chaque objets cliquables
+			if (this.shaderMaterial !== null) {
+				this.tab.forEach(item => {
+					item.material.uniforms.thickness.value = 0.05 * (Math.sin(this.time * 0.1) + 1) * 0.5
+				})
+			}
+			this.time++
 			this.renderer.render(this.scene, this.camera)
 			requestAnimationFrame(this.update)
 		}
