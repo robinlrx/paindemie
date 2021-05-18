@@ -4,6 +4,7 @@
 		<!-- <Tutorial /> -->
 
 		<!-- <Papi v-bind:numChoice="numChoice" v-bind:etape="etapes[currentEtape]"/> -->
+
 		<transition name="fade">
 			<!-- Key-changing to force re-renders of a component -->
 			<Scene @buttonSend="getContentFromData" v-bind:etape="etapes[currentEtape]" v-on:objectClicked="handleShowChoices" :key="currentEtape" :showOups.sync="showOups"/>

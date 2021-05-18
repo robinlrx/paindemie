@@ -1,56 +1,88 @@
 <template>
-	<transition name="fade">
-		<section class="papi" :style="{'background-image': 'url(' + this.etape.papi + ')'}">
-
-            <div class="cloud-content">
-                <img class="cloud" src="../../public/assets/img/bulle.gif" alt="">
-                <img class="object" :src="this.etape.objet1.url" alt="">
-            </div>
-
-		</section>
+	<transition v-if="showPapi" name="fade">
+        <div class="container">
+			<video ref="papi" autoplay width="250">
+				<source :src="this.numChoice.papi.url" type="video/mp4">
+			</video>
+            <transition v-if="showPapi" name="fade">
+                <div class="cloud-content" v-if="showCloud">
+                    <img class="cloud" src="../../public/assets/img/bulle.gif" alt="">
+                    <img class="object" :src="this.numChoice.objet" alt="">
+                </div>
+            </transition>
+		</div>
 	</transition>
 </template>
 
 <script>
-
 export default {
 	props: {
-		// numChoice: Object
-		etape: Object
+		numChoice: Object,
+		showPapi: Boolean
 	},
 	data () {
 		return {
+			showCloud: false
 		}
+	},
+	mounted () {
+		this.closePapi()
+	},
+	methods: {
+		closePapi () {
+			const papi = this.$refs.papi
+			papi.onended = () => {
+				this.$emit('update:showOups', false)
+			}
+		},
+		openCloud () {
+			this.showCloud = true
+		}
+	},
+	created: function () {
+		setInterval(() => {
+			this.openCloud()
+		}, this.numChoice.papi.time)
 	}
 }
+
 </script>
 
 <style lang="scss" scoped>
 @import '@/assets/scss/_variables.scss';
 
-.papi {
-	width: 100%;
+.container {
+	position: relative;
+	width: 100vw;
 	height: 100vh;
-	background-size: cover;
-	background-position: center;
-	background-repeat: no-repeat;
+    z-index: 0;
+}
+video {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+	width: 100%;
+	height: auto;
+    z-index: 0;
+}
 
-    .cloud-content {
+.cloud-content {
+    position: absolute;
+    width: 80%;
+    z-index: 1;
+
+    .cloud {
+        width: 100%;
+    }
+
+    .object {
         position: absolute;
-        width: 80%;
-        border: solid 2px red;
-
-        .cloud {
-            width: 100%;
-        }
-
-        .object {
-            position: absolute;
-            border: solid 2px green;
-            left: 260px;
-            top: 120px;
-            width: 5%;
-        }
+        left: 0%;
+        top: 8%;
+        width: 50%;
     }
 }
 

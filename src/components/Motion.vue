@@ -2,7 +2,7 @@
 	<transition v-if="showMotion" name="fade">
 		<div class="container">
 			<video ref="motion" autoplay width="250">
-				<source :src="this.etape.motion.url" type="video/mp4">
+				<source :src="this.etape.motion" type="video/mp4">
 			</video>
 		</div>
 	</transition>

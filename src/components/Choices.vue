@@ -1,5 +1,8 @@
 <template>
 	<div class="choices">
+
+		<Papi :showPapi.sync="showPapi" class="papi" v-bind:numChoice="numChoice"/>
+
 		<img class="objet" :src="this.numChoice.objet" alt="">
 
 		<button @mouseover="cloudLeft = true, choiceOne= true" @mouseleave="cloudLeft = false, choiceOne= false"></button>
@@ -19,7 +22,12 @@
 </template>
 
 <script>
+import Papi from '@/components/Papi.vue'
+
 export default {
+	components: {
+		Papi
+	},
 	props: {
 		numChoice: Object
 	},
@@ -28,7 +36,8 @@ export default {
 			cloudLeft: false,
 			cloudRight: false,
 			choiceOne: false,
-			choiceTwo: false
+			choiceTwo: false,
+			showPapi: true
 		}
 	},
 	methods: {
@@ -46,6 +55,16 @@ export default {
 		animation-duration: 3s;
 		animation-name: blackSail;
 		animation-fill-mode: forwards;
+
+		.papi {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100vh;
+			z-index: 3;
+			cursor: default;
+		}
 
 		.objet {
 			position: absolute;
