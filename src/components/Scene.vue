@@ -20,11 +20,13 @@ export default {
 		return {
 			sprite: null,
 			plane: null,
+			planes: null,
 			shaderMaterial: null,
 			rayCaster: new THREE.Raycaster(),
 			mouse: new THREE.Vector2(),
 			html: document.getElementsByTagName('html')[0],
-			PCFSoftShadowMap: THREE.PCFSoftShadowMap
+			PCFSoftShadowMap: THREE.PCFSoftShadowMap,
+			time: 0
 			// OutlineThickness: 0.03
 		}
 	},
@@ -131,15 +133,16 @@ export default {
 			const geometry = new THREE.PlaneBufferGeometry()
 			this.shaderMaterial = new THREE.ShaderMaterial({
 				uniforms: {
-					textureSampler: { type: 't', value: null },
-					thickness: { type: 'f', value: 0.02 }
+					textureSampler: { type: 't', value: icons },
+					thickness: { type: 'f', value: 0.05 }
 				},
 				vertexShader: vert,
 				fragmentShader: frag,
 				transparent: true
 			})
-			this.shaderMaterial.uniforms.textureSampler.value = icons
-			// this.shaderMaterial.uniforms.thickness.value = this.OutlineThickness
+			console.log(this.shaderMaterial.uniforms.thickness.value)
+			// this.shaderMaterial.uniforms.textureSampler.value = icons
+			// this.shaderMaterial.uniforms.thickness.value = 0.05
 			this.plane = new THREE.Mesh(geometry, this.shaderMaterial)
 			this.plane.name = name
 			// this.plane.castShadow = true
@@ -189,25 +192,28 @@ export default {
 			this.mouse.x = (e.clientX / window.innerWidth) * 2 - 1
 			this.mouse.y = -(e.clientY / window.innerHeight) * 2 + 1
 			this.rayCaster.setFromCamera(this.mouse, this.camera)
-			const planes = this.scene.children.filter(obj => obj.geometry?.type === 'PlaneGeometry')
+			this.planes = this.scene.children.filter(obj => obj.geometry?.type === 'PlaneGeometry')
 			// console.log(this.scene.children)
-			const intersects = this.rayCaster.intersectObjects(planes)
+			const intersects = this.rayCaster.intersectObjects(this.planes)
 			// Si on est sur un object
 			// Alors intersects à une length
 			intersects.forEach(plane => {
 				this.html.style.cursor = 'pointer'
 				// this.OutlineThickness = 0.5
-				plane.object.material.uniforms.thickness.value = 0.05
+				// plane.object.material.uniforms.thickness.value = 0.05
 			})
 
 			if (intersects.length === 0) {
 				this.html.style.cursor = 'default'
 				// this.OutlineThickness = 0.03
 				// eslint-disable-next-line no-return-assign
-				planes.forEach(ch => ch.object.material.uniforms.thickness.value = 0.02)
+				// planes.forEach(ch => ch.object.material.uniforms.thickness.value = 0.02)
 			}
 		},
 		update () {
+			// this.shaderMaterial.uniforms.thickness.value = 0.03 * (Math.sin(this.time * 0.1) + 1) * 0.5
+			// console.log(this.shaderMaterial.uniforms.thickness.value)
+			// this.time++
 			this.renderer.render(this.scene, this.camera)
 			requestAnimationFrame(this.update)
 		}

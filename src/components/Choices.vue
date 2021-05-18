@@ -49,9 +49,10 @@ export default {
 			top: 50%;
 			left: 50%;
 			transform: translate(-50%, -50%);
-			animation-duration: 3s;
-			animation-name: zoom;
-			animation-fill-mode: forwards;
+			width: 100%;
+			// animation-duration: 3s;
+			// animation-name: zoom;
+			// animation-fill-mode: forwards;
 		}
 
 		button {
