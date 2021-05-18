@@ -50,14 +50,14 @@ section {
 		background-image: url('/assets/img/fond-loose.png');
 		background-repeat: no-repeat;
 		background-size: contain;
-		width: 861px;
-		height: 469px;
+		width: 801px;
+		height: 409px;
 		justify-content: center;
 		align-items: center;
 
 		.title {
 			position: absolute;
-			top:-20px;
+			top:-40px;
 			left: -30px;
 			background-image: url('/assets/img/fond-title.png');
 			background-repeat: no-repeat;
@@ -82,14 +82,14 @@ section {
 			text-align: left;
 			font-weight: bold;
 			font-size: 2rem;
-			max-width: 45vw;
+			max-width: 42vw;
 			letter-spacing: 0.15em;
 		}
 
 		img {
 			position: absolute;
-			top: 40px;
-			right: -65px;
+			top: 20px;
+			right: -35px;
 		}
 	}
 

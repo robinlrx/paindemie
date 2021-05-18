@@ -4,13 +4,13 @@
 
 		<button @mouseover="activeOne = true" @mouseleave="activeOne = false">
 			<transition name="fade">
-			<img v-show="activeOne" src="assets/img/left-b.png" alt="">
+			<img v-show="activeOne" src="assets/img/nuage_gauche.gif" alt="">
 			</transition>
 		</button>
 
 		<button @mouseover="activeTwo = true" @mouseleave="activeTwo = false" v-on:click="$emit('onClick')">
 			<transition name="fade">
-			<img v-show="activeTwo" src="assets/img/right-b.png" alt="">
+			<img v-show="activeTwo" src="assets/img/nuage_droit.gif" alt="">
 			</transition>
 		</button>
 	</div>
@@ -48,6 +48,7 @@ export default {
 			position: absolute;
 			top: 50%;
 			left: 50%;
+			z-index: 2;
 			transform: translate(-50%, -50%);
 			width: 100%;
 			// animation-duration: 3s;
@@ -62,7 +63,6 @@ export default {
 				height: 100%;
 				padding: 0;
 				border: none;
-				z-index: 1;
 				background: transparent;
 
 				&:focus {
@@ -71,13 +71,13 @@ export default {
 
 				img {
 					height: 100%;
-					margin-left: -10%;
+					margin-left: 0%;
 					cursor: pointer;
 				}
 
 				&:last-child {
 					img {
-						margin-left: -20%;
+						margin-left: -65%;
 					}
 				}
 			}
@@ -125,7 +125,7 @@ export default {
 	.fade-enter-active, .fade-leave-active {
 		transition: opacity 1.5s;
 	}
-	.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+	.fade-enter, .fade-leave-to {
 		opacity: 0;
 	}
 </style>
