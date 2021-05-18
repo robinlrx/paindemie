@@ -48,7 +48,7 @@ export default {
 			position: absolute;
 			top: 50%;
 			left: 50%;
-			z-index: 2;
+			z-index: 0;
 			transform: translate(-50%, -50%);
 			width: 100%;
 			// animation-duration: 3s;
