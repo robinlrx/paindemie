@@ -2,10 +2,7 @@
 	"content": [
 		{
 			"id": 0,
-			"motion": {
-				"url": "assets/videos/motion.mp4",
-				"time": 10000
-			},
+			"motion": "assets/videos/motion.mp4",
 			"imageScene": "assets/img/room/room0.jpg",
 			"objet1": {
 				"url": "assets/img/objets/biere.png",
@@ -27,9 +24,12 @@
 				"y": 0.11877427754264027,
 				"z": -0.8652985483756166
 			},
-			"papi": "assets/img/fond-papi.jpg",
 			"choice1": {
 				"objet": "assets/img/objets-choix/choix-biere.png",
+				"papi": {
+					"url": "assets/videos/motion.mp4",
+					"time": 7000
+				},
 				"btnUn": {
 					"url":"assets/img/gifs-choix/choix_un_biere.gif"
 				},
@@ -41,9 +41,7 @@
 		},
 		{
 			"id": 1,
-			"motion": {
-				"url": "assets/videos/motion.mp4"
-			},
+			"motion": "assets/videos/motion.mp4",
 			"imageScene": "assets/img/room/room1.jpg",
 			"objet1": {
 				"url": "assets/img/objets/coude.png",
@@ -67,6 +65,10 @@
 			},
 			"choice1": {
 				"objet": "assets/img/objets-choix/choix-coude.png",
+				"papi": {
+					"url": "assets/videos/motion.mp4",
+					"time": 7000
+				},
 				"btnUn": {
 					"url":"assets/img/gifs-choix/choix_un_coude.gif"
 				},
@@ -76,6 +78,10 @@
 			},
 			"choice2": {
 				"objet": "assets/img/objets-choix/choix-cafard.png",
+				"papi": {
+					"url": "assets/videos/motion.mp4",
+					"time": 7000
+				},
 				"btnUn": {
 					"url":"assets/img/gifs-choix/choix_un_cafard.gif"
 				},

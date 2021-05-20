@@ -15,18 +15,11 @@ export default {
 	name: 'Loader',
 	data () {
 		return {
-			// show: true
 		}
 	},
 	mounted () {
-		// this.showToggle()
 	},
 	methods: {
-		// showToggle () {
-		// setTimeout(() => {
-		// this.show = false
-		// }, 4000)
-		// }
 	}
 }
 </script>

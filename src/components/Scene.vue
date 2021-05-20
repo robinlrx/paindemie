@@ -185,6 +185,7 @@ export default {
 				} else if (intersect.object.geometry.type === 'PlaneGeometry' && intersect.object.name === 'choice3') {
 					console.log(`nom : ${intersect.object.name}`)
 					this.$emit('update:showOups', true)
+					this.$emit('onPenality', -5)
 				}
 			})
 		},
