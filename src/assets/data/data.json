@@ -25,10 +25,17 @@
 				"z": -0.8652985483756166
 			},
 			"choice1": {
-				"objet": "assets/img/objets-choix/choix-biere.png",
 				"papi": {
 					"url": "assets/videos/motion.mp4",
 					"time": 7000
+				},
+				"objet": {
+					"url": "assets/img/objets-choix/choix-biere.png",
+					"width": 80,
+					"rotationLeft": -50,
+					"rotationRight": 47,
+					"yRight": 50,
+					"yLeft": 1
 				},
 				"btnUn": {
 					"url":"assets/img/gifs-choix/choix_un_biere.gif"
@@ -47,7 +54,7 @@
 				"url": "assets/img/objets/coude.png",
 				"width": 450,
 				"height": 410
-			} ,
+			},
 			"objet2": {
 				"url": "assets/img/objets/cafard.png",
 				"width": 180,
@@ -64,10 +71,19 @@
 				"z": -0.574723477591489
 			},
 			"choice1": {
-				"objet": "assets/img/objets-choix/choix-coude.png",
 				"papi": {
 					"url": "assets/videos/motion.mp4",
 					"time": 7000
+				},
+				"objet": {
+					"url": "assets/img/objets-choix/choix-coude.png",
+					"width": 85,
+					"rotationLeft": -120,
+					"rotationRight": 0,
+					"xLeft": -65,
+					"yLeft": -25,
+					"xRight": 50,
+					"yRight": -10
 				},
 				"btnUn": {
 					"url":"assets/img/gifs-choix/choix_un_coude.gif"
@@ -77,10 +93,19 @@
 				}
 			},
 			"choice2": {
-				"objet": "assets/img/objets-choix/choix-cafard.png",
 				"papi": {
 					"url": "assets/videos/motion.mp4",
 					"time": 7000
+				},
+				"objet": {
+					"url": "assets/img/objets-choix/choix-cafard.png",
+					"width": 85,
+					"rotationLeft": 45,
+					"rotationRight": 0,
+					"xLeft": -350,
+					"yLeft": -80,
+					"xRight": 300,
+					"yRight": -60
 				},
 				"btnUn": {
 					"url":"assets/img/gifs-choix/choix_un_cafard.gif"

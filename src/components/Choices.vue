@@ -3,7 +3,7 @@
 
 		<!-- <Papi :showPapi.sync="showPapi" class="papi" v-bind:numChoice="numChoice"/> -->
 
-		<img class="objet" ref="object" :src="this.numChoice.objet" alt="">
+		<img class="objet" ref="object" :src="this.numChoice.objet.url" alt="" style="transform: translate(-50%, -50%) !important" :style="{width : `${this.numChoice.objet.width}%`}">
 		<!-- <img v-if="this.numChoice.objet2" class="objet2" ref="object2" :src="this.numChoice.objet2" alt=""> -->
 
 		<button @mouseenter="objectAnimationLeft" @mouseout="objectAnimationReverse" @mouseover="cloudLeft = true, choiceOne= true" @mouseleave="cloudLeft = false, choiceOne= false"></button>
@@ -45,15 +45,24 @@ export default {
 	methods: {
 		objectAnimationLeft () {
 			const objectTL = gsap.timeline()
-			objectTL.to(this.$refs.object, { rotation: -30, ease: Power3.easeInOut, duration: 1 })
+			objectTL.add('START')
+			objectTL.to(this.$refs.object, { rotation: this.numChoice.objet.rotationLeft, ease: Power3.easeInOut, duration: 1 }, 'START')
+			if (this.numChoice.objet.yLeft) objectTL.to(this.$refs.object, { y: this.numChoice.objet.yLeft, ease: Power3.easeInOut, duration: 1 }, 'START')
+			if (this.numChoice.objet.xLeft) objectTL.to(this.$refs.object, { x: this.numChoice.objet.xLeft, ease: Power3.easeInOut, duration: 1 }, 'START')
 		},
 		objectAnimationRight () {
 			const objectTL = gsap.timeline()
-			objectTL.to(this.$refs.object, { rotation: 30, ease: Power3.easeInOut, duration: 1 })
+			objectTL.add('START')
+			objectTL.to(this.$refs.object, { rotation: this.numChoice.objet.rotationRight, ease: Power3.easeInOut, duration: 1 }, 'START')
+			if (this.numChoice.objet.yRight) objectTL.to(this.$refs.object, { y: this.numChoice.objet.yRight, ease: Power3.easeInOut, duration: 1 }, 'START')
+			if (this.numChoice.objet.xRight) objectTL.to(this.$refs.object, { x: this.numChoice.objet.xRight, ease: Power3.easeInOut, duration: 1 }, 'START')
 		},
 		objectAnimationReverse () {
 			const objectTlReverse = gsap.timeline()
+			objectTlReverse.add('START')
 			objectTlReverse.to(this.$refs.object, { rotation: 0, ease: Power3.easeInOut, duration: 1 })
+			if (this.numChoice.objet.yRight || this.numChoice.objet.yLeft) objectTlReverse.to(this.$refs.object, { y: 0, ease: Power3.easeInOut, duration: 1 }, 'START')
+			if (this.numChoice.objet.xRight || this.numChoice.objet.xLeft) objectTlReverse.to(this.$refs.object, { x: 0, ease: Power3.easeInOut, duration: 1 }, 'START')
 		}
 	}
 }
@@ -85,8 +94,7 @@ export default {
 			top: 50%;
 			left: 50%;
 			z-index: 1;
-			transform: translate(-50%, -50%);
-			width: 100%;
+			border: solid red;
 			// animation-duration: 3s;
 			// animation-name: zoom;
 			// animation-fill-mode: forwards;
