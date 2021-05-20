@@ -1,6 +1,6 @@
 <template>
 	<section class="home">
-		<Loader v-show="show"/>
+		<Loader v-show="showLoader"/>
 
 		<h1 ref="title">PA<span>[I]</span>NDEMIE</h1>
 		<img src="../../public/assets/img/carton-home.png" ref="box" class="box" alt="">
@@ -24,7 +24,7 @@ export default {
 	name: 'Home',
 	data () {
 		return {
-			show: true
+			showLoader: true
 		}
 	},
 	components: {
@@ -91,7 +91,7 @@ export default {
 			const itemsVideos = await load.all(assetsVideos)
 			console.log(itemsVideos)
 
-			this.show = false
+			this.showLoader = false
 			this.mainTimeline(this.$refs.box, this.$refs.title, this.$refs.button.$el)
 				.addLabel('DELAY')
 				.add(this.objectsTimeline(this.$refs.objectsBox), 'DELAY+=1')

@@ -4,7 +4,7 @@
 			<video ref="papi" autoplay width="250">
 				<source :src="this.numChoice.papi.url" type="video/mp4">
 			</video>
-            <transition v-if="showPapi" name="fade">
+            <transition name="fade">
                 <div class="cloud-content" v-if="showCloud">
                     <img class="cloud" src="../../public/assets/img/bulle.gif" alt="">
                     <img class="object" :src="this.numChoice.objet" alt="">
@@ -32,7 +32,7 @@ export default {
 		closePapi () {
 			const papi = this.$refs.papi
 			papi.onended = () => {
-				this.$emit('update:showOups', false)
+				this.$emit('update:showPapi', false)
 			}
 		},
 		openCloud () {

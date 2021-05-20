@@ -73,9 +73,6 @@ export default {
 			z-index: 1;
 			transform: translate(-50%, -50%);
 			width: 100%;
-			// animation-duration: 3s;
-			// animation-name: zoom;
-			// animation-fill-mode: forwards;
 		}
 
 		button {
@@ -143,14 +140,14 @@ export default {
 	}
 
 	.cloudLeft {
-		transform: translate(-50%, 0%) !important;
+		transform: translate(-45%, 0%) !important;
 		opacity: 1 !important;
 		transition: all 1.5s ease !important;;
 		animation-fill-mode: forwards;
 	}
 
 	.cloudRight {
-		transform: translate(50%, 0%) !important;
+		transform: translate(45%, 0%) !important;
 		opacity: 1 !important;
 		transition: all 1.5s ease !important;;
 		animation-fill-mode: forwards;
