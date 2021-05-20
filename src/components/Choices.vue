@@ -1,13 +1,14 @@
 <template>
 	<div class="choices">
 
-		<Papi :showPapi.sync="showPapi" class="papi" v-bind:numChoice="numChoice"/>
+		<!-- <Papi :showPapi.sync="showPapi" class="papi" v-bind:numChoice="numChoice"/> -->
 
-		<img class="objet" :src="this.numChoice.objet" alt="">
+		<img class="objet" ref="object" :src="this.numChoice.objet" alt="">
+		<!-- <img v-if="this.numChoice.objet2" class="objet2" ref="object2" :src="this.numChoice.objet2" alt=""> -->
 
-		<button @mouseover="cloudLeft = true, choiceOne= true" @mouseleave="cloudLeft = false, choiceOne= false"></button>
+		<button @mouseenter="objectAnimationLeft" @mouseout="objectAnimationReverse" @mouseover="cloudLeft = true, choiceOne= true" @mouseleave="cloudLeft = false, choiceOne= false"></button>
 
-		<button @mouseover="cloudRight = true, choiceTwo= true" @mouseleave="cloudRight = false, choiceTwo= false" v-on:click="$emit('onClick')"></button>
+		<button @mouseenter="objectAnimationRight" @mouseout="objectAnimationReverse" @mouseover="cloudRight = true, choiceTwo= true" @mouseleave="cloudRight = false, choiceTwo= false" v-on:click="$emit('onClick')"></button>
 
 		<img class="cloud" :class="{ cloudLeft: cloudLeft, cloudRight: cloudRight }" src="assets/img/nuage.gif" alt="">
 
@@ -22,11 +23,12 @@
 </template>
 
 <script>
-import Papi from '@/components/Papi.vue'
+// import Papi from '@/components/Papi.vue'
+import { gsap, Power3 } from 'gsap'
 
 export default {
 	components: {
-		Papi
+		// Papi
 	},
 	props: {
 		numChoice: Object
@@ -41,6 +43,18 @@ export default {
 		}
 	},
 	methods: {
+		objectAnimationLeft () {
+			const objectTL = gsap.timeline()
+			objectTL.to(this.$refs.object, { rotation: -30, ease: Power3.easeInOut, duration: 1 })
+		},
+		objectAnimationRight () {
+			const objectTL = gsap.timeline()
+			objectTL.to(this.$refs.object, { rotation: 30, ease: Power3.easeInOut, duration: 1 })
+		},
+		objectAnimationReverse () {
+			const objectTlReverse = gsap.timeline()
+			objectTlReverse.to(this.$refs.object, { rotation: 0, ease: Power3.easeInOut, duration: 1 })
+		}
 	}
 }
 </script>
