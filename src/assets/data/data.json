@@ -31,6 +31,7 @@
 				},
 				"objet": {
 					"url": "assets/img/objets-choix/choix-biere.png",
+					"zIndex": 1,
 					"width": 80,
 					"rotationLeft": -50,
 					"rotationRight": 47,
@@ -77,6 +78,7 @@
 				},
 				"objet": {
 					"url": "assets/img/objets-choix/choix-coude.png",
+					"zIndex": 1,
 					"width": 85,
 					"rotationLeft": -120,
 					"rotationRight": 0,
@@ -99,6 +101,7 @@
 				},
 				"objet": {
 					"url": "assets/img/objets-choix/choix-cafard.png",
+					"zIndex": 2,
 					"width": 85,
 					"rotationLeft": 45,
 					"rotationRight": 0,
@@ -155,6 +158,7 @@
 				},
 				"objet": {
 					"url": "assets/img/objets-choix/choix-brosse-a-dents.png",
+					"zIndex": 2,
 					"width": 85,
 					"rotationLeft": -80,
 					"rotationRight": 135,
@@ -177,6 +181,7 @@
 				},
 				"objet": {
 					"url": "assets/img/objets-choix/choix-hamac.png",
+					"zIndex": 1,
 					"width": 90
 				},
 				"btnUn": {
@@ -218,6 +223,7 @@
 				},
 				"objet": {
 					"url":  "assets/img/objets-choix/choix-tele.png",
+					"zIndex": 2,
 					"width": 80,
 					"rotationLeft": -10,
 					"rotationRight": 65,
@@ -276,6 +282,7 @@
 				"objet": {
 					"url":  "assets/img/objets-choix/choix-medicament-boite.png",
 					"url2": "assets/img/objets-choix/choix-medicament.png",
+					"zIndex": 2,
 					"width": 80,
 					"rotationLeft": -40,
 					"rotationRight": 0,
@@ -299,6 +306,7 @@
 				"objet": {
 					"url": "assets/img/objets-choix/choix-gel_pot.png",
 					"url2": "assets/img/objets-choix/choix-gel_couvercle.png",
+					"zIndex": 1,
 					"width": 80,
 					"rotationLeft": -45,
 					"yLeft": 30,
@@ -342,7 +350,19 @@
 				"z": -0.67581931121827995
 			},
 			"choice1": {
-				"objet": "assets/img/objets-choix/choix-tirelire.png",
+				"papi": {
+					"url": "assets/videos/motion.mp4",
+					"time": 7000
+				},
+				"objet": {
+					"url": "assets/img/objets-choix/choix-tirelire.png",
+					"zIndex": 1,
+					"width": 100,
+					"rotationLeft": -25,
+					"yLeft": 10,
+					"rotationRight": 25,
+					"yRight": 10
+				},
 				"btnUn": {
 					"url":"assets/img/gifs-choix/choix_un_tirelire.gif"
 				},
@@ -351,7 +371,21 @@
 				}
 			},
 			"choice2": {
-				"objet": "assets/img/objets-choix/choix-loupe.png",
+				"papi": {
+					"url": "assets/videos/motion.mp4",
+					"time": 7000
+				},
+				"objet": {
+					"url": "assets/img/objets-choix/choix-loupe.png",
+					"zIndex": 2,
+					"width": 90,
+					"rotationLeft": -20,
+					"xLeft": 20,
+					"yLeft": 25,
+					"rotationRight": -45,
+					"xRight": -30,
+					"yRight": 0
+				},
 				"btnUn": {
 					"url":"assets/img/gifs-choix/choix_un_loupe.gif"
 				},
@@ -384,7 +418,25 @@
 				"z": -0.83781931121827995
 			},
 			"choice1": {
-				"objet": "assets/img/objets-choix/choix-cocotte_bas.png",
+				"papi": {
+					"url": "assets/videos/motion.mp4",
+					"time": 7000
+				},
+				"objet": {
+					"url": "assets/img/objets-choix/choix-cocotte_bas.png",
+					"url2": "assets/img/objets-choix/choix-cocotte_couvercle.png",
+					"zIndex": 1,
+					"width": 95,
+					"rotationLeft": -20,
+					"yLeft": 30,
+					"rotationRight": 45,
+					"yRight": 30,
+					"rotationLeft2": 0,
+					"yLeft2": -180,
+					"xLeft2": -180,
+					"rotationRight2": -10,
+					"yRight2": -170
+				},
 				"btnUn": {
 					"url":"assets/img/gifs-choix/choix_un_cocotte.gif"
 				},
@@ -418,7 +470,19 @@
 				"z": -0.8604149725697164
 			},
 			"choice1": {
-				"objet": "assets/img/objets-choix/choix-porte.png",
+				"papi": {
+					"url": "assets/videos/motion.mp4",
+					"time": 7000
+				},
+				"objet": {
+					"url": "assets/img/objets-choix/choix-porte.png",
+					"zIndex": 1,
+					"width": 90,
+					"rotationLeft": 90,
+					"yLeft": 150,
+					"rotationRight": 0,
+					"yRight": 25
+				},
 				"btnUn": {
 					"url":"assets/img/gifs-choix/choix_un_porte.gif"
 				},
@@ -427,7 +491,20 @@
 				}
 			},
 			"choice2": {
-				"objet": "assets/img/objets-choix/choix-carton.png",
+				"papi": {
+					"url": "assets/videos/motion.mp4",
+					"time": 7000
+				},
+				"objet": {
+					"url": "assets/img/objets-choix/choix-carton.png",
+					"zIndex": 1,
+					"width": 70,
+					"rotationLeft": -18,
+					"xLeft": -20,
+					"yLeft": 10,
+					"rotationRight": 2,
+					"yRight": 24
+				},
 				"btnUn": {
 					"url":"assets/img/gifs-choix/choix_un_carton.gif"
 				},
@@ -460,7 +537,21 @@
 				"z": 0.7887661970848299
 			},
 			"choice1": {
-				"objet": "assets/img/objets-choix/choix-coton-tige.png",
+				"papi": {
+					"url": "assets/videos/motion.mp4",
+					"time": 7000
+				},
+				"objet": {
+					"url": "assets/img/objets-choix/choix-coton-tige.png",
+					"zIndex": 1,
+					"width": 90,
+					"rotationLeft": -30,
+					"xLeft": -20,
+					"yLeft": 10,
+					"rotationRight": 42,
+					"yRight": 35,
+					"xRight": 55
+				},
 				"btnUn": {
 					"url":"assets/img/gifs-choix/choix_un_coton_tige.gif"
 				},

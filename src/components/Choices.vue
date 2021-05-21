@@ -4,9 +4,9 @@
 		<!-- <Papi :showPapi.sync="showPapi" class="papi" v-bind:numChoice="numChoice"/> -->
 
 		<!-- image principale -->
-		<img class="objet" ref="object" :src="this.numChoice.objet.url" alt="" style="transform: translate(-50%, -50%) !important" :style="{width : `${this.numChoice.objet.width}%`}">
+		<img class="objet" ref="object" :src="this.numChoice.objet.url" alt="" style="transform: translate(-50%, -50%) !important" :style="{width : `${this.numChoice.objet.width}%`, zIndex: this.numChoice.objet.zIndex}">
 		<!-- image secondaire -->
-		<img v-if="this.numChoice.objet.url2" class="objet" ref="object2" :src="this.numChoice.objet.url2" alt="" style="transform: translate(-50%, -50%) !important" :style="{width : `${this.numChoice.objet.width}%`}">
+		<img v-if="this.numChoice.objet.url2" class="objet" ref="object2" :src="this.numChoice.objet.url2" alt="" style="transform: translate(-50%, -50%) !important" :style="{width : `${this.numChoice.objet.width}%`, zIndex: this.numChoice.objet.zIndex}">
 
 		<button @mouseenter="objectAnimationLeft" @mouseout="objectAnimationReverse" @mouseover="cloudLeft = true, choiceOne= true" @mouseleave="cloudLeft = false, choiceOne= false"></button>
 
@@ -114,8 +114,7 @@ export default {
 			position: absolute;
 			top: 50%;
 			left: 50%;
-			z-index: 1;
-			border: solid red;
+			// border: solid red;
 			// animation-duration: 3s;
 			// animation-name: zoom;
 			// animation-fill-mode: forwards;
