@@ -25,10 +25,18 @@
 				"z": -0.8652985483756166
 			},
 			"choice1": {
-				"objet": "assets/img/objets-choix/choix-biere.png",
 				"papi": {
 					"url": "assets/videos/motion.mp4",
 					"time": 7000
+				},
+				"objet": {
+					"url": "assets/img/objets-choix/choix-biere.png",
+					"zIndex": 1,
+					"width": 80,
+					"rotationLeft": -50,
+					"rotationRight": 47,
+					"yRight": 50,
+					"yLeft": 1
 				},
 				"btnUn": {
 					"url":"assets/img/gifs-choix/choix_un_biere.gif"
@@ -47,7 +55,7 @@
 				"url": "assets/img/objets/coude.png",
 				"width": 450,
 				"height": 410
-			} ,
+			},
 			"objet2": {
 				"url": "assets/img/objets/cafard.png",
 				"width": 180,
@@ -64,10 +72,20 @@
 				"z": -0.574723477591489
 			},
 			"choice1": {
-				"objet": "assets/img/objets-choix/choix-coude.png",
 				"papi": {
 					"url": "assets/videos/motion.mp4",
 					"time": 7000
+				},
+				"objet": {
+					"url": "assets/img/objets-choix/choix-coude.png",
+					"zIndex": 1,
+					"width": 85,
+					"rotationLeft": -120,
+					"rotationRight": 0,
+					"xLeft": -65,
+					"yLeft": -25,
+					"xRight": 50,
+					"yRight": -10
 				},
 				"btnUn": {
 					"url":"assets/img/gifs-choix/choix_un_coude.gif"
@@ -77,10 +95,20 @@
 				}
 			},
 			"choice2": {
-				"objet": "assets/img/objets-choix/choix-cafard.png",
 				"papi": {
 					"url": "assets/videos/motion.mp4",
 					"time": 7000
+				},
+				"objet": {
+					"url": "assets/img/objets-choix/choix-cafard.png",
+					"zIndex": 2,
+					"width": 85,
+					"rotationLeft": 45,
+					"rotationRight": 0,
+					"xLeft": -350,
+					"yLeft": -80,
+					"xRight": 300,
+					"yRight": -60
 				},
 				"btnUn": {
 					"url":"assets/img/gifs-choix/choix_un_cafard.gif"
@@ -124,7 +152,21 @@
 				"z": 0.5174095172000207
 			},
 			"choice1": {
-				"objet": "assets/img/objets-choix/choix-brosse-a-dents.png",
+				"papi": {
+					"url": "assets/videos/motion.mp4",
+					"time": 7000
+				},
+				"objet": {
+					"url": "assets/img/objets-choix/choix-brosse-a-dents.png",
+					"zIndex": 2,
+					"width": 85,
+					"rotationLeft": -80,
+					"rotationRight": 135,
+					"xLeft": -65,
+					"yLeft": -25,
+					"xRight": -5,
+					"yRight": 0
+				},
 				"btnUn": {
 					"url":"assets/img/gifs-choix/choix_un_brosse_dent.gif"
 				},
@@ -133,7 +175,15 @@
 				}
 			},
 			"choice2": {
-				"objet": "assets/img/objets-choix/choix-hamac.png",
+				"papi": {
+					"url": "assets/videos/motion.mp4",
+					"time": 7000
+				},
+				"objet": {
+					"url": "assets/img/objets-choix/choix-hamac.png",
+					"zIndex": 1,
+					"width": 90
+				},
 				"btnUn": {
 					"url":"assets/img/gifs-choix/choix_un_hamac.gif"
 				},
@@ -167,7 +217,21 @@
 				"z": 0.24178291452685512
 			},
 			"choice1": {
-				"objet": "assets/img/objets-choix/choix-tele.png",
+				"papi": {
+					"url": "assets/videos/motion.mp4",
+					"time": 7000
+				},
+				"objet": {
+					"url":  "assets/img/objets-choix/choix-tele.png",
+					"zIndex": 2,
+					"width": 80,
+					"rotationLeft": -10,
+					"rotationRight": 65,
+					"xLeft": -90,
+					"yLeft": -20,
+					"xRight": -175,
+					"yRight": 30
+				},
 				"btnUn": {
 					"url":"assets/img/gifs-choix/choix_un_tv.gif"
 				},
@@ -211,7 +275,22 @@
 				"z": 0.19581931121827995
 			},
 			"choice1": {
-				"objet": "assets/img/objets-choix/choix-medicament-boite.png",
+				"papi": {
+					"url": "assets/videos/motion.mp4",
+					"time": 7000
+				},
+				"objet": {
+					"url":  "assets/img/objets-choix/choix-medicament-boite.png",
+					"url2": "assets/img/objets-choix/choix-medicament.png",
+					"zIndex": 2,
+					"width": 80,
+					"rotationLeft": -40,
+					"rotationRight": 0,
+					"yRight": -20,
+					"rotationLeft2": 150,
+					"xRight2": 40,
+					"yRight2": 20
+				},
 				"btnUn": {
 					"url":"assets/img/gifs-choix/choix_un_medicaments.gif"
 				},
@@ -220,7 +299,24 @@
 				}
 			},
 			"choice2": {
-				"objet": "assets/img/objets-choix/choix-gel_pot.png",
+				"papi": {
+					"url": "assets/videos/motion.mp4",
+					"time": 7000
+				},
+				"objet": {
+					"url": "assets/img/objets-choix/choix-gel_pot.png",
+					"url2": "assets/img/objets-choix/choix-gel_couvercle.png",
+					"zIndex": 1,
+					"width": 80,
+					"rotationLeft": -45,
+					"yLeft": 30,
+					"rotationRight": 45,
+					"yRight": 30,
+					"rotationLeft2": 20,
+					"yLeft2": -50,
+					"rotationRight2": -20,
+					"yRight2": -50
+				},
 				"btnUn": {
 					"url":"assets/img/gifs-choix/choix_un_gel.gif"
 				},
@@ -254,7 +350,19 @@
 				"z": -0.67581931121827995
 			},
 			"choice1": {
-				"objet": "assets/img/objets-choix/choix-tirelire.png",
+				"papi": {
+					"url": "assets/videos/motion.mp4",
+					"time": 7000
+				},
+				"objet": {
+					"url": "assets/img/objets-choix/choix-tirelire.png",
+					"zIndex": 1,
+					"width": 100,
+					"rotationLeft": -25,
+					"yLeft": 10,
+					"rotationRight": 25,
+					"yRight": 10
+				},
 				"btnUn": {
 					"url":"assets/img/gifs-choix/choix_un_tirelire.gif"
 				},
@@ -263,7 +371,21 @@
 				}
 			},
 			"choice2": {
-				"objet": "assets/img/objets-choix/choix-loupe.png",
+				"papi": {
+					"url": "assets/videos/motion.mp4",
+					"time": 7000
+				},
+				"objet": {
+					"url": "assets/img/objets-choix/choix-loupe.png",
+					"zIndex": 2,
+					"width": 90,
+					"rotationLeft": -20,
+					"xLeft": 20,
+					"yLeft": 25,
+					"rotationRight": -45,
+					"xRight": -30,
+					"yRight": 0
+				},
 				"btnUn": {
 					"url":"assets/img/gifs-choix/choix_un_loupe.gif"
 				},
@@ -296,7 +418,25 @@
 				"z": -0.83781931121827995
 			},
 			"choice1": {
-				"objet": "assets/img/objets-choix/choix-cocotte_bas.png",
+				"papi": {
+					"url": "assets/videos/motion.mp4",
+					"time": 7000
+				},
+				"objet": {
+					"url": "assets/img/objets-choix/choix-cocotte_bas.png",
+					"url2": "assets/img/objets-choix/choix-cocotte_couvercle.png",
+					"zIndex": 1,
+					"width": 95,
+					"rotationLeft": -20,
+					"yLeft": 30,
+					"rotationRight": 45,
+					"yRight": 30,
+					"rotationLeft2": 0,
+					"yLeft2": -180,
+					"xLeft2": -180,
+					"rotationRight2": -10,
+					"yRight2": -170
+				},
 				"btnUn": {
 					"url":"assets/img/gifs-choix/choix_un_cocotte.gif"
 				},
@@ -330,7 +470,19 @@
 				"z": -0.8604149725697164
 			},
 			"choice1": {
-				"objet": "assets/img/objets-choix/choix-porte.png",
+				"papi": {
+					"url": "assets/videos/motion.mp4",
+					"time": 7000
+				},
+				"objet": {
+					"url": "assets/img/objets-choix/choix-porte.png",
+					"zIndex": 1,
+					"width": 90,
+					"rotationLeft": 90,
+					"yLeft": 150,
+					"rotationRight": 0,
+					"yRight": 25
+				},
 				"btnUn": {
 					"url":"assets/img/gifs-choix/choix_un_porte.gif"
 				},
@@ -339,7 +491,20 @@
 				}
 			},
 			"choice2": {
-				"objet": "assets/img/objets-choix/choix-carton.png",
+				"papi": {
+					"url": "assets/videos/motion.mp4",
+					"time": 7000
+				},
+				"objet": {
+					"url": "assets/img/objets-choix/choix-carton.png",
+					"zIndex": 1,
+					"width": 70,
+					"rotationLeft": -18,
+					"xLeft": -20,
+					"yLeft": 10,
+					"rotationRight": 2,
+					"yRight": 24
+				},
 				"btnUn": {
 					"url":"assets/img/gifs-choix/choix_un_carton.gif"
 				},
@@ -372,7 +537,21 @@
 				"z": 0.7887661970848299
 			},
 			"choice1": {
-				"objet": "assets/img/objets-choix/choix-coton-tige.png",
+				"papi": {
+					"url": "assets/videos/motion.mp4",
+					"time": 7000
+				},
+				"objet": {
+					"url": "assets/img/objets-choix/choix-coton-tige.png",
+					"zIndex": 1,
+					"width": 90,
+					"rotationLeft": -30,
+					"xLeft": -20,
+					"yLeft": 10,
+					"rotationRight": 42,
+					"yRight": 35,
+					"xRight": 55
+				},
 				"btnUn": {
 					"url":"assets/img/gifs-choix/choix_un_coton_tige.gif"
 				},

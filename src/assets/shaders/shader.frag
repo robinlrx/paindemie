@@ -23,7 +23,7 @@ void main() {
 		{
 			float r = float(i + 1) * rads;
 			vec2 offset = vec2(cos(r), -sin(r)) * thickness; //calculate vector based on current radians and multiply by magnitude
-			finalCol = texture(textureSampler, UVs + offset);	//render the texture to the pixel on an offset UV
+			finalCol = texture2D(textureSampler, UVs + offset);	//render the texture to the pixel on an offset UV
 			
 			if(finalCol.w > 0.1)
 			{
@@ -32,7 +32,7 @@ void main() {
 		}
 	}
 
-	vec4 tex = texture(textureSampler, UVs);
+	vec4 tex = texture2D(textureSampler, UVs);
 	if(tex.w > 0.0)
 	{
 		finalCol = tex;   //if the centered texture's alpha is greater than 0, set finalcol to tex
