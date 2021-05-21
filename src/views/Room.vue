@@ -7,19 +7,19 @@
 
 		<transition name="fade">
 			<!-- Key-changing to force re-renders of a component -->
-			<Scene @buttonSend="getContentFromData" v-bind:etape="etapes[currentEtape]" @objectClicked="handleShowChoices" @onPenality="handlePenality" :key="currentEtape" :showOups.sync="showOups"/>
+			<Scene @buttonSend="getContentFromData" :etape="etapes[currentEtape]" @objectClicked="handleShowChoices" @onPenality="handlePenality" :key="currentEtape" :showOups.sync="showOups"/>
 		</transition>
 
 		<div class="life">
-			<Jauge v-bind:score="score" v-on:onPenality="handlePenality"/>
-			<Timer :key="currentEtape" v-on:onPenality="handlePenality"/>
+			<Jauge :score="score" @onPenality="handlePenality"/>
+			<Timer :key="currentEtape" @onPenality="handlePenality"/>
 		</div>
 
 		<transition name="fade">
-		<Choices v-show="showChoices" v-bind:numChoice="numChoice" v-bind:etape="etapes[currentEtape]" v-on:onClick="handleUpdateEtape" />
+		<Choices v-if="showChoices" :numChoice="numChoice" :etape="etapes[currentEtape]" @onClick="handleUpdateEtape" />
 		</transition>
 
-		<Oups :showOups.sync="showOups" v-bind:score="score" v-bind:etape="etapes[currentEtape]" :key="currentEtape"/>
+		<Oups :showOups.sync="showOups" :score="score" :etape="etapes[currentEtape]" :key="currentEtape"/>
 	</div>
 </template>
 

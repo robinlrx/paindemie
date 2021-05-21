@@ -3,11 +3,14 @@
 
 		<Papi :showPapi.sync="showPapi" class="papi" v-bind:numChoice="numChoice"/>
 
-		<img class="objet" :src="this.numChoice.objet" alt="">
+		<!-- image principale -->
+		<img class="objet" ref="object" :src="this.numChoice.objet.url" alt="" style="transform: translate(-50%, -50%) !important" :style="{width : `${this.numChoice.objet.width}%`, zIndex: this.numChoice.objet.zIndex}">
+		<!-- image secondaire -->
+		<img v-if="this.numChoice.objet.url2" class="objet" ref="object2" :src="this.numChoice.objet.url2" alt="" style="transform: translate(-50%, -50%) !important" :style="{width : `${this.numChoice.objet.width}%`, zIndex: this.numChoice.objet.zIndex}">
 
-		<button @mouseover="cloudLeft = true, choiceOne= true" @mouseleave="cloudLeft = false, choiceOne= false"></button>
+		<button @mouseenter="objectAnimationLeft" @mouseout="objectAnimationReverse" @mouseover="cloudLeft = true, choiceOne= true" @mouseleave="cloudLeft = false, choiceOne= false"></button>
 
-		<button @mouseover="cloudRight = true, choiceTwo= true" @mouseleave="cloudRight = false, choiceTwo= false" v-on:click="$emit('onClick')"></button>
+		<button @mouseenter="objectAnimationRight" @mouseout="objectAnimationReverse" @mouseover="cloudRight = true, choiceTwo= true" @mouseleave="cloudRight = false, choiceTwo= false" v-on:click="$emit('onClick')"></button>
 
 		<img class="cloud" :class="{ cloudLeft: cloudLeft, cloudRight: cloudRight }" src="assets/img/nuage.gif" alt="">
 
@@ -23,6 +26,7 @@
 
 <script>
 import Papi from '@/components/Papi.vue'
+import { gsap, Power3 } from 'gsap'
 
 export default {
 	components: {
@@ -40,7 +44,51 @@ export default {
 			showPapi: true
 		}
 	},
+	mounted () {
+		console.log(this.showPapi)
+		this.$emit('update:showPapi', true)
+	},
 	methods: {
+		objectAnimationLeft () {
+			const objectTL = gsap.timeline()
+			objectTL.add('START')
+			// image 1
+			objectTL.to(this.$refs.object, { rotation: this.numChoice.objet.rotationLeft, ease: Power3.easeInOut, duration: 1 }, 'START')
+			if (this.numChoice.objet.yLeft) objectTL.to(this.$refs.object, { y: this.numChoice.objet.yLeft, ease: Power3.easeInOut, duration: 1 }, 'START')
+			if (this.numChoice.objet.xLeft) objectTL.to(this.$refs.object, { x: this.numChoice.objet.xLeft, ease: Power3.easeInOut, duration: 1 }, 'START')
+
+			// image 2
+			if (this.numChoice.objet.url2) objectTL.to(this.$refs.object2, { x: this.numChoice.objet.xLeft2, ease: Power3.easeInOut, duration: 1 }, 'START')
+			if (this.numChoice.objet.url2) objectTL.to(this.$refs.object2, { y: this.numChoice.objet.yLeft2, ease: Power3.easeInOut, duration: 1 }, 'START')
+			if (this.numChoice.objet.url2) objectTL.to(this.$refs.object2, { rotation: this.numChoice.objet.rotationLeft2, ease: Power3.easeInOut, duration: 1 }, 'START')
+		},
+		objectAnimationRight () {
+			const objectTL = gsap.timeline()
+			objectTL.add('START')
+			// image 1
+			objectTL.to(this.$refs.object, { rotation: this.numChoice.objet.rotationRight, ease: Power3.easeInOut, duration: 1 }, 'START')
+			if (this.numChoice.objet.yRight) objectTL.to(this.$refs.object, { y: this.numChoice.objet.yRight, ease: Power3.easeInOut, duration: 1 }, 'START')
+			if (this.numChoice.objet.xRight) objectTL.to(this.$refs.object, { x: this.numChoice.objet.xRight, ease: Power3.easeInOut, duration: 1 }, 'START')
+
+			// image 2
+			if (this.numChoice.objet.url2) objectTL.to(this.$refs.object2, { x: this.numChoice.objet.xRight2, ease: Power3.easeInOut, duration: 1 }, 'START')
+			if (this.numChoice.objet.url2) objectTL.to(this.$refs.object2, { y: this.numChoice.objet.yRight2, ease: Power3.easeInOut, duration: 1 }, 'START')
+			if (this.numChoice.objet.url2) objectTL.to(this.$refs.object2, { rotation: this.numChoice.objet.rotationRight2, ease: Power3.easeInOut, duration: 1 }, 'START')
+		},
+		objectAnimationReverse () {
+			const objectTlReverse = gsap.timeline()
+			objectTlReverse.add('START')
+			// image 1
+			objectTlReverse.to(this.$refs.object, { rotation: 0, ease: Power3.easeInOut, duration: 1 })
+			if (this.numChoice.objet.yRight || this.numChoice.objet.yLeft) objectTlReverse.to(this.$refs.object, { y: 0, ease: Power3.easeInOut, duration: 1 }, 'START')
+			if (this.numChoice.objet.xRight || this.numChoice.objet.xLeft) objectTlReverse.to(this.$refs.object, { x: 0, ease: Power3.easeInOut, duration: 1 }, 'START')
+
+			// image 2
+			if (this.numChoice.objet.url2) objectTlReverse.to(this.$refs.object2, { rotation: 0, ease: Power3.easeInOut, duration: 1 }, 'START')
+			if (this.numChoice.objet.url2) objectTlReverse.to(this.$refs.object2, { x: 0, ease: Power3.easeInOut, duration: 1 }, 'START')
+			if (this.numChoice.objet.url2) objectTlReverse.to(this.$refs.object2, { y: 0, ease: Power3.easeInOut, duration: 1 }, 'START')
+			if (this.numChoice.objet.url2) objectTlReverse.to(this.$refs.object2, { rotation: 0, ease: Power3.easeInOut, duration: 1 }, 'START')
+		}
 	}
 }
 </script>
@@ -68,9 +116,10 @@ export default {
 			position: absolute;
 			top: 50%;
 			left: 50%;
-			z-index: 1;
-			transform: translate(-50%, -50%);
-			width: 100%;
+			// border: solid red;
+			// animation-duration: 3s;
+			// animation-name: zoom;
+			// animation-fill-mode: forwards;
 		}
 
 		button {

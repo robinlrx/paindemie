@@ -13,7 +13,7 @@ uniform float thickness;
 
 void main() {
 
-	vec3 targetCol = vec3(0.423, 0.074, 0.247); //The color of the outline #6C133F
+	vec3 targetCol = vec3(1.0, 1.0, 1.0); //The color of the outline #ffffff
 	vec4 finalCol = vec4(0);
 	float rads = ((360.0 / float(SAMPLES)) * PI) / 180.0;	//radians based on SAMPLES
 
@@ -23,7 +23,7 @@ void main() {
 		{
 			float r = float(i + 1) * rads;
 			vec2 offset = vec2(cos(r), -sin(r)) * thickness; //calculate vector based on current radians and multiply by magnitude
-			finalCol = texture(textureSampler, UVs + offset);	//render the texture to the pixel on an offset UV
+			finalCol = texture2D(textureSampler, UVs + offset);	//render the texture to the pixel on an offset UV
 			
 			if(finalCol.w > 0.1)
 			{
@@ -32,7 +32,7 @@ void main() {
 		}
 	}
 
-	vec4 tex = texture(textureSampler, UVs);
+	vec4 tex = texture2D(textureSampler, UVs);
 	if(tex.w > 0.0)
 	{
 		finalCol = tex;   //if the centered texture's alpha is greater than 0, set finalcol to tex
