@@ -44,7 +44,6 @@ export default {
 	data () {
 		return {
 			showChoices: false,
-			showPapi: false,
 			etapes: data.content,
 			currentEtape: 0,
 			score: 100,
@@ -58,14 +57,8 @@ export default {
 		handleShowChoices () {
 			this.showChoices = !this.showChoices
 		},
-		handleShowPapi () {
-			this.showPapi = !this.showPapi
-		},
 		handleUpdateEtape () {
 			this.handleShowChoices() // unShow choices
-			this.handleShowPapi() // unShow Papi
-			console.log('papi')
-			console.log(this.showPapi)
 
 			if (this.currentEtape === 8) {
 				alert('fin')

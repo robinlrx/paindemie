@@ -33,16 +33,20 @@ export default {
 		Papi
 	},
 	props: {
-		numChoice: Object,
-		showPapi: Boolean
+		numChoice: Object
 	},
 	data () {
 		return {
 			cloudLeft: false,
 			cloudRight: false,
 			choiceOne: false,
-			choiceTwo: false
+			choiceTwo: false,
+			showPapi: true
 		}
+	},
+	mounted () {
+		console.log(this.showPapi)
+		this.$emit('update:showPapi', true)
 	},
 	methods: {
 		objectAnimationLeft () {
