@@ -149,7 +149,20 @@
 				"z": 0.5174095172000207
 			},
 			"choice1": {
-				"objet": "assets/img/objets-choix/choix-brosse-a-dents.png",
+				"papi": {
+					"url": "assets/videos/motion.mp4",
+					"time": 7000
+				},
+				"objet": {
+					"url": "assets/img/objets-choix/choix-brosse-a-dents.png",
+					"width": 85,
+					"rotationLeft": -80,
+					"rotationRight": 135,
+					"xLeft": -65,
+					"yLeft": -25,
+					"xRight": -5,
+					"yRight": 0
+				},
 				"btnUn": {
 					"url":"assets/img/gifs-choix/choix_un_brosse_dent.gif"
 				},
@@ -158,7 +171,14 @@
 				}
 			},
 			"choice2": {
-				"objet": "assets/img/objets-choix/choix-hamac.png",
+				"papi": {
+					"url": "assets/videos/motion.mp4",
+					"time": 7000
+				},
+				"objet": {
+					"url": "assets/img/objets-choix/choix-hamac.png",
+					"width": 90
+				},
 				"btnUn": {
 					"url":"assets/img/gifs-choix/choix_un_hamac.gif"
 				},
@@ -192,7 +212,20 @@
 				"z": 0.24178291452685512
 			},
 			"choice1": {
-				"objet": "assets/img/objets-choix/choix-tele.png",
+				"papi": {
+					"url": "assets/videos/motion.mp4",
+					"time": 7000
+				},
+				"objet": {
+					"url":  "assets/img/objets-choix/choix-tele.png",
+					"width": 80,
+					"rotationLeft": -10,
+					"rotationRight": 65,
+					"xLeft": -90,
+					"yLeft": -20,
+					"xRight": -175,
+					"yRight": 30
+				},
 				"btnUn": {
 					"url":"assets/img/gifs-choix/choix_un_tv.gif"
 				},
@@ -236,7 +269,21 @@
 				"z": 0.19581931121827995
 			},
 			"choice1": {
-				"objet": "assets/img/objets-choix/choix-medicament-boite.png",
+				"papi": {
+					"url": "assets/videos/motion.mp4",
+					"time": 7000
+				},
+				"objet": {
+					"url":  "assets/img/objets-choix/choix-medicament-boite.png",
+					"url2": "assets/img/objets-choix/choix-medicament.png",
+					"width": 80,
+					"rotationLeft": -40,
+					"rotationRight": 0,
+					"yRight": -20,
+					"rotationLeft2": 150,
+					"xRight2": 40,
+					"yRight2": 20
+				},
 				"btnUn": {
 					"url":"assets/img/gifs-choix/choix_un_medicaments.gif"
 				},
@@ -245,7 +292,23 @@
 				}
 			},
 			"choice2": {
-				"objet": "assets/img/objets-choix/choix-gel_pot.png",
+				"papi": {
+					"url": "assets/videos/motion.mp4",
+					"time": 7000
+				},
+				"objet": {
+					"url": "assets/img/objets-choix/choix-gel_pot.png",
+					"url2": "assets/img/objets-choix/choix-gel_couvercle.png",
+					"width": 80,
+					"rotationLeft": -45,
+					"yLeft": 30,
+					"rotationRight": 45,
+					"yRight": 30,
+					"rotationLeft2": 20,
+					"yLeft2": -50,
+					"rotationRight2": -20,
+					"yRight2": -50
+				},
 				"btnUn": {
 					"url":"assets/img/gifs-choix/choix_un_gel.gif"
 				},

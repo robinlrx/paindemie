@@ -3,8 +3,10 @@
 
 		<!-- <Papi :showPapi.sync="showPapi" class="papi" v-bind:numChoice="numChoice"/> -->
 
+		<!-- image principale -->
 		<img class="objet" ref="object" :src="this.numChoice.objet.url" alt="" style="transform: translate(-50%, -50%) !important" :style="{width : `${this.numChoice.objet.width}%`}">
-		<!-- <img v-if="this.numChoice.objet2" class="objet2" ref="object2" :src="this.numChoice.objet2" alt=""> -->
+		<!-- image secondaire -->
+		<img v-if="this.numChoice.objet.url2" class="objet" ref="object2" :src="this.numChoice.objet.url2" alt="" style="transform: translate(-50%, -50%) !important" :style="{width : `${this.numChoice.objet.width}%`}">
 
 		<button @mouseenter="objectAnimationLeft" @mouseout="objectAnimationReverse" @mouseover="cloudLeft = true, choiceOne= true" @mouseleave="cloudLeft = false, choiceOne= false"></button>
 
@@ -46,23 +48,42 @@ export default {
 		objectAnimationLeft () {
 			const objectTL = gsap.timeline()
 			objectTL.add('START')
+			// image 1
 			objectTL.to(this.$refs.object, { rotation: this.numChoice.objet.rotationLeft, ease: Power3.easeInOut, duration: 1 }, 'START')
 			if (this.numChoice.objet.yLeft) objectTL.to(this.$refs.object, { y: this.numChoice.objet.yLeft, ease: Power3.easeInOut, duration: 1 }, 'START')
 			if (this.numChoice.objet.xLeft) objectTL.to(this.$refs.object, { x: this.numChoice.objet.xLeft, ease: Power3.easeInOut, duration: 1 }, 'START')
+
+			// image 2
+			if (this.numChoice.objet.url2) objectTL.to(this.$refs.object2, { x: this.numChoice.objet.xLeft2, ease: Power3.easeInOut, duration: 1 }, 'START')
+			if (this.numChoice.objet.url2) objectTL.to(this.$refs.object2, { y: this.numChoice.objet.yLeft2, ease: Power3.easeInOut, duration: 1 }, 'START')
+			if (this.numChoice.objet.url2) objectTL.to(this.$refs.object2, { rotation: this.numChoice.objet.rotationLeft2, ease: Power3.easeInOut, duration: 1 }, 'START')
 		},
 		objectAnimationRight () {
 			const objectTL = gsap.timeline()
 			objectTL.add('START')
+			// image 1
 			objectTL.to(this.$refs.object, { rotation: this.numChoice.objet.rotationRight, ease: Power3.easeInOut, duration: 1 }, 'START')
 			if (this.numChoice.objet.yRight) objectTL.to(this.$refs.object, { y: this.numChoice.objet.yRight, ease: Power3.easeInOut, duration: 1 }, 'START')
 			if (this.numChoice.objet.xRight) objectTL.to(this.$refs.object, { x: this.numChoice.objet.xRight, ease: Power3.easeInOut, duration: 1 }, 'START')
+
+			// image 2
+			if (this.numChoice.objet.url2) objectTL.to(this.$refs.object2, { x: this.numChoice.objet.xRight2, ease: Power3.easeInOut, duration: 1 }, 'START')
+			if (this.numChoice.objet.url2) objectTL.to(this.$refs.object2, { y: this.numChoice.objet.yRight2, ease: Power3.easeInOut, duration: 1 }, 'START')
+			if (this.numChoice.objet.url2) objectTL.to(this.$refs.object2, { rotation: this.numChoice.objet.rotationRight2, ease: Power3.easeInOut, duration: 1 }, 'START')
 		},
 		objectAnimationReverse () {
 			const objectTlReverse = gsap.timeline()
 			objectTlReverse.add('START')
+			// image 1
 			objectTlReverse.to(this.$refs.object, { rotation: 0, ease: Power3.easeInOut, duration: 1 })
 			if (this.numChoice.objet.yRight || this.numChoice.objet.yLeft) objectTlReverse.to(this.$refs.object, { y: 0, ease: Power3.easeInOut, duration: 1 }, 'START')
 			if (this.numChoice.objet.xRight || this.numChoice.objet.xLeft) objectTlReverse.to(this.$refs.object, { x: 0, ease: Power3.easeInOut, duration: 1 }, 'START')
+
+			// image 2
+			if (this.numChoice.objet.url2) objectTlReverse.to(this.$refs.object2, { rotation: 0, ease: Power3.easeInOut, duration: 1 }, 'START')
+			if (this.numChoice.objet.url2) objectTlReverse.to(this.$refs.object2, { x: 0, ease: Power3.easeInOut, duration: 1 }, 'START')
+			if (this.numChoice.objet.url2) objectTlReverse.to(this.$refs.object2, { y: 0, ease: Power3.easeInOut, duration: 1 }, 'START')
+			if (this.numChoice.objet.url2) objectTlReverse.to(this.$refs.object2, { rotation: 0, ease: Power3.easeInOut, duration: 1 }, 'START')
 		}
 	}
 }
