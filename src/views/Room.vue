@@ -1,6 +1,6 @@
 <template>
 	<div class="room">
-		<Motion v-bind:etape="etapes[currentEtape]" :key="currentEtape" />
+		<!-- <Motion v-bind:etape="etapes[currentEtape]" :key="currentEtape" /> -->
 		<!-- <Tutorial /> -->
 
 		<transition name="fade">
@@ -25,7 +25,7 @@
 import data from '../assets/data/data.json'
 import router from '../router/index'
 
-import Motion from '@/components/Motion.vue'
+// import Motion from '@/components/Motion.vue'
 import Scene from '@/components/Scene.vue'
 import Choices from '@/components/Choices.vue'
 import Jauge from '@/components/Jauge.vue'
@@ -38,12 +38,13 @@ export default {
 		Choices,
 		Jauge,
 		Timer,
-		Oups,
-		Motion
+		Oups
+		// Motion
 	},
 	data () {
 		return {
 			showChoices: false,
+			showPapi: false,
 			etapes: data.content,
 			currentEtape: 0,
 			score: 100,
@@ -57,8 +58,14 @@ export default {
 		handleShowChoices () {
 			this.showChoices = !this.showChoices
 		},
+		handleShowPapi () {
+			this.showPapi = !this.showPapi
+		},
 		handleUpdateEtape () {
 			this.handleShowChoices() // unShow choices
+			this.handleShowPapi() // unShow Papi
+			console.log('papi')
+			console.log(this.showPapi)
 
 			if (this.currentEtape === 8) {
 				alert('fin')

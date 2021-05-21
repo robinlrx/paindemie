@@ -13,7 +13,7 @@ uniform float thickness;
 
 void main() {
 
-	vec3 targetCol = vec3(0.423, 0.074, 0.247); //The color of the outline #6C133F
+	vec3 targetCol = vec3(1.0, 1.0, 1.0); //The color of the outline #ffffff
 	vec4 finalCol = vec4(0);
 	float rads = ((360.0 / float(SAMPLES)) * PI) / 180.0;	//radians based on SAMPLES
 

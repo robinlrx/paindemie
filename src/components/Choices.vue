@@ -1,7 +1,7 @@
 <template>
 	<div class="choices">
 
-		<!-- <Papi :showPapi.sync="showPapi" class="papi" v-bind:numChoice="numChoice"/> -->
+		<Papi :showPapi.sync="showPapi" class="papi" v-bind:numChoice="numChoice"/>
 
 		<!-- image principale -->
 		<img class="objet" ref="object" :src="this.numChoice.objet.url" alt="" style="transform: translate(-50%, -50%) !important" :style="{width : `${this.numChoice.objet.width}%`, zIndex: this.numChoice.objet.zIndex}">
@@ -25,23 +25,23 @@
 </template>
 
 <script>
-// import Papi from '@/components/Papi.vue'
+import Papi from '@/components/Papi.vue'
 import { gsap, Power3 } from 'gsap'
 
 export default {
 	components: {
-		// Papi
+		Papi
 	},
 	props: {
-		numChoice: Object
+		numChoice: Object,
+		showPapi: Boolean
 	},
 	data () {
 		return {
 			cloudLeft: false,
 			cloudRight: false,
 			choiceOne: false,
-			choiceTwo: false,
-			showPapi: true
+			choiceTwo: false
 		}
 	},
 	methods: {
