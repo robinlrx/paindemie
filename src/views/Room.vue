@@ -1,7 +1,9 @@
 <template>
 	<div class="room">
-		<Motion v-bind:etape="etapes[currentEtape]" :key="currentEtape" />
-		<!-- <Tutorial /> -->
+		<!-- <Motion v-bind:etape="etapes[currentEtape]" :key="currentEtape" /> -->
+
+		<!-- v-if="currentEtape = 0" -->
+		<FirstTuto :showTuto.sync="showTuto"/>
 
 		<transition name="fade">
 			<!-- Key-changing to force re-renders of a component -->
@@ -25,12 +27,13 @@
 import data from '../assets/data/data.json'
 import router from '../router/index'
 
-import Motion from '@/components/Motion.vue'
+// import Motion from '@/components/Motion.vue'
 import Scene from '@/components/Scene.vue'
 import Choices from '@/components/Choices.vue'
 import Jauge from '@/components/Jauge.vue'
 import Timer from '@/components/Timer.vue'
 import Oups from '@/components/Oups.vue'
+import FirstTuto from '@/components/FirstTuto.vue'
 
 export default {
 	components: {
@@ -39,7 +42,8 @@ export default {
 		Jauge,
 		Timer,
 		Oups,
-		Motion
+		// Motion,
+		FirstTuto
 	},
 	data () {
 		return {
@@ -49,7 +53,8 @@ export default {
 			score: 100,
 			numButton: null,
 			numChoice: null,
-			showOups: false
+			showOups: false,
+			showTuto: true
 		}
 	},
 	methods: {

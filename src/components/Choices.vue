@@ -52,9 +52,7 @@ export default {
 		width: 100%;
 		height: 100vh;
 		display: flex;
-		animation-duration: 3s;
-		animation-name: blackSail;
-		animation-fill-mode: forwards;
+		background-color: rgba(0, 0, 0, 0.6);
 
 		.papi {
 			position: absolute;
@@ -110,16 +108,6 @@ export default {
 				opacity: 0;
 				transition: all 1s ease;
 			}
-	}
-
-	@keyframes blackSail {
-		0% {
-			background-color: rgba(0, 0, 0, 0);
-		}
-
-		100% {
-			background-color: rgba(0, 0, 0, 0.6);
-		}
 	}
 
 	@keyframes zoom {
