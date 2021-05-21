@@ -18,17 +18,12 @@ import Button from '@/components/Button.vue'
 export default {
 	props: {
 		etape: Object,
-		showOups: Boolean,
-		score: Number
+		showOups: Boolean
 	},
 	components: {
 		Button
 	},
 	mounted: {
-		oupsPenality () {
-			// this.score -= 5
-			console.log(this.score)
-		}
 	}
 }
 </script>

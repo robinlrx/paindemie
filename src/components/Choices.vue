@@ -185,14 +185,14 @@ export default {
 	}
 
 	.cloudLeft {
-		transform: translate(-50%, 0%) !important;
+		transform: translate(-45%, 0%) !important;
 		opacity: 1 !important;
 		transition: all 1.5s ease !important;;
 		animation-fill-mode: forwards;
 	}
 
 	.cloudRight {
-		transform: translate(50%, 0%) !important;
+		transform: translate(45%, 0%) !important;
 		opacity: 1 !important;
 		transition: all 1.5s ease !important;;
 		animation-fill-mode: forwards;
