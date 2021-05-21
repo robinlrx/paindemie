@@ -45,7 +45,6 @@ export default {
 		}
 	},
 	mounted () {
-		console.log(this.showPapi)
 		this.$emit('update:showPapi', true)
 	},
 	methods: {
