@@ -54,7 +54,7 @@ export default {
 @import '@/assets/scss/_variables.scss';
 
 .button-size1 {
-  svg {
+	svg {
 		width:605px;
   }
 }
