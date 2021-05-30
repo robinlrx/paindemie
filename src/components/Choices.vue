@@ -1,6 +1,8 @@
 <template>
 	<div class="choices">
 
+		<SecondTuto v-if="currentEtape == 0" :showSecondTuto.sync="showSecondTuto"/>
+
 		<Papi :showPapi.sync="showPapi" class="papi" v-bind:numChoice="numChoice"/>
 
 		<!-- image principale -->
@@ -25,15 +27,18 @@
 </template>
 
 <script>
+import SecondTuto from '@/components/SecondTuto.vue'
 import Papi from '@/components/Papi.vue'
 import { gsap, Power3 } from 'gsap'
 
 export default {
 	components: {
-		Papi
+		Papi,
+		SecondTuto
 	},
 	props: {
-		numChoice: Object
+		numChoice: Object,
+		currentEtape: Number
 	},
 	data () {
 		return {
@@ -41,11 +46,11 @@ export default {
 			cloudRight: false,
 			choiceOne: false,
 			choiceTwo: false,
-			showPapi: true
+			showPapi: true,
+			showSecondTuto: true
 		}
 	},
 	mounted () {
-		console.log(this.showPapi)
 		this.$emit('update:showPapi', true)
 	},
 	methods: {
@@ -100,9 +105,7 @@ export default {
 		width: 100%;
 		height: 100vh;
 		display: flex;
-		animation-duration: 3s;
-		animation-name: blackSail;
-		animation-fill-mode: forwards;
+		background-color: rgba(0, 0, 0, 0.6);
 
 		.papi {
 			position: absolute;
@@ -159,16 +162,6 @@ export default {
 				opacity: 0;
 				transition: all 1s ease;
 			}
-	}
-
-	@keyframes blackSail {
-		0% {
-			background-color: rgba(0, 0, 0, 0);
-		}
-
-		100% {
-			background-color: rgba(0, 0, 0, 0.6);
-		}
 	}
 
 	@keyframes zoom {
