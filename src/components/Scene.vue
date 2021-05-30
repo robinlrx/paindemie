@@ -141,7 +141,7 @@ export default {
 				fragmentShader: frag,
 				transparent: true
 			})
-			console.log(this.shaderMaterial.uniforms.thickness.value)
+			// console.log(this.shaderMaterial.uniforms.thickness.value)
 			// this.shaderMaterial.uniforms.textureSampler.value = icons
 			// this.shaderMaterial.uniforms.thickness.value = 0.05
 			this.plane = new THREE.Mesh(geometry, this.shaderMaterial)
