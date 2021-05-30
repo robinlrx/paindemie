@@ -4,9 +4,9 @@
 		<Papi :showPapi.sync="showPapi" class="papi" v-bind:numChoice="numChoice"/>
 
 		<!-- image principale -->
-		<img class="objet" ref="object" :src="this.numChoice.objet.url" alt="" style="transform: translate(-50%, -50%) !important" :style="{width : `${this.numChoice.objet.width}%`, zIndex: this.numChoice.objet.zIndex}">
+		<img class="objet" ref="object" :src="this.numChoice.objet.url" alt="" :style="{width : `${this.numChoice.objet.width}%`, zIndex: this.numChoice.objet.zIndex}">
 		<!-- image secondaire -->
-		<img v-if="this.numChoice.objet.url2" class="objet" ref="object2" :src="this.numChoice.objet.url2" alt="" style="transform: translate(-50%, -50%) !important" :style="{width : `${this.numChoice.objet.width}%`, zIndex: this.numChoice.objet.zIndex}">
+		<img v-if="this.numChoice.objet.url2" class="objet" ref="object2" :src="this.numChoice.objet.url2" alt="" :style="{width : `${this.numChoice.objet.width}%`, zIndex: this.numChoice.objet.zIndex}">
 
 		<button @mouseenter="objectAnimationLeft" @mouseout="objectAnimationReverse" @mouseover="cloudLeft = true, choiceOne= true" @mouseleave="cloudLeft = false, choiceOne= false"></button>
 
@@ -47,6 +47,8 @@ export default {
 	mounted () {
 		console.log(this.showPapi)
 		this.$emit('update:showPapi', true)
+		// center elements whith gsap to avoid conflicts with tranfrom translate css
+		gsap.set('.objet', { xPercent: -50, left: '50%', yPercent: -50, top: '50%', x: 0, y: 0 })
 	},
 	methods: {
 		objectAnimationLeft () {
@@ -116,29 +118,28 @@ export default {
 
 		.objet {
 			position: absolute;
-			top: 50%;
-			left: 50%;
-			// border: solid red;
+			// top: 50%;
+			// left: 50%;
 			// animation-duration: 3s;
 			// animation-name: zoom;
 			// animation-fill-mode: forwards;
 		}
 
 		button {
-				position: relative;
-				margin: auto;
-				width: 50%;
-				height: 100%;
-				padding: 0;
-				border: none;
-				background: transparent;
-				z-index: 2;
-				cursor: pointer;
+			position: relative;
+			margin: auto;
+			width: 50%;
+			height: 100%;
+			padding: 0;
+			border: none;
+			background: transparent;
+			z-index: 2;
+			cursor: pointer;
 
-				&:focus {
-					outline: none;
-				}
+			&:focus {
+				outline: none;
 			}
+		}
 
 			.choixUn, .choixDeux {
 				position: absolute;
