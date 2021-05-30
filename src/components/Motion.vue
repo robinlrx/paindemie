@@ -12,10 +12,6 @@
 export default {
 	props: {
 		etape: Object
-		// showMotion: {
-		// type: Boolean,
-		// default: true
-		// }
 	},
 	data () {
 		return {
@@ -33,20 +29,6 @@ export default {
 			}
 		}
 	}
-	// mounted () {
-	// const m = this.$refs.motion
-	// m.requestFullscreen()
-	// this.closeMotion()
-	// },
-	// methods: {
-	// closeMotion () {
-	// setTimeout(
-	// () => {
-	// this.showMotion = false
-	// }, this.etape.motion.time + 1000
-	// )
-	// }
-	// }
 }
 
 </script>
