@@ -16,7 +16,7 @@
 		</div>
 
 		<transition name="fade">
-		<Choices v-if="showChoices" :numChoice="numChoice" :etape="etapes[currentEtape]" @onClick="handleUpdateEtape" />
+		<Choices v-if="showChoices" :numChoice="numChoice" :etape="etapes[currentEtape]" :currentEtape="currentEtape" @onClick="handleUpdateEtape" />
 		</transition>
 
 		<Oups :showOups.sync="showOups" :score="score" :etape="etapes[currentEtape]" :key="currentEtape"/>

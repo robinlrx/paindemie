@@ -1,6 +1,8 @@
 <template>
 	<div class="choices">
 
+		<SecondTuto v-if="currentEtape == 0" :showSecondTuto.sync="showSecondTuto"/>
+
 		<Papi :showPapi.sync="showPapi" class="papi" v-bind:numChoice="numChoice"/>
 
 		<!-- image principale -->
@@ -25,15 +27,18 @@
 </template>
 
 <script>
+import SecondTuto from '@/components/SecondTuto.vue'
 import Papi from '@/components/Papi.vue'
 import { gsap, Power3 } from 'gsap'
 
 export default {
 	components: {
-		Papi
+		Papi,
+		SecondTuto
 	},
 	props: {
-		numChoice: Object
+		numChoice: Object,
+		currentEtape: Number
 	},
 	data () {
 		return {
@@ -41,7 +46,8 @@ export default {
 			cloudRight: false,
 			choiceOne: false,
 			choiceTwo: false,
-			showPapi: true
+			showPapi: true,
+			showSecondTuto: true
 		}
 	},
 	mounted () {

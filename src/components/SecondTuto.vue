@@ -1,9 +1,11 @@
 <template>
-<transition name="fade">
-	<section v-if="showTuto" class="firstTuto">
-		<p><span>Eh merde . . . </span> <br> Invente des mythos concernant les objets de la boite en t’inspirant de ce qui t’entoure.  <br><br> Fais gaffe, Léo a l’air très relou!</p>
+<transition v-if="showSecondTuto" name="fade">
+	<section class="secondTuto">
+		<p>Choisis bien ton côté fréro!</p>
 
-		<Button @click.native="$emit('update:showTuto', false)" class="button" :size=2 :type=1 :link="'room'">J'AI CAPTÉ</Button>
+		<img src="assets/img/second-tuto.png" alt="tutoChoix">
+
+		<Button @click.native="$emit('update:showSecondTuto', false)" class="button" :size=2 :type=1 :link="'room'">J'AI CAPTÉ</Button>
 	</section>
 </transition>
 </template>
@@ -13,7 +15,7 @@ import Button from '@/components/Button.vue'
 
 export default {
 	props: {
-		showTuto: Boolean
+		showSecondTuto: Boolean
 	},
 	components: {
 		Button
@@ -32,7 +34,8 @@ export default {
 <style scoped lang="scss">
 @import '@/assets/scss/_variables.scss';
 
-.firstTuto {
+.secondTuto {
+	position: absolute;
 	width: 100%;
 	height: 100vh;
 	background-color: rgba(255, 255, 255, 0.8);
@@ -40,17 +43,19 @@ export default {
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
-	gap: 4rem;
+	cursor: default;
+	gap: 2rem;
+	z-index: 3;
 
 	p {
 		color: $red;
 		font-size: 1.8rem;
 		font-family: $chantal-font;
-		width: 50vw;
+		margin: 0;
+	}
 
-		span {
-			font-weight: bold;
-		}
+	img {
+		width: 30%;
 	}
 }
 
