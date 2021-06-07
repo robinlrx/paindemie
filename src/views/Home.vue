@@ -1,7 +1,5 @@
 <template>
 	<section class="home">
-		<Loader v-show="showLoader"/>
-
 		<h1 ref="title">PA<span>[I]</span>NDEMIE</h1>
 		<img src="../../public/assets/img/carton-home.png" ref="box" class="box" alt="">
 		<div ref="objectsBox" class="objects-container">
@@ -15,83 +13,16 @@
 </template>
 
 <script>
-import Loader from '@/components/Loader.vue'
 import Button from '@/components/Button.vue'
-import * as load from 'load-asset'
 import { gsap, Power3, Bounce } from 'gsap'
 
 export default {
 	name: 'Home',
-	data () {
-		return {
-			showLoader: true
-		}
-	},
 	components: {
-		Loader,
 		Button
 	},
 	methods: {
-		async render () {
-		// Load a list of named assets in parallel
-			const assetsImages = [
-				// img global
-				'assets/img/carton-home.png',
-				'assets/img/fond-home.png',
-				'assets/img/objets-home.png',
-				'assets/img/pq-home.png',
-				'assets/img/masque-home.png',
-				'assets/img/gel-home.png',
-				'assets/img/perso_content.png',
-				'assets/img/perso_reflechit.png',
-				'assets/img/perso_venere.png',
-				'assets/img/oups-point.png',
-				'assets/img/fond-jauge.png',
-				'assets/img/fond-title.png',
-				// room
-				'assets/img/room/room360.jpg',
-				'assets/img/room/room0.jpg',
-				'assets/img/room/room1.jpg',
-				'assets/img/room/room2.jpg',
-				'assets/img/room/room3.jpg',
-				'assets/img/room/room4.jpg',
-				'assets/img/room/room7.jpg',
-				'assets/img/room/room8.jpg',
-				// objets
-				'assets/img/objets/biere.png',
-				'assets/img/objets/brosse-a-dents.png',
-				'assets/img/objets/cafard.png',
-				'assets/img/objets/carton.png',
-				'assets/img/objets/cocotte.png',
-				'assets/img/objets/cocotte-vitre.png',
-				'assets/img/objets/coton-tige.png',
-				'assets/img/objets/coude.png',
-				'assets/img/objets/fleurs.png',
-				'assets/img/objets/gel-dop.png',
-				'assets/img/objets/guitare.png',
-				'assets/img/objets/hamac.png',
-				'assets/img/objets/hamac-vitre.png',
-				'assets/img/objets/info.png',
-				'assets/img/objets/loupe.png',
-				'assets/img/objets/masque-avion.png',
-				'assets/img/objets/medicaments.png',
-				'assets/img/objets/miel.png',
-				'assets/img/objets/miel-vitre.png',
-				'assets/img/objets/porte.png',
-				'assets/img/objets/superman.png',
-				'assets/img/objets/tele.png',
-				'assets/img/objets/thermometre.png',
-				'assets/img/objets/tirelire.png'
-			]
-
-			const assetsVideos = ['assets/videos/motion.mp4']
-
-			const itemsImages = await load.all(assetsImages)
-			console.log(itemsImages)
-			const itemsVideos = await load.all(assetsVideos)
-			console.log(itemsVideos)
-
-			this.showLoader = false
+		render () {
 			this.mainTimeline(this.$refs.box, this.$refs.title, this.$refs.button.$el)
 				.addLabel('DELAY')
 				.add(this.objectsTimeline(this.$refs.objectsBox), 'DELAY+=1')
