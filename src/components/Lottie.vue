@@ -19,8 +19,8 @@ export default {
 		const lottieAnim = lottie.loadAnimation({
 			container: this.$refs.lottieBlock, // the dom element
 			renderer: 'svg',
-			loop: true,
-			autoplay: true,
+			loop: false,
+			autoplay: false,
 			animationData: anim,
 			rendererSettings: {
 				// context: canvasContext, // the canvas context, only support "2d" context
@@ -34,12 +34,11 @@ export default {
 		})
 		lottieAnim.addEventListener('DOMLoaded', () => {
 			console.log('anim loaded')
-			//   lottieAnim.play();
 			//   // go to end (29 frames)
 			//   lottieAnim.goToAndStop(29, true);
 			//   // set direction in revevrse
 			// lottieAnim.setDirection(-1)
-			lottieAnim.setSpeed(0.8)
+			// lottieAnim.setSpeed(0.8)
 			// hide temp background ("overlay") when anim loaded
 			this.$refs.lottieTempBackground.style.display = 'none'
 		})
@@ -52,12 +51,15 @@ export default {
 
 .container {
 	background-color: #ff6b01;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+	// display: flex;
+	// align-items: center;
+	// justify-content: center;
 	width: 100vw;
 	height: 100vh;
-	position: relative;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 3;
 }
 
 .lottie-block {
@@ -67,10 +69,6 @@ export default {
 	z-index: 2;
 	transform: rotate(-180deg);
 	/* transition: transform 1s; */
-
-	& > svg rect {
-		fill: #5000ff !important;
-	}
 }
 
 .lottie-temp-background {
@@ -78,6 +76,6 @@ export default {
 	width: 100%;
 	height: 100%;
 	z-index: 3;
-	background-color: #5000ff;
+	background-color: #27123C;
 }
 </style>
