@@ -5,7 +5,8 @@
 			<p class="phone-message">Cette expérience n'est pas disponible sur tablette et mobile.</p>
 		</div> -->
 		<div id="nav">
-			<router-link to="/">Home</router-link> |
+			<router-link to="/">Intro</router-link> |
+			<router-link to="/home">Home</router-link> |
 			<router-link to="/room">Room</router-link> |
 			<router-link to="/loose">Loose</router-link>
 		</div>
