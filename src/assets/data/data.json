@@ -120,6 +120,7 @@
 		},
 		{
 			"id": 2,
+			"motion": "assets/videos/motion.mp4",
 			"imageScene": "assets/img/room/room2.jpg",
 			"objet1": {
 				"url": "assets/img/objets/brosse-a-dents.png",
@@ -195,6 +196,7 @@
 		},
 		{
 			"id": 3,
+			"motion": "assets/videos/motion.mp4",
 			"imageScene": "assets/img/room/room3.jpg",
 			"objet1": {
 				"url": "assets/img/objets/tele.png",
@@ -243,6 +245,7 @@
 		},
 		{
 			"id": 4,
+			"motion": "assets/videos/motion.mp4",
 			"imageScene": "assets/img/room/room4.jpg",
 			"objet1": {
 				"url": "assets/img/objets/medicaments.png",
@@ -328,6 +331,7 @@
 		},
 		{
 			"id": 5,
+			"motion": "assets/videos/motion.mp4",
 			"imageScene": "assets/img/room/room5.jpg",
 			"objet1": {
 				"url": "assets/img/objets/tirelire.png",
@@ -396,6 +400,7 @@
 		},
 		{
 			"id": 6,
+			"motion": "assets/videos/motion.mp4",
 			"imageScene": "assets/img/room/room6.jpg",
 			"objet1": {
 				"url": "assets/img/objets/cocotte-vitre.png",
@@ -448,6 +453,7 @@
 		},
 		{
 			"id": 7,
+			"motion": "assets/videos/motion.mp4",
 			"imageScene": "assets/img/room/room7.jpg",
 			"objet1": {
 				"url": "assets/img/objets/porte.png",
@@ -515,6 +521,7 @@
 		},
 		{
 			"id": 8,
+			"motion": "assets/videos/motion.mp4",
 			"imageScene": "assets/img/room/room8.jpg",
 			"objet1": {
 				"url": "assets/img/objets/coton-tige.png",

@@ -3,7 +3,7 @@
 
 		<SecondTuto v-if="currentEtape == 0" :showSecondTuto.sync="showSecondTuto"/>
 
-		<Papi :showPapi.sync="showPapi" class="papi" v-bind:numChoice="numChoice"/>
+		<!-- <Papi :showPapi.sync="showPapi" class="papi" v-bind:numChoice="numChoice"/> -->
 
 		<!-- image principale -->
 		<img class="objet" ref="object" :src="this.numChoice.objet.url" alt="" :style="{width : `${this.numChoice.objet.width}%`, zIndex: this.numChoice.objet.zIndex}">
@@ -28,12 +28,12 @@
 
 <script>
 import SecondTuto from '@/components/SecondTuto.vue'
-import Papi from '@/components/Papi.vue'
+// import Papi from '@/components/Papi.vue'
 import { gsap, Power3 } from 'gsap'
 
 export default {
 	components: {
-		Papi,
+		// Papi,
 		SecondTuto
 	},
 	props: {

@@ -1,5 +1,5 @@
 <template>
-	<div class="container">
+	<div class="container" v-if="showLottie">
 		<div class="lottie-block" ref="lottieBlock"></div>
 		<div class="lottie-temp-background" ref="lottieTempBackground"></div>
 	</div>
@@ -10,12 +10,13 @@ import lottie from 'lottie-web'
 import anim from '../assets/data/anim.json'
 
 export default {
+	data () {
+		return {
+			showLottie: true
+		}
+	},
 	mounted () {
-		// show temp background ("overlay") while anim not loaded
-		// const lottieTempBackground = document.getElementById('lottie-temp-background')
-
-		// setup lottie anim in reverse
-		// const lottieBlock = document.getElementById('lottie-block')
+		// setup lottie anim
 		const lottieAnim = lottie.loadAnimation({
 			container: this.$refs.lottieBlock, // the dom element
 			renderer: 'svg',
@@ -34,13 +35,22 @@ export default {
 		})
 		lottieAnim.addEventListener('DOMLoaded', () => {
 			console.log('anim loaded')
+			lottieAnim.play()
 			//   // go to end (29 frames)
 			//   lottieAnim.goToAndStop(29, true);
 			//   // set direction in revevrse
 			// lottieAnim.setDirection(-1)
-			// lottieAnim.setSpeed(0.8)
+			lottieAnim.setSpeed(0.8)
 			// hide temp background ("overlay") when anim loaded
 			this.$refs.lottieTempBackground.style.display = 'none'
+		})
+
+		lottieAnim.addEventListener('complete', () => {
+			lottieAnim.play()
+			lottieAnim.setDirection(-1)
+			setTimeout(() => {
+				this.showLottie = false
+			}, 2000)
 		})
 	}
 }
@@ -50,7 +60,7 @@ export default {
 @import '@/assets/scss/_variables.scss';
 
 .container {
-	background-color: #ff6b01;
+	background-color: transparent;
 	// display: flex;
 	// align-items: center;
 	// justify-content: center;
@@ -60,6 +70,7 @@ export default {
 	top: 0;
 	left: 0;
 	z-index: 3;
+	cursor: default;
 }
 
 .lottie-block {
