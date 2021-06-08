@@ -7,7 +7,13 @@
 				<video ref="intro" width="250">
 					<source src="assets/videos/motion.mp4" type="video/mp4">
 				</video>
-				<Button :link="''" :size=1 :type=1 class="button" ref="button" @click.native="playVid()">Jouer</Button>
+				<div class="play-container" ref="playContainer">
+					<div class="content">
+						<Button :link="''" :size=4 :type=1 class="button" ref="button" @click.native="playVid()">▶</Button>
+						<h2>LANCE LA VIDEO !</h2>
+						<p>(C'est un ordre !)</p>
+					</div>
+				</div>
 			</div>
 		</section>
 	</transition>
@@ -29,6 +35,9 @@ export default {
 	components: {
 		Loader,
 		Button
+	},
+	mounted () {
+		this.render()
 	},
 	methods: {
 		async render () {
@@ -94,16 +103,13 @@ export default {
 		},
 		playVid () {
 			const intro = this.$refs.intro
-			const button = this.$refs.button.$el
+			const playContainer = this.$refs.playContainer
 			intro.play()
-			button.style.display = 'none'
+			playContainer.style.display = 'none'
 			intro.onended = () => {
 				router.push('home')
 			}
 		}
-	},
-	mounted () {
-		this.render()
 	}
 }
 </script>
@@ -114,7 +120,7 @@ export default {
 .intro {
 	width: 100vw;
 	height: 100vh;
-    background: transparent;
+	background: transparent;
 }
 
 .container {
@@ -133,11 +139,55 @@ video {
 	height: auto;
 }
 
-.button {
+.play-container {
+	width: 280px;
+	height: 245px;
+	background-color: #FBF3E8;
 	position: absolute;
-	z-index: 2;
-	bottom: 5vh;
-	left: 3vw;
+	bottom: -85px;
+	left: -10px;
+	transform: rotate(-30deg);
+
+	&::before {
+		content: "";
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 26px;
+		left: 15px;
+		right: 0;
+		bottom: 0;
+		background: transparent;
+		box-shadow: 10px 10px 0px $red;
+		transform: rotate(-90deg);
+	}
+
+	.content {
+		position: absolute;
+		bottom: 60px;
+		left: 20px;
+		transform: rotate(30deg);
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		font-family: $chantal-font;
+		color: $red;
+
+		.button {
+			position: relative;
+			left: 30%;
+		}
+
+		h2 {
+			margin-bottom: 0;
+			margin-top: 5px;
+		}
+
+		p{
+			margin-top: 0;
+		}
+	}
 }
 
 .fade-enter-active, .fade-leave-active {
