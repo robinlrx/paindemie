@@ -7,13 +7,15 @@
 				<video ref="intro" width="250">
 					<source src="assets/videos/motion.mp4" type="video/mp4">
 				</video>
-				<div class="play-container" ref="playContainer">
-					<div class="content">
-						<Button :link="''" :size=4 :type=1 class="button" ref="button" @click.native="playVid()">▶</Button>
-						<h2>LANCE LA VIDEO !</h2>
-						<p>(C'est un ordre !)</p>
+				<transition name="slide-fade">
+					<div class="play-container" ref="playContainer" v-if="showPlay">
+						<div class="content">
+							<Button :link="''" :size=4 :type=1 class="button" ref="button" @click.native="playVid()">▶</Button>
+							<h2>LANCE LA VIDEO !</h2>
+							<p>(C'est un ordre !)</p>
+						</div>
 					</div>
-				</div>
+				</transition>
 			</div>
 		</section>
 	</transition>
@@ -29,7 +31,8 @@ export default {
 	name: 'Intro',
 	data () {
 		return {
-			showLoader: true
+			showLoader: true,
+			showPlay: true
 		}
 	},
 	components: {
@@ -103,9 +106,10 @@ export default {
 		},
 		playVid () {
 			const intro = this.$refs.intro
-			const playContainer = this.$refs.playContainer
+			// const playContainer = this.$refs.playContainer
 			intro.play()
-			playContainer.style.display = 'none'
+			// playContainer.style.display = 'none'
+			this.showPlay = false
 			intro.onended = () => {
 				router.push('home')
 			}
@@ -191,9 +195,20 @@ video {
 }
 
 .fade-enter-active, .fade-leave-active {
-  transition: opacity .5s;
+	transition: opacity .5s;
 }
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
-  opacity: 0;
+	opacity: 0;
+}
+
+.slide-fade-enter-active {
+	transition: all .3s ease;
+}
+.slide-fade-leave-active {
+	transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.slide-fade-enter, .slide-fade-leave-to{
+	transform: rotate(-30deg) translateY(10px);
+	opacity: 0;
 }
 </style>
