@@ -1,31 +1,34 @@
 <template>
-    <transition name="fade">
-        <section class="intro">
-            <Loader v-show="showLoader"/>
+	<transition name="fade">
+		<section class="intro">
+			<Loader v-show="showLoader"/>
 
-            <div class="container">
-                <video ref="intro" autoplay width="250">
-                    <source src="assets/videos/motion.mp4" type="video/mp4">
-                </video>
-            </div>
-        </section>
-    </transition>
+			<div class="container">
+				<video ref="intro" width="250">
+					<source src="assets/videos/motion.mp4" type="video/mp4">
+				</video>
+				<Button :link="''" :size=1 :type=1 class="button" ref="button" @click.native="playVid()">Jouer</Button>
+			</div>
+		</section>
+	</transition>
 </template>
 
 <script>
 import Loader from '@/components/Loader.vue'
+import Button from '@/components/Button.vue'
 import * as load from 'load-asset'
 import router from '../router/index'
 
 export default {
-	name: 'Home',
+	name: 'Intro',
 	data () {
 		return {
 			showLoader: true
 		}
 	},
 	components: {
-		Loader
+		Loader,
+		Button
 	},
 	methods: {
 		async render () {
@@ -89,8 +92,11 @@ export default {
 
 			this.showLoader = false
 		},
-		closeIntro () {
+		playVid () {
 			const intro = this.$refs.intro
+			const button = this.$refs.button.$el
+			intro.play()
+			button.style.display = 'none'
 			intro.onended = () => {
 				router.push('home')
 			}
@@ -98,7 +104,6 @@ export default {
 	},
 	mounted () {
 		this.render()
-		this.closeIntro()
 	}
 }
 </script>
@@ -126,6 +131,13 @@ video {
 	margin: auto;
 	width: 100%;
 	height: auto;
+}
+
+.button {
+	position: absolute;
+	z-index: 2;
+	bottom: 5vh;
+	left: 3vw;
 }
 
 .fade-enter-active, .fade-leave-active {
