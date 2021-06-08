@@ -1,5 +1,5 @@
 <template>
-	<div ref="container" v-on:click="onClick" v-on:mousemove="onMousemove">
+	<div ref="container" @click="onClick" @mousemove="onMousemove">
 		<canvas ref="canvas" class="canvas"></canvas>
 	</div>
 </template>
@@ -67,8 +67,8 @@ export default {
 			})
 
 			// Display axes
-			const axesHelper = new THREE.AxesHelper(500)
-			this.scene.add(axesHelper) // The X axis is red. The Y axis is green. The Z axis is blue.
+			// const axesHelper = new THREE.AxesHelper(500)
+			// this.scene.add(axesHelper) // The X axis is red. The Y axis is green. The Z axis is blue.
 
 			// Orbit controls
 			const controls = new OrbitControls(this.camera, this.renderer.domElement)

@@ -2,7 +2,7 @@
   <div>
     <div class="counter">
       <svg
-        v-bind:style="{width: this.heightJauge + '%', 'background-color': this.jaugeColor}"
+        :style="{width: this.heightJauge + '%', 'background-color': this.jaugeColor}"
         ref="jauge"
         class="jauge"
 		:class="setColor"
@@ -22,9 +22,9 @@
 
     </div>
 	<img :src="`${this.publicPath}${this.perso}`" alt="" class="perso">
-    <button v-on:click="$emit('onPenality', -5)">-5</button>
-    <button v-on:click="$emit('onPenality', -10)">-10</button>
-    <button v-on:click="$emit('onPenality', 5)">+5</button>
+    <button @click="$emit('onPenality', -5)">-5</button>
+    <button @click="$emit('onPenality', -10)">-10</button>
+    <button @click="$emit('onPenality', 5)">+5</button>
   </div>
 </template>
 
