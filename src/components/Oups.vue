@@ -7,7 +7,7 @@
 					<img src="assets/img/oups-point.png" alt="">
 				</div>
 				<p>{{this.etape.choice3}}</p>
-				<Button @click.native="$emit('update:showOups', false)" class="button" v-bind:link="'room'" v-bind:size=3 v-bind:type=1>Allez j'me rattrape</Button>
+				<Button @click.native="$emit('update:showOups', false)" class="button" :link="'room'" :size=3 :type=1>Allez j'me rattrape</Button>
 			</div>
 		</section>
 	</transition>

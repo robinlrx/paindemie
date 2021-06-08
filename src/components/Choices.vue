@@ -3,7 +3,7 @@
 
 		<SecondTuto v-if="currentEtape == 0" :showSecondTuto.sync="showSecondTuto"/>
 
-		<Papi :showPapi.sync="showPapi" class="papi" v-bind:numChoice="numChoice"/>
+		<Papi :showPapi.sync="showPapi" class="papi" :numChoice="numChoice"/>
 
 		<!-- image principale -->
 		<img class="objet" ref="object" :src="this.numChoice.objet.url" alt="" :style="{width : `${this.numChoice.objet.width}%`, zIndex: this.numChoice.objet.zIndex}">
@@ -12,7 +12,7 @@
 
 		<button @mouseenter="objectAnimationLeft" @mouseout="objectAnimationReverse" @mouseover="cloudLeft = true, choiceOne= true" @mouseleave="cloudLeft = false, choiceOne= false"></button>
 
-		<button @mouseenter="objectAnimationRight" @mouseout="objectAnimationReverse" @mouseover="cloudRight = true, choiceTwo= true" @mouseleave="cloudRight = false, choiceTwo= false" v-on:click="$emit('onClick')"></button>
+		<button @mouseenter="objectAnimationRight" @mouseout="objectAnimationReverse" @mouseover="cloudRight = true, choiceTwo= true" @mouseleave="cloudRight = false, choiceTwo= false" @click="$emit('onClick')"></button>
 
 		<img class="cloud" :class="{ cloudLeft: cloudLeft, cloudRight: cloudRight }" src="assets/img/nuage.gif" alt="">
 

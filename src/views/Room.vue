@@ -1,6 +1,7 @@
 <template>
 	<div class="room">
-		<!-- <Motion v-bind:etape="etapes[currentEtape]" :key="currentEtape" /> -->
+		<Lottie  v-if="currentEtape !== 0" :key="currentEtape" />
+		<Motion :etape="etapes[currentEtape]" :key="currentEtape" />
 
 		<!-- v-if="currentEtape = 0" -->
 		<FirstTuto :showTuto.sync="showTuto"/>
@@ -27,13 +28,14 @@
 import data from '../assets/data/data.json'
 import router from '../router/index'
 
-// import Motion from '@/components/Motion.vue'
+import Motion from '@/components/Motion.vue'
 import Scene from '@/components/Scene.vue'
 import Choices from '@/components/Choices.vue'
 import Jauge from '@/components/Jauge.vue'
 import Timer from '@/components/Timer.vue'
 import Oups from '@/components/Oups.vue'
 import FirstTuto from '@/components/FirstTuto.vue'
+import Lottie from '@/components/Lottie.vue'
 
 export default {
 	components: {
@@ -42,8 +44,9 @@ export default {
 		Jauge,
 		Timer,
 		Oups,
-		// Motion,
-		FirstTuto
+		Motion,
+		FirstTuto,
+		Lottie
 	},
 	data () {
 		return {
