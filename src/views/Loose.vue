@@ -11,7 +11,7 @@
 				<img src="assets/img/perso_venere.png" alt="">
 			</div>
 
-			<Button :link="'/'" :size=3 :type=2 class="button" ref="button">Vas-y je retente</Button>
+			<Button :link="'/home'" :size=3 :type=2 class="button" ref="button">Vas-y je retente</Button>
 		</section>
 	</transition>
 </template>
