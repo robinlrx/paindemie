@@ -82,7 +82,7 @@
 					"width": 85,
 					"rotationLeft": -120,
 					"rotationRight": 0,
-					"xLeft": -65,
+					"xLeft": "-5%",
 					"yLeft": -25,
 					"xRight": 50,
 					"yRight": -10
@@ -105,10 +105,10 @@
 					"width": 85,
 					"rotationLeft": 45,
 					"rotationRight": 0,
-					"xLeft": -350,
-					"yLeft": -80,
-					"xRight": 300,
-					"yRight": -60
+					"xLeft": "-30%",
+					"yLeft": "-12%",
+					"xRight": "20%",
+					"yRight": "-10%"
 				},
 				"btnUn": {
 					"url":"assets/img/gifs-choix/choix_un_cafard.gif"
@@ -432,15 +432,17 @@
 					"url2": "assets/img/objets-choix/choix-cocotte_couvercle.png",
 					"zIndex": 1,
 					"width": 95,
-					"rotationLeft": -20,
-					"yLeft": 30,
+					"rotationLeft": -14,
+					"yLeft": "-7%",
 					"rotationRight": 45,
-					"yRight": 30,
+					"xRight": "10%",
+					"yRight": "10%",
 					"rotationLeft2": 0,
-					"yLeft2": -180,
-					"xLeft2": -180,
+					"yLeft2": "-28%",
+					"xLeft2": "-12%",
 					"rotationRight2": -10,
-					"yRight2": -170
+					"xRight2": "10%",
+					"yRight2": "-30%"
 				},
 				"btnUn": {
 					"url":"assets/img/gifs-choix/choix_un_cocotte.gif"
