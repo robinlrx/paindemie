@@ -154,11 +154,11 @@ video {
 		width: 100%;
 		height: 100%;
 		top: 26px;
-		left: 15px;
+		left: 20px;
 		right: 0;
 		bottom: 0;
 		background: transparent;
-		box-shadow: 10px 10px 0px $red;
+		box-shadow: 8px 5px 0px $red;
 		transform: rotate(-90deg);
 	}
 
