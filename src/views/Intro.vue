@@ -140,11 +140,11 @@ video {
 }
 
 .play-container {
-	width: 280px;
-	height: 245px;
+	width: 350px;
+	height: 300px;
 	background-color: #FBF3E8;
 	position: absolute;
-	bottom: -85px;
+	bottom: -105px;
 	left: -10px;
 	transform: rotate(-30deg);
 
@@ -164,8 +164,8 @@ video {
 
 	.content {
 		position: absolute;
-		bottom: 60px;
-		left: 20px;
+		bottom: 100px;
+		left: 60px;
 		transform: rotate(30deg);
 		display: flex;
 		flex-direction: column;
