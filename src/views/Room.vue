@@ -1,7 +1,7 @@
 <template>
 	<div class="room">
-		<Lottie  v-if="currentEtape !== 0" :showLottie='true' :key="currentEtape"/>
-		<Motion v-bind:etape="etapes[currentEtape]" :key="currentEtape" />
+		<Lottie  v-if="currentEtape !== 0" :key="currentEtape" />
+		<Motion :etape="etapes[currentEtape]" :key="currentEtape" />
 
 		<!-- v-if="currentEtape = 0" -->
 		<FirstTuto :showTuto.sync="showTuto"/>
@@ -57,8 +57,7 @@ export default {
 			numButton: null,
 			numChoice: null,
 			showOups: false,
-			showTuto: true,
-			showLottie: false
+			showTuto: true
 		}
 	},
 	methods: {
