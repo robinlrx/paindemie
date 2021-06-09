@@ -1,9 +1,9 @@
 <template>
 	<div class="room">
-		<!-- <Motion v-bind:etape="etapes[currentEtape]" :key="currentEtape" /> -->
+		<Motion v-bind:etape="etapes[currentEtape]" :key="currentEtape" :timerPause.sync="timerPause" />
 
 		<!-- v-if="currentEtape = 0" -->
-		<FirstTuto :showTuto.sync="showTuto"/>
+		<FirstTuto :showTuto.sync="showTuto" :timerPause.sync="timerPause"/>
 
 		<transition name="fade">
 			<!-- Key-changing to force re-renders of a component -->
@@ -12,14 +12,14 @@
 
 		<div class="life">
 			<Jauge :score="score" @onPenality="handlePenality"/>
-			<Timer :key="currentEtape" @onPenality="handlePenality"/>
+			<Timer :key="currentEtape" @onPenality="handlePenality" :timerPause.sync="timerPause"/>
 		</div>
 
 		<transition name="fade">
-		<Choices v-if="showChoices" :numChoice="numChoice" :etape="etapes[currentEtape]" :currentEtape="currentEtape" @onClick="handleUpdateEtape" />
+		<Choices v-if="showChoices" :numChoice="numChoice" :etape="etapes[currentEtape]" :currentEtape="currentEtape" @onClick="handleUpdateEtape" :timerPause.sync="timerPause" />
 		</transition>
 
-		<Oups :showOups.sync="showOups" :score="score" :etape="etapes[currentEtape]" :key="currentEtape"/>
+		<Oups :showOups.sync="showOups" :score="score" :etape="etapes[currentEtape]" :key="currentEtape" :timerPause.sync="timerPause"/>
 	</div>
 </template>
 
@@ -27,7 +27,7 @@
 import data from '../assets/data/data.json'
 import router from '../router/index'
 
-// import Motion from '@/components/Motion.vue'
+import Motion from '@/components/Motion.vue'
 import Scene from '@/components/Scene.vue'
 import Choices from '@/components/Choices.vue'
 import Jauge from '@/components/Jauge.vue'
@@ -42,7 +42,7 @@ export default {
 		Jauge,
 		Timer,
 		Oups,
-		// Motion,
+		Motion,
 		FirstTuto
 	},
 	data () {
@@ -54,7 +54,8 @@ export default {
 			numButton: null,
 			numChoice: null,
 			showOups: false,
-			showTuto: true
+			showTuto: true,
+			timerPause: false
 		}
 	},
 	methods: {
@@ -91,6 +92,11 @@ export default {
 
 			this.numChoice = content[btnName]
 			console.log(this.numChoice)
+		}
+	},
+	watch: {
+		timerPause (newValue) {
+			console.log(newValue)
 		}
 	}
 }

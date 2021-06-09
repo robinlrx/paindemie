@@ -13,7 +13,8 @@ import Button from '@/components/Button.vue'
 
 export default {
 	props: {
-		showTuto: Boolean
+		showTuto: Boolean,
+		timerPause: Boolean
 	},
 	components: {
 		Button
@@ -24,6 +25,14 @@ export default {
 	},
 
 	methods: {
+	},
+	mounted () {
+		this.$emit('update:timerPause', true)
+	},
+	watch: {
+		showTuto (newValue) {
+			this.$emit('update:timerPause', newValue)
+		}
 	}
 
 }

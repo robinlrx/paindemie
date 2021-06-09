@@ -11,7 +11,8 @@
 <script>
 export default {
 	props: {
-		etape: Object
+		etape: Object,
+		timerPause: Boolean
 	},
 	data () {
 		return {
@@ -19,6 +20,7 @@ export default {
 		}
 	},
 	mounted () {
+		this.$emit('update:timerPause', true)
 		this.closeMotion()
 	},
 	methods: {
@@ -27,6 +29,11 @@ export default {
 			motion.onended = () => {
 				this.showMotion = false
 			}
+		}
+	},
+	watch: {
+		showMotion (newValue) {
+			this.$emit('update:timerPause', newValue)
 		}
 	}
 }
