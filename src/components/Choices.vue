@@ -1,9 +1,9 @@
 <template>
 	<div class="choices">
 
-		<SecondTuto v-if="currentEtape == 0" :showSecondTuto.sync="showSecondTuto"/>
+		<SecondTuto v-if="currentEtape == 0" :showSecondTuto.sync="showSecondTuto" :timerPause.sync="timerPause"/>
 
-		<Papi :showPapi.sync="showPapi" class="papi" :numChoice="numChoice"/>
+		<Papi :showPapi.sync="showPapi" class="papi" v-bind:numChoice="numChoice" :timerPause.sync="timerPause"/>
 
 		<!-- image principale -->
 		<img class="objet" ref="object" :src="this.numChoice.objet.url" alt="" :style="{width : `${this.numChoice.objet.width}%`, zIndex: this.numChoice.objet.zIndex}">
@@ -38,7 +38,8 @@ export default {
 	},
 	props: {
 		numChoice: Object,
-		currentEtape: Number
+		currentEtape: Number,
+		timerPause: Boolean
 	},
 	data () {
 		return {
@@ -52,8 +53,17 @@ export default {
 	},
 	mounted () {
 		this.$emit('update:showPapi', true)
+		this.$emit('update:timerPause', true)
 		// center elements whith gsap to avoid conflicts with tranfrom translate css
 		gsap.set('.objet', { xPercent: -50, left: '50%', yPercent: -50, top: '50%', x: 0, y: 0 })
+	},
+	watch: {
+		showPapi (newValue) {
+			this.$emit('update:timerPause', newValue)
+		},
+		showSecondTuto (newValue) {
+			this.$emit('update:timerPause', newValue)
+		}
 	},
 	methods: {
 		objectAnimationLeft () {

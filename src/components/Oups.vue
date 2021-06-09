@@ -18,12 +18,19 @@ import Button from '@/components/Button.vue'
 export default {
 	props: {
 		etape: Object,
-		showOups: Boolean
+		showOups: Boolean,
+		timerPause: Boolean
 	},
 	components: {
 		Button
 	},
-	mounted: {
+	mounted () {
+		this.$emit('update:timerPause', true)
+	},
+	watch: {
+		showOups (newValue) {
+			this.$emit('update:timerPause', newValue)
+		}
 	}
 }
 </script>

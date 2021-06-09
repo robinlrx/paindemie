@@ -19,7 +19,8 @@
 export default {
 	props: {
 		numChoice: Object,
-		showPapi: Boolean
+		showPapi: Boolean,
+		timerPause: Boolean
 	},
 	data () {
 		return {
@@ -28,6 +29,7 @@ export default {
 	},
 	mounted () {
 		this.closePapi()
+		this.$emit('update:timerPause', true)
 	},
 	methods: {
 		closePapi () {
@@ -44,6 +46,11 @@ export default {
 		setInterval(() => {
 			this.openCloud()
 		}, this.numChoice.papi.time)
+	},
+	watch: {
+		showPapi (newValue) {
+			this.$emit('update:timerPause', newValue)
+		}
 	}
 }
 

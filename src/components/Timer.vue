@@ -1,7 +1,8 @@
 <template>
     <div class="timer">
-        <!-- <button @click="start">Start</button>
-    <button @click="reset">Reset</button> -->
+		<!-- <button @click="restart">Restart</button>
+        <button @click="pause">Pause</button>
+		<button @click="reset">Reset</button> -->
         <p>{{formatTime}}</p>
   </div>
 </template>
@@ -9,6 +10,9 @@
 <script>
 export default {
 	name: 'App',
+	props: {
+		timerPause: Boolean
+	},
 	data () {
 		return {
 			elapsedTime: 0,
@@ -30,16 +34,25 @@ export default {
 				if (this.elapsedTime % 10000 === 0) {
 					this.$emit('onPenality', -2)
 				}
-				// console.log(this.elapsedTime % 10000 === 0)
 			}, 1000)
 		},
-
+		pause () {
+			clearInterval(this.timer)
+		},
+		restart () {
+			this.start()
+		},
 		reset () {
 			this.elapsedTime = 0
 		}
 	},
 	created: function () {
 		this.start()
+	},
+	watch: {
+		timerPause (newValue) {
+			newValue ? this.pause() : this.restart()
+		}
 	}
 }
 </script>

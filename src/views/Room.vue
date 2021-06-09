@@ -1,10 +1,10 @@
 <template>
 	<div class="room">
 		<Lottie  v-if="currentEtape !== 0" :key="currentEtape" />
-		<Motion :etape="etapes[currentEtape]" :key="currentEtape" />
+		<Motion v-bind:etape="etapes[currentEtape]" :key="currentEtape" :timerPause.sync="timerPause" />
 
 		<!-- v-if="currentEtape = 0" -->
-		<FirstTuto :showTuto.sync="showTuto"/>
+		<FirstTuto :showTuto.sync="showTuto" :timerPause.sync="timerPause"/>
 
 		<transition name="fade">
 			<!-- Key-changing to force re-renders of a component -->
@@ -13,14 +13,14 @@
 
 		<div class="life">
 			<Jauge :score="score" @onPenality="handlePenality"/>
-			<Timer :key="currentEtape" @onPenality="handlePenality"/>
+			<Timer :key="currentEtape" @onPenality="handlePenality" :timerPause.sync="timerPause"/>
 		</div>
 
 		<transition name="fade">
-		<Choices v-if="showChoices" :numChoice="numChoice" :etape="etapes[currentEtape]" :currentEtape="currentEtape" @onClick="handleUpdateEtape" />
+		<Choices v-if="showChoices" :numChoice="numChoice" :etape="etapes[currentEtape]" :currentEtape="currentEtape" @onClick="handleUpdateEtape" :timerPause.sync="timerPause" />
 		</transition>
 
-		<Oups :showOups.sync="showOups" :score="score" :etape="etapes[currentEtape]" :key="currentEtape"/>
+		<Oups :showOups.sync="showOups" :score="score" :etape="etapes[currentEtape]" :key="currentEtape" :timerPause.sync="timerPause"/>
 	</div>
 </template>
 
@@ -57,7 +57,8 @@ export default {
 			numButton: null,
 			numChoice: null,
 			showOups: false,
-			showTuto: true
+			showTuto: true,
+			timerPause: false
 		}
 	},
 	methods: {
@@ -94,6 +95,11 @@ export default {
 
 			this.numChoice = content[btnName]
 			console.log(this.numChoice)
+		}
+	},
+	watch: {
+		timerPause (newValue) {
+			console.log(newValue)
 		}
 	}
 }
