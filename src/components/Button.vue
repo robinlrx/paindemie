@@ -87,6 +87,20 @@ export default {
   }
 }
 
+.button-size4 {
+	svg {
+		width: auto;
+
+		path {
+			transform: scale(.2, 1);
+		}
+
+		text {
+			transform: translateX(-240px);
+		}
+	}
+}
+
 .button-style1 {
 	svg {
 		.path-container {
