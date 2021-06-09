@@ -3,7 +3,6 @@
 		<Lottie  v-if="currentEtape !== 0" :key="currentEtape" />
 		<Motion v-bind:etape="etapes[currentEtape]" :key="currentEtape" :timerPause.sync="timerPause" />
 
-		<!-- v-if="currentEtape = 0" -->
 		<FirstTuto :showTuto.sync="showTuto" :timerPause.sync="timerPause"/>
 
 		<transition name="fade">
@@ -38,6 +37,7 @@ import FirstTuto from '@/components/FirstTuto.vue'
 import Lottie from '@/components/Lottie.vue'
 
 export default {
+	name: 'Room',
 	components: {
 		Scene,
 		Choices,
