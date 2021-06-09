@@ -19,6 +19,7 @@
 <script>
 import Button from '@/components/Button.vue'
 export default {
+	name: 'Loose',
 	props: {
 		etape: Object
 	},
@@ -98,12 +99,5 @@ section {
 		bottom: .5em;
 		right: 1em;
 	}
-}
-
-.fade-enter-active, .fade-leave-active {
-  transition: opacity .5s;
-}
-.fade-enter, .fade-leave-to {
-  opacity: 0;
 }
 </style>

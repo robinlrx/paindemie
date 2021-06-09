@@ -60,11 +60,4 @@ export default {
 		width: 30%;
 	}
 }
-
-.fade-enter-active, .fade-leave-active {
-  transition: opacity .5s;
-}
-.fade-enter, .fade-leave-to {
-  opacity: 0;
-}
 </style>

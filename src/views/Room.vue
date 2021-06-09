@@ -126,11 +126,4 @@ body{
 	align-items: flex-end;
 	padding: 0px 60px 0px 40px;
 }
-
-.fade-enter-active, .fade-leave-active {
-  transition: opacity .5s;
-}
-.fade-enter, .fade-leave-to {
-  opacity: 0;
-}
 </style>

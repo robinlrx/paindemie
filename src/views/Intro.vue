@@ -106,9 +106,7 @@ export default {
 		},
 		playVid () {
 			const intro = this.$refs.intro
-			// const playContainer = this.$refs.playContainer
 			intro.play()
-			// playContainer.style.display = 'none'
 			this.showPlay = false
 			intro.onended = () => {
 				router.push('home')
@@ -192,13 +190,6 @@ video {
 			margin-top: 0;
 		}
 	}
-}
-
-.fade-enter-active, .fade-leave-active {
-	transition: opacity .5s;
-}
-.fade-enter, .fade-leave-to {
-	opacity: 0;
 }
 
 .slide-fade-enter-active {
