@@ -10,7 +10,7 @@
 				<transition name="slide-fade">
 					<div class="play-container" ref="playContainer" v-if="showPlay">
 						<div class="content">
-							<Button :link="''" :size=4 :type=1 class="button" ref="button" @click.native="playVid()">▶</Button>
+							<Button :link="''" :size=4 :type=1 class="button" ref="button" @click.native="playVid()">&#9658;</Button>
 							<h2>LANCE LA VIDEO !</h2>
 							<p>(C'est un ordre !)</p>
 						</div>
@@ -197,7 +197,7 @@ video {
 .fade-enter-active, .fade-leave-active {
 	transition: opacity .5s;
 }
-.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+.fade-enter, .fade-leave-to {
 	opacity: 0;
 }
 
