@@ -1,5 +1,6 @@
 <template>
 	<div class="room">
+		<Lottie  v-if="currentEtape !== 0" :key="currentEtape" />
 		<Motion v-bind:etape="etapes[currentEtape]" :key="currentEtape" :timerPause.sync="timerPause" />
 
 		<!-- v-if="currentEtape = 0" -->
@@ -34,6 +35,7 @@ import Jauge from '@/components/Jauge.vue'
 import Timer from '@/components/Timer.vue'
 import Oups from '@/components/Oups.vue'
 import FirstTuto from '@/components/FirstTuto.vue'
+import Lottie from '@/components/Lottie.vue'
 
 export default {
 	components: {
@@ -43,7 +45,8 @@ export default {
 		Timer,
 		Oups,
 		Motion,
-		FirstTuto
+		FirstTuto,
+		Lottie
 	},
 	data () {
 		return {

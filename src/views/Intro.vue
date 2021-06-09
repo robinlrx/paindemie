@@ -1,31 +1,46 @@
 <template>
-    <transition name="fade">
-        <section class="intro">
-            <Loader v-show="showLoader"/>
+	<transition name="fade">
+		<section class="intro">
+			<Loader v-show="showLoader"/>
 
-            <div class="container">
-                <video ref="intro" autoplay width="250">
-                    <source src="assets/videos/motion.mp4" type="video/mp4">
-                </video>
-            </div>
-        </section>
-    </transition>
+			<div class="container">
+				<video ref="intro" width="250">
+					<source src="assets/videos/motion.mp4" type="video/mp4">
+				</video>
+				<transition name="slide-fade">
+					<div class="play-container" ref="playContainer" v-if="showPlay">
+						<div class="content">
+							<Button :link="''" :size=4 :type=1 class="button" ref="button" @click.native="playVid()">&#9658;</Button>
+							<h2>LANCE LA VIDEO !</h2>
+							<p>(C'est un ordre !)</p>
+						</div>
+					</div>
+				</transition>
+			</div>
+		</section>
+	</transition>
 </template>
 
 <script>
 import Loader from '@/components/Loader.vue'
+import Button from '@/components/Button.vue'
 import * as load from 'load-asset'
 import router from '../router/index'
 
 export default {
-	name: 'Home',
+	name: 'Intro',
 	data () {
 		return {
-			showLoader: true
+			showLoader: true,
+			showPlay: true
 		}
 	},
 	components: {
-		Loader
+		Loader,
+		Button
+	},
+	mounted () {
+		this.render()
 	},
 	methods: {
 		async render () {
@@ -89,16 +104,16 @@ export default {
 
 			this.showLoader = false
 		},
-		closeIntro () {
+		playVid () {
 			const intro = this.$refs.intro
+			// const playContainer = this.$refs.playContainer
+			intro.play()
+			// playContainer.style.display = 'none'
+			this.showPlay = false
 			intro.onended = () => {
 				router.push('home')
 			}
 		}
-	},
-	mounted () {
-		this.render()
-		this.closeIntro()
 	}
 }
 </script>
@@ -109,7 +124,7 @@ export default {
 .intro {
 	width: 100vw;
 	height: 100vh;
-    background: transparent;
+	background: transparent;
 }
 
 .container {
@@ -128,10 +143,72 @@ video {
 	height: auto;
 }
 
-.fade-enter-active, .fade-leave-active {
-  transition: opacity .5s;
+.play-container {
+	width: 350px;
+	height: 300px;
+	background-color: #FBF3E8;
+	position: absolute;
+	bottom: -105px;
+	left: -10px;
+	transform: rotate(-30deg);
+
+	&::before {
+		content: "";
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 26px;
+		left: 20px;
+		right: 0;
+		bottom: 0;
+		background: transparent;
+		box-shadow: 8px 5px 0px $red;
+		transform: rotate(-90deg);
+	}
+
+	.content {
+		position: absolute;
+		bottom: 100px;
+		left: 60px;
+		transform: rotate(30deg);
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		font-family: $chantal-font;
+		color: $red;
+
+		.button {
+			position: relative;
+			left: 30%;
+		}
+
+		h2 {
+			margin-bottom: 0;
+			margin-top: 5px;
+		}
+
+		p{
+			margin-top: 0;
+		}
+	}
 }
-.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
-  opacity: 0;
+
+.fade-enter-active, .fade-leave-active {
+	transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to {
+	opacity: 0;
+}
+
+.slide-fade-enter-active {
+	transition: all .3s ease;
+}
+.slide-fade-leave-active {
+	transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.slide-fade-enter, .slide-fade-leave-to{
+	transform: rotate(-30deg) translateY(10px);
+	opacity: 0;
 }
 </style>
