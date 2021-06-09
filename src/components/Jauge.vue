@@ -1,36 +1,36 @@
 <template>
-  <div>
-    <div class="counter">
-      <svg
-        :style="{width: this.heightJauge + '%', 'background-color': this.jaugeColor}"
-        ref="jauge"
-        class="jauge"
-		:class="setColor"
-        viewBox="0 0 100 100"
-      >
-        <g class="base-timer__circle">
-          <rect
-            x="0"
-            y="0"
-            width="100"
-            height="20"
-            rx="50"
-            ry="50"
-          />
-        </g>
-      </svg>
+	<div>
+		<div class="counter">
+			<svg
+			:style="{width: this.heightJauge + '%', 'background-color': this.jaugeColor}"
+			ref="jauge"
+			class="jauge"
+			:class="setColor"
+			viewBox="0 0 100 100"
+			>
+			<g class="base-timer__circle">
+				<rect
+				x="0"
+				y="0"
+				width="100"
+				height="20"
+				rx="50"
+				ry="50"
+				/>
+			</g>
+			</svg>
 
-    </div>
-	<img :src="`${this.publicPath}${this.perso}`" alt="" class="perso">
-    <button @click="$emit('onPenality', -5)">-5</button>
-    <button @click="$emit('onPenality', -10)">-10</button>
-    <button @click="$emit('onPenality', 5)">+5</button>
-  </div>
+		</div>
+		<img :src="`${this.publicPath}${this.perso}`" alt="" class="perso">
+		<button @click="$emit('onPenality', -5)">-5</button>
+		<button @click="$emit('onPenality', -10)">-10</button>
+		<button @click="$emit('onPenality', 5)">+5</button>
+	</div>
 </template>
 
 <script>
-// import router from '../router/index'
 export default {
+	name: 'Jauge',
 	props: {
 		score: Number
 	},
@@ -68,7 +68,6 @@ export default {
 				this.jaugeColor = '#ACDEA4'
 				this.perso = 'assets/img/perso_content.png'
 			}
-			// console.log(this.jaugeColor)
 		}
 	},
 	created: function () {
@@ -83,29 +82,28 @@ export default {
 @import '@/assets/scss/_variables.scss';
 
 .counter {
-  height: 15px;
-  width: 190px;
-  display: flex;
-  flex-direction: column;
-  border-radius: 20px;
-  background-color: $red;
-  border: solid 4px $red;
+	height: 15px;
+	width: 190px;
+	display: flex;
+	flex-direction: column;
+	border-radius: 20px;
+	background-color: $red;
+	border: solid 4px $red;
 
-  .jauge {
-    margin: auto;
-    margin-right: 0px;
-    height: 100%;
-    max-height: 100%;
-	max-width: 100%;
-    // background-color: $light-green;
-    border-radius: 20px;
-    transition: ease 1s;
+	.jauge {
+		margin: auto;
+		margin-right: 0px;
+		height: 100%;
+		max-height: 100%;
+		max-width: 100%;
+		border-radius: 20px;
+		transition: ease 1s;
 
-    rect {
-      fill: none;
-      stroke: none;
-    }
-  }
+		rect {
+		fill: none;
+		stroke: none;
+		}
+	}
 }
 
 .perso {
@@ -114,9 +112,4 @@ export default {
 	right: -80px;
 	width: 130px;
 }
-
-// button {
-//   position: relative;
-//   z-index: 2;
-// }
 </style>

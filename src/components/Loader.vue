@@ -12,15 +12,7 @@
 
 <script>
 export default {
-	name: 'Loader',
-	data () {
-		return {
-		}
-	},
-	mounted () {
-	},
-	methods: {
-	}
+	name: 'Loader'
 }
 </script>
 
@@ -35,7 +27,6 @@ export default {
 	position: fixed;
 	top:0;
 	z-index: 999;
-	// a
 
 	#logo {
 		margin: auto;

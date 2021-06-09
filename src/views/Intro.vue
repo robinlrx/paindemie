@@ -48,7 +48,6 @@ export default {
 			const assetsImages = [
 				// img global
 				'assets/img/carton-home.png',
-				'assets/img/fond-home.png',
 				'assets/img/objets-home.png',
 				'assets/img/pq-home.png',
 				'assets/img/masque-home.png',
@@ -57,15 +56,21 @@ export default {
 				'assets/img/perso_reflechit.png',
 				'assets/img/perso_venere.png',
 				'assets/img/oups-point.png',
-				'assets/img/fond-jauge.png',
-				'assets/img/fond-title.png',
+				// backgrounds
+				'assets/img/backgrounds/background-jauge.png',
+				'assets/img/backgrounds/background-title.png',
+				'assets/img/backgrounds/background-home.jpg',
+				'assets/img/backgrounds/background-container-loose.png',
+				'assets/img/backgrounds/background-loose.jpg',
+				'assets/img/backgrounds/background-oups.png',
 				// room
-				'assets/img/room/room360.jpg',
 				'assets/img/room/room0.jpg',
 				'assets/img/room/room1.jpg',
 				'assets/img/room/room2.jpg',
 				'assets/img/room/room3.jpg',
 				'assets/img/room/room4.jpg',
+				'assets/img/room/room5.jpg',
+				'assets/img/room/room6.jpg',
 				'assets/img/room/room7.jpg',
 				'assets/img/room/room8.jpg',
 				// objets

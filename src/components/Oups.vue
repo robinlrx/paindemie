@@ -16,6 +16,7 @@
 <script>
 import Button from '@/components/Button.vue'
 export default {
+	name: 'Oups',
 	props: {
 		etape: Object,
 		showOups: Boolean,
@@ -52,7 +53,7 @@ section {
 	div {
 		position: relative;
 		display: flex;
-		background-image: url('/assets/img/fond-oups.png');
+		background-image: url('/assets/img/backgrounds/background-oups.png');
 		background-repeat: no-repeat;
 		background-size: cover;
 		width: 727px;
@@ -62,7 +63,7 @@ section {
 			position: absolute;
 			top:-40px;
 			left: -40px;
-			background-image: url('/assets/img/fond-title.png');
+			background-image: url('/assets/img/backgrounds/background-title.png');
 			background-repeat: no-repeat;
 			background-size: cover;
 			width: 312px;
@@ -99,7 +100,6 @@ section {
 			position: absolute;
 			bottom: -40px;
 			right: -40px;
-
 		}
 	}
 }

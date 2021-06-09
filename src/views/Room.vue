@@ -1,7 +1,7 @@
 <template>
 	<div class="room">
 		<Lottie  v-if="currentEtape !== 0" :key="currentEtape" />
-		<Motion v-bind:etape="etapes[currentEtape]" :key="currentEtape" :timerPause.sync="timerPause" />
+		<Motion :etape="etapes[currentEtape]" :key="currentEtape" :timerPause.sync="timerPause" />
 
 		<FirstTuto :showTuto.sync="showTuto" :timerPause.sync="timerPause"/>
 
@@ -117,7 +117,7 @@ body{
 	right: 100px;
 	top: 20px;
 	height: 100px;
-	background-image: url('/assets/img/fond-jauge.png');
+	background-image: url('/assets/img/backgrounds/background-jauge.png');
 	background-repeat: no-repeat;
 	background-size: cover;
 	z-index: 5;

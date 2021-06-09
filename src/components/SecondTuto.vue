@@ -14,6 +14,7 @@
 import Button from '@/components/Button.vue'
 
 export default {
+	name: 'SecondTuto',
 	props: {
 		showSecondTuto: Boolean,
 		timerPause: Boolean
@@ -29,7 +30,6 @@ export default {
 			this.$emit('update:timerPause', newValue)
 		}
 	}
-
 }
 </script>
 

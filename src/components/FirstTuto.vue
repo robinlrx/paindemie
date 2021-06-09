@@ -12,19 +12,13 @@
 import Button from '@/components/Button.vue'
 
 export default {
+	name: 'FirstTuto',
 	props: {
 		showTuto: Boolean,
 		timerPause: Boolean
 	},
 	components: {
 		Button
-	},
-	data () {
-		return {
-		}
-	},
-
-	methods: {
 	},
 	mounted () {
 		this.$emit('update:timerPause', true)

@@ -1,5 +1,5 @@
 <template>
-	<router-link class="btn" :to="buttonLink" tag="a" :class="[buttonSize, buttonStyle]" :disabled="isDisabled">
+	<router-link class="btn" :to="buttonLink" tag="a" :class="[buttonSize, buttonStyle]">
 		<svg>
 			<path d="M2.66992 14.3417C2.66992 14.3417 2.91261 38.5386 4.42584 51.9691C5.93907 65.3996 6.41017 76.663 6.41017 76.663L600.025 85.0001L604.579 10.739C604.579 10.739 209.868 5.24539 201.389 5.78371C192.895 6.34964 64.227 8.30969 2.66992 14.3417Z"/>
 
@@ -29,12 +29,7 @@ export default {
 		link: {
 			type: String,
 			required: false
-		},
-		// eslint-disable-next-line vue/require-prop-type-constructor
-		isDisabled: false
-	},
-	data: () => {
-		return {}
+		}
 	},
 	computed: {
 		buttonSize: function () {
