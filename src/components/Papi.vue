@@ -1,6 +1,6 @@
 <template>
 	<transition v-if="showPapi" name="fade">
-        <div class="container">
+		<div class="container">
 			<video ref="papi" autoplay width="250">
 				<source :src="this.numChoice.papi.url" type="video/mp4">
 			</video>
@@ -17,6 +17,7 @@
 
 <script>
 export default {
+	name: 'Papi',
 	props: {
 		numChoice: Object,
 		showPapi: Boolean,
@@ -63,7 +64,7 @@ export default {
 	position: relative;
 	width: 100vw;
 	height: 100vh;
-    z-index: 0;
+	z-index: 0;
 }
 video {
 	position: absolute;
@@ -74,30 +75,23 @@ video {
 	margin: auto;
 	width: 100%;
 	height: auto;
-    z-index: 0;
+	z-index: 0;
 }
 
 .cloud-content {
-    position: absolute;
-    width: 80%;
-    z-index: 1;
+	position: absolute;
+	width: 80%;
+	z-index: 1;
 
-    .cloud {
-        width: 100%;
-    }
+	.cloud {
+		width: 100%;
+	}
 
-    .object {
-        position: absolute;
-        left: 0%;
-        top: 8%;
-        width: 50%;
-    }
-}
-
-.fade-enter-active, .fade-leave-active {
-  transition: opacity .5s;
-}
-.fade-enter, .fade-leave-to {
-  opacity: 0;
+	.object {
+		position: absolute;
+		left: 0%;
+		top: 8%;
+		width: 50%;
+	}
 }
 </style>

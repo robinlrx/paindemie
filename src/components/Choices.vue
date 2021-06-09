@@ -3,11 +3,11 @@
 
 		<SecondTuto v-if="currentEtape == 0" :showSecondTuto.sync="showSecondTuto" :timerPause.sync="timerPause"/>
 
-		<Papi :showPapi.sync="showPapi" class="papi" v-bind:numChoice="numChoice" :timerPause.sync="timerPause"/>
+		<Papi :showPapi.sync="showPapi" class="papi" :numChoice="numChoice" :timerPause.sync="timerPause"/>
 
-		<!-- image principale -->
+		<!-- main image -->
 		<img class="objet" ref="object" :src="this.numChoice.objet.url" alt="" :style="{width : `${this.numChoice.objet.width}%`, zIndex: this.numChoice.objet.zIndex}">
-		<!-- image secondaire -->
+		<!-- secondary image -->
 		<img v-if="this.numChoice.objet.url2" class="objet" ref="object2" :src="this.numChoice.objet.url2" alt="" :style="{width : `${this.numChoice.objet.width}%`, zIndex: this.numChoice.objet.zIndex}">
 
 		<button @mouseenter="objectAnimationLeft" @mouseout="objectAnimationReverse" @mouseover="cloudLeft = true, choiceOne= true" @mouseleave="cloudLeft = false, choiceOne= false" @click="$emit('onClick')"></button>
@@ -32,6 +32,7 @@ import Papi from '@/components/Papi.vue'
 import { gsap, Power3 } from 'gsap'
 
 export default {
+	name: 'Choices',
 	components: {
 		Papi,
 		SecondTuto
@@ -113,103 +114,82 @@ export default {
 <style lang="scss" scoped>
 @import '@/assets/scss/_variables.scss';
 
-	.choices {
+.choices {
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	background-color: rgba(0, 0, 0, 0.6);
+
+	.papi {
+		position: absolute;
+		top: 0;
+		left: 0;
 		width: 100%;
 		height: 100vh;
-		display: flex;
-		background-color: rgba(0, 0, 0, 0.6);
+		z-index: 3;
+		cursor: default;
+	}
 
-		.papi {
+	.objet {
+		position: absolute;
+	}
+
+	button {
+		position: relative;
+		margin: auto;
+		width: 50%;
+		height: 100%;
+		padding: 0;
+		border: none;
+		background: transparent;
+		z-index: 2;
+		cursor: pointer;
+
+		&:focus {
+			outline: none;
+		}
+	}
+
+		.choixUn, .choixDeux {
 			position: absolute;
-			top: 0;
+			height: 100vh;
+			width: 100%;
+			top:0;
 			left: 0;
+			z-index: 1;
+		}
+
+		.cloud {
+			position: absolute;
 			width: 100%;
 			height: 100vh;
-			z-index: 3;
-			cursor: default;
+			top:0;
+			left: 0;
+			z-index: 0;
+			opacity: 0;
+			transition: all 1s ease;
 		}
+}
 
-		.objet {
-			position: absolute;
-			// top: 50%;
-			// left: 50%;
-			// animation-duration: 3s;
-			// animation-name: zoom;
-			// animation-fill-mode: forwards;
-		}
+.active {
+	display: flex !important;
+}
 
-		button {
-			position: relative;
-			margin: auto;
-			width: 50%;
-			height: 100%;
-			padding: 0;
-			border: none;
-			background: transparent;
-			z-index: 2;
-			cursor: pointer;
+.cloudLeft {
+	transform: translate(-45%, 0%) !important;
+	opacity: 1 !important;
+	transition: all 1.5s ease !important;;
+	animation-fill-mode: forwards;
+}
 
-			&:focus {
-				outline: none;
-			}
-		}
+.cloudRight {
+	transform: translate(45%, 0%) !important;
+	opacity: 1 !important;
+	transition: all 1.5s ease !important;;
+	animation-fill-mode: forwards;
+}
 
-			.choixUn, .choixDeux {
-				position: absolute;
-				height: 100vh;
-				width: 100%;
-				top:0;
-				left: 0;
-				z-index: 1;
-			}
-
-			.cloud {
-				position: absolute;
-				width: 100%;
-				height: 100vh;
-				top:0;
-				left: 0;
-				z-index: 0;
-				opacity: 0;
-				transition: all 1s ease;
-			}
-	}
-
-	@keyframes zoom {
-		0% {
-			width: 0;
-		}
-
-		80% {
-			width: 200px;
-		}
-		100% {
-			width: 150px;
-		}
-	}
-
-	.active {
-		display: flex !important;
-	}
-
-	.cloudLeft {
-		transform: translate(-45%, 0%) !important;
-		opacity: 1 !important;
-		transition: all 1.5s ease !important;;
-		animation-fill-mode: forwards;
-	}
-
-	.cloudRight {
-		transform: translate(45%, 0%) !important;
-		opacity: 1 !important;
-		transition: all 1.5s ease !important;;
-		animation-fill-mode: forwards;
-	}
-
-	.fade-enter-active, .fade-leave-active {
-		transition: opacity 1.5s;
-	}
-	.fade-enter, .fade-leave-to {
-		opacity: 0;
-	}
+.fade-enter-active, .fade-leave-active {
+	transition: opacity 1.5s;
+}
 </style>

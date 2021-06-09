@@ -19,6 +19,7 @@
 <script>
 import Button from '@/components/Button.vue'
 export default {
+	name: 'Loose',
 	props: {
 		etape: Object
 	},
@@ -38,7 +39,7 @@ section {
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
-	background-image: url('/assets/img/background-loose.jpg');
+	background-image: url('/assets/img/backgrounds/background-loose.jpg');
 	background-repeat: no-repeat;
 	background-size: cover;
 	color: $red;
@@ -47,7 +48,7 @@ section {
 	div {
 		position: relative;
 		display: flex;
-		background-image: url('/assets/img/fond-loose.png');
+		background-image: url('/assets/img/backgrounds/background-container-loose.png');
 		background-repeat: no-repeat;
 		background-size: contain;
 		width: 801px;
@@ -59,7 +60,7 @@ section {
 			position: absolute;
 			top:-40px;
 			left: -30px;
-			background-image: url('/assets/img/fond-title.png');
+			background-image: url('/assets/img/backgrounds/background-title.png');
 			background-repeat: no-repeat;
 			background-size: cover;
 			width: 312px;
@@ -98,12 +99,5 @@ section {
 		bottom: .5em;
 		right: 1em;
 	}
-}
-
-.fade-enter-active, .fade-leave-active {
-  transition: opacity .5s;
-}
-.fade-enter, .fade-leave-to {
-  opacity: 0;
 }
 </style>

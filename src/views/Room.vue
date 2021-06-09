@@ -1,9 +1,8 @@
 <template>
 	<div class="room">
 		<Lottie  v-if="currentEtape !== 0" :key="currentEtape" />
-		<Motion v-bind:etape="etapes[currentEtape]" :key="currentEtape" :timerPause.sync="timerPause" />
+		<Motion :etape="etapes[currentEtape]" :key="currentEtape" :timerPause.sync="timerPause" />
 
-		<!-- v-if="currentEtape = 0" -->
 		<FirstTuto :showTuto.sync="showTuto" :timerPause.sync="timerPause"/>
 
 		<transition name="fade">
@@ -38,6 +37,7 @@ import FirstTuto from '@/components/FirstTuto.vue'
 import Lottie from '@/components/Lottie.vue'
 
 export default {
+	name: 'Room',
 	components: {
 		Scene,
 		Choices,
@@ -117,7 +117,7 @@ body{
 	right: 100px;
 	top: 20px;
 	height: 100px;
-	background-image: url('/assets/img/fond-jauge.png');
+	background-image: url('/assets/img/backgrounds/background-jauge.png');
 	background-repeat: no-repeat;
 	background-size: cover;
 	z-index: 5;
@@ -125,12 +125,5 @@ body{
 	flex-direction: column-reverse;
 	align-items: flex-end;
 	padding: 0px 60px 0px 40px;
-}
-
-.fade-enter-active, .fade-leave-active {
-  transition: opacity .5s;
-}
-.fade-enter, .fade-leave-to {
-  opacity: 0;
 }
 </style>

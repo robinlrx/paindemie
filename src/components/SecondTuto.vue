@@ -14,6 +14,7 @@
 import Button from '@/components/Button.vue'
 
 export default {
+	name: 'SecondTuto',
 	props: {
 		showSecondTuto: Boolean,
 		timerPause: Boolean
@@ -29,7 +30,6 @@ export default {
 			this.$emit('update:timerPause', newValue)
 		}
 	}
-
 }
 </script>
 
@@ -59,12 +59,5 @@ export default {
 	img {
 		width: 30%;
 	}
-}
-
-.fade-enter-active, .fade-leave-active {
-  transition: opacity .5s;
-}
-.fade-enter, .fade-leave-to {
-  opacity: 0;
 }
 </style>

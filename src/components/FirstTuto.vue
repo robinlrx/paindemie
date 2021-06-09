@@ -12,19 +12,13 @@
 import Button from '@/components/Button.vue'
 
 export default {
+	name: 'FirstTuto',
 	props: {
 		showTuto: Boolean,
 		timerPause: Boolean
 	},
 	components: {
 		Button
-	},
-	data () {
-		return {
-		}
-	},
-
-	methods: {
 	},
 	mounted () {
 		this.$emit('update:timerPause', true)
@@ -61,12 +55,5 @@ export default {
 			font-weight: bold;
 		}
 	}
-}
-
-.fade-enter-active, .fade-leave-active {
-  transition: opacity .5s;
-}
-.fade-enter, .fade-leave-to {
-  opacity: 0;
 }
 </style>

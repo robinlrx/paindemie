@@ -10,6 +10,7 @@ import lottie from 'lottie-web'
 import anim from '../assets/data/anim.json'
 
 export default {
+	name: 'Lottie',
 	data () {
 		return {
 			showLottie: true
@@ -24,11 +25,10 @@ export default {
 			autoplay: false,
 			animationData: anim,
 			rendererSettings: {
-				// context: canvasContext, // the canvas context, only support "2d" context
-				preserveAspectRatio: 'xMinYMin slice', // Supports the same options as the svg element's preserveAspectRatio property
+				preserveAspectRatio: 'xMinYMin slice',
 				clearCanvas: false,
-				progressiveLoad: false, // Boolean, only svg renderer, loads dom elements when needed. Might speed up initialization for large number of elements.
-				hideOnTransparent: true, // Boolean, only svg renderer, hides elements when opacity reaches 0 (defaults to true)
+				progressiveLoad: false,
+				hideOnTransparent: true,
 				className: 'some-css-class-name',
 				id: 'some-id'
 			}
@@ -36,10 +36,6 @@ export default {
 		lottieAnim.addEventListener('DOMLoaded', () => {
 			console.log('anim loaded')
 			lottieAnim.play()
-			//   // go to end (29 frames)
-			//   lottieAnim.goToAndStop(29, true);
-			//   // set direction in revevrse
-			// lottieAnim.setDirection(-1)
 			lottieAnim.setSpeed(0.8)
 			// hide temp background ("overlay") when anim loaded
 			this.$refs.lottieTempBackground.style.display = 'none'
@@ -61,9 +57,6 @@ export default {
 
 .container {
 	background-color: transparent;
-	// display: flex;
-	// align-items: center;
-	// justify-content: center;
 	width: 100vw;
 	height: 100vh;
 	position: absolute;
@@ -79,7 +72,6 @@ export default {
 	height: 100%;
 	z-index: 2;
 	transform: rotate(-180deg);
-	/* transition: transform 1s; */
 }
 
 .lottie-temp-background {

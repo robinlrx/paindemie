@@ -7,16 +7,16 @@
 <script>
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
-// import router from '../router/index'
 import frag from '../assets/shaders/shader.frag'
 import vert from '../assets/shaders/shader.vert'
 
 export default {
+	name: 'Scene',
 	props: {
 		etape: Object,
 		showOups: Boolean
 	},
-	data (e) {
+	data () {
 		return {
 			sprite: null,
 			plane: null,
@@ -92,7 +92,6 @@ export default {
 			const sphereMaterial = new THREE.MeshLambertMaterial({
 				map: texture,
 				side: THREE.BackSide
-				// color: 0xffffff
 			})
 			// sphereMaterial.transparent = true
 			const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial)
@@ -189,6 +188,7 @@ export default {
 				}
 			})
 		},
+
 		// MouseMove
 		onMousemove (e) {
 			this.mouse.x = (e.clientX / window.innerWidth) * 2 - 1

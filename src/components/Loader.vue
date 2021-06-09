@@ -12,15 +12,7 @@
 
 <script>
 export default {
-	name: 'Loader',
-	data () {
-		return {
-		}
-	},
-	mounted () {
-	},
-	methods: {
-	}
+	name: 'Loader'
 }
 </script>
 
@@ -35,7 +27,6 @@ export default {
 	position: fixed;
 	top:0;
 	z-index: 999;
-	// a
 
 	#logo {
 		margin: auto;
@@ -107,12 +98,5 @@ export default {
 		transform: translateX(0);
 		opacity: 1;
 	}
-}
-
-.fade-enter-active, .fade-leave-active {
-  transition: opacity .5s;
-}
-.fade-enter, .fade-leave-to {
-  opacity: 0;
 }
 </style>

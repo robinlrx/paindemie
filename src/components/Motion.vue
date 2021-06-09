@@ -10,6 +10,7 @@
 
 <script>
 export default {
+	name: 'Motion',
 	props: {
 		etape: Object,
 		timerPause: Boolean
@@ -56,12 +57,5 @@ video {
 	margin: auto;
 	width: 100%;
 	height: auto;
-}
-
-.fade-enter-active, .fade-leave-active {
-	transition: opacity .5s;
-}
-.fade-enter, .fade-leave-to {
-	opacity: 0;
 }
 </style>

@@ -1,15 +1,15 @@
 <template>
-    <div class="timer">
+	<div class="timer">
 		<!-- <button @click="restart">Restart</button>
-        <button @click="pause">Pause</button>
+		<button @click="pause">Pause</button>
 		<button @click="reset">Reset</button> -->
-        <p>{{formatTime}}</p>
+		<p>{{formatTime}}</p>
   </div>
 </template>
 
 <script>
 export default {
-	name: 'App',
+	name: 'Timer',
 	props: {
 		timerPause: Boolean
 	},
@@ -71,5 +71,4 @@ export default {
 		margin: 0
 	}
 }
-
 </style>
