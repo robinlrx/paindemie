@@ -20,6 +20,8 @@
 		</transition>
 
 		<Oups :showOups.sync="showOups" :score="score" :etape="etapes[currentEtape]" :key="currentEtape" :timerPause.sync="timerPause"/>
+
+		<Newspaper :showNewspaper.sync="showNewspaper"/>
 	</div>
 </template>
 
@@ -35,6 +37,7 @@ import Timer from '@/components/Timer.vue'
 import Oups from '@/components/Oups.vue'
 import FirstTuto from '@/components/FirstTuto.vue'
 import Lottie from '@/components/Lottie.vue'
+import Newspaper from '@/components/newspaper/Newspaper.vue'
 
 export default {
 	name: 'Room',
@@ -46,19 +49,21 @@ export default {
 		Oups,
 		Motion,
 		FirstTuto,
-		Lottie
+		Lottie,
+		Newspaper
 	},
 	data () {
 		return {
 			showChoices: false,
 			etapes: data.content,
-			currentEtape: 0,
+			currentEtape: 8,
 			score: 100,
 			numButton: null,
 			numChoice: null,
 			showOups: false,
 			showTuto: true,
-			timerPause: false
+			timerPause: false,
+			showNewspaper: false
 		}
 	},
 	methods: {
@@ -70,7 +75,7 @@ export default {
 			this.handleShowChoices() // unShow choices
 
 			if (this.currentEtape === 8) {
-				alert('fin')
+				this.showNewspaper = true
 			} else {
 				this.currentEtape += 1
 				console.log('currentEtape:', this.currentEtape)
