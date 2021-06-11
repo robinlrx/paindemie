@@ -1,20 +1,33 @@
 <template>
-	<transition name="fade">
+	<transition name="fade"> <!--  v-if="showNewspaper" -->
 		<section>
-			<FirstPage />
+			<FirstPage :showFirstPage.sync="showFirstPage" />
+			<!-- <SecondPage  /> -->
+			<SecondPage :showSecondPage.sync="showSecondPage" />
+			<LastPage />
 		</section>
 	</transition>
 </template>
 
 <script>
 import FirstPage from '@/components/newspaper/FirstPage.vue'
+import SecondPage from '@/components/newspaper/SecondPage.vue'
+import LastPage from '@/components/newspaper/LastPage.vue'
 export default {
 	name: 'Newspaper',
 	props: {
 		showNewspaper: Boolean
 	},
+	data () {
+		return {
+			showFirstPage: true,
+			showSecondPage: true
+		}
+	},
 	components: {
-		FirstPage
+		FirstPage,
+		SecondPage,
+		LastPage
 	}
 
 }
