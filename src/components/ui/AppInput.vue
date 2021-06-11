@@ -39,10 +39,10 @@ input {
 	color: $violet;
 	&:focus{
 		outline: none;
-		color: #FF4465;
+		// color: #FF4465;
 	}
-	&::placeholder {
-		color: $violet;
-	}
+	// &::placeholder {
+	// color: $violet;
+	// }
 }
 </style>
