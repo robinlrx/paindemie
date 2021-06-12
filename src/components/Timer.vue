@@ -5,9 +5,9 @@
 		<button @click="reset">Reset</button> -->
 		<p>{{formatTime}}</p>
 
-		<audio ref="leo">
-			<source :src="`${this.publicPath}assets/audios/leo-10/leo_${this.randomNumber()}.mp3`" type="audio/mp3">
-		</audio>
+		<!-- <audio ref="leo" >
+			<source :src="this.randomSound()" type="audio/mp3">
+		</audio> -->
   </div>
 </template>
 
@@ -38,8 +38,9 @@ export default {
 			this.timer = setInterval(() => {
 				this.elapsedTime += 1000
 				if (this.elapsedTime % 10000 === 0) {
-					console.log(this.$refs.leo)
-					this.$refs.leo.play()
+					const audio = new Audio(this.randomSound())
+					console.log(audio.src)
+					audio.play()
 					this.$emit('onPenality', -2)
 				}
 			}, 1000)
@@ -53,9 +54,9 @@ export default {
 		reset () {
 			this.elapsedTime = 0
 		},
-		randomNumber () {
+		randomSound () {
 			// console.log(Math.floor(Math.random() * (13 - 1 + 1)) + 1)
-			return Math.floor(Math.random() * (13 - 1 + 1)) + 1
+			return `${this.publicPath}assets/audios/leo-10/leo_${Math.floor(Math.random() * (13 - 1 + 1)) + 1}.mp3`
 		}
 	},
 	created: function () {
