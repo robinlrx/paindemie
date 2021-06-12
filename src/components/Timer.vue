@@ -4,6 +4,10 @@
 		<button @click="pause">Pause</button>
 		<button @click="reset">Reset</button> -->
 		<p>{{formatTime}}</p>
+
+		<audio ref="leo">
+			<source :src="`${this.publicPath}assets/audios/leo-10/leo_${this.randomNumber()}.mp3`" type="audio/mp3">
+		</audio>
   </div>
 </template>
 
@@ -16,7 +20,9 @@ export default {
 	data () {
 		return {
 			elapsedTime: 0,
-			timer: undefined
+			timer: undefined,
+			publicPath: process.env.BASE_URL,
+			number: 1
 		}
 	},
 	computed: {
@@ -32,6 +38,8 @@ export default {
 			this.timer = setInterval(() => {
 				this.elapsedTime += 1000
 				if (this.elapsedTime % 10000 === 0) {
+					console.log(this.$refs.leo)
+					this.$refs.leo.play()
 					this.$emit('onPenality', -2)
 				}
 			}, 1000)
@@ -44,6 +52,10 @@ export default {
 		},
 		reset () {
 			this.elapsedTime = 0
+		},
+		randomNumber () {
+			// console.log(Math.floor(Math.random() * (13 - 1 + 1)) + 1)
+			return Math.floor(Math.random() * (13 - 1 + 1)) + 1
 		}
 	},
 	created: function () {
