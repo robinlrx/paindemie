@@ -1,9 +1,9 @@
 <template>
 	<div class="choices">
 
-		<SecondTuto v-if="currentEtape == 0" :showSecondTuto.sync="showSecondTuto" :timerPause.sync="timerPause"/>
+		<Papi :showPapi.sync="showPapi" class="papi" :numChoice="numChoice" :timerPause.sync="timerPause" :showSecondTuto.sync="showSecondTuto" />
 
-		<!-- <Papi :showPapi.sync="showPapi" class="papi" :numChoice="numChoice" :timerPause.sync="timerPause"/> -->
+		<SecondTuto v-if="currentEtape == 0 && showSecondTuto" :showSecondTuto.sync="showSecondTuto" :timerPause.sync="timerPause"/>
 
 		<!-- main image -->
 		<img class="objet" ref="object" :src="this.numChoice.objet.url" alt="" :style="{width : `${this.numChoice.objet.width}%`, zIndex: this.numChoice.objet.zIndex}">
@@ -49,20 +49,16 @@ export default {
 			choiceOne: false,
 			choiceTwo: false,
 			showPapi: true,
-			showSecondTuto: true
+			showSecondTuto: false
 		}
 	},
 	mounted () {
 		this.$emit('update:showPapi', true)
-		this.$emit('update:timerPause', true)
 		// center elements whith gsap to avoid conflicts with tranfrom translate css
 		gsap.set('.objet', { xPercent: -50, left: '50%', yPercent: -50, top: '50%', x: 0, y: 0 })
 	},
 	watch: {
-		showPapi (newValue) {
-			this.$emit('update:timerPause', newValue)
-		},
-		showSecondTuto (newValue) {
+		timerPause (newValue) {
 			this.$emit('update:timerPause', newValue)
 		}
 	},

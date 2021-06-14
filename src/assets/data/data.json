@@ -49,7 +49,7 @@
 		},
 		{
 			"id": 1,
-			"motion": "assets/videos/motion.mp4",
+			"motion": "assets/videos/test.mp4",
 			"imageScene": "assets/img/room/room1.jpg",
 			"objet1": {
 				"url": "assets/img/objets/coude.png",

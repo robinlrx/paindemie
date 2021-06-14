@@ -5,7 +5,7 @@
 
 		<img src="assets/img/second-tuto.png" alt="tutoChoix">
 
-		<Button @click.native="$emit('update:showSecondTuto', false)" class="button" :size=2 :type=1 :link="'room'">J'AI CAPTÉ</Button>
+		<Button @click.native="closeSecondTuto()" class="button" :size=2 :type=1 :link="'room'">J'AI CAPTÉ</Button>
 	</section>
 </transition>
 </template>
@@ -22,13 +22,14 @@ export default {
 	components: {
 		Button
 	},
+	methods: {
+		closeSecondTuto () {
+			this.$emit('update:timerPause', false)
+			this.$emit('update:showSecondTuto', false)
+		}
+	},
 	mounted () {
 		this.$emit('update:timerPause', true)
-	},
-	watch: {
-		showSecondTuto (newValue) {
-			this.$emit('update:timerPause', newValue)
-		}
 	}
 }
 </script>
