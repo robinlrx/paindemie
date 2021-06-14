@@ -66,8 +66,21 @@ export default {
 		handleShowChoices () {
 			this.showChoices = !this.showChoices
 		},
-		handleUpdateEtape () {
+		handleUpdateEtape (data) {
 			this.handleShowChoices() // unShow choices
+
+			const myScoreString = localStorage.getItem('myScore') // JSON string
+
+			let myScore = JSON.parse(myScoreString) // objet JS
+
+			if (myScore === null) {
+				myScore = []
+			}
+			myScore.push({ choice: this.numChoice, answer: data.answer })
+
+			localStorage.setItem('myScore', JSON.stringify(myScore))
+
+			console.log(myScore)
 
 			if (this.currentEtape === 8) {
 				alert('fin')

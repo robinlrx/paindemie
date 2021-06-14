@@ -10,9 +10,9 @@
 		<!-- secondary image -->
 		<img v-if="this.numChoice.objet.url2" class="objet" ref="object2" :src="this.numChoice.objet.url2" alt="" :style="{width : `${this.numChoice.objet.width}%`, zIndex: this.numChoice.objet.zIndex}">
 
-		<button @mouseenter="objectAnimationLeft" @mouseout="objectAnimationReverse" @mouseover="cloudLeft = true, choiceOne= true" @mouseleave="cloudLeft = false, choiceOne= false" @click="$emit('onClick')"></button>
+		<button @mouseenter="objectAnimationLeft" @mouseout="objectAnimationReverse" @mouseover="cloudLeft = true, choiceOne= true" @mouseleave="cloudLeft = false, choiceOne= false" @click="$emit('onClick', {answer: 1})"></button>
 
-		<button @mouseenter="objectAnimationRight" @mouseout="objectAnimationReverse" @mouseover="cloudRight = true, choiceTwo= true" @mouseleave="cloudRight = false, choiceTwo= false" @click="$emit('onClick')"></button>
+		<button @mouseenter="objectAnimationRight" @mouseout="objectAnimationReverse" @mouseover="cloudRight = true, choiceTwo= true" @mouseleave="cloudRight = false, choiceTwo= false" @click="$emit('onClick', {answer: 2})"></button>
 
 		<img class="cloud" :class="{ cloudLeft: cloudLeft, cloudRight: cloudRight }" src="assets/img/nuage.gif" alt="">
 
