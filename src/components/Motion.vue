@@ -2,7 +2,7 @@
 	<transition v-if="showMotion" name="fade">
 		<div class="container">
 			<video ref="motion" autoplay width="250">
-				<source :src="this.etape.motion" type="video/mp4">
+				<source :src="propsSource" type="video/mp4">
 			</video>
 		</div>
 	</transition>
@@ -13,7 +13,12 @@ export default {
 	name: 'Motion',
 	props: {
 		etape: Object,
-		timerPause: Boolean
+		timerPause: Boolean,
+		source: {
+			type: String,
+			required: true,
+			default: `${this.$props.etape.motion}`
+		}
 	},
 	data () {
 		return {
@@ -35,6 +40,11 @@ export default {
 	watch: {
 		showMotion (newValue) {
 			this.$emit('update:timerPause', newValue)
+		}
+	},
+	computed: {
+		propsSource () {
+			return this.$props.source
 		}
 	}
 }

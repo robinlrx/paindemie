@@ -1,7 +1,7 @@
 <template>
 	<div class="room">
 		<Lottie  v-if="currentEtape !== 0" :key="currentEtape" />
-		<Motion :etape="etapes[currentEtape]" :key="currentEtape" :timerPause.sync="timerPause" />
+		<Motion :src="''" :etape="etapes[currentEtape]" :key="currentEtape" :timerPause.sync="timerPause" />
 
 		<FirstTuto :showTuto.sync="showTuto" :timerPause.sync="timerPause"/>
 
