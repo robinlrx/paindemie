@@ -23,7 +23,7 @@
 
 <script>
 import Loader from '@/components/Loader.vue'
-import Button from '@/components/Button.vue'
+import Button from '@/components/ui/AppButton.vue'
 import * as load from 'load-asset'
 import router from '../router/index'
 
