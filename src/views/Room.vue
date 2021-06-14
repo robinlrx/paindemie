@@ -27,7 +27,7 @@
 import data from '../assets/data/data.json'
 import router from '../router/index'
 
-// import Motion from '@/components/Motion.vue'
+import Motion from '@/components/Motion.vue'
 import Scene from '@/components/Scene.vue'
 import Choices from '@/components/Choices.vue'
 import Jauge from '@/components/Jauge.vue'
@@ -44,7 +44,7 @@ export default {
 		Jauge,
 		Timer,
 		Oups,
-		// Motion,
+		Motion,
 		FirstTuto,
 		Lottie
 	},

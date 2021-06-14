@@ -28,13 +28,13 @@
 
 <script>
 import SecondTuto from '@/components/SecondTuto.vue'
-// import Papi from '@/components/Papi.vue'
+import Papi from '@/components/Papi.vue'
 import { gsap, Power3 } from 'gsap'
 
 export default {
 	name: 'Choices',
 	components: {
-		// Papi,
+		Papi,
 		SecondTuto
 	},
 	props: {
