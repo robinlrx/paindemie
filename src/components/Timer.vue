@@ -51,6 +51,7 @@ export default {
 	},
 	watch: {
 		timerPause (newValue) {
+			console.log(newValue)
 			newValue ? this.pause() : this.restart()
 		}
 	}

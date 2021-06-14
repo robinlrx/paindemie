@@ -14,10 +14,10 @@ export default {
 	props: {
 		etape: Object,
 		timerPause: Boolean,
-		source: {
+		showNextComposant: Boolean,
+		src: {
 			type: String,
-			required: true,
-			default: `${this.$props.etape.motion}`
+			required: true
 		}
 	},
 	data () {
@@ -33,18 +33,21 @@ export default {
 		closeMotion () {
 			const motion = this.$refs.motion
 			motion.onended = () => {
+				console.log('0')
+				this.$emit('update:showNextComposant', true)
 				this.showMotion = false
 			}
 		}
 	},
 	watch: {
 		showMotion (newValue) {
-			this.$emit('update:timerPause', newValue)
+			console.log('1')
+			// this.$emit('update:timerPause', newValue)
 		}
 	},
 	computed: {
 		propsSource () {
-			return this.$props.source
+			return this.$props.src
 		}
 	}
 }
@@ -53,18 +56,17 @@ export default {
 
 <style lang="scss" scoped>
 .container {
-	position: relative;
-	width: 100vw;
-	height: 100vh;
-	cursor: default;
-}
-video {
 	position: absolute;
 	left: 0;
 	right: 0;
-	top: 0;
-	bottom: 0;
-	margin: auto;
+	width: 100vw;
+	height: 100vh;
+	cursor: default;
+	display: flex;
+	align-items: center;
+	z-index: 1;
+}
+video {
 	width: 100%;
 	height: auto;
 }
