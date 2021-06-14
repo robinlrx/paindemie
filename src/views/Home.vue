@@ -81,10 +81,7 @@ export default {
 	.lottie-block {
 		width: 100%;
 		height: 100vh;
-		// border: solid red;
 		margin: auto;
-		position: relative;
-		top: -50px;
 	}
 
 	.button {
