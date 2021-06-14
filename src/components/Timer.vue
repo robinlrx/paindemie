@@ -66,6 +66,9 @@ export default {
 		timerPause (newValue) {
 			newValue ? this.pause() : this.restart()
 		}
+	},
+	destroyed () {
+		clearInterval(this.timer)
 	}
 }
 </script>

@@ -3,16 +3,16 @@
 
 		<SecondTuto v-if="currentEtape == 0" :showSecondTuto.sync="showSecondTuto" :timerPause.sync="timerPause"/>
 
-		<Papi :showPapi.sync="showPapi" class="papi" :numChoice="numChoice" :timerPause.sync="timerPause"/>
+		<!-- <Papi :showPapi.sync="showPapi" class="papi" :numChoice="numChoice" :timerPause.sync="timerPause"/> -->
 
 		<!-- main image -->
 		<img class="objet" ref="object" :src="this.numChoice.objet.url" alt="" :style="{width : `${this.numChoice.objet.width}%`, zIndex: this.numChoice.objet.zIndex}">
 		<!-- secondary image -->
 		<img v-if="this.numChoice.objet.url2" class="objet" ref="object2" :src="this.numChoice.objet.url2" alt="" :style="{width : `${this.numChoice.objet.width}%`, zIndex: this.numChoice.objet.zIndex}">
 
-		<button @mouseenter="objectAnimationLeft" @mouseout="objectAnimationReverse" @mouseover="cloudLeft = true, choiceOne= true" @mouseleave="cloudLeft = false, choiceOne= false" @click="$emit('onClick')"></button>
+		<button @mouseenter="objectAnimationLeft" @mouseout="objectAnimationReverse" @mouseover="cloudLeft = true, choiceOne= true" @mouseleave="cloudLeft = false, choiceOne= false" @click="$emit('onClick', {answer: 1})"></button>
 
-		<button @mouseenter="objectAnimationRight" @mouseout="objectAnimationReverse" @mouseover="cloudRight = true, choiceTwo= true" @mouseleave="cloudRight = false, choiceTwo= false" @click="$emit('onClick')"></button>
+		<button @mouseenter="objectAnimationRight" @mouseout="objectAnimationReverse" @mouseover="cloudRight = true, choiceTwo= true" @mouseleave="cloudRight = false, choiceTwo= false" @click="$emit('onClick', {answer: 2})"></button>
 
 		<img class="cloud" :class="{ cloudLeft: cloudLeft, cloudRight: cloudRight }" src="assets/img/nuage.gif" alt="">
 
@@ -28,13 +28,13 @@
 
 <script>
 import SecondTuto from '@/components/SecondTuto.vue'
-import Papi from '@/components/Papi.vue'
+// import Papi from '@/components/Papi.vue'
 import { gsap, Power3 } from 'gsap'
 
 export default {
 	name: 'Choices',
 	components: {
-		Papi,
+		// Papi,
 		SecondTuto
 	},
 	props: {

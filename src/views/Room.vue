@@ -1,7 +1,7 @@
 <template>
 	<div class="room">
 		<Lottie  v-if="currentEtape !== 0" :key="currentEtape" />
-		<Motion :etape="etapes[currentEtape]" :key="currentEtape" :timerPause.sync="timerPause" />
+		<!-- <Motion :etape="etapes[currentEtape]" :key="currentEtape" :timerPause.sync="timerPause" /> -->
 
 		<FirstTuto :showTuto.sync="showTuto" :timerPause.sync="timerPause"/>
 
@@ -27,7 +27,7 @@
 import data from '../assets/data/data.json'
 import router from '../router/index'
 
-import Motion from '@/components/Motion.vue'
+// import Motion from '@/components/Motion.vue'
 import Scene from '@/components/Scene.vue'
 import Choices from '@/components/Choices.vue'
 import Jauge from '@/components/Jauge.vue'
@@ -44,7 +44,7 @@ export default {
 		Jauge,
 		Timer,
 		Oups,
-		Motion,
+		// Motion,
 		FirstTuto,
 		Lottie
 	},
@@ -66,8 +66,21 @@ export default {
 		handleShowChoices () {
 			this.showChoices = !this.showChoices
 		},
-		handleUpdateEtape () {
+		handleUpdateEtape (data) {
 			this.handleShowChoices() // unShow choices
+
+			const myScoreString = localStorage.getItem('myScore') // JSON string
+
+			let myScore = JSON.parse(myScoreString) // objet JS
+
+			if (myScore === null) {
+				myScore = []
+			}
+			myScore.push({ choice: this.numChoice, answer: data.answer })
+
+			localStorage.setItem('myScore', JSON.stringify(myScore))
+
+			console.log(myScore)
 
 			if (this.currentEtape === 8) {
 				alert('fin')
@@ -101,6 +114,9 @@ export default {
 		timerPause (newValue) {
 			console.log(newValue)
 		}
+	},
+	mounted () {
+		console.log('ROOM')
 	}
 }
 

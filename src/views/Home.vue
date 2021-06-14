@@ -8,7 +8,6 @@
 			<img src="../../public/assets/img/masque-home.png" class="objects" alt="">
 		</div>
 		<Button :link="'room'" :size=1 :type=1 class="button" ref="button">C'EST PARTI POUR LES EMMERDES</Button>
-
 	</section>
 </template>
 
