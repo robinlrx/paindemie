@@ -29,13 +29,16 @@ export default {
 		}
 	},
 	mounted () {
-		this.closePapi()
 		this.$emit('update:timerPause', true)
+		console.log('papi monté')
+		this.closePapi()
 	},
 	methods: {
 		closePapi () {
 			const papi = this.$refs.papi
 			papi.onended = () => {
+				this.$emit('update:showSecondTuto', true)
+				this.$emit('update:timerPause', false)
 				this.$emit('update:showPapi', false)
 			}
 		},
@@ -47,11 +50,6 @@ export default {
 		setInterval(() => {
 			this.openCloud()
 		}, this.numChoice.papi.time)
-	},
-	watch: {
-		showPapi (newValue) {
-			this.$emit('update:timerPause', newValue)
-		}
 	}
 }
 
