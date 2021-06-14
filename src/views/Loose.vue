@@ -1,7 +1,9 @@
 <template>
 	<transition name="fade">
-		<section>
-			<div>
+		<section class="loose">
+			<Motion src="assets/videos/test.mp4"/>
+
+			<div class="loose-container">
 				<div class="title">
 					<h2>PERDU!</h2>
 				</div>
@@ -18,13 +20,15 @@
 
 <script>
 import Button from '@/components/Button.vue'
+import Motion from '@/components/Motion.vue'
 export default {
 	name: 'Loose',
 	props: {
 		etape: Object
 	},
 	components: {
-		Button
+		Button,
+		Motion
 	}
 }
 </script>
@@ -32,7 +36,7 @@ export default {
 <style lang="scss" scoped>
 @import '@/assets/scss/_variables.scss';
 
-section {
+.loose {
 	width: 100%;
 	height: 100vh;
 	display: flex;
@@ -45,7 +49,7 @@ section {
 	color: $red;
 	cursor: initial;
 
-	div {
+	.loose-container {
 		position: relative;
 		display: flex;
 		background-image: url('/assets/img/backgrounds/background-container-loose.png');

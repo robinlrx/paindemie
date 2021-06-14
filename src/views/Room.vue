@@ -1,9 +1,9 @@
 <template>
 	<div class="room">
 		<Lottie  v-if="currentEtape !== 0" :key="currentEtape" />
-		<Motion :etape="etapes[currentEtape]" :key="currentEtape" :timerPause.sync="timerPause" />
+		<Motion :src="etapes[currentEtape].motion" :etape="etapes[currentEtape]" :key="currentEtape" :timerPause.sync="timerPause" :showNextComposant.sync="showTuto" />
 
-		<FirstTuto :showTuto.sync="showTuto" :timerPause.sync="timerPause"/>
+		<FirstTuto v-if="currentEtape == 0 && showTuto" :showTuto.sync="showTuto" :timerPause.sync="timerPause"/>
 
 		<transition name="fade">
 			<!-- Key-changing to force re-renders of a component -->
@@ -57,7 +57,7 @@ export default {
 			numButton: null,
 			numChoice: null,
 			showOups: false,
-			showTuto: true,
+			showTuto: false,
 			timerPause: false
 		}
 	},
@@ -95,11 +95,6 @@ export default {
 
 			this.numChoice = content[btnName]
 			console.log(this.numChoice)
-		}
-	},
-	watch: {
-		timerPause (newValue) {
-			console.log(newValue)
 		}
 	}
 }
