@@ -134,7 +134,8 @@ export default {
 			this.shaderMaterial = new THREE.ShaderMaterial({
 				uniforms: {
 					textureSampler: { type: 't', value: icons },
-					thickness: { type: 'f', value: 0.03 }
+					thickness: { type: 'f', value: 0.03 },
+					hover: { type: 'b', value: false }
 				},
 				vertexShader: vert,
 				fragmentShader: frag,
@@ -203,13 +204,15 @@ export default {
 				this.html.style.cursor = 'pointer'
 				// this.OutlineThickness = 0.5
 				// plane.object.material.uniforms.thickness.value = 0.05
+				plane.object.material.uniforms.hover.value = true
 			})
 
 			if (intersects.length === 0) {
 				this.html.style.cursor = 'default'
 				// this.OutlineThickness = 0.03
 				// eslint-disable-next-line no-return-assign
-				// planes.forEach(ch => ch.object.material.uniforms.thickness.value = 0.02)
+				this.planes[1].material.uniforms.hover.value = false
+				console.log(this.planes[1].material.uniforms.hover.value)
 			}
 		},
 		update () {
