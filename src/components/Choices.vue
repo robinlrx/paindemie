@@ -1,7 +1,7 @@
 <template>
 	<div class="choices">
 
-		<Papi :showPapi.sync="showPapi" class="papi" :numChoice="numChoice" :timerPause.sync="timerPause" :showSecondTuto.sync="showSecondTuto" />
+		<!-- <Papi :showPapi.sync="showPapi" class="papi" :numChoice="numChoice" :timerPause.sync="timerPause" :showSecondTuto.sync="showSecondTuto" /> -->
 
 		<SecondTuto v-if="currentEtape == 0 && showSecondTuto" :showSecondTuto.sync="showSecondTuto" :timerPause.sync="timerPause"/>
 
@@ -28,13 +28,13 @@
 
 <script>
 import SecondTuto from '@/components/SecondTuto.vue'
-import Papi from '@/components/Papi.vue'
+// import Papi from '@/components/Papi.vue'
 import { gsap, Power3 } from 'gsap'
 
 export default {
 	name: 'Choices',
 	components: {
-		Papi,
+		// Papi,
 		SecondTuto
 	},
 	props: {

@@ -30,7 +30,6 @@ export default {
 	},
 	mounted () {
 		this.$emit('update:timerPause', true)
-		console.log('papi monté')
 		this.closePapi()
 	},
 	methods: {

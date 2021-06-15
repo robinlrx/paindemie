@@ -32,7 +32,7 @@ export default {
 		}
 	},
 	mounted () {
-		console.log('etape:', this.etape)
+		// console.log('etape:', this.etape)
 		// console.log('currentEtape:', this.currentEtape)
 		this.init()
 		this.addCoronaObject(new THREE.Vector3(this.etape.c1.x, this.etape.c1.y, this.etape.c1.z), 'choice1', this.etape.objet1.url)

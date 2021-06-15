@@ -1,7 +1,7 @@
 <template>
 	<div class="room">
 		<Lottie  v-if="currentEtape !== 0" :key="currentEtape" />
-		<Motion :src="etapes[currentEtape].motion" :etape="etapes[currentEtape]" :key="currentEtape" :timerPause.sync="timerPause" :showNextComposant.sync="showTuto" />
+		<!-- <Motion :src="etapes[currentEtape].motion" :etape="etapes[currentEtape]" :key="currentEtape" :timerPause.sync="timerPause" :showNextComposant.sync="showTuto" /> -->
 
 		<FirstTuto v-if="currentEtape == 0 && showTuto" :showTuto.sync="showTuto" :timerPause.sync="timerPause"/>
 
@@ -27,7 +27,7 @@
 import data from '../assets/data/data.json'
 import router from '../router/index'
 
-import Motion from '@/components/Motion.vue'
+// import Motion from '@/components/Motion.vue'
 import Scene from '@/components/Scene.vue'
 import Choices from '@/components/Choices.vue'
 import Jauge from '@/components/Jauge.vue'
@@ -44,7 +44,7 @@ export default {
 		Jauge,
 		Timer,
 		Oups,
-		Motion,
+		// Motion,
 		FirstTuto,
 		Lottie
 	},
@@ -58,7 +58,8 @@ export default {
 			numChoice: null,
 			showOups: false,
 			showTuto: false,
-			timerPause: false
+			timerPause: false,
+			btnName: null
 		}
 	},
 	methods: {
@@ -71,14 +72,29 @@ export default {
 
 			const myScoreString = localStorage.getItem('myScore') // JSON string
 
+			const selectedChoice = this.btnName
+			let myChoice = selectedChoice.match(/\d/g)
+			myChoice = Number(myChoice.join(''))
+
 			let myScore = JSON.parse(myScoreString) // objet JS
 
 			if (myScore === null) {
 				myScore = []
 			}
-			myScore.push({ choice: this.numChoice, answer: data.answer })
+			myScore.push({ choice: myChoice, answer: data.answer })
 
 			localStorage.setItem('myScore', JSON.stringify(myScore))
+
+			if (this.currentEtape === 0) {
+				localStorage.removeItem('myScore')
+			}
+
+			if (this.currentEtape === 3 && myScore[4].answer === 1) {
+				console.log('CURRENT ETAPE 4')
+				if (myScore[0].choice === 1 && myScore[0].answer === 1) {
+					alert('hello')
+				}
+			}
 
 			console.log(myScore)
 
@@ -105,10 +121,13 @@ export default {
 				console.log('Pas trouvé de data correspondante')
 				return
 			}
-
+			this.btnName = btnName
 			this.numChoice = content[btnName]
-			console.log(this.numChoice)
+			console.log(content)
 		}
+	},
+	mounted () {
+		localStorage.removeItem('myScore')
 	}
 }
 

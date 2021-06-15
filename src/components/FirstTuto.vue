@@ -27,7 +27,6 @@ export default {
 		}
 	},
 	mounted () {
-		console.log('2')
 		this.$emit('update:timerPause', true)
 	}
 

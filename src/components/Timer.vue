@@ -39,7 +39,6 @@ export default {
 				this.elapsedTime += 1000
 				if (this.elapsedTime % 10000 === 0) {
 					const audio = new Audio(this.randomSound())
-					console.log(audio.src)
 					audio.play()
 					this.$emit('onPenality', -2)
 				}
@@ -55,7 +54,6 @@ export default {
 			this.elapsedTime = 0
 		},
 		randomSound () {
-			// console.log(Math.floor(Math.random() * (13 - 1 + 1)) + 1)
 			return `${this.publicPath}assets/audios/leo-10/leo_${Math.floor(Math.random() * (13 - 1 + 1)) + 1}.mp3`
 		}
 	},
@@ -64,7 +62,6 @@ export default {
 	},
 	watch: {
 		timerPause (newValue) {
-			console.trace(newValue)
 			newValue ? this.pause() : this.restart()
 		}
 	},
