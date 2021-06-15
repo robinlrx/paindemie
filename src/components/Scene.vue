@@ -165,8 +165,8 @@ export default {
 		onClick (e) {
 			this.mouse.x = (e.clientX / window.innerWidth) * 2 - 1
 			this.mouse.y = -(e.clientY / window.innerHeight) * 2 + 1
-			console.log('direction xyz point')
-			console.log(this.rayCaster.ray.direction)
+			// console.log('direction xyz point')
+			// console.log(this.rayCaster.ray.direction)
 			this.rayCaster.setFromCamera(this.mouse, this.camera)
 			const intersects = this.rayCaster.intersectObjects(this.scene.children)
 			// console.log(intersects)
@@ -212,7 +212,7 @@ export default {
 				// this.OutlineThickness = 0.03
 				// eslint-disable-next-line no-return-assign
 				this.planes[1].material.uniforms.hover.value = false
-				console.log(this.planes[1].material.uniforms.hover.value)
+				// console.log(this.planes[1].material.uniforms.hover.value)
 			}
 		},
 		update () {

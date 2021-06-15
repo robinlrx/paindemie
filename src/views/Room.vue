@@ -89,10 +89,19 @@ export default {
 				localStorage.removeItem('myScore')
 			}
 
-			if (this.currentEtape === 3 && myScore[4].answer === 1) {
-				console.log('CURRENT ETAPE 4')
-				if (myScore[0].choice === 1 && myScore[0].answer === 1) {
-					alert('hello')
+			// if (this.currentEtape === 3 && myScore[4].answer === 1) {
+			// console.log('CURRENT ETAPE 4')
+			// if (myScore[0].choice === 1 && myScore[0].answer === 1) {
+			// alert('hello')
+			// }
+			// }
+
+			// laisser curentEtape à 4 pour avoir la bonne video au début de l'étape 5
+			if (this.currentEtape === 4) {
+				console.log('S`active à CURRENT ETAPE 5')
+				// myScore[3].choice === 1 && myScore[3].answer === 1 n'est pas le médicament mais le choix d'avant, l'objet myScore à un choix de retard
+				if (myScore[0].choice === 1 && myScore[0].answer === 1 && myScore[3].choice === 1 && myScore[3].answer === 1) {
+					console.log('hello')
 				}
 			}
 
