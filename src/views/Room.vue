@@ -19,7 +19,7 @@
 		<Choices v-if="showChoices" :numChoice="numChoice" :etape="etapes[currentEtape]" :currentEtape="currentEtape" @onClick="handleUpdateEtape" :timerPause.sync="timerPause" />
 		</transition>
 
-		<Oups :showOups.sync="showOups" :score="score" :etape="etapes[currentEtape]" :key="currentEtape" :timerPause.sync="timerPause"/>
+		<Oups :showOups.sync="showOups" :score="score" :etape="etapes[currentEtape]" :key="currentEtape" :timerPause.sync="timerPause" />
 	</div>
 </template>
 
@@ -70,6 +70,7 @@ export default {
 		handleUpdateEtape (data) {
 			this.handleShowChoices() // unShow choices
 
+			// SCORE
 			const myScoreString = localStorage.getItem('myScore') // JSON string
 
 			const selectedChoice = this.btnName
@@ -85,23 +86,28 @@ export default {
 
 			localStorage.setItem('myScore', JSON.stringify(myScore))
 
-			if (this.currentEtape === 0) {
-				localStorage.removeItem('myScore')
-			}
-
-			// if (this.currentEtape === 3 && myScore[4].answer === 1) {
-			// console.log('CURRENT ETAPE 4')
-			// if (myScore[0].choice === 1 && myScore[0].answer === 1) {
-			// alert('hello')
-			// }
+			// if (this.currentEtape === 0) {
+			//  console.log('S`active à CURRENT ETAPE 1')
+			// localStorage.removeItem('myScore')
 			// }
 
 			// laisser curentEtape à 4 pour avoir la bonne video au début de l'étape 5
+			// au clic sur le choix 1 du médoc si on a cliqué sur le choix 1 de la bière
 			if (this.currentEtape === 4) {
 				console.log('S`active à CURRENT ETAPE 5')
-				// myScore[3].choice === 1 && myScore[3].answer === 1 n'est pas le médicament mais le choix d'avant, l'objet myScore à un choix de retard
-				if (myScore[0].choice === 1 && myScore[0].answer === 1 && myScore[3].choice === 1 && myScore[3].answer === 1) {
+				if (myScore[0].choice === 1 && myScore[0].answer === 1 && myScore[4].choice === 1 && myScore[4].answer === 1) {
 					console.log('hello')
+					this.score += 5
+					console.log(this.score)
+				}
+			}
+
+			// au clic sur le choix 1 du médoc si on a cliqué sur le choix 1 de la bière
+			if (this.currentEtape === 4) {
+				console.log('S`active à CURRENT ETAPE 5')
+				if (myScore[0].choice === 1 && myScore[0].answer === 1 && myScore[4].choice === 1 && myScore[4].answer === 1) {
+					this.score += 5
+					console.log(this.score)
 				}
 			}
 
