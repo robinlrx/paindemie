@@ -306,11 +306,13 @@
 					"xRight2": 40,
 					"yRight2": 20
 				},
-				"btnUn": {
-					"url":"assets/img/gifs-choix/choix_un_medicaments.gif"
+				"btn1": {
+					"url":"assets/img/gifs-choix/choix_un_medicaments.gif",
+					"motionChoice": "assets/videos/motion.mp4"
 				},
-				"btnDeux": {
-					"url":"assets/img/gifs-choix/choix_deux_medicaments.gif"
+				"btn2": {
+					"url":"assets/img/gifs-choix/choix_deux_medicaments.gif",
+					"motionChoice": "assets/videos/motion.mp4"
 				}
 			},
 			"choice2": {
@@ -332,11 +334,13 @@
 					"rotationRight2": -20,
 					"yRight2": -50
 				},
-				"btnUn": {
-					"url":"assets/img/gifs-choix/choix_un_gel.gif"
+				"btn1": {
+					"url":"assets/img/gifs-choix/choix_un_gel.gif",
+					"motionChoice": "assets/videos/test.mp4"
 				},
-				"btnDeux": {
-					"url":"assets/img/gifs-choix/choix_deux_gel.gif"
+				"btn2": {
+					"url":"assets/img/gifs-choix/choix_deux_gel.gif",
+					"motionChoice": "assets/videos/test.mp4"
 				}
 			},
 			"choice3": "Ah carrément.. Ça veut empoisonner son petit-fils maintenant!?"
@@ -379,11 +383,13 @@
 					"rotationRight": 25,
 					"yRight": 10
 				},
-				"btnUn": {
-					"url":"assets/img/gifs-choix/choix_un_tirelire.gif"
+				"btn1": {
+					"url":"assets/img/gifs-choix/choix_un_tirelire.gif",
+					"motionChoice": "assets/videos/motion.mp4"
 				},
-				"btnDeux": {
-					"url":"assets/img/gifs-choix/choix_deux_tirelire.gif"
+				"btn2": {
+					"url":"assets/img/gifs-choix/choix_deux_tirelire.gif",
+					"motionChoice": "assets/videos/motion.mp4"
 				}
 			},
 			"choice2": {
@@ -402,11 +408,13 @@
 					"xRight": -30,
 					"yRight": 0
 				},
-				"btnUn": {
-					"url":"assets/img/gifs-choix/choix_un_loupe.gif"
+				"btn1": {
+					"url":"assets/img/gifs-choix/choix_un_loupe.gif",
+					"motionChoice": "assets/videos/motion.mp4"
 				},
-				"btnDeux": {
-					"url":"assets/img/gifs-choix/choix_deux_loupe.gif"
+				"btn2": {
+					"url":"assets/img/gifs-choix/choix_deux_loupe.gif",
+					"motionChoice": "assets/videos/motion.mp4"
 				}
 			}
 		},
@@ -456,11 +464,13 @@
 					"xRight2": "10%",
 					"yRight2": "-30%"
 				},
-				"btnUn": {
-					"url":"assets/img/gifs-choix/choix_un_cocotte.gif"
+				"btn1": {
+					"url":"assets/img/gifs-choix/choix_un_cocotte.gif",
+					"motionChoice": "assets/videos/motion.mp4"
 				},
-				"btnDeux": {
-					"url":"assets/img/gifs-choix/choix_deux_cocotte.gif"
+				"btn2": {
+					"url":"assets/img/gifs-choix/choix_deux_cocotte.gif",
+					"motionChoice": "assets/videos/motion.mp4"
 				}
 			},
 			"choice3": "Ouh là tu t’enflammes toi! Reste flex"
@@ -503,11 +513,13 @@
 					"rotationRight": 0,
 					"yRight": 25
 				},
-				"btnUn": {
-					"url":"assets/img/gifs-choix/choix_un_porte.gif"
+				"btn1": {
+					"url":"assets/img/gifs-choix/choix_un_porte.gif",
+					"motionChoice": "assets/videos/motion.mp4"
 				},
-				"btnDeux": {
-					"url":"assets/img/gifs-choix/choix_deux_porte.gif"
+				"btn2": {
+					"url":"assets/img/gifs-choix/choix_deux_porte.gif",
+					"motionChoice": "assets/videos/motion.mp4"
 				}
 			},
 			"choice2": {
@@ -525,11 +537,13 @@
 					"rotationRight": 2,
 					"yRight": 24
 				},
-				"btnUn": {
-					"url":"assets/img/gifs-choix/choix_un_carton.gif"
+				"btn1": {
+					"url":"assets/img/gifs-choix/choix_un_carton.gif",
+					"motionChoice": "assets/videos/test.mp4"
 				},
-				"btnDeux": {
-					"url":"assets/img/gifs-choix/choix_deux_carton.gif"
+				"btn2": {
+					"url":"assets/img/gifs-choix/choix_deux_carton.gif",
+					"motionChoice": "assets/videos/test.mp4"
 				}
 			}
 		},
@@ -573,11 +587,13 @@
 					"yRight": 35,
 					"xRight": 55
 				},
-				"btnUn": {
-					"url":"assets/img/gifs-choix/choix_un_coton_tige.gif"
+				"btn1": {
+					"url":"assets/img/gifs-choix/choix_un_coton_tige.gif",
+					"motionChoice": "assets/videos/motion.mp4"
 				},
-				"btnDeux": {
-					"url":"assets/img/gifs-choix/choix_deux_coton_tige.gif"
+				"btn2": {
+					"url":"assets/img/gifs-choix/choix_deux_coton_tige.gif",
+					"motionChoice": "assets/videos/motion.mp4"
 				}
 			},
 			"choice3": "C’est du propre cette éducation! Bravo!"
