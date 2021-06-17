@@ -1,8 +1,10 @@
 <template>
 	<div class="room">
-		<Motion v-if="currentEtape !== 0" :src="this.videoSrc()" :etape="etapes[currentEtape]" :key="currentEtape" :timerPause.sync="timerPause" />
 		<Lottie  v-if="currentEtape !== 0" :key="currentEtape" />
-		<!-- <Motion :src="etapes[currentEtape].motion" :etape="etapes[currentEtape]" :key="currentEtape" :timerPause.sync="timerPause" :showNextComposant.sync="showTuto" /> -->
+
+		<Motion v-if="currentEtape !== 0" :src="videoSrc()" :etape="etapes[currentEtape]" :key="currentEtape" :timerPause.sync="timerPause" />
+
+		<Motion :src="etapes[currentEtape].motion" :etape="etapes[currentEtape]" :key="currentEtape" :timerPause.sync="timerPause" :showNextComposant.sync="showTuto" />
 
 		<FirstTuto v-if="currentEtape == 0 && showTuto" :showTuto.sync="showTuto" :timerPause.sync="timerPause"/>
 
@@ -88,11 +90,6 @@ export default {
 
 			localStorage.setItem('myScore', JSON.stringify(this.myScore))
 
-			// if (this.currentEtape === 0) {
-			//  console.log('S`active à CURRENT ETAPE 1')
-			// localStorage.removeItem('myScore')
-			// }
-
 			// laisser curentEtape à 4 pour avoir la bonne video au début de l'étape 5
 
 			if (this.currentEtape === 4) {
@@ -169,8 +166,11 @@ export default {
 			console.log(content)
 		},
 		videoSrc () {
-			console.log(this.myScore[this.currentEtape].answer)
-			return this.numChoice.btn1.motionChoice
+			if (this.myScore[this.currentEtape - 1].answer === 1) {
+				return this.numChoice.btn1.motionChoice
+			} else {
+				return this.numChoice.btn2.motionChoice
+			}
 		}
 	},
 	mounted () {

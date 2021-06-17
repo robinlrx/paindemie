@@ -44,7 +44,7 @@
 				},
 				"btn2": {
 					"url":"assets/img/gifs-choix/choix_deux_biere.gif",
-					"motionChoice": "assets/videos/motion.mp4"
+					"motionChoice": "assets/videos/test.mp4"
 				}
 			},
 			"choice3": "Un peu limite là non?!"
@@ -91,7 +91,7 @@
 				},
 				"btn1": {
 					"url":"assets/img/gifs-choix/choix_un_coude.gif",
-					"motionChoice": "assets/videos/test.mp4"
+					"motionChoice": "assets/videos/motion.mp4"
 				},
 				"btn2": {
 					"url":"assets/img/gifs-choix/choix_deux_coude.gif",
@@ -174,11 +174,13 @@
 					"xRight": -5,
 					"yRight": 0
 				},
-				"btnUn": {
-					"url":"assets/img/gifs-choix/choix_un_brosse_dent.gif"
+				"btn1": {
+					"url":"assets/img/gifs-choix/choix_un_brosse_dent.gif",
+					"motionChoice": "assets/videos/motion.mp4"
 				},
-				"btnDeux": {
-					"url":"assets/img/gifs-choix/choix_deux_brosse_dent.gif"
+				"btn2": {
+					"url":"assets/img/gifs-choix/choix_deux_brosse_dent.gif",
+					"motionChoice": "assets/videos/motion.mp4"
 				}
 			},
 			"choice2": {
@@ -191,11 +193,13 @@
 					"zIndex": 1,
 					"width": 90
 				},
-				"btnUn": {
-					"url":"assets/img/gifs-choix/choix_un_hamac.gif"
+				"btn1": {
+					"url":"assets/img/gifs-choix/choix_un_hamac.gif",
+					"motionChoice": "assets/videos/test.mp4"
 				},
-				"btnDeux": {
-					"url":"assets/img/gifs-choix/choix_deux_hamac.gif"
+				"btn2": {
+					"url":"assets/img/gifs-choix/choix_deux_hamac.gif",
+					"motionChoice": "assets/videos/test.mp4"
 				}
 			},
 			"choice3": "T’as vraiment cru que ça allait passer ça!? 🤣"
@@ -240,11 +244,13 @@
 					"xRight": -175,
 					"yRight": 30
 				},
-				"btnUn": {
-					"url":"assets/img/gifs-choix/choix_un_tv.gif"
+				"btn1": {
+					"url":"assets/img/gifs-choix/choix_un_tv.gif",
+					"motionChoice": "assets/videos/motion.mp4"
 				},
-				"btnDeux": {
-					"url":"assets/img/gifs-choix/choix_deux_tv.gif"
+				"btn2": {
+					"url":"assets/img/gifs-choix/choix_deux_tv.gif",
+					"motionChoice": "assets/videos/motion.mp4"
 				}
 			},
 			"choice3": "Bah t’es con ou quoi!?"
