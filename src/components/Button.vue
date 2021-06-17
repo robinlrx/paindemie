@@ -87,11 +87,11 @@ export default {
 		width: auto;
 
 		path {
-			transform: scale(.2, 1);
+			transform: scale(.4, 1);
 		}
 
 		text {
-			transform: translateX(-240px);
+			transform: translateX(-180px);
 		}
 	}
 }
