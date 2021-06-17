@@ -1,5 +1,6 @@
 <template>
 	<div class="room">
+		<Motion v-if="currentEtape !== 0" :src="this.videoSrc()" :etape="etapes[currentEtape]" :key="currentEtape" :timerPause.sync="timerPause" />
 		<Lottie  v-if="currentEtape !== 0" :key="currentEtape" />
 		<!-- <Motion :src="etapes[currentEtape].motion" :etape="etapes[currentEtape]" :key="currentEtape" :timerPause.sync="timerPause" :showNextComposant.sync="showTuto" /> -->
 
@@ -27,7 +28,7 @@
 import data from '../assets/data/data.json'
 import router from '../router/index'
 
-// import Motion from '@/components/Motion.vue'
+import Motion from '@/components/Motion.vue'
 import Scene from '@/components/Scene.vue'
 import Choices from '@/components/Choices.vue'
 import Jauge from '@/components/Jauge.vue'
@@ -44,7 +45,7 @@ export default {
 		Jauge,
 		Timer,
 		Oups,
-		// Motion,
+		Motion,
 		FirstTuto,
 		Lottie
 	},
@@ -59,7 +60,8 @@ export default {
 			showOups: false,
 			showTuto: false,
 			timerPause: false,
-			btnName: null
+			btnName: null,
+			myScore: null
 		}
 	},
 	methods: {
@@ -77,14 +79,14 @@ export default {
 			let myChoice = selectedChoice.match(/\d/g)
 			myChoice = Number(myChoice.join(''))
 
-			let myScore = JSON.parse(myScoreString) // objet JS
+			this.myScore = JSON.parse(myScoreString) // objet JS
 
-			if (myScore === null) {
-				myScore = []
+			if (this.myScore === null) {
+				this.myScore = []
 			}
-			myScore.push({ choice: myChoice, answer: data.answer })
+			this.myScore.push({ choice: myChoice, answer: data.answer })
 
-			localStorage.setItem('myScore', JSON.stringify(myScore))
+			localStorage.setItem('myScore', JSON.stringify(this.myScore))
 
 			// if (this.currentEtape === 0) {
 			//  console.log('S`active à CURRENT ETAPE 1')
@@ -95,11 +97,11 @@ export default {
 
 			if (this.currentEtape === 4) {
 				console.log('S`active à CURRENT ETAPE 5')
-				if (myScore[0].choice === 1 && myScore[0].answer === 1 && myScore[4].choice === 1 && myScore[4].answer === 1) { // au clic sur le choix 1 du médoc si on a cliqué sur le choix 1 de la bière
+				if (this.myScore[0].choice === 1 && this.myScore[0].answer === 1 && this.myScore[4].choice === 1 && this.myScore[4].answer === 1) { // au clic sur le choix 1 du médoc si on a cliqué sur le choix 1 de la bière
 					console.log('medoc')
 					this.score += 5
 					console.log(this.score)
-				} else if (myScore[1].choice === 1 && myScore[1].answer === 1 && myScore[4].choice === 2 && myScore[4].answer === 2) { // au clic sur le choix 2 du gel si on a cliqué sur le choix 1 du coude
+				} else if (this.myScore[1].choice === 1 && this.myScore[1].answer === 1 && this.myScore[4].choice === 2 && this.myScore[4].answer === 2) { // au clic sur le choix 2 du gel si on a cliqué sur le choix 1 du coude
 					console.log('gel')
 					this.score -= 5
 					console.log(this.score)
@@ -108,7 +110,7 @@ export default {
 
 			if (this.currentEtape === 5) {
 				console.log('S`active à CURRENT ETAPE 6')
-				if (myScore[0].choice === 1 && myScore[0].answer === 2 && myScore[5].choice === 1 && myScore[5].answer === 2) { // au clic sur le choix 2 de la tirelire si on a cliqué sur le choix 2 de la bière
+				if (this.myScore[0].choice === 1 && this.myScore[0].answer === 2 && this.myScore[5].choice === 1 && this.myScore[5].answer === 2) { // au clic sur le choix 2 de la tirelire si on a cliqué sur le choix 2 de la bière
 					console.log('tirelire')
 					this.score -= 5
 					console.log(this.score)
@@ -117,7 +119,7 @@ export default {
 
 			if (this.currentEtape === 7) {
 				console.log('S`active à CURRENT ETAPE 8')
-				if (myScore[6].choice === 1 && myScore[7].choice === 1 && myScore[7].answer === 2) { // au clic sur le choix 2 de la porte si on a cliqué sur la cocotte
+				if (this.myScore[6].choice === 1 && this.myScore[7].choice === 1 && this.myScore[7].answer === 2) { // au clic sur le choix 2 de la porte si on a cliqué sur la cocotte
 					console.log('tirelire')
 					this.score += 5
 					console.log(this.score)
@@ -126,18 +128,18 @@ export default {
 
 			if (this.currentEtape === 8) {
 				console.log('S`active avant le journal ?')
-				if (myScore[1].choice === 2 && myScore[8].choice === 1 && myScore[8].answer === 1) { // au clic sur le choix 1 du coton tige si on a cliqué sur le cafard
+				if (this.myScore[1].choice === 2 && this.myScore[8].choice === 1 && this.myScore[8].answer === 1) { // au clic sur le choix 1 du coton tige si on a cliqué sur le cafard
 					console.log('coton tige')
 					this.score += 5
 					console.log(this.score)
-				} else if ((myScore[6].choice === 1 || (myScore[7].choice === 1 && myScore[7].choice === 2)) && myScore[8].choice === 1 && myScore[8].answer === 2) {
+				} else if ((this.myScore[6].choice === 1 || (this.myScore[7].choice === 1 && this.myScore[7].choice === 2)) && this.myScore[8].choice === 1 && this.myScore[8].answer === 2) { // au clic sur le choix 2 du coton tige si on a cliqué sur cocotte ou porte choix 2
 					console.log('cocotte ou porte : coton tige')
 					this.score -= 5
 					console.log(this.score)
 				}
 			}
 
-			console.log(myScore)
+			console.log(this.myScore)
 
 			if (this.currentEtape === 8) {
 				alert('fin')
@@ -165,6 +167,10 @@ export default {
 			this.btnName = btnName
 			this.numChoice = content[btnName]
 			console.log(content)
+		},
+		videoSrc () {
+			console.log(this.myScore[this.currentEtape].answer)
+			return this.numChoice.btn1.motionChoice
 		}
 	},
 	mounted () {

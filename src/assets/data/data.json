@@ -38,11 +38,13 @@
 					"yRight": 50,
 					"yLeft": 1
 				},
-				"btnUn": {
-					"url":"assets/img/gifs-choix/choix_un_biere.gif"
+				"btn1": {
+					"url":"assets/img/gifs-choix/choix_un_biere.gif",
+					"motionChoice": "assets/videos/test.mp4"
 				},
-				"btnDeux": {
-					"url":"assets/img/gifs-choix/choix_deux_biere.gif"
+				"btn2": {
+					"url":"assets/img/gifs-choix/choix_deux_biere.gif",
+					"motionChoice": "assets/videos/motion.mp4"
 				}
 			},
 			"choice3": "Un peu limite là non?!"
@@ -87,11 +89,13 @@
 					"xRight": 50,
 					"yRight": -10
 				},
-				"btnUn": {
-					"url":"assets/img/gifs-choix/choix_un_coude.gif"
+				"btn1": {
+					"url":"assets/img/gifs-choix/choix_un_coude.gif",
+					"motionChoice": "assets/videos/test.mp4"
 				},
-				"btnDeux": {
-					"url":"assets/img/gifs-choix/choix_deux_coude.gif"
+				"btn2": {
+					"url":"assets/img/gifs-choix/choix_deux_coude.gif",
+					"motionChoice": "assets/videos/motion.mp4"
 				}
 			},
 			"choice2": {
@@ -110,11 +114,13 @@
 					"xRight": "20%",
 					"yRight": "-10%"
 				},
-				"btnUn": {
-					"url":"assets/img/gifs-choix/choix_un_cafard.gif"
+				"btn1": {
+					"url":"assets/img/gifs-choix/choix_un_cafard.gif",
+					"motionChoice": "assets/videos/motion.mp4"
 				},
-				"btnDeux": {
-					"url":"assets/img/gifs-choix/choix_deux_cafard.gif"
+				"btn2": {
+					"url":"assets/img/gifs-choix/choix_deux_cafard.gif",
+					"motionChoice": "assets/videos/motion.mp4"
 				}
 			}
 		},

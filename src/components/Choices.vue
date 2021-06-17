@@ -17,11 +17,11 @@
 		<img class="cloud" :class="{ cloudLeft: cloudLeft, cloudRight: cloudRight }" src="assets/img/nuage.gif" alt="">
 
 		<transition name="fade">
-		<img class="choixUn" v-if="choiceOne" :src="this.numChoice.btnUn.url" alt="">
+		<img class="choixUn" v-if="choiceOne" :src="this.numChoice.btn1.url" alt="">
 		</transition>
 
 		<transition name="fade">
-		<img class="choixDeux" v-if="choiceTwo"  :src="this.numChoice.btnDeux.url" alt="">
+		<img class="choixDeux" v-if="choiceTwo"  :src="this.numChoice.btn2.url" alt="">
 		</transition>
 	</div>
 </template>
