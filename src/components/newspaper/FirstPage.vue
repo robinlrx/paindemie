@@ -31,18 +31,18 @@ export default {
 	},
 	methods: {
 		checkWord () {
-			this.$emit('update:showFirstPage', false)
-			// for (let i = 0; i <= this.badWords.length; i++) {
-			// if (this.input[i].value.toLowerCase() === this.badWords[i]) {
-			// // console.log('bad word')
-			// this.input[i].style.color = '#FF4465'
-			// } else {
-			// // console.log('good word')
-			// this.input[i].style.color = '#2A6864'
-			// this.score += 1
-			// }
-			// // console.log(this.score)
-			// }
+			// this.$emit('update:showFirstPage', false)
+			for (let i = 0; i <= this.badWords.length; i++) {
+				if (this.input[i].value.toLowerCase() === this.badWords[i]) {
+					// console.log('bad word')
+					this.input[i].style.color = '#FF4465'
+				} else {
+					// console.log('good word')
+					this.input[i].style.color = '#2A6864'
+					this.score += 1
+				}
+			// console.log(this.score)
+			}
 		},
 		myFunction () {
 			this.input.style.background = 'yellow'
