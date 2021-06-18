@@ -21,7 +21,7 @@ export default {
 		// }
 	},
 	mounted () {
-		setTimeout(function () { this.$emit('update:showSecondPage', false) }, 3000)
+		// setTimeout(function () { this.$emit('update:showSecondPage', false) }, 3000)
 	}
 
 }

@@ -21,7 +21,7 @@ export default {
 	data () {
 		return {
 			showFirstPage: true,
-			showSecondPage: true
+			showSecondPage: false
 		}
 	},
 	components: {

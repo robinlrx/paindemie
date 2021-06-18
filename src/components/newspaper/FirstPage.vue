@@ -5,8 +5,8 @@
 			<p>Ma chère <AppInput :placeholder="'femme'" /> <br />Cela fait maintenant 2 mois que tu es <AppInput :placeholder="'partie'" /> Ce maudit <AppInput :placeholder="'virus'" /> <br />a causé tellement de <AppInput :placeholder="'morts'" /></p>
 			<p>Je pris pour que tu <AppInput :placeholder="'reviennes'" /> Ne t'inquiètes pas, je m'occupe de <AppInput :size="'15'" :placeholder="'notre enfant'" /> comme je te <br />l'avais promis avant que tu <AppInput :size="'15'" :placeholder="'nous quittes'" /></p>
 		</div>
-		<p class="score">{{ this.score }}</p>
-		<Button :link="''" :size=3 :type=1 class="button" ref="button" @click.native="checkWord()">Valider</Button>
+		<!-- <p class="score">{{ this.score }}</p> -->
+		<Button :link="''" :size=3 :type=1 class="button" ref="button" @click.native="checkInput()">Valider</Button>
 	</section>
 </template>
 
@@ -30,8 +30,18 @@ export default {
 		AppInput
 	},
 	methods: {
+		checkInput () {
+			if (this.input.value !== '') {
+				this.checkWord()
+			} else {
+				this.input.forEach(element => {
+					if (element.value === '' || element.value === ' ') {
+						console.log('remplit tout batard')
+					}
+				})
+			}
+		},
 		checkWord () {
-			// this.$emit('update:showFirstPage', false)
 			for (let i = 0; i <= this.badWords.length; i++) {
 				if (this.input[i].value.toLowerCase() === this.badWords[i]) {
 					// console.log('bad word')
@@ -41,8 +51,10 @@ export default {
 					this.input[i].style.color = '#2A6864'
 					this.score += 1
 				}
-			// console.log(this.score)
+				console.log(this.score)
 			}
+
+			// this.$emit('update:showFirstPage', false)
 		},
 		myFunction () {
 			this.input.style.background = 'yellow'

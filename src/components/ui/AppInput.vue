@@ -40,9 +40,10 @@ input {
 	&:focus{
 		outline: none;
 		// color: #FF4465;
+
+		&::placeholder {
+			color: $orange;
+		}
 	}
-	// &::placeholder {
-	// color: $violet;
-	// }
 }
 </style>
