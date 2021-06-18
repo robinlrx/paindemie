@@ -4,7 +4,7 @@
 			<Loader v-show="showLoader"/>
 
 			<div class="container">
-				<video ref="intro" width="250" muted>
+				<video ref="intro" width="250">
 					<source src="assets/videos/motion.mp4" type="video/mp4">
 				</video>
 				<transition name="slide-fade">
@@ -16,7 +16,7 @@
 							</div>
 							<h2>Hop hop hop, pas si vite !</h2>
 							<p>si tu veux kiffer le jeu, mets des écouteurs<br/>et active le son fréro !</p>
-							<Button :link="''" :size=4 :type=1 class="button" ref="button" @click.native="playVid()">J'ai capté</Button>
+							<Button :link="''" :size=2 :type=1 class="button" ref="button" @click.native="playVid()">J'ai capté</Button>
 						</div>
 					</div>
 				</transition>
@@ -116,16 +116,6 @@ export default {
 		playVid () {
 			const intro = this.$refs.intro
 			intro.play()
-			const audiofun = new Audio('https://www.myinstants.com/media/sounds/nous_sommes_vendredi.mp3')
-			audiofun.currentTime = 2
-			audiofun.play()
-			audiofun.onended = () => {
-				const audiofun2 = new Audio('https://www.myinstants.com/media/sounds/sarkozy-_-quelle-indignite.mp3')
-				audiofun2.play()
-				audiofun2.onended = () => {
-					new Audio('https://www.myinstants.com/media/sounds/honteux_ACACNOH.mp3').play()
-				}
-			}
 			this.showPlay = false
 			intro.onended = () => {
 				router.push('home')
