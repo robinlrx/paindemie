@@ -4,7 +4,7 @@
 
 		<Motion v-if="currentEtape !== 0" :src="videoSrc()" :etape="etapes[currentEtape]" :key="currentEtape" :timerPause.sync="timerPause" />
 
-		<Motion :src="etapes[currentEtape].motion" :etape="etapes[currentEtape]" :key="currentEtape" :timerPause.sync="timerPause" :showNextComposant.sync="showTuto" />
+		<!-- <Motion :src="etapes[currentEtape].motion" :etape="etapes[currentEtape]" :key="currentEtape" :timerPause.sync="timerPause" :showNextComposant.sync="showTuto" /> -->
 
 		<FirstTuto v-if="currentEtape == 0 && showTuto" :showTuto.sync="showTuto" :timerPause.sync="timerPause"/>
 
@@ -96,10 +96,13 @@ export default {
 				console.log('S`active à CURRENT ETAPE 4')
 				if (this.myScore[0].choice === 1 && this.myScore[0].answer === 1 && this.myScore[3].choice === 1 && this.myScore[3].answer === 1) { // au clic sur le choix 1 du médoc si on a cliqué sur le choix 1 de la bière
 					console.log('medoc')
+					this.numChoice.btn1.motionChoice = 'assets/videos/test.mp4'
+					console.log(this.numChoice.btn1.motionChoice)
 					this.score += 5
 					console.log(this.score)
 				} else if (this.myScore[1].choice === 1 && this.myScore[1].answer === 1 && this.myScore[3].choice === 2 && this.myScore[3].answer === 2) { // au clic sur le choix 2 du gel si on a cliqué sur le choix 1 du coude
 					console.log('gel')
+					this.numChoice.btn2.motionChoice = 'assets/videos/test.mp4'
 					this.score -= 5
 					console.log(this.score)
 				}
@@ -109,6 +112,7 @@ export default {
 				console.log('S`active à CURRENT ETAPE 5')
 				if (this.myScore[0].choice === 1 && this.myScore[0].answer === 2 && this.myScore[4].choice === 1 && this.myScore[4].answer === 2) { // au clic sur le choix 2 de la tirelire si on a cliqué sur le choix 2 de la bière
 					console.log('tirelire')
+					this.numChoice.btn2.motionChoice = 'assets/videos/test.mp4'
 					this.score -= 5
 					console.log(this.score)
 				}
@@ -118,6 +122,7 @@ export default {
 				console.log('S`active à CURRENT ETAPE 7')
 				if (this.myScore[5].choice === 1 && this.myScore[6].choice === 1 && this.myScore[6].answer === 2) { // au clic sur le choix 2 de la porte si on a cliqué sur la cocotte
 					console.log('tirelire')
+					this.numChoice.btn2.motionChoice = 'assets/videos/test.mp4'
 					this.score += 5
 					console.log(this.score)
 				}
@@ -127,10 +132,12 @@ export default {
 				console.log('S`active avant le journal ?')
 				if (this.myScore[1].choice === 2 && this.myScore[7].choice === 1 && this.myScore[7].answer === 1) { // au clic sur le choix 1 du coton tige si on a cliqué sur le cafard
 					console.log('coton tige')
+					this.numChoice.btn1.motionChoice = 'assets/videos/test.mp4'
 					this.score += 5
 					console.log(this.score)
 				} else if ((this.myScore[5].choice === 1 || (this.myScore[6].choice === 1 && this.myScore[6].choice === 2)) && this.myScore[7].choice === 1 && this.myScore[7].answer === 2) { // au clic sur le choix 2 du coton tige si on a cliqué sur cocotte ou porte choix 2
 					console.log('cocotte ou porte : coton tige')
+					this.numChoice.btn2.motionChoice = 'assets/videos/test.mp4'
 					this.score -= 5
 					console.log(this.score)
 				}
@@ -175,6 +182,10 @@ export default {
 	},
 	mounted () {
 		localStorage.removeItem('myScore')
+	},
+	destroyed () {
+		document.location.reload()
+		console.log('destroyed')
 	}
 }
 
