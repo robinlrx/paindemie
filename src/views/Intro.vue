@@ -10,9 +10,13 @@
 				<transition name="slide-fade">
 					<div class="play-container" ref="playContainer" v-if="showPlay">
 						<div class="content">
-							<Button :link="''" :size=4 :type=1 class="button" ref="button" @click.native="playVid()">&#9658;</Button>
-							<h2>LANCE LA VIDEO !</h2>
-							<p>(C'est un ordre !)</p>
+							<div class="icons">
+								<img src="assets/img/son.png" alt="">
+								<img src="assets/img/casque.png" alt="">
+							</div>
+							<h2>Hop hop hop, pas si vite !</h2>
+							<p>si tu veux kiffer le jeu, mets des écouteurs<br/>et active le son fréro !</p>
+							<Button :link="''" :size=2 :type=1 class="button" ref="button" @click.native="playVid()">J'ai capté</Button>
 						</div>
 					</div>
 				</transition>
@@ -157,53 +161,32 @@ video {
 }
 
 .play-container {
-	width: 350px;
-	height: 300px;
-	background-color: #FBF3E8;
+	width: 100%;
+	height: 100vh;
+	background-color: rgba(251, 243, 232, 0.7);
 	position: absolute;
-	bottom: -105px;
-	left: -10px;
-	transform: rotate(-30deg);
-
-	&::before {
-		content: "";
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		top: 26px;
-		left: 20px;
-		right: 0;
-		bottom: 0;
-		background: transparent;
-		box-shadow: 8px 5px 0px $red;
-		transform: rotate(-90deg);
-	}
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 
 	.content {
-		position: absolute;
-		bottom: 100px;
-		left: 60px;
-		transform: rotate(30deg);
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
 		font-family: $chantal-font;
 		color: $red;
 
-		.button {
-			position: relative;
-			left: 30%;
-		}
-
-		h2 {
-			margin-bottom: 0;
-			margin-top: 5px;
+		h2, p {
+			font-size: 1.5rem;
+			letter-spacing: 5px;
 		}
 
 		p{
-			margin-top: 0;
+			margin-bottom: 80px;
 		}
+	}
+
+	.icons img {
+		width: 80px;
+		margin: 10px;
 	}
 }
 
@@ -214,7 +197,7 @@ video {
 	transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
 }
 .slide-fade-enter, .slide-fade-leave-to{
-	transform: rotate(-30deg) translateY(10px);
+	transform: translateY(10px);
 	opacity: 0;
 }
 </style>
