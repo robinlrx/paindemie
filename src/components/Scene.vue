@@ -202,17 +202,14 @@ export default {
 			// Alors intersects à une length
 			intersects.forEach(plane => {
 				this.html.style.cursor = 'pointer'
-				// this.OutlineThickness = 0.5
-				// plane.object.material.uniforms.thickness.value = 0.05
 				plane.object.material.uniforms.hover.value = true
 			})
 
 			if (intersects.length === 0) {
 				this.html.style.cursor = 'default'
-				// this.OutlineThickness = 0.03
-				// eslint-disable-next-line no-return-assign
-				this.planes[1].material.uniforms.hover.value = false
-				// console.log(this.planes[1].material.uniforms.hover.value)
+				this.planes.forEach((plane) => {
+					plane.material.uniforms.hover.value = false
+				})
 			}
 		},
 		update () {

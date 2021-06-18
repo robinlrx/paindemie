@@ -57,9 +57,9 @@ void main() {
 		finalCol = tex;   //if the centered texture's alpha is greater than 0, set finalcol to tex
 		//Eclaircir les pixels si on survole
 		if(hover){
-		//finalCol.xyz = adjustContrast(finalCol.xyz, 0.5);
-		finalCol.xyz = adjustBrightness(finalCol.xyz, 0.4);
-		//finalCol.xyz = adjustExposure(finalCol.xyz, 0.5);
+			//finalCol.xyz = adjustContrast(finalCol.xyz, 0.5);
+			finalCol.xyz = adjustBrightness(finalCol.xyz, 0.4);
+			//finalCol.xyz = adjustExposure(finalCol.xyz, 0.5);
 		}
 	}
 
