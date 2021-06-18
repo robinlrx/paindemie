@@ -72,13 +72,11 @@ export default {
 				'assets/img/room/room5.jpg',
 				'assets/img/room/room6.jpg',
 				'assets/img/room/room7.jpg',
-				'assets/img/room/room8.jpg',
 				// objets
 				'assets/img/objets/biere.png',
 				'assets/img/objets/brosse-a-dents.png',
 				'assets/img/objets/cafard.png',
 				'assets/img/objets/carton.png',
-				'assets/img/objets/cocotte.png',
 				'assets/img/objets/cocotte-vitre.png',
 				'assets/img/objets/coton-tige.png',
 				'assets/img/objets/coude.png',
@@ -91,16 +89,30 @@ export default {
 				'assets/img/objets/loupe.png',
 				'assets/img/objets/masque-avion.png',
 				'assets/img/objets/medicaments.png',
-				'assets/img/objets/miel.png',
 				'assets/img/objets/miel-vitre.png',
 				'assets/img/objets/porte.png',
 				'assets/img/objets/superman.png',
-				'assets/img/objets/tele.png',
-				'assets/img/objets/thermometre.png',
-				'assets/img/objets/tirelire.png'
+				'assets/img/objets/tirelire.png',
+				// objets choix
+				'assets/img/objets-choix/choix-biere.png',
+				'assets/img/objets-choix/choix-brosse-a-dents.png',
+				'assets/img/objets-choix/choix-cafard.png',
+				'assets/img/objets-choix/choix-carton.png',
+				'assets/img/objets-choix/choix-cocotte_bas.png',
+				'assets/img/objets-choix/choix-cocotte_couvercle.png',
+				'assets/img/objets-choix/choix-coton-tige.png',
+				'assets/img/objets-choix/choix-coude.png',
+				'assets/img/objets-choix/choix-gel_couvercle.png',
+				'assets/img/objets-choix/choix-gel_pot.png',
+				'assets/img/objets-choix/choix-hamac.png',
+				'assets/img/objets-choix/choix-loupe.png',
+				'assets/img/objets-choix/choix-medicament.png',
+				'assets/img/objets-choix/choix-medicament-boite.png',
+				'assets/img/objets-choix/choix-porte.png',
+				'assets/img/objets-choix/choix-tirelire.png'
 			]
 
-			const assetsVideos = ['assets/videos/motion.mp4']
+			const assetsVideos = ['assets/videos/motion.mp4', 'assets/videos/test.mp4']
 
 			const itemsImages = await load.all(assetsImages)
 			console.log(itemsImages)

@@ -209,57 +209,6 @@
 			"motion": "assets/videos/motion.mp4",
 			"imageScene": "assets/img/room/room3.jpg",
 			"objet1": {
-				"url": "assets/img/objets/tele.png",
-				"width": 695,
-				"height": 440
-			},
-			"objet3": {
-				"url": "assets/img/objets/thermometre.png",
-				"width": 150,
-				"height": 200
-			},
-			"c1": {
-				"x": 0.9522636831749526,
-				"y": 0.2823672840859653,
-				"z": -0.10078291452685512
-			},
-			"c3": {
-				"x": 0.9522636831749526,
-				"y": 0.2753672840859653,
-				"z": 0.24178291452685512
-			},
-			"choice1": {
-				"papi": {
-					"url": "assets/videos/motion.mp4",
-					"time": 7000
-				},
-				"objet": {
-					"url":  "assets/img/objets-choix/choix-tele.png",
-					"zIndex": 2,
-					"width": 80,
-					"rotationLeft": -10,
-					"rotationRight": 65,
-					"xLeft": -90,
-					"yLeft": -20,
-					"xRight": -175,
-					"yRight": 30
-				},
-				"btn1": {
-					"url":"assets/img/gifs-choix/choix_un_tv.gif",
-					"motionChoice": "assets/videos/motion.mp4"
-				},
-				"btn2": {
-					"url":"assets/img/gifs-choix/choix_deux_tv.gif",
-					"motionChoice": "assets/videos/motion.mp4"
-				}
-			},
-			"choice3": "Bah t’es con ou quoi!?"
-		},
-		{
-			"id": 4,
-			"motion": "assets/videos/motion.mp4",
-			"imageScene": "assets/img/room/room4.jpg",
-			"objet1": {
 				"url": "assets/img/objets/medicaments.png",
 				"width": 300,
 				"height": 300
@@ -346,9 +295,9 @@
 			"choice3": "Ah carrément.. Ça veut empoisonner son petit-fils maintenant!?"
 		},
 		{
-			"id": 5,
+			"id": 4,
 			"motion": "assets/videos/motion.mp4",
-			"imageScene": "assets/img/room/room5.jpg",
+			"imageScene": "assets/img/room/room4.jpg",
 			"objet1": {
 				"url": "assets/img/objets/tirelire.png",
 				"width": 250,
@@ -419,9 +368,9 @@
 			}
 		},
 		{
-			"id": 6,
+			"id": 5,
 			"motion": "assets/videos/motion.mp4",
-			"imageScene": "assets/img/room/room6.jpg",
+			"imageScene": "assets/img/room/room5.jpg",
 			"objet1": {
 				"url": "assets/img/objets/cocotte-vitre.png",
 				"width": 200,
@@ -476,9 +425,9 @@
 			"choice3": "Ouh là tu t’enflammes toi! Reste flex"
 		},
 		{
-			"id": 7,
+			"id": 6,
 			"motion": "assets/videos/motion.mp4",
-			"imageScene": "assets/img/room/room7.jpg",
+			"imageScene": "assets/img/room/room6.jpg",
 			"objet1": {
 				"url": "assets/img/objets/porte.png",
 				"width": 300,
@@ -548,9 +497,9 @@
 			}
 		},
 		{
-			"id": 8,
+			"id": 7,
 			"motion": "assets/videos/motion.mp4",
-			"imageScene": "assets/img/room/room8.jpg",
+			"imageScene": "assets/img/room/room7.jpg",
 			"objet1": {
 				"url": "assets/img/objets/coton-tige.png",
 				"width": 200,

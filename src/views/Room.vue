@@ -90,46 +90,46 @@ export default {
 
 			localStorage.setItem('myScore', JSON.stringify(this.myScore))
 
-			// laisser curentEtape à 4 pour avoir la bonne video au début de l'étape 5
+			// laisser curentEtape à 3 pour avoir la bonne video au début de l'étape 4
 
-			if (this.currentEtape === 4) {
-				console.log('S`active à CURRENT ETAPE 5')
-				if (this.myScore[0].choice === 1 && this.myScore[0].answer === 1 && this.myScore[4].choice === 1 && this.myScore[4].answer === 1) { // au clic sur le choix 1 du médoc si on a cliqué sur le choix 1 de la bière
+			if (this.currentEtape === 3) {
+				console.log('S`active à CURRENT ETAPE 4')
+				if (this.myScore[0].choice === 1 && this.myScore[0].answer === 1 && this.myScore[3].choice === 1 && this.myScore[3].answer === 1) { // au clic sur le choix 1 du médoc si on a cliqué sur le choix 1 de la bière
 					console.log('medoc')
 					this.score += 5
 					console.log(this.score)
-				} else if (this.myScore[1].choice === 1 && this.myScore[1].answer === 1 && this.myScore[4].choice === 2 && this.myScore[4].answer === 2) { // au clic sur le choix 2 du gel si on a cliqué sur le choix 1 du coude
+				} else if (this.myScore[1].choice === 1 && this.myScore[1].answer === 1 && this.myScore[3].choice === 2 && this.myScore[3].answer === 2) { // au clic sur le choix 2 du gel si on a cliqué sur le choix 1 du coude
 					console.log('gel')
 					this.score -= 5
 					console.log(this.score)
 				}
 			}
 
-			if (this.currentEtape === 5) {
-				console.log('S`active à CURRENT ETAPE 6')
-				if (this.myScore[0].choice === 1 && this.myScore[0].answer === 2 && this.myScore[5].choice === 1 && this.myScore[5].answer === 2) { // au clic sur le choix 2 de la tirelire si on a cliqué sur le choix 2 de la bière
+			if (this.currentEtape === 4) {
+				console.log('S`active à CURRENT ETAPE 5')
+				if (this.myScore[0].choice === 1 && this.myScore[0].answer === 2 && this.myScore[4].choice === 1 && this.myScore[4].answer === 2) { // au clic sur le choix 2 de la tirelire si on a cliqué sur le choix 2 de la bière
 					console.log('tirelire')
 					this.score -= 5
 					console.log(this.score)
 				}
 			}
 
-			if (this.currentEtape === 7) {
-				console.log('S`active à CURRENT ETAPE 8')
-				if (this.myScore[6].choice === 1 && this.myScore[7].choice === 1 && this.myScore[7].answer === 2) { // au clic sur le choix 2 de la porte si on a cliqué sur la cocotte
+			if (this.currentEtape === 6) {
+				console.log('S`active à CURRENT ETAPE 7')
+				if (this.myScore[5].choice === 1 && this.myScore[6].choice === 1 && this.myScore[6].answer === 2) { // au clic sur le choix 2 de la porte si on a cliqué sur la cocotte
 					console.log('tirelire')
 					this.score += 5
 					console.log(this.score)
 				}
 			}
 
-			if (this.currentEtape === 8) {
+			if (this.currentEtape === 7) {
 				console.log('S`active avant le journal ?')
-				if (this.myScore[1].choice === 2 && this.myScore[8].choice === 1 && this.myScore[8].answer === 1) { // au clic sur le choix 1 du coton tige si on a cliqué sur le cafard
+				if (this.myScore[1].choice === 2 && this.myScore[7].choice === 1 && this.myScore[7].answer === 1) { // au clic sur le choix 1 du coton tige si on a cliqué sur le cafard
 					console.log('coton tige')
 					this.score += 5
 					console.log(this.score)
-				} else if ((this.myScore[6].choice === 1 || (this.myScore[7].choice === 1 && this.myScore[7].choice === 2)) && this.myScore[8].choice === 1 && this.myScore[8].answer === 2) { // au clic sur le choix 2 du coton tige si on a cliqué sur cocotte ou porte choix 2
+				} else if ((this.myScore[5].choice === 1 || (this.myScore[6].choice === 1 && this.myScore[6].choice === 2)) && this.myScore[7].choice === 1 && this.myScore[7].answer === 2) { // au clic sur le choix 2 du coton tige si on a cliqué sur cocotte ou porte choix 2
 					console.log('cocotte ou porte : coton tige')
 					this.score -= 5
 					console.log(this.score)
@@ -138,7 +138,7 @@ export default {
 
 			console.log(this.myScore)
 
-			if (this.currentEtape === 8) {
+			if (this.currentEtape === 7) {
 				alert('fin')
 			} else {
 				this.currentEtape += 1
