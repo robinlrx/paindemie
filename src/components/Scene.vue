@@ -32,7 +32,7 @@ export default {
 		}
 	},
 	mounted () {
-		console.log('etape:', this.etape)
+		// console.log('etape:', this.etape)
 		// console.log('currentEtape:', this.currentEtape)
 		this.init()
 		this.addCoronaObject(new THREE.Vector3(this.etape.c1.x, this.etape.c1.y, this.etape.c1.z), 'choice1', this.etape.objet1.url)
@@ -165,8 +165,8 @@ export default {
 		onClick (e) {
 			this.mouse.x = (e.clientX / window.innerWidth) * 2 - 1
 			this.mouse.y = -(e.clientY / window.innerHeight) * 2 + 1
-			console.log('direction xyz point')
-			console.log(this.rayCaster.ray.direction)
+			// console.log('direction xyz point')
+			// console.log(this.rayCaster.ray.direction)
 			this.rayCaster.setFromCamera(this.mouse, this.camera)
 			const intersects = this.rayCaster.intersectObjects(this.scene.children)
 			// console.log(intersects)
