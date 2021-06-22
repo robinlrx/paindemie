@@ -2,9 +2,9 @@
 	<div class="room">
 		<Lottie  v-if="currentEtape !== 0" :key="currentEtape" />
 
-		<Motion v-if="currentEtape !== 0" :src="videoSrc()" :etape="etapes[currentEtape]" :key="currentEtape" :timerPause.sync="timerPause" />
+		<Motion v-if="currentEtape !== 0" :src="videoSrc()" :etape="etapes[currentEtape]" :key="currentEtape" :timerPause.sync="timerPause" :showNextComposant.sync="showSecondMotion"/>
 
-		<!-- <Motion :src="etapes[currentEtape].motion" :etape="etapes[currentEtape]" :key="currentEtape" :timerPause.sync="timerPause" :showNextComposant.sync="showTuto" /> -->
+		<Motion v-if="currentEtape === 0 || showSecondMotion" :src="etapes[currentEtape].motion" :etape="etapes[currentEtape]" :key="currentEtape" :timerPause.sync="timerPause" :showNextComposant.sync="showTuto" />
 
 		<FirstTuto v-if="currentEtape == 0 && showTuto" :showTuto.sync="showTuto" :timerPause.sync="timerPause"/>
 
@@ -61,6 +61,7 @@ export default {
 			numChoice: null,
 			showOups: false,
 			showTuto: false,
+			showSecondMotion: false,
 			timerPause: false,
 			btnName: null,
 			myScore: null
