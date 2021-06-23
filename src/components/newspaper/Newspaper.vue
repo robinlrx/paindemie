@@ -2,9 +2,8 @@
 	<transition name="fade" v-if="showNewspaper"> <!--  v-if="showNewspaper" -->
 		<section>
 			<FirstPage :showFirstPage.sync="showFirstPage" :showSecondPage.sync="showSecondPage" />
-			<!-- <SecondPage  /> -->
-			<SecondPage :showSecondPage.sync="showSecondPage" />
-			<LastPage />
+			<SecondPage  :showSecondPage.sync="showSecondPage" :showLastPage.sync="showLastPage"/>
+			<LastPage :showLastPage.sync="showLastPage" />
 		</section>
 	</transition>
 </template>
@@ -21,7 +20,8 @@ export default {
 	data () {
 		return {
 			showFirstPage: true,
-			showSecondPage: false
+			showSecondPage: false,
+			showLastPage: false
 		}
 	},
 	components: {
