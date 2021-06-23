@@ -1,5 +1,5 @@
 <template>
-  <input type="text" required :size="sizeProps" :placeholder="placeholderProps" >
+  <input type="text" required :size="sizeProps" :placeholder="placeholderProps">
 </template>
 
 <script>

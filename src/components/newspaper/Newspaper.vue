@@ -1,7 +1,7 @@
 <template>
 	<transition name="fade"> <!--  v-if="showNewspaper" -->
 		<section>
-			<FirstPage :showFirstPage.sync="showFirstPage" />
+			<FirstPage :showFirstPage.sync="showFirstPage" :showSecondPage.sync="showSecondPage" />
 			<!-- <SecondPage  /> -->
 			<SecondPage :showSecondPage.sync="showSecondPage" />
 			<LastPage />

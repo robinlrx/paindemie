@@ -2,11 +2,11 @@
 	<section v-if="showFirstPage">
 		<div class="container">
 			<h2>13 décembre 2020,</h2>
-			<p>Ma chère <AppInput :placeholder="'femme'" /> <br />Cela fait maintenant 2 mois que tu es <AppInput :placeholder="'partie'" /> Ce maudit <AppInput :placeholder="'virus'" /> <br />a causé tellement de <AppInput :placeholder="'morts'" /></p>
+			<p>Ma chère <AppInput :placeholder="'femme'"/> <br />Cela fait maintenant 2 mois que tu es <AppInput :placeholder="'partie'" /> Ce maudit <AppInput :placeholder="'virus'" /> <br />a causé tellement de <AppInput :placeholder="'morts'" /></p>
 			<p>Je pris pour que tu <AppInput :placeholder="'reviennes'" /> Ne t'inquiètes pas, je m'occupe de <AppInput :size="'15'" :placeholder="'notre enfant'" /> comme je te <br />l'avais promis avant que tu <AppInput :size="'15'" :placeholder="'nous quittes'" /></p>
 		</div>
 		<!-- <p class="score">{{ this.score }}</p> -->
-		<Button :link="''" :size=3 :type=1 class="button" ref="button" @click.native="checkInput()">Valider</Button>
+		<Button @click.native="checkInput()" :size=3 :type=1 class="button" ref="button" :link="''">Valider</Button>
 	</section>
 </template>
 
@@ -22,7 +22,8 @@ export default {
 		return {
 			input: document.getElementsByTagName('input'),
 			badWords: ['femme', 'partie', 'virus', 'morts', 'reviennes', 'notre enfant', 'nous quittes'],
-			score: 0
+			score: 0,
+			femme: null
 		}
 	},
 	components: {
@@ -31,15 +32,18 @@ export default {
 	},
 	methods: {
 		checkInput () {
-			if (this.input.value !== '') {
-				this.checkWord()
-			} else {
-				this.input.forEach(element => {
-					if (element.value === '' || element.value === ' ') {
-						console.log('remplit tout batard')
-					}
-				})
-			}
+			// if (this.input.value !== '') {
+			// this.checkWord()
+			// } else {
+			// this.input.forEach(element => {
+			// if (element.value === '' || element.value === ' ') {
+			// console.log('remplit tout batard')
+			// }
+			// })
+			// }
+			console.log(this.showFirstPage)
+			this.$emit('update:showFirstPage', false)
+			this.$emit('update:showSecondPage', true)
 		},
 		checkWord () {
 			for (let i = 0; i <= this.badWords.length; i++) {
@@ -54,7 +58,7 @@ export default {
 				console.log(this.score)
 			}
 
-			// this.$emit('update:showFirstPage', false)
+			this.$emit('update:showFirstPage', false)
 		},
 		myFunction () {
 			this.input.style.background = 'yellow'

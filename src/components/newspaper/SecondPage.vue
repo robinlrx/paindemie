@@ -1,24 +1,23 @@
 <template>
   <section v-if="showSecondPage">
+	<!-- <a @click="check()">Valider</a> -->
+	<Button @click.native="check()" :size=3 :type=1 class="button" ref="button" :link="''">CLIQUER</Button>
   </section>
 </template>
 
 <script>
-// import Button from '@/components/ui/AppButton.vue'
+import Button from '@/components/ui/AppButton.vue'
 // import AppInput from '@/components/ui/AppInput.vue'
 export default {
 	name: 'SecondPage',
+	components: { Button },
 	props: {
 		showSecondPage: Boolean
 	},
-	components: {
-		// Button
-		// AppInput
-	},
 	methods: {
-		// check () {
-		// this.$emit('update:showSecondPage', false)
-		// }
+		check () {
+			this.$emit('update:showSecondPage', false)
+		}
 	},
 	mounted () {
 		// setTimeout(function () { this.$emit('update:showSecondPage', false) }, 3000)
@@ -40,6 +39,12 @@ section {
 }
 
 .button {
+	position: absolute;
+	right: 20px;
+	bottom: 10px;
+}
+
+a {
 	position: absolute;
 	right: 20px;
 	bottom: 10px;
