@@ -1,6 +1,6 @@
 <template>
 <transition v-if="showSecondTuto" name="fade">
-	<section class="secondTuto">
+	<section class="second-tuto">
 		<p>Choisis bien ton côté fréro!</p>
 
 		<img src="assets/img/second-tuto.png" alt="tutoChoix">
@@ -37,7 +37,7 @@ export default {
 <style scoped lang="scss">
 @import '@/assets/scss/_variables.scss';
 
-.secondTuto {
+.second-tuto {
 	position: absolute;
 	width: 100%;
 	height: 100vh;

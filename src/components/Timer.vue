@@ -1,14 +1,7 @@
 <template>
 	<div class="timer">
-		<!-- <button @click="restart">Restart</button>
-		<button @click="pause">Pause</button>
-		<button @click="reset">Reset</button> -->
 		<p>{{formatTime}}</p>
-
-		<!-- <audio ref="leo" >
-			<source :src="this.randomSound()" type="audio/mp3">
-		</audio> -->
-  </div>
+	</div>
 </template>
 
 <script>
@@ -21,7 +14,7 @@ export default {
 		return {
 			elapsedTime: 0,
 			timer: undefined,
-			publicPath: process.env.BASE_URL,
+			publicPath: process.env.BASE_URL, // to access to public folder
 			number: 1
 		}
 	},

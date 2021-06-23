@@ -22,9 +22,6 @@
 
 		</div>
 		<img :src="`${this.publicPath}${this.perso}`" alt="" class="perso">
-		<button @click="$emit('onPenality', -5)">-5</button>
-		<button @click="$emit('onPenality', -10)">-10</button>
-		<button @click="$emit('onPenality', 5)">+5</button>
 	</div>
 </template>
 
@@ -38,7 +35,7 @@ export default {
 		return {
 			heightJauge: this.score,
 			jaugeColor: '#ACDEA4',
-			publicPath: process.env.BASE_URL, // pour accédder au dossier public
+			publicPath: process.env.BASE_URL, // to access to public folder
 			perso: 'assets/img/perso_content.png'
 		}
 	},
@@ -100,8 +97,8 @@ export default {
 		transition: ease 1s;
 
 		rect {
-		fill: none;
-		stroke: none;
+			fill: none;
+			stroke: none;
 		}
 	}
 }

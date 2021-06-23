@@ -1,3 +1,5 @@
+<!-- main view that gathers the components useful to the project and the controls to update their states and data -->
+
 <template>
 	<div class="room">
 		<Lottie  v-if="currentEtape !== 0" :key="currentEtape" />
@@ -70,7 +72,7 @@ export default {
 		}
 	},
 	methods: {
-		// Appel cette méthode quand tu fais un choix dans choices
+		// call this method when you make a choice in choices
 		handleShowChoices () {
 			this.showChoices = !this.showChoices
 		},
@@ -84,7 +86,7 @@ export default {
 			let myChoice = selectedChoice.match(/\d/g)
 			myChoice = Number(myChoice.join(''))
 
-			this.myScore = JSON.parse(myScoreString) // objet JS
+			this.myScore = JSON.parse(myScoreString) // JS object
 
 			if (this.myScore === null) {
 				this.myScore = []
@@ -93,17 +95,14 @@ export default {
 
 			localStorage.setItem('myScore', JSON.stringify(this.myScore))
 
-			// laisser curentEtape à 3 pour avoir la bonne video au début de l'étape 4
-
 			if (this.currentEtape === 3) {
-				console.log('S`active à CURRENT ETAPE 4')
-				if (this.myScore[0].choice === 1 && this.myScore[0].answer === 1 && this.myScore[3].choice === 1 && this.myScore[3].answer === 1) { // au clic sur le choix 1 du médoc si on a cliqué sur le choix 1 de la bière
+				if (this.myScore[0].choice === 1 && this.myScore[0].answer === 1 && this.myScore[3].choice === 1 && this.myScore[3].answer === 1) { // at the click on the choice 1 of the medoc if one clicked on the choice 1 of the beer
 					console.log('medoc')
 					this.numChoice.btn1.motionChoice = 'assets/videos/test.mp4'
 					console.log(this.numChoice.btn1.motionChoice)
 					this.score += 5
 					console.log(this.score)
-				} else if (this.myScore[1].choice === 1 && this.myScore[1].answer === 1 && this.myScore[3].choice === 2 && this.myScore[3].answer === 2) { // au clic sur le choix 2 du gel si on a cliqué sur le choix 1 du coude
+				} else if (this.myScore[1].choice === 1 && this.myScore[1].answer === 1 && this.myScore[3].choice === 2 && this.myScore[3].answer === 2) { // on clicking on choice 2 of the gel if choice 1 of the elbow was clicked
 					console.log('gel')
 					this.numChoice.btn2.motionChoice = 'assets/videos/test.mp4'
 					this.score -= 5
@@ -112,8 +111,7 @@ export default {
 			}
 
 			if (this.currentEtape === 4) {
-				console.log('S`active à CURRENT ETAPE 5')
-				if (this.myScore[0].choice === 1 && this.myScore[0].answer === 2 && this.myScore[4].choice === 1 && this.myScore[4].answer === 2) { // au clic sur le choix 2 de la tirelire si on a cliqué sur le choix 2 de la bière
+				if (this.myScore[0].choice === 1 && this.myScore[0].answer === 2 && this.myScore[4].choice === 1 && this.myScore[4].answer === 2) { // on clicking on choice 2 of the piggy bank if you have clicked on choice 2 of the beer
 					console.log('tirelire')
 					this.numChoice.btn2.motionChoice = 'assets/videos/test.mp4'
 					this.score -= 5
@@ -122,8 +120,7 @@ export default {
 			}
 
 			if (this.currentEtape === 6) {
-				console.log('S`active à CURRENT ETAPE 7')
-				if (this.myScore[5].choice === 1 && this.myScore[6].choice === 1 && this.myScore[6].answer === 2) { // au clic sur le choix 2 de la porte si on a cliqué sur la cocotte
+				if (this.myScore[5].choice === 1 && this.myScore[6].choice === 1 && this.myScore[6].answer === 2) { // at the click on the choice 2 of the door if you have clicked on the casserole
 					console.log('tirelire')
 					this.numChoice.btn2.motionChoice = 'assets/videos/test.mp4'
 					this.score += 5
@@ -132,13 +129,12 @@ export default {
 			}
 
 			if (this.currentEtape === 7) {
-				console.log('S`active avant le journal ?')
-				if (this.myScore[1].choice === 2 && this.myScore[7].choice === 1 && this.myScore[7].answer === 1) { // au clic sur le choix 1 du coton tige si on a cliqué sur le cafard
+				if (this.myScore[1].choice === 2 && this.myScore[7].choice === 1 && this.myScore[7].answer === 1) { // when clicking on choice 1 of the cotton swab if you clicked on the insect
 					console.log('coton tige')
 					this.numChoice.btn1.motionChoice = 'assets/videos/test.mp4'
 					this.score += 5
 					console.log(this.score)
-				} else if ((this.myScore[5].choice === 1 || (this.myScore[6].choice === 1 && this.myScore[6].choice === 2)) && this.myScore[7].choice === 1 && this.myScore[7].answer === 2) { // au clic sur le choix 2 du coton tige si on a cliqué sur cocotte ou porte choix 2
+				} else if ((this.myScore[5].choice === 1 || (this.myScore[6].choice === 1 && this.myScore[6].choice === 2)) && this.myScore[7].choice === 1 && this.myScore[7].answer === 2) { // at the click on the choice 2 of the cotton stem if one clicked on casserole or door choice 2
 					console.log('cocotte ou porte : coton tige')
 					this.numChoice.btn2.motionChoice = 'assets/videos/test.mp4'
 					this.score -= 5
@@ -168,7 +164,7 @@ export default {
 			})[0]
 
 			if (!content) {
-				console.log('Pas trouvé de data correspondante')
+				console.log('No data found')
 				return
 			}
 			this.btnName = btnName
@@ -212,6 +208,7 @@ body{
 	display: flex;
 	flex-direction: column-reverse;
 	align-items: flex-end;
+	justify-content: center;
 	padding: 0px 60px 0px 40px;
 }
 </style>

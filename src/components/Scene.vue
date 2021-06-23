@@ -28,12 +28,9 @@ export default {
 			PCFSoftShadowMap: THREE.PCFSoftShadowMap,
 			time: 0,
 			tab: []
-			// OutlineThickness: 0.03
 		}
 	},
 	mounted () {
-		// console.log('etape:', this.etape)
-		// console.log('currentEtape:', this.currentEtape)
 		this.init()
 		this.addCoronaObject(new THREE.Vector3(this.etape.c1.x, this.etape.c1.y, this.etape.c1.z), 'choice1', this.etape.objet1.url)
 		if (this.etape.c2) {
@@ -76,10 +73,8 @@ export default {
 			controls.rotateSpeed = 0.5
 			controls.enableZoom = false
 			controls.enablePan = false
-			// controls.minPolarAngle = 0 // vertical
-			// controls.maxPolarAngle = Math.PI * 0.5 // vertical
-			controls.minAzimuthAngle = Math.PI - 0.5 // radians (axe  horizontal)
-			controls.maxAzimuthAngle = 0.5 // radians (axe  horizontal)
+			controls.minAzimuthAngle = Math.PI - 0.5 // radians (horizontal axe)
+			controls.maxAzimuthAngle = 0.5 // radians (horizontal axe)
 			controls.update()
 
 			// Sphere
@@ -89,11 +84,12 @@ export default {
 			const texture = textureLoader.load(room)
 			texture.wrapS = THREE.RepeatWrapping
 			texture.repeat.x = -1
+
 			const sphereMaterial = new THREE.MeshLambertMaterial({
 				map: texture,
 				side: THREE.BackSide
 			})
-			// sphereMaterial.transparent = true
+
 			const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial)
 			sphere.receiveShadow = true
 			sphere.material.shadowSide = THREE.DoubleSide
@@ -124,7 +120,7 @@ export default {
 			this.update()
 		},
 
-		// Fonction pour afficher les icones cliquables
+		// Function to show clickable objects
 		addCoronaObject (position, name, icon) {
 			const manager = new THREE.LoadingManager()
 			const iconsLoader = new THREE.TextureLoader(manager)
@@ -141,7 +137,6 @@ export default {
 				fragmentShader: frag,
 				transparent: true
 			})
-			// console.log(this.shaderMaterial.uniforms.thickness.value)
 			// this.shaderMaterial.uniforms.textureSampler.value = icons
 			// this.shaderMaterial.uniforms.thickness.value = 0.05
 			this.plane = new THREE.Mesh(geometry, this.shaderMaterial)
@@ -172,7 +167,7 @@ export default {
 			// console.log(intersects)
 
 			intersects.forEach(intersect => {
-				// Si on clique sur un sprite (les icones)
+				// if click on a plane
 				if (intersect.object.geometry.type === 'PlaneGeometry' && intersect.object.name === 'choice1') {
 					console.log(`nom : ${intersect.object.name}`)
 					console.log(intersect.object)
@@ -196,10 +191,8 @@ export default {
 			this.mouse.y = -(e.clientY / window.innerHeight) * 2 + 1
 			this.rayCaster.setFromCamera(this.mouse, this.camera)
 			this.planes = this.scene.children.filter(obj => obj.geometry?.type === 'PlaneGeometry')
-			// console.log(this.scene.children)
+
 			const intersects = this.rayCaster.intersectObjects(this.planes)
-			// Si on est sur un object
-			// Alors intersects à une length
 			intersects.forEach(plane => {
 				this.html.style.cursor = 'pointer'
 				plane.object.material.uniforms.hover.value = true
@@ -213,7 +206,7 @@ export default {
 			}
 		},
 		update () {
-			// avoir l'animation du contour à chaque objets cliquables
+			// have the contour animation at each clickable object
 			if (this.shaderMaterial !== null) {
 				this.tab.forEach(item => {
 					item.material.uniforms.thickness.value = 0.05 * (Math.sin(this.time * 0.1) + 1) * 0.5
