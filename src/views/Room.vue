@@ -1,9 +1,16 @@
+<!-- main view that gathers the components useful to the project and the controls to update their states and data -->
+
 <template>
 	<div class="room">
 		<Lottie  v-if="currentEtape !== 0" :key="currentEtape" />
-		<Motion :etape="etapes[currentEtape]" :key="currentEtape" :timerPause.sync="timerPause" />
 
-		<FirstTuto :showTuto.sync="showTuto" :timerPause.sync="timerPause"/>
+		<Motion v-if="currentEtape !== 0" :src="videoSrc()" :etape="etapes[currentEtape]" :key="currentEtape" :timerPause.sync="timerPause" :showNextComposant.sync="showSecondMotion"/>
+
+		<transition name="fade">
+			<Motion v-if="currentEtape === 0 || showSecondMotion" :src="etapes[currentEtape].motion" :etape="etapes[currentEtape]" :key="currentEtape" :timerPause.sync="timerPause" :showNextComposant.sync="showTuto" />
+		</transition>
+
+		<FirstTuto v-if="currentEtape == 0 && showTuto" :showTuto.sync="showTuto" :timerPause.sync="timerPause"/>
 
 		<transition name="fade">
 			<!-- Key-changing to force re-renders of a component -->
@@ -19,8 +26,7 @@
 		<Choices v-if="showChoices" :numChoice="numChoice" :etape="etapes[currentEtape]" :currentEtape="currentEtape" @onClick="handleUpdateEtape" :timerPause.sync="timerPause" />
 		</transition>
 
-		<Oups :showOups.sync="showOups" :score="score" :etape="etapes[currentEtape]" :key="currentEtape" :timerPause.sync="timerPause"/>
-
+		<Oups :showOups.sync="showOups" :score="score" :etape="etapes[currentEtape]" :key="currentEtape" :timerPause.sync="timerPause" />
 		<Newspaper :showNewspaper.sync="showNewspaper"/>
 	</div>
 </template>
@@ -61,20 +67,88 @@ export default {
 			numButton: null,
 			numChoice: null,
 			showOups: false,
-			showTuto: true,
+			showTuto: false,
+			showSecondMotion: false,
 			timerPause: false,
+			btnName: null,
+			myScore: null,
 			showNewspaper: false
 		}
 	},
 	methods: {
-		// Appel cette méthode quand tu fais un choix dans choices
+		// call this method when you make a choice in choices
 		handleShowChoices () {
 			this.showChoices = !this.showChoices
 		},
-		handleUpdateEtape () {
+		handleUpdateEtape (data) {
 			this.handleShowChoices() // unShow choices
 
-			if (this.currentEtape === 8) {
+			// SCORE
+			const myScoreString = localStorage.getItem('myScore') // JSON string
+
+			const selectedChoice = this.btnName
+			let myChoice = selectedChoice.match(/\d/g)
+			myChoice = Number(myChoice.join(''))
+
+			this.myScore = JSON.parse(myScoreString) // JS object
+
+			if (this.myScore === null) {
+				this.myScore = []
+			}
+			this.myScore.push({ choice: myChoice, answer: data.answer })
+
+			localStorage.setItem('myScore', JSON.stringify(this.myScore))
+
+			if (this.currentEtape === 3) {
+				if (this.myScore[0].choice === 1 && this.myScore[0].answer === 1 && this.myScore[3].choice === 1 && this.myScore[3].answer === 1) { // at the click on the choice 1 of the medoc if one clicked on the choice 1 of the beer
+					console.log('medoc')
+					this.numChoice.btn1.motionChoice = 'assets/videos/test.mp4'
+					console.log(this.numChoice.btn1.motionChoice)
+					this.score += 5
+					console.log(this.score)
+				} else if (this.myScore[1].choice === 1 && this.myScore[1].answer === 1 && this.myScore[3].choice === 2 && this.myScore[3].answer === 2) { // on clicking on choice 2 of the gel if choice 1 of the elbow was clicked
+					console.log('gel')
+					this.numChoice.btn2.motionChoice = 'assets/videos/test.mp4'
+					this.score -= 5
+					console.log(this.score)
+				}
+			}
+
+			if (this.currentEtape === 4) {
+				if (this.myScore[0].choice === 1 && this.myScore[0].answer === 2 && this.myScore[4].choice === 1 && this.myScore[4].answer === 2) { // on clicking on choice 2 of the piggy bank if you have clicked on choice 2 of the beer
+					console.log('tirelire')
+					this.numChoice.btn2.motionChoice = 'assets/videos/test.mp4'
+					this.score -= 5
+					console.log(this.score)
+				}
+			}
+
+			if (this.currentEtape === 6) {
+				if (this.myScore[5].choice === 1 && this.myScore[6].choice === 1 && this.myScore[6].answer === 2) { // at the click on the choice 2 of the door if you have clicked on the casserole
+					console.log('tirelire')
+					this.numChoice.btn2.motionChoice = 'assets/videos/test.mp4'
+					this.score += 5
+					console.log(this.score)
+				}
+			}
+
+			if (this.currentEtape === 7) {
+				if (this.myScore[1].choice === 2 && this.myScore[7].choice === 1 && this.myScore[7].answer === 1) { // when clicking on choice 1 of the cotton swab if you clicked on the insect
+					console.log('coton tige')
+					this.numChoice.btn1.motionChoice = 'assets/videos/test.mp4'
+					this.score += 5
+					console.log(this.score)
+				} else if ((this.myScore[5].choice === 1 || (this.myScore[6].choice === 1 && this.myScore[6].choice === 2)) && this.myScore[7].choice === 1 && this.myScore[7].answer === 2) { // at the click on the choice 2 of the cotton stem if one clicked on casserole or door choice 2
+					console.log('cocotte ou porte : coton tige')
+					this.numChoice.btn2.motionChoice = 'assets/videos/test.mp4'
+					this.score -= 5
+					console.log(this.score)
+				}
+			}
+
+			console.log(this.myScore)
+
+			if (this.currentEtape === 7) {
 				this.showNewspaper = true
 			} else {
 				this.currentEtape += 1
@@ -94,18 +168,27 @@ export default {
 			})[0]
 
 			if (!content) {
-				console.log('Pas trouvé de data correspondante')
+				console.log('No data found')
 				return
 			}
-
+			this.btnName = btnName
 			this.numChoice = content[btnName]
-			console.log(this.numChoice)
+			console.log(content)
+		},
+		videoSrc () {
+			if (this.myScore[this.currentEtape - 1].answer === 1) {
+				return this.numChoice.btn1.motionChoice
+			} else {
+				return this.numChoice.btn2.motionChoice
+			}
 		}
 	},
-	watch: {
-		timerPause (newValue) {
-			console.log(newValue)
-		}
+	mounted () {
+		localStorage.removeItem('myScore')
+	},
+	destroyed () {
+		document.location.reload()
+		console.log('destroyed')
 	}
 }
 
@@ -129,6 +212,7 @@ body{
 	display: flex;
 	flex-direction: column-reverse;
 	align-items: flex-end;
+	justify-content: center;
 	padding: 0px 60px 0px 40px;
 }
 </style>

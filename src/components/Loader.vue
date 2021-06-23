@@ -35,28 +35,28 @@ export default {
 
 		.path-first {
 			animation-duration: 2s;
-			animation-name: leftAnimation;
+			animation-name: left-animation;
 			animation-iteration-count: infinite;
 			transition: none;
 		}
 
 		.path-middle {
 			animation-duration: 1s;
-			animation-name: clignoter;
+			animation-name: flash;
 			animation-iteration-count: infinite;
 			transition: none;
 		}
 
 		.path-end {
 			animation-duration: 2s;
-			animation-name: rightAnimation;
+			animation-name: right-animation;
 			animation-iteration-count: infinite;
 			transition: none;
 		}
 	}
 }
 
-@keyframes clignoter {
+@keyframes flash {
 	0% {
 		opacity: 1;
 	}
@@ -68,7 +68,7 @@ export default {
 	}
 }
 
-@keyframes leftAnimation{
+@keyframes left-animation{
 	0% {
 		transform: translateX(50px);
 		opacity: 0;
@@ -84,7 +84,7 @@ export default {
 	}
 }
 
-@keyframes rightAnimation{
+@keyframes right-animation{
 	0% {
 		transform: translateX(-50px);
 		opacity: 0;

@@ -10,9 +10,13 @@
 				<transition name="slide-fade">
 					<div class="play-container" ref="playContainer" v-if="showPlay">
 						<div class="content">
-							<Button :link="''" :size=4 :type=1 class="button" ref="button" @click.native="playVid()">&#9658;</Button>
-							<h2>LANCE LA VIDEO !</h2>
-							<p>(C'est un ordre !)</p>
+							<div class="icons">
+								<img src="assets/img/son.png" alt="">
+								<img src="assets/img/casque.png" alt="">
+							</div>
+							<h2>Hop hop hop, pas si vite !</h2>
+							<p>si tu veux kiffer le jeu, mets des écouteurs<br/>et active le son fréro !</p>
+							<Button :link="''" :size=2 :type=1 class="button" ref="button" @click.native="playVid()">J'ai capté</Button>
 						</div>
 					</div>
 				</transition>
@@ -72,35 +76,45 @@ export default {
 				'assets/img/room/room5.jpg',
 				'assets/img/room/room6.jpg',
 				'assets/img/room/room7.jpg',
-				'assets/img/room/room8.jpg',
 				// objets
 				'assets/img/objets/biere.png',
 				'assets/img/objets/brosse-a-dents.png',
 				'assets/img/objets/cafard.png',
 				'assets/img/objets/carton.png',
-				'assets/img/objets/cocotte.png',
 				'assets/img/objets/cocotte-vitre.png',
 				'assets/img/objets/coton-tige.png',
 				'assets/img/objets/coude.png',
 				'assets/img/objets/fleurs.png',
 				'assets/img/objets/gel-dop.png',
 				'assets/img/objets/guitare.png',
-				'assets/img/objets/hamac.png',
 				'assets/img/objets/hamac-vitre.png',
-				'assets/img/objets/info.png',
 				'assets/img/objets/loupe.png',
 				'assets/img/objets/masque-avion.png',
 				'assets/img/objets/medicaments.png',
-				'assets/img/objets/miel.png',
 				'assets/img/objets/miel-vitre.png',
 				'assets/img/objets/porte.png',
 				'assets/img/objets/superman.png',
-				'assets/img/objets/tele.png',
-				'assets/img/objets/thermometre.png',
-				'assets/img/objets/tirelire.png'
+				'assets/img/objets/tirelire.png',
+				// objets choix
+				'assets/img/objets-choix/choix-biere.png',
+				'assets/img/objets-choix/choix-brosse-a-dents.png',
+				'assets/img/objets-choix/choix-cafard.png',
+				'assets/img/objets-choix/choix-carton.png',
+				'assets/img/objets-choix/choix-cocotte_bas.png',
+				'assets/img/objets-choix/choix-cocotte_couvercle.png',
+				'assets/img/objets-choix/choix-coton-tige.png',
+				'assets/img/objets-choix/choix-coude.png',
+				'assets/img/objets-choix/choix-gel_couvercle.png',
+				'assets/img/objets-choix/choix-gel_pot.png',
+				'assets/img/objets-choix/choix-hamac.png',
+				'assets/img/objets-choix/choix-loupe.png',
+				'assets/img/objets-choix/choix-medicament.png',
+				'assets/img/objets-choix/choix-medicament-boite.png',
+				'assets/img/objets-choix/choix-porte.png',
+				'assets/img/objets-choix/choix-tirelire.png'
 			]
 
-			const assetsVideos = ['assets/videos/motion.mp4']
+			const assetsVideos = ['assets/videos/motion.mp4', 'assets/videos/test.mp4']
 
 			const itemsImages = await load.all(assetsImages)
 			console.log(itemsImages)
@@ -147,53 +161,32 @@ video {
 }
 
 .play-container {
-	width: 350px;
-	height: 300px;
-	background-color: #FBF3E8;
+	width: 100%;
+	height: 100vh;
+	background-color: rgba(251, 243, 232, 0.7);
 	position: absolute;
-	bottom: -105px;
-	left: -10px;
-	transform: rotate(-30deg);
-
-	&::before {
-		content: "";
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		top: 26px;
-		left: 20px;
-		right: 0;
-		bottom: 0;
-		background: transparent;
-		box-shadow: 8px 5px 0px $red;
-		transform: rotate(-90deg);
-	}
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 
 	.content {
-		position: absolute;
-		bottom: 100px;
-		left: 60px;
-		transform: rotate(30deg);
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
 		font-family: $chantal-font;
 		color: $red;
 
-		.button {
-			position: relative;
-			left: 30%;
-		}
-
-		h2 {
-			margin-bottom: 0;
-			margin-top: 5px;
+		h2, p {
+			font-size: 1.5rem;
+			letter-spacing: 5px;
 		}
 
 		p{
-			margin-top: 0;
+			margin-bottom: 80px;
 		}
+	}
+
+	.icons img {
+		width: 80px;
+		margin: 10px;
 	}
 }
 
@@ -204,7 +197,7 @@ video {
 	transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
 }
 .slide-fade-enter, .slide-fade-leave-to{
-	transform: rotate(-30deg) translateY(10px);
+	transform: translateY(10px);
 	opacity: 0;
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
 	<section class="home">
-		<h1 ref="title">PA<span>[I]</span>NDEMIE</h1>
+		<div class="lottie-block" ref="lottieBlock"></div>
 		<img src="../../public/assets/img/carton-home.png" ref="box" class="box" alt="">
 		<div ref="objectsBox" class="objects-container">
 			<img src="../../public/assets/img/pq-home.png" class="objects" alt="">
@@ -8,13 +8,14 @@
 			<img src="../../public/assets/img/masque-home.png" class="objects" alt="">
 		</div>
 		<Button :link="'room'" :size=1 :type=1 class="button" ref="button">C'EST PARTI POUR LES EMMERDES</Button>
-
 	</section>
 </template>
 
 <script>
 import Button from '@/components/ui/AppButton.vue'
 import { gsap, Power3, Bounce } from 'gsap'
+import lottie from 'lottie-web'
+import animLogo from '../assets/data/anim-logo.json'
 
 export default {
 	name: 'Home',
@@ -23,16 +24,15 @@ export default {
 	},
 	methods: {
 		render () {
-			this.mainTimeline(this.$refs.box, this.$refs.title, this.$refs.button.$el)
+			this.mainTimeline(this.$refs.box, this.$refs.button.$el)
 				.addLabel('DELAY')
 				.add(this.objectsTimeline(this.$refs.objectsBox), 'DELAY+=1')
 		},
-		mainTimeline (box, title, button) {
+		mainTimeline (box, button) {
 			const boxTL = gsap.timeline()
 			boxTL.add('START')
 			boxTL.fromTo(box, { y: 400 }, { y: 0, duration: 2.5, delay: 1, ease: Bounce.easeOut }, 'START') // show box first
 			boxTL.fromTo('.objects', { opacity: 0, y: 300 }, { opacity: 1, y: 0, duration: 1, stagger: { each: 0.4 } }, 'START+=2') // show objects
-			boxTL.fromTo(title, { opacity: 0 }, { opacity: 1, duration: 1.5 }) // show title
 			boxTL.fromTo(button, { opacity: 0 }, { opacity: 1, duration: 0.5 }, 'START+=4.5') // show button
 			return boxTL
 		},
@@ -44,6 +44,21 @@ export default {
 	},
 	mounted () {
 		this.render()
+		lottie.loadAnimation({
+			container: this.$refs.lottieBlock, // the dom element
+			renderer: 'svg',
+			loop: false,
+			autoplay: true,
+			animationData: animLogo,
+			rendererSettings: {
+				preserveAspectRatio: 'xMinYMin slice',
+				clearCanvas: false,
+				progressiveLoad: false,
+				hideOnTransparent: true,
+				className: 'some-css-class-name',
+				id: 'some-id'
+			}
+		})
 	}
 }
 </script>
@@ -61,17 +76,10 @@ export default {
 	display: flex;
 	flex-direction: column;
 
-	h1 {
-		font-family: $chelsea-font;
-		font-size: 6.5rem;
+	.lottie-block {
+		width: 100%;
+		height: 100vh;
 		margin: auto;
-		color: $red;
-		letter-spacing: 5px;
-		position: relative;
-		z-index: 2;
-		span {
-			color: $yellow;
-		}
 	}
 
 	.button {
