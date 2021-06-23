@@ -1,4 +1,4 @@
-# paindemie
+# Pa[i]ndemie
 
 ## Project setup
 ```
