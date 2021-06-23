@@ -9,7 +9,7 @@ export default {
 		size: {
 			type: String,
 			required: false,
-			default: '10'
+			default: '8'
 		},
 		placeholder: {
 			type: String,
