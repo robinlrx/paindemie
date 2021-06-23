@@ -1,11 +1,9 @@
 <template>
-	<transition v-if="showMotion" name="fade">
-		<div class="container">
-			<video ref="motion" autoplay width="250">
-				<source :src="propsSource" type="video/mp4">
-			</video>
-		</div>
-	</transition>
+	<div v-if="showMotion" class="container">
+		<video ref="motion" autoplay width="250">
+			<source :src="propsSource" type="video/mp4">
+		</video>
+	</div>
 </template>
 
 <script>
@@ -36,6 +34,7 @@ export default {
 				this.$emit('update:showNextComposant', true)
 				this.$emit('update:timerPause', false)
 				this.showMotion = false
+				console.log(this.showNextComposant)
 			}
 		}
 	},
