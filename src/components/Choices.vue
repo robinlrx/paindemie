@@ -1,3 +1,5 @@
+<!-- show choices of each clickable object along with Papi video -->
+
 <template>
 	<div class="choices">
 
@@ -6,9 +8,9 @@
 		<SecondTuto v-if="currentEtape == 0 && showSecondTuto" :showSecondTuto.sync="showSecondTuto" :timerPause.sync="timerPause"/>
 
 		<!-- main image -->
-		<img class="objet" ref="object" :src="this.numChoice.objet.url" alt="" :style="{width : `${this.numChoice.objet.width}%`, zIndex: this.numChoice.objet.zIndex}">
+		<img class="object" ref="object" :src="this.numChoice.objet.url" alt="" :style="{width : `${this.numChoice.objet.width}%`, zIndex: this.numChoice.objet.zIndex}">
 		<!-- secondary image -->
-		<img v-if="this.numChoice.objet.url2" class="objet" ref="object2" :src="this.numChoice.objet.url2" alt="" :style="{width : `${this.numChoice.objet.width}%`, zIndex: this.numChoice.objet.zIndex}">
+		<img v-if="this.numChoice.objet.url2" class="object" ref="object2" :src="this.numChoice.objet.url2" alt="" :style="{width : `${this.numChoice.objet.width}%`, zIndex: this.numChoice.objet.zIndex}">
 
 		<button @mouseenter="objectAnimationLeft" @mouseout="objectAnimationReverse" @mouseover="cloudLeft = true, choiceOne= true" @mouseleave="cloudLeft = false, choiceOne= false" @click="$emit('onClick', {answer: 1})"></button>
 
@@ -17,11 +19,11 @@
 		<img class="cloud" :class="{ cloudLeft: cloudLeft, cloudRight: cloudRight }" src="assets/img/nuage.gif" alt="">
 
 		<transition name="fade">
-		<img class="choixUn" v-if="choiceOne" :src="this.numChoice.btn1.url" alt="">
+		<img class="choice-one" v-if="choiceOne" :src="this.numChoice.btn1.url" alt="">
 		</transition>
 
 		<transition name="fade">
-		<img class="choixDeux" v-if="choiceTwo"  :src="this.numChoice.btn2.url" alt="">
+		<img class="choice-two" v-if="choiceTwo"  :src="this.numChoice.btn2.url" alt="">
 		</transition>
 	</div>
 </template>
@@ -55,7 +57,7 @@ export default {
 	mounted () {
 		this.$emit('update:showPapi', true)
 		// center elements whith gsap to avoid conflicts with tranfrom translate css
-		gsap.set('.objet', { xPercent: -50, left: '50%', yPercent: -50, top: '50%', x: 0, y: 0 })
+		gsap.set('.object', { xPercent: -50, left: '50%', yPercent: -50, top: '50%', x: 0, y: 0 })
 	},
 	watch: {
 		timerPause (newValue) {
@@ -126,7 +128,7 @@ export default {
 		cursor: default;
 	}
 
-	.objet {
+	.object {
 		position: absolute;
 	}
 
@@ -146,7 +148,7 @@ export default {
 		}
 	}
 
-		.choixUn, .choixDeux {
+		.choice-one, .choice-two {
 			position: absolute;
 			height: 100vh;
 			width: 100%;

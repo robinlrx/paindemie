@@ -41,6 +41,7 @@ npm run lint
     │   │  ├── scss
     │   │  └── shaders    # to have animations/intercations for the planes
     │   ├── components
+	│   │  ├── newspaper  # gather components for the second part of the game
     │   │  └── ui         # components where the user interacts
     │   ├── router
     │   ├── views
