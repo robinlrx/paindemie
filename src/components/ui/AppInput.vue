@@ -1,5 +1,5 @@
 <template>
-  <input type="text" required :size="sizeProps" :placeholder="placeholderProps">
+  <input type="text" required :size="sizeProps" :placeholder="placeholderProps" :value="value" @input="$emit('input', $event.target.value)">
 </template>
 
 <script>
@@ -15,7 +15,8 @@ export default {
 			type: String,
 			required: true,
 			default: ''
-		}
+		},
+		value: String
 	},
 	computed: {
 		sizeProps () {

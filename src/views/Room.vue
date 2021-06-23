@@ -56,7 +56,7 @@ export default {
 		return {
 			showChoices: false,
 			etapes: data.content,
-			currentEtape: 8,
+			currentEtape: 0,
 			score: 100,
 			numButton: null,
 			numChoice: null,
@@ -125,7 +125,7 @@ body{
 	background-image: url('/assets/img/backgrounds/background-jauge.png');
 	background-repeat: no-repeat;
 	background-size: cover;
-	z-index: 5;
+	z-index: 1;
 	display: flex;
 	flex-direction: column-reverse;
 	align-items: flex-end;

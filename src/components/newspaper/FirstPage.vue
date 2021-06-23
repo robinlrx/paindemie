@@ -2,8 +2,8 @@
 	<section v-if="showFirstPage">
 		<div class="container">
 			<h2>13 décembre 2020,</h2>
-			<p>Ma chère <AppInput :placeholder="'femme'"/> <br />Cela fait maintenant 2 mois que tu es <AppInput :placeholder="'partie'" /> Ce maudit <AppInput :placeholder="'virus'" /> <br />a causé tellement de <AppInput :placeholder="'morts'" /></p>
-			<p>Je pris pour que tu <AppInput :placeholder="'reviennes'" /> Ne t'inquiètes pas, je m'occupe de <AppInput :size="'15'" :placeholder="'notre enfant'" /> comme je te <br />l'avais promis avant que tu <AppInput :size="'15'" :placeholder="'nous quittes'" /></p>
+			<p>Ma chère <AppInput :placeholder="'femme'" v-model="femme"/> <br />Cela fait maintenant 2 mois que tu es <AppInput :placeholder="'partie'" v-model="partie"/> Ce maudit <AppInput :placeholder="'virus'" v-model="virus"/> <br />a causé tellement de <AppInput :placeholder="'morts'" v-model="morts" /></p>
+			<p>Je pris pour que tu <AppInput :placeholder="'reviennes'" v-model="reviennes" /> Ne t'inquiètes pas, je m'occupe de <AppInput :size="'15'" :placeholder="'notre enfant'" v-model="enfant" /> comme je te <br />l'avais promis avant que tu <AppInput :size="'15'" :placeholder="'nous quittes'" v-model="quittes" /></p>
 		</div>
 		<!-- <p class="score">{{ this.score }}</p> -->
 		<Button @click.native="checkInput()" :size=3 :type=1 class="button" ref="button" :link="''">Valider</Button>
@@ -23,7 +23,13 @@ export default {
 			input: document.getElementsByTagName('input'),
 			badWords: ['femme', 'partie', 'virus', 'morts', 'reviennes', 'notre enfant', 'nous quittes'],
 			score: 0,
-			femme: null
+			femme: null,
+			partie: null,
+			virus: null,
+			morts: null,
+			reviennes: null,
+			enfant: null,
+			quittes: null
 		}
 	},
 	components: {
@@ -32,18 +38,11 @@ export default {
 	},
 	methods: {
 		checkInput () {
-			// if (this.input.value !== '') {
-			// this.checkWord()
-			// } else {
-			// this.input.forEach(element => {
-			// if (element.value === '' || element.value === ' ') {
-			// console.log('remplit tout batard')
-			// }
-			// })
-			// }
-			console.log(this.showFirstPage)
-			this.$emit('update:showFirstPage', false)
-			this.$emit('update:showSecondPage', true)
+			if ((this.femme === '' || this.femme === null) || (this.partie === '' || this.partie === null) || (this.virus === '' || this.virus === null) || (this.morts === '' || this.morts === null) || (this.reviennes === '' || this.reviennes === null) || (this.enfant === '' || this.enfant === null) || (this.quittes === '' || this.quittes === null)) {
+				alert('remplit tout batard')
+			} else {
+				this.checkWord()
+			}
 		},
 		checkWord () {
 			for (let i = 0; i <= this.badWords.length; i++) {
@@ -58,7 +57,9 @@ export default {
 				console.log(this.score)
 			}
 
+			// console.log(this.showFirstPage)
 			this.$emit('update:showFirstPage', false)
+			this.$emit('update:showSecondPage', true)
 		},
 		myFunction () {
 			this.input.style.background = 'yellow'

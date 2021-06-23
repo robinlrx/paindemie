@@ -47,6 +47,7 @@ export default {
 	width: 100vw;
 	height: 100vh;
 	cursor: default;
+	z-index: 2;
 }
 video {
 	position: absolute;
