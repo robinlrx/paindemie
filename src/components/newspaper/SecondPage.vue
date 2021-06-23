@@ -1,7 +1,7 @@
 <template>
 	<section v-if="showSecondPage"> <!-- v-if="showSecondPage" -->
 		<div class="first-container">
-				<p>La <AppInput :placeholder="'quarantaine'" :size="'12'" v-model="qurantaine"/> <br />à causé beaucoup de solitude, il y a une <AppInput :placeholder="'pénurie'" v-model="pénurie" /> dans tous les supermarchés... </p>
+				<p>La <AppInput :placeholder="'quarantaine'" :size="'12'" v-model="quarantaine"/> <br />à causé beaucoup de solitude, il y a une <AppInput :placeholder="'pénurie'" v-model="pénurie" /> dans tous les supermarchés... </p>
 		</div>
 		<div class="second-container">
 				<p>Tu te rends compte qu'il faut même avoir une <AppInput :placeholder="'attestation'" :size="'11'" v-model="attestation"/> <br />pour pouvoir se déplacer librement ?</p>
@@ -20,9 +20,9 @@ export default {
 	data () {
 		return {
 			input: document.getElementsByTagName('input'),
-			badWords: ['qurantaine', 'pénurie', 'attestation'],
+			badWords: ['quarantaine', 'pénurie', 'attestation'],
 			score: 0,
-			qurantaine: null,
+			quarantaine: null,
 			pénurie: null,
 			attestation: null,
 			showError: false
