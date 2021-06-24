@@ -1,12 +1,15 @@
 <template>
 	<transition v-if="showOups" name="fade">
 		<section>
+			<transition name="fade">
+				<Motion :src="this.etape.choice3.motion"/>
+			</transition>
 			<div>
 				<div class="title">
 					<h2>OUPS!</h2>
 					<img src="assets/img/oups-point.png" alt="">
 				</div>
-				<p>{{this.etape.choice3}}</p>
+				<p>{{this.etape.choice3.text}}</p>
 				<Button @click.native="$emit('update:showOups', false)" class="button" :link="'room'" :size=3 :type=1>Allez j'me rattrape</Button>
 			</div>
 		</section>
@@ -14,6 +17,7 @@
 </template>
 
 <script>
+import Motion from '@/components/Motion.vue'
 import Button from '@/components/ui/AppButton.vue'
 export default {
 	name: 'Oups',
@@ -23,7 +27,8 @@ export default {
 		timerPause: Boolean
 	},
 	components: {
-		Button
+		Button,
+		Motion
 	},
 	mounted () {
 		this.$emit('update:timerPause', true)
