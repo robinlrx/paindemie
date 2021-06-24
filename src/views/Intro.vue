@@ -7,12 +7,12 @@
 				<video ref="intro" width="250">
 					<source src="assets/videos/motion.mp4" type="video/mp4">
 				</video>
-				<transition name="slide-fade">
+				<transition name="fade">
 					<div class="play-container" ref="playContainer" v-if="showPlay">
 						<div class="content">
 							<div class="icons">
-								<img src="assets/img/son.png" alt="">
-								<img src="assets/img/casque.png" alt="">
+								<img src="assets/img/icons/son.png" alt="">
+								<img src="assets/img/icons/casque.png" alt="">
 							</div>
 							<h2>Hop hop hop, pas si vite !</h2>
 							<p>si tu veux kiffer le jeu, mets des écouteurs<br/>et active le son fréro !</p>
@@ -51,15 +51,17 @@ export default {
 		// Load a list of named assets in parallel
 			const assetsImages = [
 				// img global
+				'assets/img/icons/son.png',
+				'assets/img/icons/casque.png',
 				'assets/img/carton-home.png',
 				'assets/img/objets-home.png',
 				'assets/img/pq-home.png',
 				'assets/img/masque-home.png',
 				'assets/img/gel-home.png',
-				'assets/img/perso_content.png',
-				'assets/img/perso_reflechit.png',
-				'assets/img/perso_venere.png',
-				'assets/img/oups-point.png',
+				'assets/img/icons/perso_content.png',
+				'assets/img/icons/perso_reflechit.png',
+				'assets/img/icons/perso_venere.png',
+				'assets/img/icons/oups-point.png',
 				// backgrounds
 				'assets/img/backgrounds/background-jauge.png',
 				'assets/img/backgrounds/background-title.png',

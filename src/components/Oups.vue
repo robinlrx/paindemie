@@ -7,7 +7,7 @@
 			<div>
 				<div class="title">
 					<h2>OUPS!</h2>
-					<img src="assets/img/oups-point.png" alt="">
+					<img src="assets/img/icons/oups-point.png" alt="">
 				</div>
 				<p>{{this.etape.choice3.text}}</p>
 				<Button @click.native="$emit('update:showOups', false)" class="button" :link="'room'" :size=3 :type=1>Allez j'me rattrape</Button>

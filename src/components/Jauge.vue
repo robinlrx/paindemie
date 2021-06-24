@@ -36,7 +36,7 @@ export default {
 			heightJauge: this.score,
 			jaugeColor: '#ACDEA4',
 			publicPath: process.env.BASE_URL, // to access to public folder
-			perso: 'assets/img/perso_content.png'
+			perso: 'assets/img/icons/perso_content.png'
 		}
 	},
 	watch: {
@@ -57,13 +57,13 @@ export default {
 		setColor () {
 			if (this.heightJauge <= 30) {
 				this.jaugeColor = '#e74c3c'
-				this.perso = 'assets/img/perso_venere.png'
+				this.perso = 'assets/img/icons/perso_venere.png'
 			} else if (this.heightJauge <= 70) {
 				this.jaugeColor = '#FFCD1D'
-				this.perso = 'assets/img/perso_reflechit.png'
+				this.perso = 'assets/img/icons/perso_reflechit.png'
 			} else {
 				this.jaugeColor = '#ACDEA4'
-				this.perso = 'assets/img/perso_content.png'
+				this.perso = 'assets/img/icons/perso_content.png'
 			}
 		}
 	},
