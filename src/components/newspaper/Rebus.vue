@@ -16,6 +16,7 @@
 <script>
 // import AppInput from '@/components/ui/AppInput.vue'
 import Button from '@/components/ui/AppButton.vue'
+import { gsap, Power3 } from 'gsap'
 export default {
 	name: 'Rebus',
 	data () {
@@ -35,7 +36,17 @@ export default {
 	methods: {
 		check () {
 			this.$emit('update:showRebus', false)
+		},
+		appatition () {
+			const cloudTL = gsap.timeline({ defaults: { duration: 1, ease: Power3.easeInOut } })
+			cloudTL.fromTo('.big-cloud-container', { opacity: 0 }, { opacity: 1 })
+			cloudTL.fromTo('.small-cloud-container', { opacity: 0 }, { opacity: 1 })
+			cloudTL.fromTo(this.$refs.button.$el, { opacity: 0 }, { opacity: 1 })
+			console.log('done')
 		}
+	},
+	mounted () {
+		this.appatition()
 	}
 
 }
@@ -102,11 +113,12 @@ export default {
 	align-items: center;
 
 	textarea {
-		font-family: $chantal-font;
+		font-family: $chelsea-font;
 		font-size: 1.5rem;
+		letter-spacing: 2px;
 		position: relative;
 		left: 20%;
-		z-index: 3;
+		z-index: 2;
 		border: none;
 		background-color: transparent;
 		width: 50%;
@@ -121,8 +133,24 @@ export default {
 
 .button {
 	position: absolute;
+	z-index: 2;
 	right: 20px;
 	bottom: 10px;
+}
+
+@media (min-width: 1600px) {
+
+	.small-cloud-container {
+		.rebus-txt {
+			img {
+				width: 300px;
+			}
+
+			p {
+				padding: 0 100px;
+			}
+		}
+	}
 }
 
 </style>
