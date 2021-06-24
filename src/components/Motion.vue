@@ -57,7 +57,7 @@ export default {
 	cursor: default;
 	display: flex;
 	align-items: center;
-	z-index: 1;
+	z-index: 2;
 }
 video {
 	width: 100%;
