@@ -27,6 +27,7 @@
 		</transition>
 
 		<Oups :showOups.sync="showOups" :score="score" :etape="etapes[currentEtape]" :key="currentEtape" :timerPause.sync="timerPause" />
+		<Newspaper :showNewspaper.sync="showNewspaper"/>
 	</div>
 </template>
 
@@ -42,6 +43,7 @@ import Timer from '@/components/Timer.vue'
 import Oups from '@/components/Oups.vue'
 import FirstTuto from '@/components/FirstTuto.vue'
 import Lottie from '@/components/Lottie.vue'
+import Newspaper from '@/components/newspaper/Newspaper.vue'
 
 export default {
 	name: 'Room',
@@ -53,7 +55,8 @@ export default {
 		Oups,
 		Motion,
 		FirstTuto,
-		Lottie
+		Lottie,
+		Newspaper
 	},
 	data () {
 		return {
@@ -68,7 +71,8 @@ export default {
 			showSecondMotion: false,
 			timerPause: false,
 			btnName: null,
-			myScore: null
+			myScore: null,
+			showNewspaper: false
 		}
 	},
 	methods: {
@@ -145,7 +149,7 @@ export default {
 			console.log(this.myScore)
 
 			if (this.currentEtape === 7) {
-				alert('fin')
+				this.showNewspaper = true
 			} else {
 				this.currentEtape += 1
 				console.log('currentEtape:', this.currentEtape)
@@ -204,7 +208,7 @@ body{
 	background-image: url('/assets/img/backgrounds/background-jauge.png');
 	background-repeat: no-repeat;
 	background-size: cover;
-	z-index: 5;
+	z-index: 1;
 	display: flex;
 	flex-direction: column-reverse;
 	align-items: flex-end;

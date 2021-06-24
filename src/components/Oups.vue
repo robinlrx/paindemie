@@ -17,8 +17,8 @@
 </template>
 
 <script>
-import Button from '@/components/Button.vue'
 import Motion from '@/components/Motion.vue'
+import Button from '@/components/ui/AppButton.vue'
 export default {
 	name: 'Oups',
 	props: {

@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import Button from '@/components/Button.vue'
+import Button from '@/components/ui/AppButton.vue'
 import { gsap, Power3, Bounce } from 'gsap'
 import lottie from 'lottie-web'
 import animLogo from '../assets/data/anim-logo.json'
