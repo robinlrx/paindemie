@@ -47,11 +47,14 @@
 					"motionChoice": "assets/videos/test.mp4"
 				}
 			},
-			"choice3": "Un peu limite là non?!"
+			"choice3": {
+				"text": "Un peu limite là non?!",
+				"motion": "assets/videos/test.mp4"
+			}
 		},
 		{
 			"id": 1,
-			"motion": "assets/videos/test.mp4",
+			"motion": "assets/videos/motion.mp4",
 			"imageScene": "assets/img/room/room1.jpg",
 			"objet1": {
 				"url": "assets/img/objets/coude.png",
@@ -202,7 +205,10 @@
 					"motionChoice": "assets/videos/test.mp4"
 				}
 			},
-			"choice3": "T’as vraiment cru que ça allait passer ça!? 🤣"
+			"choice3": {
+				"text": "T’as vraiment cru que ça allait passer ça!? 🤣",
+				"motion": "assets/videos/test.mp4"
+			}
 		},
 		{
 			"id": 3,
@@ -292,7 +298,10 @@
 					"motionChoice": "assets/videos/test.mp4"
 				}
 			},
-			"choice3": "Ah carrément.. Ça veut empoisonner son petit-fils maintenant!?"
+			"choice3": {
+				"text": "Ah carrément.. Ça veut empoisonner son petit-fils maintenant!?",
+				"motion": "assets/videos/test.mp4"
+			}
 		},
 		{
 			"id": 4,
@@ -422,7 +431,10 @@
 					"motionChoice": "assets/videos/motion.mp4"
 				}
 			},
-			"choice3": "Ouh là tu t’enflammes toi! Reste flex"
+			"choice3": {
+				"text": "Ouh là tu t’enflammes toi! Reste flex",
+				"motion": "assets/videos/test.mp4"
+			}
 		},
 		{
 			"id": 6,
@@ -545,7 +557,10 @@
 					"motionChoice": "assets/videos/motion.mp4"
 				}
 			},
-			"choice3": "C’est du propre cette éducation! Bravo!"
+			"choice3": {
+				"text": "C’est du propre cette éducation! Bravo!",
+				"motion": "assets/videos/test.mp4"
+			}
 		}
 	]
 }
