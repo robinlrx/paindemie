@@ -7,7 +7,7 @@
 
 			<h3 v-if="showError">Remplit tous les champs fréro !</h3>
 		</div>
-		<Button @click.native="checkInput()" :size=3 :type=1 class="button" ref="button" :link="''">Valider</Button>
+		<Button @click.native="checkInput()" :size=3 :type=1 class="button" ref="button" :link="''">C'EST GOOD</Button>
 	</section>
 </template>
 

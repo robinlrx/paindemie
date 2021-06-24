@@ -19,8 +19,8 @@ export default {
 	},
 	data () {
 		return {
-			showFirstPage: true,
-			showSecondPage: false,
+			showFirstPage: false,
+			showSecondPage: true,
 			showLastPage: false
 		}
 	},
