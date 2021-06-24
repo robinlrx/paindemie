@@ -13,6 +13,7 @@ export default {
 		etape: Object,
 		timerPause: Boolean,
 		showNextComposant: Boolean,
+		showSecondMotion: Boolean,
 		src: {
 			type: String,
 			required: true
@@ -57,7 +58,7 @@ export default {
 	cursor: default;
 	display: flex;
 	align-items: center;
-	z-index: 2;
+	z-index: 1;
 }
 video {
 	width: 100%;

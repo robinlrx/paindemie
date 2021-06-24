@@ -24,6 +24,7 @@ export default {
 		closeFirstTuto () {
 			this.$emit('update:timerPause', false)
 			this.$emit('update:showTuto', false)
+			this.$emit('update:show360', true)
 		}
 	},
 	mounted () {

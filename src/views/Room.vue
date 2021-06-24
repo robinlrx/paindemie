@@ -10,7 +10,11 @@
 			<Motion v-if="currentEtape === 0 || showSecondMotion" :src="etapes[currentEtape].motion" :etape="etapes[currentEtape]" :key="currentEtape" :timerPause.sync="timerPause" :showNextComposant.sync="showTuto" />
 		</transition>
 
-		<FirstTuto v-if="currentEtape == 0 && showTuto" :showTuto.sync="showTuto" :timerPause.sync="timerPause"/>
+		<transition name="fade">
+			<img v-if="currentEtape === 0 && show360" class="three-hundred-sixty" src="assets/img/icons/360.gif" alt="">
+		</transition>
+
+		<FirstTuto v-if="currentEtape == 0 && showTuto" :showTuto.sync="showTuto" :show360.sync="show360"  :timerPause.sync="timerPause"/>
 
 		<transition name="fade">
 			<!-- Key-changing to force re-renders of a component -->
@@ -72,7 +76,8 @@ export default {
 			timerPause: false,
 			btnName: null,
 			myScore: null,
-			showNewspaper: false
+			showNewspaper: false,
+			show360: false
 		}
 	},
 	methods: {
@@ -185,10 +190,17 @@ export default {
 	},
 	mounted () {
 		localStorage.removeItem('myScore')
+		setTimeout(() => { this.show360 = false }, 3000)
 	},
 	destroyed () {
 		document.location.reload()
-		console.log('destroyed')
+	},
+	watch: {
+		showTuto () {
+			setTimeout(() => {
+				this.show360 = false
+			}, 3000)
+		}
 	}
 }
 
@@ -214,5 +226,13 @@ body{
 	align-items: flex-end;
 	justify-content: center;
 	padding: 0px 60px 0px 40px;
+}
+
+.three-hundred-sixty {
+	position: absolute;
+	width: 400px;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 }
 </style>
