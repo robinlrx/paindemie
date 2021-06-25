@@ -1,20 +1,21 @@
 <template>
 	<section v-if="showSecondPage"> <!-- v-if="showSecondPage" -->
 		<div class="first-container">
-				<p>La <AppInput :placeholder="'quarantaine'" :size="'12'" v-model="quarantaine"/> <br />à causé beaucoup de solitude, il y a une <AppInput :placeholder="'pénurie'" v-model="pénurie" /> dans tous les supermarchés... </p>
+				<p>La <span @click="showRebus=true">quarantaine</span><br />à causé beaucoup de solitude, il y a une <span>pénurie</span> dans tous les supermarchés... </p>
 		</div>
 		<div class="second-container">
-				<p>Tu te rends compte qu'il faut même avoir une <AppInput :placeholder="'attestation'" :size="'11'" v-model="attestation"/> <br />pour pouvoir se déplacer librement ?</p>
+				<p>Tu te rends compte qu'il faut même avoir une <span>attestation</span><br />pour pouvoir se déplacer librement ?</p>
 
 				<h3 v-if="showError">Remplit tous les champs fréro !</h3>
 		</div>
-		<Button @click.native="checkInput()" :size=3 :type=1 class="button" ref="button" :link="''">Valider</Button>
+		<Rebus v-if="showRebus" :showRebus.sync="showRebus" />
 	</section>
 </template>
 
 <script>
-import Button from '@/components/ui/AppButton.vue'
-import AppInput from '@/components/ui/AppInput.vue'
+// import Button from '@/components/ui/AppButton.vue'
+// import AppInput from '@/components/ui/AppInput.vue'
+import Rebus from '@/components/newspaper/Rebus.vue'
 export default {
 	name: 'SecondPage',
 	data () {
@@ -25,12 +26,14 @@ export default {
 			quarantaine: null,
 			pénurie: null,
 			attestation: null,
-			showError: false
+			showError: false,
+			showRebus: false
 		}
 	},
 	components: {
-		Button,
-		AppInput
+		// Button,
+		// AppInput,
+		Rebus
 	},
 	props: {
 		showSecondPage: Boolean
@@ -119,6 +122,16 @@ p {
 	text-align: left;
 	padding: 0 20px;
 	color: $violet;
+
+	span {
+		color: $orange;
+		cursor: pointer;
+		transition: color 0.3s ease;
+
+		&:hover {
+			color: $violet;
+		}
+	}
 }
 
 h3 {
@@ -126,12 +139,6 @@ h3 {
 	letter-spacing: 2px;
 	position: absolute;
 	bottom: 0;
-}
-
-.button {
-	position: absolute;
-	right: 20px;
-	bottom: 10px;
 }
 
 @media (min-width: 1600px) {
