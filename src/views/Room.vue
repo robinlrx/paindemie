@@ -77,12 +77,26 @@ export default {
 			btnName: null,
 			myScore: null,
 			showNewspaper: false,
-			show360: false
+			show360: false,
+			publicPath: process.env.BASE_URL // to access to public folder
 		}
 	},
+	// computed: {
+	// soundPapiActivate () {
+	// return this.soundPapi
+	// }
+	// },
 	methods: {
+		soundPapi () {
+			return `${this.publicPath}assets/audios/papi/papi-${this.currentEtape}.mp3`
+		},
 		endShowSecondMotion () {
 			this.showSecondMotion = false
+
+			if (this.currentEtape !== 0) {
+				const audioPapi = new Audio(this.soundPapi())
+				audioPapi.play()
+			}
 		},
 		updateShowSecondMotion () {
 			this.showSecondMotion = true
@@ -196,7 +210,6 @@ export default {
 	},
 	mounted () {
 		localStorage.removeItem('myScore')
-		setTimeout(() => { this.show360 = false }, 3000)
 	},
 	destroyed () {
 		document.location.reload()
@@ -205,7 +218,7 @@ export default {
 		showTuto () {
 			setTimeout(() => {
 				this.show360 = false
-			}, 3000)
+			}, 2000)
 		}
 	}
 }
