@@ -33,9 +33,10 @@ export default {
 			const motion = this.$refs.motion
 			motion.onended = () => {
 				this.$emit('update:showNextComposant', true)
+				this.$emit('updateShowSecondMotion')
 				this.$emit('update:timerPause', false)
+				this.$emit('endShowSecondMotion')
 				this.showMotion = false
-				console.log(this.showNextComposant)
 			}
 		}
 	},
