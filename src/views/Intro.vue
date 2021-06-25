@@ -116,7 +116,22 @@ export default {
 				'assets/img/objets-choix/choix-tirelire.png'
 			]
 
-			const assetsVideos = ['assets/videos/motion.mp4', 'assets/videos/test.mp4']
+			const assetsVideos = [
+				'assets/videos/motion.mp4',
+				'assets/videos/test.mp4',
+				// oups
+				'assets/videos/oups/1.mp4',
+				'assets/videos/oups/2.mp4',
+				'assets/videos/oups/3.mp4',
+				'assets/videos/oups/4.mp4',
+				'assets/videos/oups/5.mp4',
+				// choices
+				'assets/videos/choices/choice-cafard1.mp4',
+				'assets/videos/choices/choice-coude2.mp4',
+				'assets/videos/choices/choice-hamac1.mp4',
+				'assets/videos/choices/choice-cocotte2.mp4',
+				'assets/videos/choices/choice-porte2.mp4'
+			]
 
 			const itemsImages = await load.all(assetsImages)
 			console.log(itemsImages)
