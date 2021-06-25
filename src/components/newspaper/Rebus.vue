@@ -9,7 +9,7 @@
 		<div class="big-cloud-container">
 			<textarea placeholder=". . ." />
 		</div>
-		<Button @click.native="check()" :size=3 :type=1 class="button" ref="button" :link="''">C'EST GOOD</Button>
+		<Button @click.native="checkRebus()" :size=3 :type=1 class="button" ref="button" :link="''">C'EST GOOD</Button>
 	</section>
 </template>
 
@@ -62,8 +62,28 @@ export default {
 	methods: {
 		checkRebus () {
 			if (this.dataId === 0) {
-				if (this.textarea.includes('car')) {
-
+				console.log(this.textarea)
+				if (this.textarea[0].value.toLowerCase().includes('car' && 'antenne')) {
+					this.textarea[0].style.color = 'rgb(42, 104, 100)'
+					setTimeout(() => {
+						this.$emit('update:showRebus', false)
+					}, 1500)
+				}
+			} else if (this.dataId === 1) {
+				console.log(this.textarea)
+				if (this.textarea[0].value.toLowerCase().includes('pet' && 'nue' && 'riz')) {
+					this.textarea[0].style.color = 'rgb(42, 104, 100)'
+					setTimeout(() => {
+						this.$emit('update:showRebus', false)
+					}, 1500)
+				}
+			} else if (this.dataId === 2) {
+				console.log(this.textarea)
+				if (this.textarea[0].value.toLowerCase().includes('a' && 'thé' && 'station')) {
+					this.textarea[0].style.color = 'rgb(42, 104, 100)'
+					setTimeout(() => {
+						this.$emit('update:showRebus', false)
+					}, 1500)
 				}
 			}
 		},
@@ -72,9 +92,9 @@ export default {
 		},
 		appatition () {
 			const cloudTL = gsap.timeline({ defaults: { duration: 1, ease: Power3.easeInOut } })
-			cloudTL.fromTo('.big-cloud-container', { opacity: 0 }, { opacity: 1 })
 			cloudTL.fromTo('.small-cloud-container', { opacity: 0 }, { opacity: 1 })
-			cloudTL.fromTo(this.$refs.button.$el, { opacity: 0 }, { opacity: 1 })
+			cloudTL.fromTo('.big-cloud-container', { opacity: 0 }, { opacity: 1 })
+			cloudTL.to(this.$refs.button.$el, { opacity: 1 })
 		}
 	},
 	mounted () {
@@ -183,6 +203,7 @@ export default {
 	z-index: 2;
 	right: 20px;
 	bottom: 10px;
+	opacity: 0;
 }
 
 @media (min-width: 1600px) {
