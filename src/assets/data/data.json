@@ -40,11 +40,11 @@
 				},
 				"btn1": {
 					"url":"assets/img/gifs-choix/choix_un_biere.gif",
-					"motionChoice": "assets/videos/test.mp4"
+					"motionChoice": "assets/videos/choices/choice-biere1.mp4"
 				},
 				"btn2": {
 					"url":"assets/img/gifs-choix/choix_deux_biere.gif",
-					"motionChoice": "assets/videos/test.mp4"
+					"motionChoice": "assets/videos/choices/choice-biere2.mp4"
 				}
 			},
 			"choice3": {
@@ -291,7 +291,7 @@
 				},
 				"btn1": {
 					"url":"assets/img/gifs-choix/choix_un_gel.gif",
-					"motionChoice": "assets/videos/test.mp4"
+					"motionChoice": "assets/videos/choices/choice-gel1.mp4"
 				},
 				"btn2": {
 					"url":"assets/img/gifs-choix/choix_deux_gel.gif",
@@ -343,7 +343,7 @@
 				},
 				"btn1": {
 					"url":"assets/img/gifs-choix/choix_un_tirelire.gif",
-					"motionChoice": "assets/videos/test.mp4"
+					"motionChoice": "assets/videos/choices/choice-tirelire1.mp4"
 				},
 				"btn2": {
 					"url":"assets/img/gifs-choix/choix_deux_tirelire.gif",
@@ -554,7 +554,7 @@
 				},
 				"btn2": {
 					"url":"assets/img/gifs-choix/choix_deux_coton_tige.gif",
-					"motionChoice": "assets/videos/test.mp4"
+					"motionChoice": "assets/videos/choices/choice-coton2.mp4"
 				}
 			},
 			"choice3": {

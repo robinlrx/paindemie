@@ -125,7 +125,12 @@ export default {
 				'assets/videos/choices/choice-coude2.mp4',
 				'assets/videos/choices/choice-hamac1.mp4',
 				'assets/videos/choices/choice-cocotte2.mp4',
-				'assets/videos/choices/choice-porte2.mp4'
+				'assets/videos/choices/choice-porte2.mp4',
+				'assets/videos/choices/choice-biere2.mp4',
+				'assets/videos/choices/choice-biere1.mp4',
+				'assets/videos/choices/choice-gel1.mp4',
+				'assets/videos/choices/choice-coton2.mp4',
+				'assets/videos/choices/choice-tirelire1.mp4'
 			]
 
 			const itemsImages = await load.all(assetsImages)
