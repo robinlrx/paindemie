@@ -2,12 +2,12 @@
 	<section class="rebus-container">
 		<div class="small-cloud-container">
 			<div class="rebus-txt">
-				<p>La <span>quar</span>-<span>antaine</span> ?</p>
-				<img src="../../../public/assets/img/rebus/rebus1.png" alt="">
+				<p><span>{{ rebusData[dataId].text.span1 }}</span>-<span>{{ rebusData[dataId].text.span2 }}</span><template v-if="rebusValue != 'quarantaine'">-</template><span v-if="rebusValue != 'quarantaine'">{{ rebusData[dataId].text.span3 }}</span> ?</p>
+				<img :src="`${this.publicPath}${this.rebusData[dataId].rebus}`" alt="">
 			</div>
 		</div>
 		<div class="big-cloud-container">
-			<textarea placeholder=". . ." v-model="femme" />
+			<textarea placeholder=". . ." />
 		</div>
 		<Button @click.native="check()" :size=3 :type=1 class="button" ref="button" :link="''">C'EST GOOD</Button>
 	</section>
@@ -21,19 +21,52 @@ export default {
 	name: 'Rebus',
 	data () {
 		return {
-			input: document.getElementsByTagName('input'),
-			badWords: ['quarantaine', 'pénurie', 'attestation'],
-			femme: null
+			textarea: document.getElementsByTagName('textarea'),
+			publicPath: process.env.BASE_URL, // to access to public folder
+			dataId: 1,
+			rebusData: [
+				{
+					text: {
+						span1: 'quar',
+						span2: 'antaine'
+					},
+					rebus: 'assets/img/rebus/rebus1.png'
+				},
+				{
+					text: {
+						span1: 'pé',
+						span2: 'nu',
+						span3: 'rie'
+					},
+					rebus: 'assets/img/rebus/rebus2.png'
+				},
+				{
+					text: {
+						span1: 'a',
+						span2: 'tte',
+						span3: 'station'
+					},
+					rebus: 'assets/img/rebus/rebus3.png'
+				}
+			]
 		}
 	},
 	props: {
-		showRebus: Boolean
+		showRebus: Boolean,
+		rebusValue: String
 	},
 	components: {
 		Button
 		// AppInput
 	},
 	methods: {
+		checkRebus () {
+			if (this.dataId === 0) {
+				if (this.textarea.includes('car')) {
+
+				}
+			}
+		},
 		check () {
 			this.$emit('update:showRebus', false)
 		},
@@ -42,10 +75,24 @@ export default {
 			cloudTL.fromTo('.big-cloud-container', { opacity: 0 }, { opacity: 1 })
 			cloudTL.fromTo('.small-cloud-container', { opacity: 0 }, { opacity: 1 })
 			cloudTL.fromTo(this.$refs.button.$el, { opacity: 0 }, { opacity: 1 })
-			console.log('done')
 		}
 	},
 	mounted () {
+		console.log(this.rebusValue)
+		console.log(this.rebusData)
+		switch (this.rebusValue) {
+		case 'quarantaine':
+			this.dataId = 0
+			break
+
+		case 'pénurie':
+			this.dataId = 1
+			break
+
+		case 'attestation':
+			this.dataId = 2
+			break
+		}
 		this.appatition()
 	}
 
