@@ -2,7 +2,7 @@
 
 <template>
 	<div class="room">
-		<!-- <Lottie  v-if="currentEtape !== 0" :key="currentEtape" /> -->
+		<Lottie  v-if="currentEtape !== 0" :key="currentEtape" />
 
 		<Motion v-if="currentEtape !== 0" :src="videoSrc()" :etape="etapes[currentEtape]" :key="currentEtape" :timerPause.sync="timerPause" :showNextComposant.sync="showSecondMotion" @updateShowSecondMotion="updateShowSecondMotion"/>
 
@@ -46,7 +46,7 @@ import Jauge from '@/components/Jauge.vue'
 import Timer from '@/components/Timer.vue'
 import Oups from '@/components/Oups.vue'
 import FirstTuto from '@/components/FirstTuto.vue'
-// import Lottie from '@/components/Lottie.vue'
+import Lottie from '@/components/Lottie.vue'
 import Newspaper from '@/components/newspaper/Newspaper.vue'
 
 export default {
@@ -59,7 +59,7 @@ export default {
 		Oups,
 		Motion,
 		FirstTuto,
-		// Lottie,
+		Lottie,
 		Newspaper
 	},
 	data () {
@@ -226,7 +226,7 @@ body{
 	background-image: url('/assets/img/backgrounds/background-jauge.png');
 	background-repeat: no-repeat;
 	background-size: cover;
-	z-index: 1;
+	z-index: 2;
 	display: flex;
 	flex-direction: column-reverse;
 	align-items: flex-end;

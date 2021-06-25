@@ -48,7 +48,7 @@ export default {
 	flex-direction: column;
 	cursor: default;
 	gap: 2rem;
-	z-index: 3;
+	z-index: 4;
 
 	p {
 		color: $red;

@@ -54,6 +54,8 @@ section {
 	background-color: rgba(255, 205, 29, 0.8);
 	color: $red;
 	cursor: initial;
+	position: relative;
+	z-index: 3;
 
 	div {
 		position: relative;

@@ -36,7 +36,7 @@ export default {
 		lottieAnim.addEventListener('DOMLoaded', () => {
 			console.log('anim loaded')
 			lottieAnim.play()
-			lottieAnim.setSpeed(0.8)
+			// lottieAnim.setSpeed(0.8)
 			// hide temp background ("overlay") when anim loaded
 			this.$refs.lottieTempBackground.style.display = 'none'
 		})
@@ -62,7 +62,7 @@ export default {
 	position: absolute;
 	top: 0;
 	left: 0;
-	z-index: 3;
+	z-index: 4;
 	cursor: default;
 }
 

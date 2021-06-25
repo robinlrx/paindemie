@@ -46,6 +46,8 @@ export default {
 	align-items: center;
 	flex-direction: column;
 	gap: 4rem;
+	position: relative;
+	z-index: 3;
 
 	p {
 		color: $red;

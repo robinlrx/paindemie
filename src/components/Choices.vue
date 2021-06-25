@@ -3,7 +3,7 @@
 <template>
 	<div class="choices">
 
-		<!-- <Papi :showPapi.sync="showPapi" class="papi" :numChoice="numChoice" :timerPause.sync="timerPause" :showSecondTuto.sync="showSecondTuto" /> -->
+		<Papi :showPapi.sync="showPapi" class="papi" :numChoice="numChoice" :timerPause.sync="timerPause" :showSecondTuto.sync="showSecondTuto" />
 
 		<SecondTuto v-if="currentEtape == 0 && showSecondTuto" :showSecondTuto.sync="showSecondTuto" :timerPause.sync="timerPause"/>
 
@@ -30,13 +30,13 @@
 
 <script>
 import SecondTuto from '@/components/SecondTuto.vue'
-// import Papi from '@/components/Papi.vue'
+import Papi from '@/components/Papi.vue'
 import { gsap, Power3 } from 'gsap'
 
 export default {
 	name: 'Choices',
 	components: {
-		// Papi,
+		Papi,
 		SecondTuto
 	},
 	props: {
@@ -124,7 +124,7 @@ export default {
 		left: 0;
 		width: 100%;
 		height: 100vh;
-		z-index: 3;
+		z-index: 4;
 		cursor: default;
 	}
 
@@ -140,7 +140,7 @@ export default {
 		padding: 0;
 		border: none;
 		background: transparent;
-		z-index: 2;
+		z-index: 3;
 		cursor: pointer;
 
 		&:focus {

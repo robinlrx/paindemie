@@ -86,9 +86,9 @@ video {
 
 	.object {
 		position: absolute;
-		left: 0%;
-		top: 8%;
-		width: 50%;
+		left: -11%;
+		top: -2%;
+		width: 70%;
 	}
 }
 </style>

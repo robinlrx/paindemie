@@ -120,11 +120,6 @@ export default {
 				'assets/videos/motion.mp4',
 				'assets/videos/test.mp4',
 				// oups
-				'assets/videos/oups/1.mp4',
-				'assets/videos/oups/2.mp4',
-				'assets/videos/oups/3.mp4',
-				'assets/videos/oups/4.mp4',
-				'assets/videos/oups/5.mp4',
 				// choices
 				'assets/videos/choices/choice-cafard1.mp4',
 				'assets/videos/choices/choice-coude2.mp4',
