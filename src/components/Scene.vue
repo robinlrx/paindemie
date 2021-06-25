@@ -199,7 +199,7 @@ export default {
 			})
 
 			if (intersects.length === 0) {
-				this.html.style.cursor = 'default'
+				this.html.style.cursor = 'move'
 				this.planes.forEach((plane) => {
 					plane.material.uniforms.hover.value = false
 				})
