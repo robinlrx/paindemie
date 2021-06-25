@@ -33,7 +33,7 @@ export default {
 				if (this.elapsedTime % 10000 === 0) {
 					const audio = new Audio(this.randomSound())
 					audio.play()
-					this.$emit('onPenality', -2)
+					this.$emit('onPenality', -10)
 				}
 			}, 1000)
 		},
