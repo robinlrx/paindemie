@@ -8,7 +8,7 @@
 
 				<h3 v-if="showError">Remplit tous les champs fréro !</h3>
 		</div>
-		<Rebus v-if="showRebus" :showRebus.sync="showRebus"  :rebusValue.sync="rebusValue"/>
+		<Rebus v-if="showRebus" :showRebus.sync="showRebus"  :rebusValue.sync="rebusValue" :buttonCounter.sync="buttonCounter" />
 	</section>
 </template>
 
@@ -28,7 +28,8 @@ export default {
 			attestation: null,
 			showError: false,
 			showRebus: false,
-			rebusValue: null
+			rebusValue: null,
+			buttonCounter: 0
 		}
 	},
 	components: {

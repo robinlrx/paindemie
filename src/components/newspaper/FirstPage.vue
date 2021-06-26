@@ -5,7 +5,9 @@
 			<p>Ma chère <AppInput :placeholder="'femme'" v-model="femme"/> <br />Cela fait maintenant 2 mois que tu es <AppInput :placeholder="'partie'" v-model="partie"/> Ce maudit <AppInput :placeholder="'virus'" v-model="virus"/> <br />a causé tellement de <AppInput :placeholder="'morts'" v-model="morts" /></p>
 			<p>Je pris pour que tu <AppInput :placeholder="'reviennes'" v-model="reviennes" /> Ne t'inquiètes pas, je m'occupe de <AppInput :size="'15'" :placeholder="'notre enfant'" v-model="enfant" /> comme je te <br />l'avais promis avant que tu <AppInput :size="'15'" :placeholder="'nous quittes'" v-model="quittes" /></p>
 
-			<h3 v-if="showError">Remplit tous les champs fréro !</h3>
+			<transition name="fade">
+				<h3 v-if="showError">Remplit tous les champs fréro !</h3>
+			</transition>
 		</div>
 		<Button @click.native="checkInput()" :size=3 :type=1 class="button" ref="button" :link="''">C'EST GOOD</Button>
 	</section>
@@ -42,7 +44,9 @@ export default {
 		checkInput () {
 			if ((this.femme === '' || this.femme === null) || (this.partie === '' || this.partie === null) || (this.virus === '' || this.virus === null) || (this.morts === '' || this.morts === null) || (this.reviennes === '' || this.reviennes === null) || (this.enfant === '' || this.enfant === null) || (this.quittes === '' || this.quittes === null)) {
 				this.showError = true
-				setTimeout(function () { this.showError = false }, 2000)
+				setTimeout(() => {
+					this.showError = false
+				}, 3000)
 			} else {
 				this.checkWord()
 			}
@@ -112,6 +116,7 @@ section {
 
 	h3 {
 		color: red;
+		font-size: 1rem;
 		letter-spacing: 2px;
 		position: absolute;
 		bottom: 0;

@@ -6,15 +6,19 @@
 				<img :src="`${this.publicPath}${this.rebusData[dataId].rebus}`" alt="">
 			</div>
 		</div>
-		<div class="big-cloud-container"></div>
+		<div class="big-cloud-container">
+			<transition name="fade">
+				<h3 v-if="showError">Justifie toi correctement fréro !</h3>
+			</transition>
+		</div>
 		<textarea placeholder=". . ." />
 		<Button @click.native="checkRebus()" :size=3 :type=1 class="button" ref="button" :link="''">C'EST GOOD</Button>
 	</section>
 </template>
 
 <script>
-// import AppInput from '@/components/ui/AppInput.vue'
 import Button from '@/components/ui/AppButton.vue'
+import router from '../../router/index'
 import { gsap, Power3 } from 'gsap'
 export default {
 	name: 'Rebus',
@@ -23,6 +27,8 @@ export default {
 			textarea: document.getElementsByTagName('textarea'),
 			publicPath: process.env.BASE_URL, // to access to public folder
 			dataId: 1,
+			showError: false,
+			counter: this.$props.buttonCounter,
 			rebusData: [
 				{
 					text: {
@@ -52,41 +58,58 @@ export default {
 	},
 	props: {
 		showRebus: Boolean,
-		rebusValue: String
+		rebusValue: String,
+		buttonCounter: Number
 	},
 	components: {
 		Button
-		// AppInput
 	},
 	methods: {
+		handleShowError () {
+			this.textarea[0].style.color = '#FF4465'
+			this.showError = true
+			setTimeout(() => {
+				this.textarea[0].style.color = '#27123C'
+				this.showError = false
+			}, 2500)
+		},
 		checkRebus () {
 			if (this.dataId === 0) {
-				console.log(this.textarea)
 				if (this.textarea[0].value.toLowerCase().includes('car' && 'antenne')) {
 					this.textarea[0].style.color = 'rgb(42, 104, 100)'
 					setTimeout(() => {
-						this.$emit('update:showRebus', false)
+						this.check()
 					}, 1500)
+				} else {
+					this.handleShowError()
 				}
 			} else if (this.dataId === 1) {
-				console.log(this.textarea)
 				if (this.textarea[0].value.toLowerCase().includes('pet' && 'nue' && 'riz')) {
 					this.textarea[0].style.color = 'rgb(42, 104, 100)'
 					setTimeout(() => {
-						this.$emit('update:showRebus', false)
+						this.check()
 					}, 1500)
+				} else {
+					this.handleShowError()
 				}
 			} else if (this.dataId === 2) {
-				console.log(this.textarea)
 				if (this.textarea[0].value.toLowerCase().includes('a' && 'thé' && 'station')) {
 					this.textarea[0].style.color = 'rgb(42, 104, 100)'
 					setTimeout(() => {
-						this.$emit('update:showRebus', false)
+						this.check()
 					}, 1500)
+				} else {
+					this.handleShowError()
 				}
 			}
 		},
 		check () {
+			this.counter += 1
+			this.$emit('update:buttonCounter', this.counter)
+
+			if (this.counter === 3) {
+				router.push('home')
+			}
 			this.$emit('update:showRebus', false)
 		},
 		appatition () {
@@ -174,6 +197,15 @@ export default {
 	background-repeat: no-repeat;
 	justify-content: center;
 	align-items: center;
+
+	h3 {
+		font-family: $chantal-font;
+		color: red;
+		font-size: 1rem;
+		letter-spacing: 2px;
+		margin-left: 40%;
+		margin-top: 30%;
+	}
 }
 
 textarea {
