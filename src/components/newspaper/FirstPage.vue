@@ -1,25 +1,33 @@
 <template>
-	<section v-if="showFirstPage">
-		<div class="container">
-			<h2>13 décembre 2020,</h2>
-			<p>Ma chère <AppInput :placeholder="'femme'" v-model="femme"/> <br />Cela fait maintenant 2 mois que tu es <AppInput :placeholder="'partie'" v-model="partie"/> Ce maudit <AppInput :placeholder="'virus'" v-model="virus"/> <br />a causé tellement de <AppInput :placeholder="'morts'" v-model="morts" /></p>
-			<p>Je pris pour que tu <AppInput :placeholder="'reviennes'" v-model="reviennes" /> Ne t'inquiètes pas, je m'occupe de <AppInput :size="'15'" :placeholder="'notre enfant'" v-model="enfant" /> comme je te <br />l'avais promis avant que tu <AppInput :size="'15'" :placeholder="'nous quittes'" v-model="quittes" /></p>
-
+	<transition name="fade">
+		<section>
 			<transition name="fade">
-				<h3 v-if="showError">Remplit tous les champs fréro !</h3>
+				<FirstPageTuto v-if="showFirstTutoNewspaper" :showFirstTutoNewspaper="showFirstTutoNewspaper" :timerPause.sync="timerPause" />
 			</transition>
-		</div>
-		<Button @click.native="checkInput()" :size=3 :type=1 class="button" ref="button" :link="''">C'EST GOOD</Button>
-	</section>
+
+			<div class="container">
+				<h2>13 décembre 2020,</h2>
+				<p>Ma chère <AppInput :placeholder="'femme'" v-model="femme"/> <br />Cela fait maintenant 2 mois que tu es <AppInput :placeholder="'partie'" v-model="partie"/> Ce maudit <AppInput :placeholder="'virus'" v-model="virus"/> <br />a causé tellement de <AppInput :placeholder="'morts'" v-model="morts" /></p>
+				<p>Je pris pour que tu <AppInput :placeholder="'reviennes'" v-model="reviennes" /> Ne t'inquiètes pas, je m'occupe de <AppInput :size="'15'" :placeholder="'notre enfant'" v-model="enfant" /> comme je te <br />l'avais promis avant que tu <AppInput :size="'15'" :placeholder="'nous quittes'" v-model="quittes" /></p>
+
+				<transition name="fade">
+					<h3 v-if="showError">Remplit tous les champs fréro !</h3>
+				</transition>
+			</div>
+			<Button @click.native="checkInput()" :size=3 :type=1 class="button" ref="button" :link="''">C'EST GOOD</Button>
+		</section>
+	</transition>
 </template>
 
 <script>
 import Button from '@/components/ui/AppButton.vue'
 import AppInput from '@/components/ui/AppInput.vue'
+import FirstPageTuto from '@/components/newspaper/FirstPageTuto.vue'
 export default {
 	name: 'FirstPage',
 	props: {
-		showFirstPage: Boolean
+		showFirstPage: Boolean,
+		timerPause: Boolean
 	},
 	data () {
 		return {
@@ -33,12 +41,14 @@ export default {
 			reviennes: null,
 			enfant: null,
 			quittes: null,
-			showError: false
+			showError: false,
+			showFirstTutoNewspaper: false
 		}
 	},
 	components: {
 		Button,
-		AppInput
+		AppInput,
+		FirstPageTuto
 	},
 	methods: {
 		checkInput () {
@@ -67,6 +77,16 @@ export default {
 					this.$emit('update:showSecondPage', true)
 				}
 			}
+		}
+	},
+	mounted () {
+		setTimeout(() => {
+			this.showFirstTutoNewspaper = true
+		}, 1500)
+	},
+	watch: {
+		timerPause (newValue) {
+			this.$emit('update:timerPause', newValue)
 		}
 	}
 

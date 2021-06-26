@@ -1,20 +1,20 @@
 <template>
-	<section v-if="showSecondPage"> <!-- v-if="showSecondPage" -->
-		<div class="first-container">
-				<p>La <span @click="checkWord('quarantaine')">quarantaine</span><br />à causé beaucoup de solitude, il y a une <span @click="checkWord('pénurie')">pénurie</span> dans tous les supermarchés... </p>
-		</div>
-		<div class="second-container">
-				<p>Tu te rends compte qu'il faut même avoir une <span @click="checkWord('attestation')">attestation</span><br />pour pouvoir se déplacer librement ?</p>
+	<transition name="fade">
+		<section> <!-- v-if="showSecondPage" -->
+			<div class="first-container">
+					<p>La <span @click="checkWord('quarantaine')">quarantaine</span><br />à causé beaucoup de solitude, il y a une <span @click="checkWord('pénurie')">pénurie</span> dans tous les supermarchés... </p>
+			</div>
+			<div class="second-container">
+					<p>Tu te rends compte qu'il faut même avoir une <span @click="checkWord('attestation')">attestation</span><br />pour pouvoir se déplacer librement ?</p>
 
-				<h3 v-if="showError">Remplit tous les champs fréro !</h3>
-		</div>
-		<Rebus v-if="showRebus" :showRebus.sync="showRebus"  :rebusValue.sync="rebusValue" :buttonCounter.sync="buttonCounter" />
-	</section>
+					<h3 v-if="showError">Remplit tous les champs fréro !</h3>
+			</div>
+			<Rebus v-if="showRebus" :showRebus.sync="showRebus"  :rebusValue.sync="rebusValue" :buttonCounter.sync="buttonCounter" />
+		</section>
+	</transition>
 </template>
 
 <script>
-// import Button from '@/components/ui/AppButton.vue'
-// import AppInput from '@/components/ui/AppInput.vue'
 import Rebus from '@/components/newspaper/Rebus.vue'
 export default {
 	name: 'SecondPage',
@@ -33,8 +33,6 @@ export default {
 		}
 	},
 	components: {
-		// Button,
-		// AppInput,
 		Rebus
 	},
 	props: {
@@ -68,7 +66,6 @@ section {
 	left: 20%;
 	width: 30vw;
 	height: 80%;
-	// border: solid red;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -81,7 +78,6 @@ section {
 	right: 18%;
 	width: 30vw;
 	height: 80%;
-	// border: solid red;
 	display: flex;
 	justify-content: center;
 	align-items: center;

@@ -31,7 +31,7 @@
 		</transition>
 
 		<Oups :showOups.sync="showOups" :score="score" :etape="etapes[currentEtape]" :key="currentEtape" :timerPause.sync="timerPause" />
-		<Newspaper :showNewspaper.sync="showNewspaper" :myScore.sync="myScore" :numChoice="numChoice" />
+		<Newspaper :showNewspaper.sync="showNewspaper" :myScore.sync="myScore" :numChoice="numChoice" :timerPause.sync="timerPause"/>
 	</div>
 </template>
 

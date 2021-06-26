@@ -1,11 +1,11 @@
 <template>
-<transition name="fade">
-	<section class="first-tuto">
-		<p><span>Oh la la... C’est la merde!</span><br><br> Débrouille-toi pour que Léo ne comprenne pas <br>ce qu’il y a écrit.<br><br> <span>Remplace les mots colorés!<br> Attention les synonymes sont interdits!</span></p>
+	<transition name="fade">
+		<section class="first-tuto">
+			<p><span>Oh la la... C’est la merde!</span><br><br> Débrouille-toi pour que Léo ne comprenne pas <br>ce qu’il y a écrit.<br><br> <span>Remplace les mots colorés!<br> Attention les synonymes sont interdits!</span></p>
 
-		<Button class="button" :size=2 :type=1 :link="'room'">J'AI CAPTÉ</Button>
-	</section>
-</transition>
+			<Button @click.native="closeTuto()" class="button" :size=2 :type=1 :link="''">J'AI CAPTÉ</Button>
+		</section>
+	</transition>
 </template>
 
 <script>
@@ -15,8 +15,19 @@ export default {
 	name: 'FirstPageTuto',
 	components: {
 		Button
+	},
+	props: {
+		timerPause: Boolean,
+		showFirstTutoNewspaper: Boolean
+	},
+	methods: {
+		closeTuto () {
+			this.$emit('update:showFirstTutoNewspaper', false)
+		}
+	},
+	mounted () {
+		this.$emit('update:timerPause', true)
 	}
-
 }
 </script>
 
@@ -27,12 +38,13 @@ export default {
 	width: 100%;
 	height: 100vh;
 	background-color: rgba(255, 255, 255, 0.8);
+	background-image: none;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
 	gap: 4rem;
-	position: relative;
+	position: absolute;
 	z-index: 3;
 
 	p {

@@ -15,6 +15,12 @@ export default {
 	name: 'SecondPageTuto',
 	components: {
 		Button
+	},
+	props: {
+		timerPause: Boolean
+	},
+	mounted () {
+		this.$emit('update:timerPause', true)
 	}
 
 }

@@ -1,21 +1,19 @@
 <template>
-	<transition name="fade">
-		<section class="win">
+	<section class="win">
 
-			<div class="win-container">
-				<div class="title">
-					<h2>BRAVO!</h2>
-				</div>
-				<p><span>Leo te crois!</span> (pour le moment)<br/>
-				Seulement moi j'en ai marre<br/>
-				de t'aider donc à toi<br/>
-				d'improviser</p>
-				<img src="assets/img/icons/perso_content.png" alt="">
+		<div class="win-container">
+			<div class="title">
+				<h2>BRAVO!</h2>
 			</div>
+			<p><span>Leo te crois!</span> (pour le moment)<br/>
+			Seulement moi j'en ai marre<br/>
+			de t'aider donc à toi<br/>
+			d'improviser</p>
+			<img src="assets/img/icons/perso_content.png" alt="">
+		</div>
 
-			<Button :link="''" :size=3 :type=1 class="button" ref="button">J'y go</Button>
-		</section>
-	</transition>
+		<Button  @click.native="closeLastTuto()" :link="''" :size=3 :type=1 class="button" ref="button">J'y go</Button>
+	</section>
 </template>
 
 <script>
@@ -23,10 +21,21 @@ import Button from '@/components/ui/AppButton.vue'
 export default {
 	name: 'LastTuto',
 	props: {
-		etape: Object
+		showLastTuto: Boolean,
+		showFirstPage: Boolean,
+		timerPause: Boolean
 	},
 	components: {
 		Button
+	},
+	methods: {
+		closeLastTuto () {
+			this.$emit('update:showLastTuto', false)
+			this.$emit('update:showFirstPage', true)
+		}
+	},
+	mounted () {
+		this.$emit('update:timerPause', true)
 	}
 }
 </script>
