@@ -4,6 +4,8 @@
 			<!-- <Lottie/>
 			<Motion :src="lastVideoSrc()" :timerPause.sync="timerPause" /> -->
 			<LastTuto />
+			<!-- <FirstPageTuto /> -->
+			<!-- <SecondPageTuto /> -->
 			<FirstPage :showFirstPage.sync="showFirstPage" :showSecondPage.sync="showSecondPage" />
 			<SecondPage  :showSecondPage.sync="showSecondPage" :showLastPage.sync="showLastPage"/>
 			<LastPage :showLastPage.sync="showLastPage" />
@@ -15,6 +17,8 @@
 import FirstPage from '@/components/newspaper/FirstPage.vue'
 import SecondPage from '@/components/newspaper/SecondPage.vue'
 import LastPage from '@/components/newspaper/LastPage.vue'
+// import FirstPageTuto from '@/components/newspaper/FirstPageTuto.vue'
+// import SecondPageTuto from '@/components/newspaper/SecondPageTuto.vue'
 import LastTuto from '@/components/LastTuto.vue'
 // import Motion from '@/components/Motion.vue'
 // import Lottie from '@/components/Lottie.vue'
@@ -37,6 +41,8 @@ export default {
 		FirstPage,
 		SecondPage,
 		LastPage,
+		// FirstPageTuto,
+		// SecondPageTuto
 		LastTuto
 		// Motion,
 		// Lottie
