@@ -1,8 +1,9 @@
 <template>
-	<transition name="fade" v-if="showNewspaper"> <!--  v-if="showNewspaper" -->
+	<transition name="fade"> <!--  v-if="showNewspaper" -->
 		<section>
-			<Lottie/>
-			<Motion :src="lastVideoSrc()" :timerPause.sync="timerPause" />
+			<!-- <Lottie/>
+			<Motion :src="lastVideoSrc()" :timerPause.sync="timerPause" /> -->
+			<LastTuto />
 			<FirstPage :showFirstPage.sync="showFirstPage" :showSecondPage.sync="showSecondPage" />
 			<SecondPage  :showSecondPage.sync="showSecondPage" :showLastPage.sync="showLastPage"/>
 			<LastPage :showLastPage.sync="showLastPage" />
@@ -14,8 +15,9 @@
 import FirstPage from '@/components/newspaper/FirstPage.vue'
 import SecondPage from '@/components/newspaper/SecondPage.vue'
 import LastPage from '@/components/newspaper/LastPage.vue'
-import Motion from '@/components/Motion.vue'
-import Lottie from '@/components/Lottie.vue'
+import LastTuto from '@/components/LastTuto.vue'
+// import Motion from '@/components/Motion.vue'
+// import Lottie from '@/components/Lottie.vue'
 export default {
 	name: 'Newspaper',
 	props: {
@@ -26,7 +28,7 @@ export default {
 	},
 	data () {
 		return {
-			showFirstPage: true,
+			showFirstPage: false,
 			showSecondPage: false,
 			showLastPage: false
 		}
@@ -35,8 +37,9 @@ export default {
 		FirstPage,
 		SecondPage,
 		LastPage,
-		Motion,
-		Lottie
+		LastTuto
+		// Motion,
+		// Lottie
 	},
 	methods: {
 		lastVideoSrc () {

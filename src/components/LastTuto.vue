@@ -1,34 +1,32 @@
 <template>
 	<transition name="fade">
-		<section class="loose">
-			<Motion src="assets/videos/test.mp4"/>
+		<section class="win">
 
-			<div class="loose-container">
+			<div class="win-container">
 				<div class="title">
-					<h2>PERDU!</h2>
+					<h2>BRAVO!</h2>
 				</div>
-				<p><span>Sérieux ?</span><br/>
-				T’as vraiment cru qu’en disant ça il allait te croire?<br/><br/>
-				Tu peux encore te rattraper...</p>
-				<img src="assets/img/icons/perso_venere.png" alt="">
+				<p><span>Leo te crois!</span> (pour le moment)<br/>
+				Seulement moi j'en ai marre<br/>
+				de t'aider donc à toi<br/>
+				d'improviser</p>
+				<img src="assets/img/icons/perso_content.png" alt="">
 			</div>
 
-			<Button :link="'/home'" :size=3 :type=2 class="button" ref="button">Vas-y je retente</Button>
+			<Button :link="''" :size=3 :type=1 class="button" ref="button">J'y go</Button>
 		</section>
 	</transition>
 </template>
 
 <script>
 import Button from '@/components/ui/AppButton.vue'
-import Motion from '@/components/Motion.vue'
 export default {
-	name: 'Loose',
+	name: 'LastTuto',
 	props: {
 		etape: Object
 	},
 	components: {
-		Button,
-		Motion
+		Button
 	}
 }
 </script>
@@ -36,20 +34,20 @@ export default {
 <style lang="scss" scoped>
 @import '@/assets/scss/_variables.scss';
 
-.loose {
+.win {
 	width: 100%;
 	height: 100vh;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
-	background-image: url('/assets/img/backgrounds/background-loose.jpg');
+	background-image: url('/assets/img/backgrounds/background-bravo.jpg');
 	background-repeat: no-repeat;
 	background-size: cover;
 	color: $red;
 	cursor: initial;
 
-	.loose-container {
+	.win-container {
 		position: relative;
 		display: flex;
 		background-image: url('/assets/img/backgrounds/background-container-loose.png');
@@ -64,7 +62,7 @@ export default {
 			position: absolute;
 			top:-40px;
 			left: -30px;
-			background-image: url('/assets/img/backgrounds/background-title.png');
+			background-image: url('/assets/img/backgrounds/background-title-bravo.png');
 			background-repeat: no-repeat;
 			background-size: cover;
 			width: 312px;
@@ -75,7 +73,7 @@ export default {
 				font-family: $chelsea-font;
 				font-size: 3rem;
 				font-weight: 400;
-				color: $cream;
+				color: $red;
 				margin: auto;
 				letter-spacing: .6rem;
 				transform: rotate(-5deg);
@@ -88,6 +86,7 @@ export default {
 			font-size: 2rem;
 			max-width: 42vw;
 			letter-spacing: 0.15em;
+			margin-right: 5vw;
 			span {
 				font-weight: bold;
 			}
