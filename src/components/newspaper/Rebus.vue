@@ -6,9 +6,8 @@
 				<img :src="`${this.publicPath}${this.rebusData[dataId].rebus}`" alt="">
 			</div>
 		</div>
-		<div class="big-cloud-container">
-			<textarea placeholder=". . ." />
-		</div>
+		<div class="big-cloud-container"></div>
+		<textarea placeholder=". . ." />
 		<Button @click.native="checkRebus()" :size=3 :type=1 class="button" ref="button" :link="''">C'EST GOOD</Button>
 	</section>
 </template>
@@ -92,8 +91,10 @@ export default {
 		},
 		appatition () {
 			const cloudTL = gsap.timeline({ defaults: { duration: 1, ease: Power3.easeInOut } })
-			cloudTL.fromTo('.small-cloud-container', { opacity: 0 }, { opacity: 1 })
-			cloudTL.fromTo('.big-cloud-container', { opacity: 0 }, { opacity: 1 })
+			cloudTL.fromTo('.small-cloud-container', { scaleY: 0.5, scaleX: 0.8, opacity: 0 }, { scaleY: 1, scaleX: 1, opacity: 1 })
+			cloudTL.addLabel('SYNC')
+			cloudTL.fromTo('.big-cloud-container', { scaleY: 0.5, scaleX: 0.8, opacity: 0 }, { scaleY: 1, scaleX: 1, opacity: 1 }, 'SYNC')
+			cloudTL.fromTo(this.textarea, { scaleY: 0.5, scaleX: 0.8, opacity: 0 }, { scaleY: 1, scaleX: 1, opacity: 1 }, 'SYNC')
 			cloudTL.to(this.$refs.button.$el, { opacity: 1 })
 		}
 	},
@@ -129,11 +130,6 @@ export default {
 	position: absolute;
 }
 
-.clouds {
-	width: 100%;
-	height: 100%;
-}
-
 .big-cloud-container, .small-cloud-container {
 	width: 100%;
 	height: 100vh;
@@ -153,7 +149,7 @@ export default {
 	align-items: center;
 
 	.rebus-txt {
-		margin-left: 15%;
+		margin-left: 18%;
 
 		img {
 			width: 200px;
@@ -178,23 +174,24 @@ export default {
 	background-repeat: no-repeat;
 	justify-content: center;
 	align-items: center;
+}
 
-	textarea {
-		font-family: $chelsea-font;
-		font-size: 1.5rem;
-		letter-spacing: 2px;
-		position: relative;
-		left: 20%;
-		z-index: 2;
-		border: none;
-		background-color: transparent;
-		width: 50%;
-		height: 40%;
-		resize: none;
+textarea {
+	font-family: $chelsea-font;
+	font-size: 1.5rem;
+	letter-spacing: 2px;
+	position: absolute;
+	left: 45%;
+	top: 30%;
+	z-index: 2;
+	border: none;
+	background-color: transparent;
+	width: 50%;
+	height: 40%;
+	resize: none;
 
-		&:focus {
-			outline: none;
-		}
+	&:focus {
+		outline: none;
 	}
 }
 
@@ -212,10 +209,6 @@ export default {
 		.rebus-txt {
 			img {
 				width: 300px;
-			}
-
-			p {
-				padding: 0 100px;
 			}
 		}
 	}
