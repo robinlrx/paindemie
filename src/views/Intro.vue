@@ -119,7 +119,17 @@ export default {
 			const assetsVideos = [
 				'assets/videos/motion.mp4',
 				'assets/videos/test.mp4',
+				// intro
+				'assets/videos/intro-scene/intro-1.mp4',
+				'assets/videos/intro-scene/intro-2.mp4',
+				'assets/videos/intro-scene/intro-3.mp4',
+				// papi
+				'assets/videos/papi/papi-cafard.mp4',
+				'assets/videos/papi/papi-hamac.mp4',
+				'assets/videos/papi/papi-biere.mp4',
+				'assets/videos/papi/papi-coude.mp4',
 				// oups
+				'assets/videos/oups/oups-masque.mp4',
 				// choices
 				'assets/videos/choices/choice-cafard1.mp4',
 				'assets/videos/choices/choice-coude2.mp4',

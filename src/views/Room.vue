@@ -4,7 +4,7 @@
 	<div class="room">
 		<Lottie  v-if="currentEtape !== 0" :key="currentEtape" />
 
-		<Motion v-if="currentEtape !== 0" :src="etapes[currentEtape].motion" :etape="etapes[currentEtape]" :key="currentEtape" :timerPause.sync="timerPause" :showNextComposant.sync="showSecondMotion" @updateShowSecondMotion="updateShowSecondMotion"/> <!-- videoSrc() -->
+		<Motion v-if="currentEtape !== 0" :src="videoSrc()" :etape="etapes[currentEtape]" :key="currentEtape" :timerPause.sync="timerPause" :showNextComposant.sync="showSecondMotion" @updateShowSecondMotion="updateShowSecondMotion"/> <!-- videoSrc() -->
 
 		<transition name="fade">
 			<Motion v-if="currentEtape === 0 || showSecondMotion" :src="etapes[currentEtape].motion" :etape="etapes[currentEtape]" :key="currentEtape" :timerPause.sync="timerPause" :showNextComposant.sync="showTuto" @endShowSecondMotion="endShowSecondMotion" />
@@ -66,7 +66,7 @@ export default {
 		return {
 			showChoices: false,
 			etapes: data.content,
-			currentEtape: 7,
+			currentEtape: 0,
 			score: 100,
 			numButton: null,
 			numChoice: null,

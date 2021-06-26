@@ -2,7 +2,7 @@
 	"content": [
 		{
 			"id": 0,
-			"motion": "assets/videos/test.mp4",
+			"motion": "assets/videos/intro-scene/intro-1.mp4",
 			"imageScene": "assets/img/room/room0.jpg",
 			"objet1": {
 				"url": "assets/img/objets/biere.png",
@@ -26,8 +26,8 @@
 			},
 			"choice1": {
 				"papi": {
-					"url": "assets/videos/test.mp4",
-					"time": 1000
+					"url": "assets/videos/papi/papi-biere.mp4",
+					"time": 6500
 				},
 				"objet": {
 					"url": "assets/img/objets-choix/choix-biere.png",
@@ -54,7 +54,7 @@
 		},
 		{
 			"id": 1,
-			"motion": "assets/videos/intro-scene/intro2.mp4",
+			"motion": "assets/videos/intro-scene/intro-2.mp4",
 			"imageScene": "assets/img/room/room1.jpg",
 			"objet1": {
 				"url": "assets/img/objets/coude.png",
@@ -78,8 +78,8 @@
 			},
 			"choice1": {
 				"papi": {
-					"url": "assets/videos/test.mp4",
-					"time": 7000
+					"url": "assets/videos/papi/papi-coude.mp4",
+					"time": 11500
 				},
 				"objet": {
 					"url": "assets/img/objets-choix/choix-coude.png",
@@ -104,7 +104,7 @@
 			"choice2": {
 				"papi": {
 					"url": "assets/videos/papi/papi-cafard.mp4",
-					"time": 12500
+					"time": 11500
 				},
 				"objet": {
 					"url": "assets/img/objets-choix/choix-cafard.png",
@@ -129,7 +129,7 @@
 		},
 		{
 			"id": 2,
-			"motion": "assets/videos/test.mp4",
+			"motion": "assets/videos/intro-scene/intro-3.mp4",
 			"imageScene": "assets/img/room/room2.jpg",
 			"objet1": {
 				"url": "assets/img/objets/brosse-a-dents.png",
@@ -188,8 +188,8 @@
 			},
 			"choice2": {
 				"papi": {
-					"url": "assets/videos/test.mp4",
-					"time": 7000
+					"url": "assets/videos/papi/papi-hamac.mp4",
+					"time": 5500
 				},
 				"objet": {
 					"url": "assets/img/objets-choix/choix-hamac.png",
@@ -207,7 +207,7 @@
 			},
 			"choice3": {
 				"text": "T’as vraiment cru que ça allait passer ça!? 🤣",
-				"motion": "assets/videos/test.mp4"
+				"motion": "assets/videos/oups/oups-masque.mp4"
 			}
 		},
 		{

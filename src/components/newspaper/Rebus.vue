@@ -79,7 +79,7 @@ export default {
 					this.textarea[0].style.color = 'rgb(42, 104, 100)'
 					setTimeout(() => {
 						this.check()
-					}, 1500)
+					}, 1000)
 				} else {
 					this.handleShowError()
 				}
@@ -88,7 +88,7 @@ export default {
 					this.textarea[0].style.color = 'rgb(42, 104, 100)'
 					setTimeout(() => {
 						this.check()
-					}, 1500)
+					}, 1000)
 				} else {
 					this.handleShowError()
 				}
@@ -97,7 +97,7 @@ export default {
 					this.textarea[0].style.color = 'rgb(42, 104, 100)'
 					setTimeout(() => {
 						this.check()
-					}, 1500)
+					}, 1000)
 				} else {
 					this.handleShowError()
 				}
@@ -110,15 +110,26 @@ export default {
 			if (this.counter === 3) {
 				router.push('home')
 			}
-			this.$emit('update:showRebus', false)
+			this.reverseApparition()
+			setTimeout(() => {
+				this.$emit('update:showRebus', false)
+			}, 3000)
 		},
-		appatition () {
+		apparition () {
 			const cloudTL = gsap.timeline({ defaults: { duration: 1, ease: Power3.easeInOut } })
 			cloudTL.fromTo('.small-cloud-container', { scaleY: 0.5, scaleX: 0.8, opacity: 0 }, { scaleY: 1, scaleX: 1, opacity: 1 })
 			cloudTL.addLabel('SYNC')
 			cloudTL.fromTo('.big-cloud-container', { scaleY: 0.5, scaleX: 0.8, opacity: 0 }, { scaleY: 1, scaleX: 1, opacity: 1 }, 'SYNC')
 			cloudTL.fromTo(this.textarea, { scaleY: 0.5, scaleX: 0.8, opacity: 0 }, { scaleY: 1, scaleX: 1, opacity: 1 }, 'SYNC')
 			cloudTL.to(this.$refs.button.$el, { opacity: 1 })
+		},
+		reverseApparition () {
+			const cloudReverseTL = gsap.timeline({ defaults: { duration: 1, ease: Power3.easeInOut } })
+			cloudReverseTL.to(this.$refs.button.$el, { opacity: 0 })
+			cloudReverseTL.addLabel('SYNC')
+			cloudReverseTL.to('.big-cloud-container', { scaleY: 0.0, scaleX: 0.0, opacity: 0 }, 'SYNC')
+			cloudReverseTL.to(this.textarea, { scaleY: 0.0, scaleX: 0.0, opacity: 0 }, 'SYNC')
+			cloudReverseTL.to('.small-cloud-container', { scaleY: 0, scaleX: 0, opacity: 0 })
 		}
 	},
 	mounted () {
@@ -137,7 +148,7 @@ export default {
 			this.dataId = 2
 			break
 		}
-		this.appatition()
+		this.apparition()
 	}
 
 }
