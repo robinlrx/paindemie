@@ -1,9 +1,9 @@
 <template>
 	<div id="app">
-		<!-- <div class="phone-hide">
+		<div class="phone-hide">
 			<h4>Pa<span>[i]</span>ndemie</h4>
 			<p class="phone-message">Cette expérience n'est pas disponible sur tablette et mobile.</p>
-		</div> -->
+		</div>
 		<div id="nav">
 			<router-link to="/">Intro</router-link> |
 			<router-link to="/home">Home</router-link> |
@@ -49,7 +49,7 @@ html, body {
 	width: 100%;
 	// A supprimer
 	z-index: 4;
-	display: none;
+	// display: none;
 
 	a {
 		font-weight: bold;
