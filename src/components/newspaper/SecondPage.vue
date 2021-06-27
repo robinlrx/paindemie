@@ -1,21 +1,22 @@
 <template>
-	<section v-if="showSecondPage"> <!-- v-if="showSecondPage" -->
-		<div class="first-container">
-				<p>La <span @click="showRebus=true">quarantaine</span><br />à causé beaucoup de solitude, il y a une <span>pénurie</span> dans tous les supermarchés... </p>
-		</div>
-		<div class="second-container">
-				<p>Tu te rends compte qu'il faut même avoir une <span>attestation</span><br />pour pouvoir se déplacer librement ?</p>
+	<transition name="fade">
+		<section>
+			<div class="first-container">
+					<p>La <span @click="checkWord('quarantaine')">quarantaine</span><br />à causé beaucoup de solitude, il y a une <span @click="checkWord('pénurie')">pénurie</span> dans tous les supermarchés... </p>
+			</div>
+			<div class="second-container">
+					<p>Tu te rends compte qu'il faut même avoir une <span @click="checkWord('attestation')">attestation</span><br />pour pouvoir se déplacer librement ?</p>
 
-				<h3 v-if="showError">Remplit tous les champs fréro !</h3>
-		</div>
-		<Rebus v-if="showRebus" :showRebus.sync="showRebus" />
-	</section>
+					<h3 v-if="showError">Remplit tous les champs fréro !</h3>
+			</div>
+			<Rebus v-if="showRebus" :showRebus.sync="showRebus"  :rebusValue.sync="rebusValue" :buttonCounter.sync="buttonCounter" />
+		</section>
+	</transition>
 </template>
 
 <script>
-// import Button from '@/components/ui/AppButton.vue'
-// import AppInput from '@/components/ui/AppInput.vue'
 import Rebus from '@/components/newspaper/Rebus.vue'
+
 export default {
 	name: 'SecondPage',
 	data () {
@@ -27,42 +28,21 @@ export default {
 			pénurie: null,
 			attestation: null,
 			showError: false,
-			showRebus: false
+			showRebus: false,
+			rebusValue: null,
+			buttonCounter: 0
 		}
 	},
 	components: {
-		// Button,
-		// AppInput,
 		Rebus
 	},
 	props: {
 		showSecondPage: Boolean
 	},
 	methods: {
-		checkInput () {
-			if ((this.qurantaine === '' || this.qurantaine === null) || (this.pénurie === '' || this.pénurie === null) || (this.attestation === '' || this.attestation === null)) {
-				this.showError = true
-				setTimeout(function () { this.showError = false }, 2000)
-			} else {
-				this.checkWord()
-			}
-		},
-		checkWord () {
-			for (let i = 0; i <= this.badWords.length; i++) {
-				if (this.input[i].value.toLowerCase() === this.badWords[i]) {
-					// console.log('bad word')
-					this.input[i].style.color = '#FF4465'
-				} else {
-					// console.log('good word')
-					this.input[i].style.color = 'rgb(42, 104, 100)'
-					this.score += 1
-				}
-
-				if (this.input[0].style.color === 'rgb(42, 104, 100)' && this.input[1].style.color === 'rgb(42, 104, 100)' && this.input[2].style.color === 'rgb(42, 104, 100)') {
-					this.$emit('update:showSecondPage', false)
-					this.$emit('update:showLastPage', true)
-				}
-			}
+		checkWord (rebusValue) {
+			this.rebusValue = rebusValue
+			this.showRebus = true
 		}
 	}
 
@@ -87,7 +67,6 @@ section {
 	left: 20%;
 	width: 30vw;
 	height: 80%;
-	// border: solid red;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -100,7 +79,6 @@ section {
 	right: 18%;
 	width: 30vw;
 	height: 80%;
-	// border: solid red;
 	display: flex;
 	justify-content: center;
 	align-items: center;

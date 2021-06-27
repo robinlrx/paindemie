@@ -1,11 +1,9 @@
 <template>
-<transition name="fade">
 	<section v-if="showTuto" class="first-tuto">
 		<p><span>Eh merde . . . </span> <br> Invente des mythos concernant les objets de la boite en t’inspirant de ce qui t’entoure.  <br><br> Fais gaffe, Léo a l’air très relou!</p>
 
 		<Button @click.native="closeFirstTuto()" class="button" :size=2 :type=1 :link="'room'">J'AI CAPTÉ</Button>
 	</section>
-</transition>
 </template>
 
 <script>

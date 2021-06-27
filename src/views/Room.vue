@@ -4,7 +4,7 @@
 	<div class="room">
 		<Lottie  v-if="currentEtape !== 0" :key="currentEtape" />
 
-		<Motion v-if="currentEtape !== 0" :src="videoSrc()" :etape="etapes[currentEtape]" :key="currentEtape" :timerPause.sync="timerPause" :showNextComposant.sync="showSecondMotion" @updateShowSecondMotion="updateShowSecondMotion"/>
+		<Motion v-if="currentEtape !== 0" :src="videoSrc()" :etape="etapes[currentEtape]" :key="currentEtape" :timerPause.sync="timerPause" :showNextComposant.sync="showSecondMotion" @updateShowSecondMotion="updateShowSecondMotion"/> <!-- videoSrc() -->
 
 		<transition name="fade">
 			<Motion v-if="currentEtape === 0 || showSecondMotion" :src="etapes[currentEtape].motion" :etape="etapes[currentEtape]" :key="currentEtape" :timerPause.sync="timerPause" :showNextComposant.sync="showTuto" @endShowSecondMotion="endShowSecondMotion" />
@@ -14,7 +14,9 @@
 			<img v-if="currentEtape === 0 && show360" class="three-hundred-sixty" src="assets/img/icons/360.gif" alt="">
 		</transition>
 
-		<FirstTuto v-if="currentEtape == 0 && showTuto" :showTuto.sync="showTuto" :show360.sync="show360"  :timerPause.sync="timerPause"/>
+		<transition name="fade">
+			<FirstTuto v-if="currentEtape == 0 && showTuto" :showTuto.sync="showTuto" :show360.sync="show360"  :timerPause.sync="timerPause"/>
+		</transition>
 
 		<transition name="fade">
 			<!-- Key-changing to force re-renders of a component -->
@@ -31,7 +33,7 @@
 		</transition>
 
 		<Oups :showOups.sync="showOups" :score="score" :etape="etapes[currentEtape]" :key="currentEtape" :timerPause.sync="timerPause" />
-		<Newspaper :showNewspaper.sync="showNewspaper"/>
+		<Newspaper :showNewspaper.sync="showNewspaper" :myScore.sync="myScore" :numChoice="numChoice" :timerPause.sync="timerPause"/>
 	</div>
 </template>
 
@@ -81,11 +83,6 @@ export default {
 			publicPath: process.env.BASE_URL // to access to public folder
 		}
 	},
-	// computed: {
-	// soundPapiActivate () {
-	// return this.soundPapi
-	// }
-	// },
 	methods: {
 		soundPapi () {
 			return `${this.publicPath}assets/audios/papi/papi-${this.currentEtape}.mp3`
@@ -133,7 +130,7 @@ export default {
 					console.log(this.score)
 				} else if (this.myScore[1].choice === 1 && this.myScore[1].answer === 1 && this.myScore[3].choice === 2 && this.myScore[3].answer === 2) { // on clicking on choice 2 of the gel if choice 1 of the elbow was clicked
 					console.log('gel')
-					this.numChoice.btn2.motionChoice = 'assets/videos/test.mp4'
+					this.numChoice.btn2.motionChoice = 'assets/videos/choices/incoherences/choice-gel.mp4'
 					this.score -= 5
 					console.log(this.score)
 				}
@@ -151,7 +148,7 @@ export default {
 			if (this.currentEtape === 6) {
 				if (this.myScore[5].choice === 1 && this.myScore[6].choice === 1 && this.myScore[6].answer === 2) { // at the click on the choice 2 of the door if you have clicked on the casserole
 					console.log('tirelire')
-					this.numChoice.btn2.motionChoice = 'assets/videos/test.mp4'
+					this.numChoice.btn2.motionChoice = 'assets/videos/choices/coherences/choice-porte.mp4'
 					this.score += 5
 					console.log(this.score)
 				}
@@ -165,7 +162,7 @@ export default {
 					console.log(this.score)
 				} else if ((this.myScore[5].choice === 1 || (this.myScore[6].choice === 1 && this.myScore[6].choice === 2)) && this.myScore[7].choice === 1 && this.myScore[7].answer === 2) { // at the click on the choice 2 of the cotton stem if one clicked on casserole or door choice 2
 					console.log('cocotte ou porte : coton tige')
-					this.numChoice.btn2.motionChoice = 'assets/videos/test.mp4'
+					this.numChoice.btn2.motionChoice = 'assets/videos/choices/incoherences/choice-cotontige.mp4'
 					this.score -= 5
 					console.log(this.score)
 				}
@@ -175,6 +172,7 @@ export default {
 
 			if (this.currentEtape === 7) {
 				this.showNewspaper = true
+				this.score += 20
 			} else {
 				this.currentEtape += 1
 				console.log('currentEtape:', this.currentEtape)
@@ -210,6 +208,10 @@ export default {
 	},
 	mounted () {
 		localStorage.removeItem('myScore')
+
+		const audioAmbiance = new Audio('assets/audios/ambiance-maison.mp3')
+		audioAmbiance.play()
+		audioAmbiance.loop = true
 	},
 	destroyed () {
 		document.location.reload()

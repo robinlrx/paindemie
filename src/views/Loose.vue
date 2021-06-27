@@ -1,16 +1,15 @@
 <template>
 	<transition name="fade">
 		<section class="loose">
-			<Motion src="assets/videos/test.mp4"/>
 
 			<div class="loose-container">
 				<div class="title">
 					<h2>PERDU!</h2>
 				</div>
-				<p>Sérieux?<br/>
+				<p><span>Sérieux ?</span><br/>
 				T’as vraiment cru qu’en disant ça il allait te croire?<br/><br/>
 				Tu peux encore te rattraper...</p>
-				<img src="assets/img/perso_venere.png" alt="">
+				<img src="assets/img/icons/perso_venere.png" alt="">
 			</div>
 
 			<Button :link="'/home'" :size=3 :type=2 class="button" ref="button">Vas-y je retente</Button>
@@ -20,15 +19,14 @@
 
 <script>
 import Button from '@/components/ui/AppButton.vue'
-import Motion from '@/components/Motion.vue'
 export default {
 	name: 'Loose',
-	props: {
-		etape: Object
-	},
 	components: {
-		Button,
-		Motion
+		Button
+	},
+	mounted () {
+		const audioPerdu = new Audio('assets/audios/fin-perdu.mp3')
+		audioPerdu.play()
 	}
 }
 </script>
@@ -85,10 +83,12 @@ export default {
 		p {
 			font-family: $chantal-font;
 			text-align: left;
-			font-weight: bold;
 			font-size: 2rem;
 			max-width: 42vw;
 			letter-spacing: 0.15em;
+			span {
+				font-weight: bold;
+			}
 		}
 
 		img {

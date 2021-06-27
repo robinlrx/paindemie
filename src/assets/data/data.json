@@ -2,7 +2,7 @@
 	"content": [
 		{
 			"id": 0,
-			"motion": "assets/videos/test.mp4",
+			"motion": "assets/videos/intro-scene/intro-1.mp4",
 			"imageScene": "assets/img/room/room0.jpg",
 			"objet1": {
 				"url": "assets/img/objets/biere.png",
@@ -26,8 +26,8 @@
 			},
 			"choice1": {
 				"papi": {
-					"url": "assets/videos/test.mp4",
-					"time": 1000
+					"url": "assets/videos/papi/papi-biere.mp4",
+					"time": 6500
 				},
 				"objet": {
 					"url": "assets/img/objets-choix/choix-biere.png",
@@ -49,12 +49,12 @@
 			},
 			"choice3": {
 				"text": "Un peu limite là non?!",
-				"motion": "assets/videos/test.mp4"
+				"motion": "assets/videos/oups/oups-superman.mp4"
 			}
 		},
 		{
 			"id": 1,
-			"motion": "assets/videos/intro-scene/intro2.mp4",
+			"motion": "assets/videos/intro-scene/intro-2.mp4",
 			"imageScene": "assets/img/room/room1.jpg",
 			"objet1": {
 				"url": "assets/img/objets/coude.png",
@@ -78,8 +78,8 @@
 			},
 			"choice1": {
 				"papi": {
-					"url": "assets/videos/test.mp4",
-					"time": 7000
+					"url": "assets/videos/papi/papi-coude.mp4",
+					"time": 11500
 				},
 				"objet": {
 					"url": "assets/img/objets-choix/choix-coude.png",
@@ -104,7 +104,7 @@
 			"choice2": {
 				"papi": {
 					"url": "assets/videos/papi/papi-cafard.mp4",
-					"time": 12500
+					"time": 11500
 				},
 				"objet": {
 					"url": "assets/img/objets-choix/choix-cafard.png",
@@ -129,7 +129,7 @@
 		},
 		{
 			"id": 2,
-			"motion": "assets/videos/test.mp4",
+			"motion": "assets/videos/intro-scene/intro-3.mp4",
 			"imageScene": "assets/img/room/room2.jpg",
 			"objet1": {
 				"url": "assets/img/objets/brosse-a-dents.png",
@@ -188,8 +188,8 @@
 			},
 			"choice2": {
 				"papi": {
-					"url": "assets/videos/test.mp4",
-					"time": 7000
+					"url": "assets/videos/papi/papi-hamac.mp4",
+					"time": 5500
 				},
 				"objet": {
 					"url": "assets/img/objets-choix/choix-hamac.png",
@@ -207,12 +207,12 @@
 			},
 			"choice3": {
 				"text": "T’as vraiment cru que ça allait passer ça!? 🤣",
-				"motion": "assets/videos/test.mp4"
+				"motion": "assets/videos/oups/oups-masque.mp4"
 			}
 		},
 		{
 			"id": 3,
-			"motion": "assets/videos/test.mp4",
+			"motion": "assets/videos/intro-scene/intro-4.mp4",
 			"imageScene": "assets/img/room/room3.jpg",
 			"objet1": {
 				"url": "assets/img/objets/medicaments.png",
@@ -272,8 +272,8 @@
 			},
 			"choice2": {
 				"papi": {
-					"url": "assets/videos/test.mp4",
-					"time": 2000
+					"url": "assets/videos/papi/papi-gel.mp4",
+					"time": 6500
 				},
 				"objet": {
 					"url": "assets/img/objets-choix/choix-gel_pot.png",
@@ -300,12 +300,12 @@
 			},
 			"choice3": {
 				"text": "Ah carrément.. Ça veut empoisonner son petit-fils maintenant!?",
-				"motion": "assets/videos/test.mp4"
+				"motion": "assets/videos/oups/oups-superman.mp4"
 			}
 		},
 		{
 			"id": 4,
-			"motion": "assets/videos/test.mp4",
+			"motion": "assets/videos/intro-scene/intro-5.mp4",
 			"imageScene": "assets/img/room/room4.jpg",
 			"objet1": {
 				"url": "assets/img/objets/tirelire.png",
@@ -329,8 +329,8 @@
 			},
 			"choice1": {
 				"papi": {
-					"url": "assets/videos/test.mp4",
-					"time": 7000
+					"url": "assets/videos/papi/papi-tirelire.mp4",
+					"time": 10500
 				},
 				"objet": {
 					"url": "assets/img/objets-choix/choix-tirelire.png",
@@ -378,7 +378,7 @@
 		},
 		{
 			"id": 5,
-			"motion": "assets/videos/test.mp4",
+			"motion": "assets/videos/intro-scene/intro-6.mp4",
 			"imageScene": "assets/img/room/room5.jpg",
 			"objet1": {
 				"url": "assets/img/objets/cocotte-vitre.png",
@@ -402,8 +402,8 @@
 			},
 			"choice1": {
 				"papi": {
-					"url": "assets/videos/test.mp4",
-					"time": 7000
+					"url": "assets/videos/papi/papi-cocotte.mp4",
+					"time": 22000
 				},
 				"objet": {
 					"url": "assets/img/objets-choix/choix-cocotte_bas.png",
@@ -438,7 +438,7 @@
 		},
 		{
 			"id": 6,
-			"motion": "assets/videos/test.mp4",
+			"motion": "assets/videos/intro-scene/intro-7.mp4",
 			"imageScene": "assets/img/room/room6.jpg",
 			"objet1": {
 				"url": "assets/img/objets/porte.png",
@@ -462,8 +462,8 @@
 			},
 			"choice1": {
 				"papi": {
-					"url": "assets/videos/test.mp4",
-					"time": 7000
+					"url": "assets/videos/papi/papi-porte.mp4",
+					"time": 13500
 				},
 				"objet": {
 					"url": "assets/img/objets-choix/choix-porte.png",
@@ -510,7 +510,7 @@
 		},
 		{
 			"id": 7,
-			"motion": "assets/videos/test.mp4",
+			"motion": "assets/videos/intro-scene/intro-8.mp4",
 			"imageScene": "assets/img/room/room7.jpg",
 			"objet1": {
 				"url": "assets/img/objets/coton-tige.png",
@@ -534,8 +534,8 @@
 			},
 			"choice1": {
 				"papi": {
-					"url": "assets/videos/test.mp4",
-					"time": 7000
+					"url": "assets/videos/papi/papi-cotontige.mp4",
+					"time": 5500
 				},
 				"objet": {
 					"url": "assets/img/objets-choix/choix-coton-tige.png",
@@ -550,7 +550,7 @@
 				},
 				"btn1": {
 					"url":"assets/img/gifs-choix/choix_un_coton_tige.gif",
-					"motionChoice": "assets/videos/test.mp4"
+					"motionChoice": "assets/videos/choices/choice-biere1.mp4"
 				},
 				"btn2": {
 					"url":"assets/img/gifs-choix/choix_deux_coton_tige.gif",

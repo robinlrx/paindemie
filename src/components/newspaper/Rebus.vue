@@ -1,52 +1,162 @@
 <template>
 	<section class="rebus-container">
+		<transition name="fade">
+			<SecondPageTuto v-if="counter === 0 && showSecondTutoNewspaper" :showSecondTutoNewspaper.sync="showSecondTutoNewspaper" :timerPause.sync="timerPause" />
+		</transition>
 		<div class="small-cloud-container">
 			<div class="rebus-txt">
-				<p>La <span>quar</span>-<span>antaine</span> ?</p>
-				<img src="../../../public/assets/img/rebus/rebus1.png" alt="">
+				<p><span>{{ rebusData[dataId].text.span1 }}</span>-<span>{{ rebusData[dataId].text.span2 }}</span><template v-if="rebusValue != 'quarantaine'">-</template><span v-if="rebusValue != 'quarantaine'">{{ rebusData[dataId].text.span3 }}</span> ?</p>
+				<img :src="`${this.publicPath}${this.rebusData[dataId].rebus}`" alt="">
 			</div>
 		</div>
 		<div class="big-cloud-container">
-			<textarea placeholder=". . ." v-model="femme" />
+			<transition name="fade">
+				<h3 v-if="showError">Justifie toi correctement fréro !</h3>
+			</transition>
 		</div>
-		<Button @click.native="check()" :size=3 :type=1 class="button" ref="button" :link="''">C'EST GOOD</Button>
+		<textarea placeholder=". . ." />
+		<Button @click.native="checkRebus()" :size=3 :type=1 class="button" ref="button" :link="''">C'EST GOOD</Button>
 	</section>
 </template>
 
 <script>
-// import AppInput from '@/components/ui/AppInput.vue'
 import Button from '@/components/ui/AppButton.vue'
+import SecondPageTuto from '@/components/newspaper/SecondPageTuto.vue'
+import router from '../../router/index'
 import { gsap, Power3 } from 'gsap'
 export default {
 	name: 'Rebus',
 	data () {
 		return {
-			input: document.getElementsByTagName('input'),
-			badWords: ['quarantaine', 'pénurie', 'attestation'],
-			femme: null
+			textarea: document.getElementsByTagName('textarea'),
+			publicPath: process.env.BASE_URL, // to access to public folder
+			dataId: 1,
+			showSecondTutoNewspaper: false,
+			showError: false,
+			counter: this.$props.buttonCounter,
+			rebusData: [
+				{
+					text: {
+						span1: 'quar',
+						span2: 'antaine'
+					},
+					rebus: 'assets/img/rebus/rebus1.png'
+				},
+				{
+					text: {
+						span1: 'pé',
+						span2: 'nu',
+						span3: 'rie'
+					},
+					rebus: 'assets/img/rebus/rebus2.png'
+				},
+				{
+					text: {
+						span1: 'a',
+						span2: 'tte',
+						span3: 'station'
+					},
+					rebus: 'assets/img/rebus/rebus3.png'
+				}
+			]
 		}
 	},
 	props: {
-		showRebus: Boolean
+		showRebus: Boolean,
+		rebusValue: String,
+		buttonCounter: Number
 	},
 	components: {
-		Button
-		// AppInput
+		Button,
+		SecondPageTuto
 	},
 	methods: {
-		check () {
-			this.$emit('update:showRebus', false)
+		handleShowError () {
+			this.textarea[0].style.color = '#FF4465'
+			this.showError = true
+			setTimeout(() => {
+				this.textarea[0].style.color = '#27123C'
+				this.showError = false
+			}, 2500)
 		},
-		appatition () {
+		checkRebus () {
+			if (this.dataId === 0) {
+				if (this.textarea[0].value.toLowerCase().includes('car' && 'antenne')) {
+					this.textarea[0].style.color = 'rgb(42, 104, 100)'
+					setTimeout(() => {
+						this.check()
+					}, 1000)
+				} else {
+					this.handleShowError()
+				}
+			} else if (this.dataId === 1) {
+				if (this.textarea[0].value.toLowerCase().includes('pet' && 'nue' && 'riz')) {
+					this.textarea[0].style.color = 'rgb(42, 104, 100)'
+					setTimeout(() => {
+						this.check()
+					}, 1000)
+				} else {
+					this.handleShowError()
+				}
+			} else if (this.dataId === 2) {
+				if (this.textarea[0].value.toLowerCase().includes('a' && 'thé' && 'station')) {
+					this.textarea[0].style.color = 'rgb(42, 104, 100)'
+					setTimeout(() => {
+						this.check()
+					}, 1000)
+				} else {
+					this.handleShowError()
+				}
+			}
+		},
+		check () {
+			this.counter += 1
+			this.$emit('update:buttonCounter', this.counter)
+
+			if (this.counter === 3) {
+				router.push('win')
+			}
+			this.reverseApparition()
+			setTimeout(() => {
+				this.$emit('update:showRebus', false)
+			}, 3000)
+		},
+		apparition () {
 			const cloudTL = gsap.timeline({ defaults: { duration: 1, ease: Power3.easeInOut } })
-			cloudTL.fromTo('.big-cloud-container', { opacity: 0 }, { opacity: 1 })
-			cloudTL.fromTo('.small-cloud-container', { opacity: 0 }, { opacity: 1 })
-			cloudTL.fromTo(this.$refs.button.$el, { opacity: 0 }, { opacity: 1 })
-			console.log('done')
+			cloudTL.fromTo('.small-cloud-container', { scaleY: 0.5, scaleX: 0.8, opacity: 0 }, { scaleY: 1, scaleX: 1, opacity: 1 })
+			cloudTL.addLabel('SYNC')
+			cloudTL.fromTo('.big-cloud-container', { scaleY: 0.5, scaleX: 0.8, opacity: 0 }, { scaleY: 1, scaleX: 1, opacity: 1 }, 'SYNC')
+			cloudTL.fromTo(this.textarea, { scaleY: 0.5, scaleX: 0.8, opacity: 0 }, { scaleY: 1, scaleX: 1, opacity: 1 }, 'SYNC')
+			cloudTL.to(this.$refs.button.$el, { opacity: 1 })
+		},
+		reverseApparition () {
+			const cloudReverseTL = gsap.timeline({ defaults: { duration: 1, ease: Power3.easeInOut } })
+			cloudReverseTL.to(this.$refs.button.$el, { opacity: 0 })
+			cloudReverseTL.addLabel('SYNC')
+			cloudReverseTL.to('.big-cloud-container', { scaleY: 0.0, scaleX: 0.0, opacity: 0 }, 'SYNC')
+			cloudReverseTL.to(this.textarea, { scaleY: 0.0, scaleX: 0.0, opacity: 0 }, 'SYNC')
+			cloudReverseTL.to('.small-cloud-container', { scaleY: 0, scaleX: 0, opacity: 0 })
 		}
 	},
 	mounted () {
-		this.appatition()
+		setTimeout(() => {
+			this.showSecondTutoNewspaper = true
+		}, 3000)
+
+		switch (this.rebusValue) {
+		case 'quarantaine':
+			this.dataId = 0
+			break
+
+		case 'pénurie':
+			this.dataId = 1
+			break
+
+		case 'attestation':
+			this.dataId = 2
+			break
+		}
+		this.apparition()
 	}
 
 }
@@ -60,11 +170,6 @@ export default {
 	height: 100vh;
 	background-image: none;
 	position: absolute;
-}
-
-.clouds {
-	width: 100%;
-	height: 100%;
 }
 
 .big-cloud-container, .small-cloud-container {
@@ -86,7 +191,7 @@ export default {
 	align-items: center;
 
 	.rebus-txt {
-		margin-left: 15%;
+		margin-left: 18%;
 
 		img {
 			width: 200px;
@@ -112,22 +217,32 @@ export default {
 	justify-content: center;
 	align-items: center;
 
-	textarea {
-		font-family: $chelsea-font;
-		font-size: 1.5rem;
+	h3 {
+		font-family: $chantal-font;
+		color: red;
+		font-size: 1rem;
 		letter-spacing: 2px;
-		position: relative;
-		left: 20%;
-		z-index: 2;
-		border: none;
-		background-color: transparent;
-		width: 50%;
-		height: 40%;
-		resize: none;
+		margin-left: 40%;
+		margin-top: 30%;
+	}
+}
 
-		&:focus {
-			outline: none;
-		}
+textarea {
+	font-family: $chelsea-font;
+	font-size: 1.5rem;
+	letter-spacing: 2px;
+	position: absolute;
+	left: 45%;
+	top: 30%;
+	z-index: 2;
+	border: none;
+	background-color: transparent;
+	width: 50%;
+	height: 40%;
+	resize: none;
+
+	&:focus {
+		outline: none;
 	}
 }
 
@@ -136,6 +251,7 @@ export default {
 	z-index: 2;
 	right: 20px;
 	bottom: 10px;
+	opacity: 0;
 }
 
 @media (min-width: 1600px) {
@@ -144,10 +260,6 @@ export default {
 		.rebus-txt {
 			img {
 				width: 300px;
-			}
-
-			p {
-				padding: 0 100px;
 			}
 		}
 	}
