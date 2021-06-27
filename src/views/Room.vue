@@ -14,7 +14,9 @@
 			<img v-if="currentEtape === 0 && show360" class="three-hundred-sixty" src="assets/img/icons/360.gif" alt="">
 		</transition>
 
-		<FirstTuto v-if="currentEtape == 0 && showTuto" :showTuto.sync="showTuto" :show360.sync="show360"  :timerPause.sync="timerPause"/>
+		<transition name="fade">
+			<FirstTuto v-if="currentEtape == 0 && showTuto" :showTuto.sync="showTuto" :show360.sync="show360"  :timerPause.sync="timerPause"/>
+		</transition>
 
 		<transition name="fade">
 			<!-- Key-changing to force re-renders of a component -->
@@ -170,6 +172,7 @@ export default {
 
 			if (this.currentEtape === 7) {
 				this.showNewspaper = true
+				this.score += 20
 			} else {
 				this.currentEtape += 1
 				console.log('currentEtape:', this.currentEtape)

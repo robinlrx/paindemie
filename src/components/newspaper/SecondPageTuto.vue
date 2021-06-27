@@ -3,7 +3,7 @@
 	<section class="second-tuto">
 		<p>Invente un mytho avec les mots <br> qui constituent le rébus ! </p>
 
-		<Button class="button" :size=2 :type=1 :link="'room'">J'AI CAPTÉ</Button>
+		<Button @click.native="closeTuto()" class="button" :size=2 :type=1 :link="''">J'AI CAPTÉ</Button>
 	</section>
 </transition>
 </template>
@@ -17,7 +17,13 @@ export default {
 		Button
 	},
 	props: {
-		timerPause: Boolean
+		timerPause: Boolean,
+		showSecondTutoNewspaper: Boolean
+	},
+	methods: {
+		closeTuto () {
+			this.$emit('update:showSecondTutoNewspaper', false)
+		}
 	},
 	mounted () {
 		this.$emit('update:timerPause', true)
@@ -33,6 +39,7 @@ export default {
 	width: 100%;
 	height: 100vh;
 	background-color: rgba(255, 255, 255, 0.8);
+	background-image: none;
 	display: flex;
 	justify-content: center;
 	align-items: center;

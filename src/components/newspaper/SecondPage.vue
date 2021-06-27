@@ -1,6 +1,6 @@
 <template>
 	<transition name="fade">
-		<section> <!-- v-if="showSecondPage" -->
+		<section>
 			<div class="first-container">
 					<p>La <span @click="checkWord('quarantaine')">quarantaine</span><br />à causé beaucoup de solitude, il y a une <span @click="checkWord('pénurie')">pénurie</span> dans tous les supermarchés... </p>
 			</div>
@@ -16,6 +16,7 @@
 
 <script>
 import Rebus from '@/components/newspaper/Rebus.vue'
+
 export default {
 	name: 'SecondPage',
 	data () {

@@ -2,13 +2,13 @@
 	<transition name="fade">
 		<section>
 			<transition name="fade">
-				<FirstPageTuto v-if="showFirstTutoNewspaper" :showFirstTutoNewspaper="showFirstTutoNewspaper" :timerPause.sync="timerPause" />
+				<FirstPageTuto v-if="showFirstTutoNewspaper" :showFirstTutoNewspaper.sync="showFirstTutoNewspaper" :timerPause.sync="timerPause" />
 			</transition>
 
 			<div class="container">
 				<h2>13 décembre 2020,</h2>
 				<p>Ma chère <AppInput :placeholder="'femme'" v-model="femme"/> <br />Cela fait maintenant 2 mois que tu es <AppInput :placeholder="'partie'" v-model="partie"/> Ce maudit <AppInput :placeholder="'virus'" v-model="virus"/> <br />a causé tellement de <AppInput :placeholder="'morts'" v-model="morts" /></p>
-				<p>Je pris pour que tu <AppInput :placeholder="'reviennes'" v-model="reviennes" /> Ne t'inquiètes pas, je m'occupe de <AppInput :size="'15'" :placeholder="'notre enfant'" v-model="enfant" /> comme je te <br />l'avais promis avant que tu <AppInput :size="'15'" :placeholder="'nous quittes'" v-model="quittes" /></p>
+				<p>Je pris pour que tu <AppInput :size="'10'" :placeholder="'reviennes'" v-model="reviennes" /> Ne t'inquiètes pas, je m'occupe de <AppInput :size="'15'" :placeholder="'notre enfant'" v-model="enfant" /> comme je te <br />l'avais promis avant que tu <AppInput :size="'15'" :placeholder="'nous quittes'" v-model="quittes" /></p>
 
 				<transition name="fade">
 					<h3 v-if="showError">Remplit tous les champs fréro !</h3>
@@ -75,6 +75,9 @@ export default {
 				if (this.input[0].style.color === 'rgb(42, 104, 100)' && this.input[1].style.color === 'rgb(42, 104, 100)' && this.input[2].style.color === 'rgb(42, 104, 100)' && this.input[3].style.color === 'rgb(42, 104, 100)' && this.input[4].style.color === 'rgb(42, 104, 100)' && this.input[5].style.color === 'rgb(42, 104, 100)' && this.input[6].style.color === 'rgb(42, 104, 100)') {
 					this.$emit('update:showFirstPage', false)
 					this.$emit('update:showSecondPage', true)
+
+					const audioTransition = new Audio('assets/audios/journal_pages_transition.mp3')
+					audioTransition.play()
 				}
 			}
 		}

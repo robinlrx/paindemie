@@ -1,5 +1,8 @@
 <template>
 	<section class="rebus-container">
+		<transition name="fade">
+			<SecondPageTuto v-if="counter === 0 && showSecondTutoNewspaper" :showSecondTutoNewspaper.sync="showSecondTutoNewspaper" :timerPause.sync="timerPause" />
+		</transition>
 		<div class="small-cloud-container">
 			<div class="rebus-txt">
 				<p><span>{{ rebusData[dataId].text.span1 }}</span>-<span>{{ rebusData[dataId].text.span2 }}</span><template v-if="rebusValue != 'quarantaine'">-</template><span v-if="rebusValue != 'quarantaine'">{{ rebusData[dataId].text.span3 }}</span> ?</p>
@@ -18,6 +21,7 @@
 
 <script>
 import Button from '@/components/ui/AppButton.vue'
+import SecondPageTuto from '@/components/newspaper/SecondPageTuto.vue'
 import router from '../../router/index'
 import { gsap, Power3 } from 'gsap'
 export default {
@@ -27,6 +31,7 @@ export default {
 			textarea: document.getElementsByTagName('textarea'),
 			publicPath: process.env.BASE_URL, // to access to public folder
 			dataId: 1,
+			showSecondTutoNewspaper: false,
 			showError: false,
 			counter: this.$props.buttonCounter,
 			rebusData: [
@@ -62,7 +67,8 @@ export default {
 		buttonCounter: Number
 	},
 	components: {
-		Button
+		Button,
+		SecondPageTuto
 	},
 	methods: {
 		handleShowError () {
@@ -133,8 +139,10 @@ export default {
 		}
 	},
 	mounted () {
-		console.log(this.rebusValue)
-		console.log(this.rebusData)
+		setTimeout(() => {
+			this.showSecondTutoNewspaper = true
+		}, 3000)
+
 		switch (this.rebusValue) {
 		case 'quarantaine':
 			this.dataId = 0

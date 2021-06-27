@@ -1,7 +1,7 @@
 <template>
 	<transition name="fade">
 		<section class="first-tuto">
-			<p><span>Oh la la... C’est la merde!</span><br><br> Débrouille-toi pour que Léo ne comprenne pas <br>ce qu’il y a écrit.<br><br> <span>Remplace les mots colorés!<br> Attention les synonymes sont interdits!</span></p>
+			<p><span>Oh la la... C’est la merde!</span><br><br> Débrouille-toi pour que Léo ne comprenne pas <br>ce qu’il y a écrit.<br><br> <span>Remplace les mots soulignés!<br> Attention les synonymes sont interdits!</span></p>
 
 			<Button @click.native="closeTuto()" class="button" :size=2 :type=1 :link="''">J'AI CAPTÉ</Button>
 		</section>

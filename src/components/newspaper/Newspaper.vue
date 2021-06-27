@@ -1,12 +1,11 @@
 <template>
-	<transition name="fade"> <!--  v-if="showNewspaper" -->
+	<transition v-if="showNewspaper" name="fade"> <!--  v-if="showNewspaper" -->
 		<section>
 			<Lottie/>
-			<Motion :src="'assets/videos/intro-scene/intro-1.mp4'" :timerPause.sync="timerPause" :showNextComposant.sync="showLastTuto" /> <!-- lastVideoSrc() -->
+			<Motion :src="lastVideoSrc()" :timerPause.sync="timerPause" :showNextComposant.sync="showLastTuto" /> <!-- lastVideoSrc() -->
 			<transition name="fade">
 				<LastTuto v-if="showLastTuto" :showLastTuto.sync="showLastTuto" :timerPause.sync="timerPause" :showFirstPage.sync="showFirstPage" />
 			</transition>
-			<!-- <SecondPageTuto :timerPause.sync="timerPause" /> -->
 			<FirstPage v-if="showFirstPage" :showFirstPage.sync="showFirstPage" :showSecondPage.sync="showSecondPage" :timerPause.sync="timerPause"/>
 			<SecondPage v-if="showSecondPage" :showSecondPage.sync="showSecondPage" :showLastPage.sync="showLastPage"/>
 			<LastPage :showLastPage.sync="showLastPage" />
@@ -18,8 +17,6 @@
 import FirstPage from '@/components/newspaper/FirstPage.vue'
 import SecondPage from '@/components/newspaper/SecondPage.vue'
 import LastPage from '@/components/newspaper/LastPage.vue'
-// import FirstPageTuto from '@/components/newspaper/FirstPageTuto.vue'
-// import SecondPageTuto from '@/components/newspaper/SecondPageTuto.vue'
 import LastTuto from '@/components/LastTuto.vue'
 import Motion from '@/components/Motion.vue'
 import Lottie from '@/components/Lottie.vue'
@@ -43,8 +40,6 @@ export default {
 		FirstPage,
 		SecondPage,
 		LastPage,
-		// FirstPageTuto,
-		// SecondPageTuto
 		LastTuto,
 		Motion,
 		Lottie

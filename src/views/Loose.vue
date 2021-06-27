@@ -29,6 +29,13 @@ export default {
 	components: {
 		Button,
 		Motion
+	},
+	mounted () {
+		const audioPerdu = new Audio('assets/audios/fin-perdu.mp3')
+
+		setTimeout(() => {
+			audioPerdu.play()
+		}, 5000)
 	}
 }
 </script>

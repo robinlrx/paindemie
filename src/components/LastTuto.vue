@@ -12,7 +12,7 @@
 			<img src="assets/img/icons/perso_content.png" alt="">
 		</div>
 
-		<Button  @click.native="closeLastTuto()" :link="''" :size=3 :type=1 class="button" ref="button">J'y go</Button>
+		<Button @click.native="closeLastTuto()" :link="''" :size=3 :type=1 class="button" ref="button">J'y go</Button>
 	</section>
 </template>
 
@@ -44,6 +44,7 @@ export default {
 @import '@/assets/scss/_variables.scss';
 
 .win {
+	position: relative;
 	width: 100%;
 	height: 100vh;
 	display: flex;
@@ -55,6 +56,7 @@ export default {
 	background-size: cover;
 	color: $red;
 	cursor: initial;
+	z-index: 3;
 
 	.win-container {
 		position: relative;
