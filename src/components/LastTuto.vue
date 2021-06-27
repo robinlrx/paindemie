@@ -5,10 +5,10 @@
 			<div class="title">
 				<h2>BRAVO!</h2>
 			</div>
-			<p><span>Leo te crois!</span> (pour le moment)<br/>
+			<p><span>Leo te croit!</span> (pour le moment)<br/>
 			Seulement moi j'en ai marre<br/>
 			de t'aider donc à toi<br/>
-			d'improviser</p>
+			d'improviser!</p>
 			<img src="assets/img/icons/perso_content.png" alt="">
 		</div>
 

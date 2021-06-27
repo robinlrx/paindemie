@@ -11,7 +11,7 @@
 		</div>
 		<div class="big-cloud-container">
 			<transition name="fade">
-				<h3 v-if="showError">Justifie toi correctement fréro !</h3>
+				<h3 v-if="showError">Justifie-toi correctement fréro !</h3>
 			</transition>
 		</div>
 		<textarea placeholder=". . ." />
@@ -90,7 +90,7 @@ export default {
 					this.handleShowError()
 				}
 			} else if (this.dataId === 1) {
-				if (this.textarea[0].value.toLowerCase().includes('pet' && 'nue' && 'riz')) {
+				if (this.textarea[0].value.toLowerCase().includes('pet' && 'nu' && 'riz')) {
 					this.textarea[0].style.color = 'rgb(42, 104, 100)'
 					setTimeout(() => {
 						this.check()

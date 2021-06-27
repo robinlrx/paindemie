@@ -11,7 +11,9 @@
 		</transition>
 
 		<transition name="fade">
-			<img v-if="currentEtape === 0 && show360" class="three-hundred-sixty" src="assets/img/icons/360.gif" alt="">
+			<div class="three-hundred-sixty" v-if="currentEtape === 0 && show360">
+				<img src="assets/img/icons/360.gif" alt="">
+			</div>
 		</transition>
 
 		<transition name="fade">
@@ -148,7 +150,7 @@ export default {
 			if (this.currentEtape === 6) {
 				if (this.myScore[5].choice === 1 && this.myScore[6].choice === 1 && this.myScore[6].answer === 2) { // at the click on the choice 2 of the door if you have clicked on the casserole
 					console.log('tirelire')
-					this.numChoice.btn2.motionChoice = 'assets/videos/test.mp4'
+					this.numChoice.btn2.motionChoice = 'assets/videos/choices/coherences/choice-porte.mp4'
 					this.score += 5
 					console.log(this.score)
 				}
@@ -250,10 +252,16 @@ body{
 }
 
 .three-hundred-sixty {
+	width: 100%;
+	height: 100vh;
+	background-color: rgba(0, 0, 0, 0.7);
 	position: absolute;
-	width: 400px;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
+	img {
+		position: absolute;
+		width: 400px;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
 }
 </style>

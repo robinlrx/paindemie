@@ -5,7 +5,7 @@
 
 			<div class="container">
 				<video ref="intro" width="250">
-					<source src="assets/videos/motion.mp4" type="video/mp4">
+					<source src="assets/videos/intro-projet.mp4" type="video/mp4">
 				</video>
 				<transition name="fade">
 					<div class="play-container" ref="playContainer" v-if="showPlay">
@@ -155,7 +155,9 @@ export default {
 				'assets/videos/choices/choice-tirelire1.mp4',
 				// incoherences
 				'assets/videos/choices/incoherences/choice-gel.mp4',
-				'assets/videos/choices/incoherences/choice-cotontige.mp4'
+				'assets/videos/choices/incoherences/choice-cotontige.mp4',
+				// corehence
+				'assets/videos/choices/coherences/choice-porte.mp4'
 			]
 
 			const itemsImages = await load.all(assetsImages)

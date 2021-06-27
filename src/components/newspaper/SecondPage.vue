@@ -6,8 +6,6 @@
 			</div>
 			<div class="second-container">
 					<p>Tu te rends compte qu'il faut même avoir une <span @click="checkWord('attestation')">attestation</span><br />pour pouvoir se déplacer librement ?</p>
-
-					<h3 v-if="showError">Remplit tous les champs fréro !</h3>
 			</div>
 			<Rebus v-if="showRebus" :showRebus.sync="showRebus"  :rebusValue.sync="rebusValue" :buttonCounter.sync="buttonCounter" />
 		</section>
@@ -27,7 +25,6 @@ export default {
 			quarantaine: null,
 			pénurie: null,
 			attestation: null,
-			showError: false,
 			showRebus: false,
 			rebusValue: null,
 			buttonCounter: 0
@@ -105,9 +102,14 @@ p {
 		color: $orange;
 		cursor: pointer;
 		transition: color 0.3s ease;
+		animation-duration: 1.5s;
+		animation-name: clignoter;
+		animation-iteration-count: infinite;
+		// transition: none;
 
 		&:hover {
 			color: $violet;
+				animation-name: none;
 		}
 	}
 }
@@ -117,6 +119,18 @@ h3 {
 	letter-spacing: 2px;
 	position: absolute;
 	bottom: 0;
+}
+
+@keyframes clignoter {
+	0% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
 }
 
 @media (min-width: 1600px) {
