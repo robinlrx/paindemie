@@ -130,7 +130,7 @@ export default {
 					console.log(this.score)
 				} else if (this.myScore[1].choice === 1 && this.myScore[1].answer === 1 && this.myScore[3].choice === 2 && this.myScore[3].answer === 2) { // on clicking on choice 2 of the gel if choice 1 of the elbow was clicked
 					console.log('gel')
-					this.numChoice.btn2.motionChoice = 'assets/videos/test.mp4'
+					this.numChoice.btn2.motionChoice = 'assets/videos/choices/incoherences/choice-gel.mp4'
 					this.score -= 5
 					console.log(this.score)
 				}
@@ -162,7 +162,7 @@ export default {
 					console.log(this.score)
 				} else if ((this.myScore[5].choice === 1 || (this.myScore[6].choice === 1 && this.myScore[6].choice === 2)) && this.myScore[7].choice === 1 && this.myScore[7].answer === 2) { // at the click on the choice 2 of the cotton stem if one clicked on casserole or door choice 2
 					console.log('cocotte ou porte : coton tige')
-					this.numChoice.btn2.motionChoice = 'assets/videos/test.mp4'
+					this.numChoice.btn2.motionChoice = 'assets/videos/choices/incoherences/choice-cotontige.mp4'
 					this.score -= 5
 					console.log(this.score)
 				}
@@ -208,6 +208,10 @@ export default {
 	},
 	mounted () {
 		localStorage.removeItem('myScore')
+
+		const audioAmbiance = new Audio('assets/audios/ambiance-maison.mp3')
+		audioAmbiance.play()
+		audioAmbiance.loop = true
 	},
 	destroyed () {
 		document.location.reload()

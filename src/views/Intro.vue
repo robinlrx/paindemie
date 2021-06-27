@@ -117,8 +117,7 @@ export default {
 			]
 
 			const assetsVideos = [
-				'assets/videos/motion.mp4',
-				'assets/videos/test.mp4',
+				'assets/videos/partie-un-fin.mp4',
 				// intro
 				'assets/videos/intro-scene/intro-1.mp4',
 				'assets/videos/intro-scene/intro-2.mp4',
@@ -128,6 +127,7 @@ export default {
 				'assets/videos/intro-scene/intro-6.mp4',
 				'assets/videos/intro-scene/intro-7.mp4',
 				'assets/videos/intro-scene/intro-8.mp4',
+				'assets/videos/intro-journal.mp4',
 				// papi
 				'assets/videos/papi/papi-cafard.mp4',
 				'assets/videos/papi/papi-hamac.mp4',
@@ -152,7 +152,10 @@ export default {
 				'assets/videos/choices/choice-biere1.mp4',
 				'assets/videos/choices/choice-gel1.mp4',
 				'assets/videos/choices/choice-coton2.mp4',
-				'assets/videos/choices/choice-tirelire1.mp4'
+				'assets/videos/choices/choice-tirelire1.mp4',
+				// incoherences
+				'assets/videos/choices/incoherences/choice-gel.mp4',
+				'assets/videos/choices/incoherences/choice-cotontige.mp4'
 			]
 
 			const itemsImages = await load.all(assetsImages)

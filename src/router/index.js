@@ -6,6 +6,7 @@ import Room from '../views/Room.vue'
 import Choices from '../components/Choices.vue'
 import Loose from '../views/Loose.vue'
 import Newspaper from '../components/newspaper/Newspaper.vue'
+import Win from '../views/Win.vue'
 
 Vue.use(VueRouter)
 
@@ -39,6 +40,11 @@ const routes = [
 		path: '/newspaper',
 		name: 'Newspaper',
 		component: Newspaper
+	},
+	{
+		path: '/win',
+		name: 'Win',
+		component: Win
 	}
 ]
 

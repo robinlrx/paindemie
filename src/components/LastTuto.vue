@@ -22,7 +22,7 @@ export default {
 	name: 'LastTuto',
 	props: {
 		showLastTuto: Boolean,
-		showFirstPage: Boolean,
+		showThirdMotion: Boolean,
 		timerPause: Boolean
 	},
 	components: {
@@ -31,7 +31,7 @@ export default {
 	methods: {
 		closeLastTuto () {
 			this.$emit('update:showLastTuto', false)
-			this.$emit('update:showFirstPage', true)
+			this.$emit('update:showThirdMotion', true)
 		}
 	},
 	mounted () {

@@ -64,10 +64,8 @@ export default {
 		checkWord () {
 			for (let i = 0; i <= this.badWords.length; i++) {
 				if (this.input[i].value.toLowerCase() === this.badWords[i]) {
-					// console.log('bad word')
 					this.input[i].style.color = '#FF4465'
 				} else {
-					// console.log('good word')
 					this.input[i].style.color = 'rgb(42, 104, 100)'
 					this.score += 1
 				}

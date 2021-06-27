@@ -550,11 +550,11 @@
 				},
 				"btn1": {
 					"url":"assets/img/gifs-choix/choix_un_coton_tige.gif",
-					"motionChoice": "assets/videos/choices/choice-coton2.mp4"
+					"motionChoice": "assets/videos/choices/choice-biere1.mp4"
 				},
 				"btn2": {
 					"url":"assets/img/gifs-choix/choix_deux_coton_tige.gif",
-					"motionChoice": "assets/videos/choices/choice-biere1.mp4"
+					"motionChoice": "assets/videos/choices/choice-coton2.mp4"
 				}
 			},
 			"choice3": {

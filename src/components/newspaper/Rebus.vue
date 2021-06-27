@@ -114,7 +114,7 @@ export default {
 			this.$emit('update:buttonCounter', this.counter)
 
 			if (this.counter === 3) {
-				router.push('home')
+				router.push('win')
 			}
 			this.reverseApparition()
 			setTimeout(() => {
