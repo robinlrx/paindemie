@@ -27,7 +27,7 @@
 
 		<div class="life">
 			<Jauge :score="score" @onPenality="handlePenality"/>
-			<Timer :key="currentEtape" @onPenality="handlePenality" :timerPause.sync="timerPause"/>
+			<Timer :key="currentEtape" @onPenality="handlePenality" :timerPause.sync="timerPause" :showNewspaper="showNewspaper" />
 		</div>
 
 		<transition name="fade">
@@ -35,7 +35,7 @@
 		</transition>
 
 		<Oups :showOups.sync="showOups" :score="score" :etape="etapes[currentEtape]" :key="currentEtape" :timerPause.sync="timerPause" />
-		<Newspaper :showNewspaper.sync="showNewspaper" :myScore.sync="myScore" :numChoice="numChoice" :timerPause.sync="timerPause"/>
+		<Newspaper v-if="showNewspaper" :myScore.sync="myScore" :numChoice="numChoice" :timerPause.sync="timerPause"/> <!--  v-if="showNewspaper" -->
 	</div>
 </template>
 

@@ -1,5 +1,5 @@
 <template>
-	<transition name="fade" v-if="showNewspaper"> <!--  v-if="showNewspaper" -->
+	<transition name="fade">
 		<section>
 			<Lottie/>
 
@@ -18,10 +18,8 @@
 			</transition>
 
 			<transition name="fade">
-				<SecondPage v-if="showSecondPage" :showSecondPage.sync="showSecondPage" :showLastPage.sync="showLastPage"/>
+				<SecondPage v-if="showSecondPage" :showSecondPage.sync="showSecondPage" :timerPause.sync="timerPause"/>
 			</transition>
-
-			<LastPage :showLastPage.sync="showLastPage" />
 		</section>
 	</transition>
 </template>
@@ -29,16 +27,14 @@
 <script>
 import FirstPage from '@/components/newspaper/FirstPage.vue'
 import SecondPage from '@/components/newspaper/SecondPage.vue'
-import LastPage from '@/components/newspaper/LastPage.vue'
 import LastTuto from '@/components/LastTuto.vue'
 import Motion from '@/components/Motion.vue'
 import Lottie from '@/components/Lottie.vue'
 export default {
 	name: 'Newspaper',
 	props: {
-		showNewspaper: Boolean,
 		numChoice: Object,
-		myScore: Object,
+		myScore: Array,
 		timerPause: Boolean
 	},
 	data () {
@@ -54,7 +50,6 @@ export default {
 	components: {
 		FirstPage,
 		SecondPage,
-		LastPage,
 		LastTuto,
 		Motion,
 		Lottie
