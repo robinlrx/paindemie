@@ -49,6 +49,7 @@ html, body {
 	width: 100%;
 	// A supprimer
 	z-index: 4;
+	display: none;
 
 	a {
 		font-weight: bold;
