@@ -5,7 +5,7 @@
 
 			<div class="container">
 				<video ref="intro" width="250">
-					<source src="assets/videos/motion.mp4" type="video/mp4">
+					<source src="assets/videos/intro-projet.mp4" type="video/mp4">
 				</video>
 				<transition name="fade">
 					<div class="play-container" ref="playContainer" v-if="showPlay">
