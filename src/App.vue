@@ -47,9 +47,9 @@ html, body {
 	padding: 30px;
 	position: fixed;
 	width: 100%;
-	// A supprimer
+	// pour le dev
 	z-index: 4;
-	// display: none;
+	display: none;
 
 	a {
 		font-weight: bold;
