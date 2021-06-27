@@ -155,7 +155,9 @@ export default {
 				'assets/videos/choices/choice-tirelire1.mp4',
 				// incoherences
 				'assets/videos/choices/incoherences/choice-gel.mp4',
-				'assets/videos/choices/incoherences/choice-cotontige.mp4'
+				'assets/videos/choices/incoherences/choice-cotontige.mp4',
+				// corehence
+				'assets/videos/choices/coherences/choice-porte.mp4'
 			]
 
 			const itemsImages = await load.all(assetsImages)

@@ -148,7 +148,7 @@ export default {
 			if (this.currentEtape === 6) {
 				if (this.myScore[5].choice === 1 && this.myScore[6].choice === 1 && this.myScore[6].answer === 2) { // at the click on the choice 2 of the door if you have clicked on the casserole
 					console.log('tirelire')
-					this.numChoice.btn2.motionChoice = 'assets/videos/test.mp4'
+					this.numChoice.btn2.motionChoice = 'assets/videos/choices/coherences/choice-porte.mp4'
 					this.score += 5
 					console.log(this.score)
 				}

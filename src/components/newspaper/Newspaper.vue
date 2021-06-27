@@ -1,9 +1,9 @@
 <template>
-	<transition name="fade"> <!--  v-if="showNewspaper" -->
+	<transition name="fade" v-if="showNewspaper"> <!--  v-if="showNewspaper" -->
 		<section>
 			<Lottie/>
 
-			<Motion :src="'assets/videos/test.mp4'" :timerPause.sync="timerPause" :showNextComposant.sync="showSecondMotion" /> <!-- lastVideoSrc() -->
+			<Motion :src="lastVideoSrc()" :timerPause.sync="timerPause" :showNextComposant.sync="showSecondMotion" /> <!-- lastVideoSrc() -->
 
 			<Motion v-if="showSecondMotion" :src="'assets/videos/partie-un-fin.mp4'" :timerPause.sync="timerPause" :showNextComposant.sync="showLastTuto" />
 

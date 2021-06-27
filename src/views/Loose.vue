@@ -1,7 +1,6 @@
 <template>
 	<transition name="fade">
 		<section class="loose">
-			<Motion src="assets/videos/test.mp4"/>
 
 			<div class="loose-container">
 				<div class="title">
@@ -20,19 +19,14 @@
 
 <script>
 import Button from '@/components/ui/AppButton.vue'
-import Motion from '@/components/Motion.vue'
 export default {
 	name: 'Loose',
 	components: {
-		Button,
-		Motion
+		Button
 	},
 	mounted () {
 		const audioPerdu = new Audio('assets/audios/fin-perdu.mp3')
-
-		setTimeout(() => {
-			audioPerdu.play()
-		}, 5000)
+		audioPerdu.play()
 	}
 }
 </script>
