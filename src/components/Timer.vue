@@ -31,7 +31,7 @@ export default {
 		start () {
 			this.timer = setInterval(() => {
 				this.elapsedTime += 1000
-				if (this.elapsedTime % 10000 === 0) {
+				if (this.elapsedTime % 15000 === 0) {
 					const audio = new Audio(this.randomSound())
 					audio.play()
 					this.$emit('onPenality', -5)
