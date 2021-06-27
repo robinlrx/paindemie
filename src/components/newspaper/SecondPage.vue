@@ -7,7 +7,7 @@
 			<div class="second-container">
 					<p>Tu te rends compte qu'il faut même avoir une <span @click="checkWord('attestation')">attestation</span><br />pour pouvoir se déplacer librement ?</p>
 			</div>
-			<Rebus v-if="showRebus" :showRebus.sync="showRebus"  :rebusValue.sync="rebusValue" :buttonCounter.sync="buttonCounter" />
+			<Rebus v-if="showRebus" :showRebus.sync="showRebus"  :rebusValue.sync="rebusValue" :buttonCounter.sync="buttonCounter" :timerPause.sync="timerPause" />
 		</section>
 	</transition>
 </template>
@@ -34,12 +34,18 @@ export default {
 		Rebus
 	},
 	props: {
-		showSecondPage: Boolean
+		showSecondPage: Boolean,
+		timerPause: Boolean
 	},
 	methods: {
 		checkWord (rebusValue) {
 			this.rebusValue = rebusValue
 			this.showRebus = true
+		}
+	},
+	watch: {
+		timerPause (newValue) {
+			this.$emit('update:timerPause', newValue)
 		}
 	}
 

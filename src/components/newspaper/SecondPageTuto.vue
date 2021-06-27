@@ -22,6 +22,7 @@ export default {
 	},
 	methods: {
 		closeTuto () {
+			this.$emit('update:timerPause', false)
 			this.$emit('update:showSecondTutoNewspaper', false)
 		}
 	},

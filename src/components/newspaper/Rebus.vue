@@ -64,7 +64,8 @@ export default {
 	props: {
 		showRebus: Boolean,
 		rebusValue: String,
-		buttonCounter: Number
+		buttonCounter: Number,
+		timerPause: Boolean
 	},
 	components: {
 		Button,
@@ -136,6 +137,9 @@ export default {
 			cloudReverseTL.to('.big-cloud-container', { scaleY: 0.0, scaleX: 0.0, opacity: 0 }, 'SYNC')
 			cloudReverseTL.to(this.textarea, { scaleY: 0.0, scaleX: 0.0, opacity: 0 }, 'SYNC')
 			cloudReverseTL.to('.small-cloud-container', { scaleY: 0, scaleX: 0, opacity: 0 })
+		},
+		soundQuestionLeo () {
+			return `${this.publicPath}assets/audios/leo-rebus/rebus-question-leo-${this.dataId + 1}.mp3`
 		}
 	},
 	mounted () {
@@ -156,7 +160,16 @@ export default {
 			this.dataId = 2
 			break
 		}
+
+		const questionLeo = new Audio(this.soundQuestionLeo())
+		questionLeo.play()
+
 		this.apparition()
+	},
+	watch: {
+		timerPause (newValue) {
+			this.$emit('update:timerPause', newValue)
+		}
 	}
 
 }

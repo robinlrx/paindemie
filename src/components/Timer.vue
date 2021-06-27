@@ -8,7 +8,8 @@
 export default {
 	name: 'Timer',
 	props: {
-		timerPause: Boolean
+		timerPause: Boolean,
+		showNewspaper: Boolean
 	},
 	data () {
 		return {
@@ -56,6 +57,11 @@ export default {
 	watch: {
 		timerPause (newValue) {
 			newValue ? this.pause() : this.restart()
+		},
+		showNewspaper (newValue) {
+			if (newValue) {
+				this.reset()
+			}
 		}
 	},
 	destroyed () {
