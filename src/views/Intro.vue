@@ -117,6 +117,7 @@ export default {
 			]
 
 			const assetsVideos = [
+				'assets/videos/test.mp4',
 				'assets/videos/partie-un-fin.mp4',
 				// intro
 				'assets/videos/intro-scene/intro-1.mp4',

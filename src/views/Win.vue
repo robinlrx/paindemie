@@ -2,7 +2,7 @@
 	<transition name="fade">
 		<div class="win">
 				<video ref="win" autoplay width="250">
-					<source src="assets/videos/test.mp4" type="video/mp4">
+					<source src="assets/videos/win.mp4" type="video/mp4">
 				</video>
 			</div>
 	</transition>
