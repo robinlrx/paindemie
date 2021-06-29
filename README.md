@@ -1,4 +1,4 @@
-# Pa[i]ndemie
+# [Pa[i]ndemie](https://paindemie.netlify.app/)
 
 A vue.js project made in BDDI at Gobelins
 
